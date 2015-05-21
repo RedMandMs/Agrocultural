@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import ru.lenoblgis.introduse.sergey.data.dao.AdminSpringDAO;
+import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries;
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLServerQueries;
 import ru.lenoblgis.introduse.sergey.data.domen.passport.Passport;
@@ -43,7 +43,7 @@ public class SQLTesting {
 	@Ignore
 	public void testWorkingWithBD(){
 		//UserSpringDAO userDao = new UserSpringDAO();
-		AdminSpringDAO adminDao = new AdminSpringDAO();
+		DAO adminDao = new DAO();
 		
 		//Owner owner1 = new Organization(-1, "LenOblGis2", 1234564, null);
 		//adminDao.createOwner(owner1);

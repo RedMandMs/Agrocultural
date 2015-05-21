@@ -50,6 +50,25 @@ public class Passport implements Serializable {
 	}
 	
 	/**
+	 * Конструктор для записи пасспорта в БД (без id и владельца)
+	 * @param idOwner - id владельца
+	 * @param region - регион
+	 * @param cadastrNumber - кадастровый номер
+	 * @param area - площадь
+	 * @param type - тип поля
+	 * @param comment - комментарий
+	 */
+	public Passport(int idOwner, String region, String cadastrNumber,
+			int area, String type, String comment) {
+		setIdOwner(idOwner);
+		setRegion(region);
+		setCadastrNumber(cadastrNumber);
+		setArea(area);
+		setType(type);		
+		setComment(comment);
+	}
+	
+	/**
 	 * Конструктор по-умолчанию
 	 */
 	public Passport() {
