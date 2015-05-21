@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="introduse:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="introduse-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="introduse:war exploded" />
+    </root>
+  </artifact>
+</component>

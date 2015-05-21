@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fa19d74f-1224-48f9-9357-61ff5d3bd663" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_microsoft_sqlserver_sqljdbc_4_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jdbc_core_1_1_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_retry_spring_retry_1_0_3_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_1_6_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_1_6_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_1_6_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_1_6_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_1_6_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_3_0_7_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_3_0_7_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_1_6_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_1_6_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__taglibs_standard_1_1_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/introduse.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/introduse_war.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/introduse_war_exploded.xml" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\META-INF\MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\META-INF\MSFTSIG.RSA" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\META-INF\MSFTSIG.SF" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\META-INF\services\java.sql.Driver" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ActivityCorrelator$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ActivityCorrelator.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ActivityId.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\AppDTVImpl$SetValueOp.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\AppDTVImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ApplicationIntent.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\AsciiFilteredInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\AsciiFilteredUnicodeInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\AuthenticationJNI.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\AuthenticationScheme.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\BaseInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ByteArrayOutputStreamToInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\Column.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ColumnFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\DDC$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\DDC.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\DTV$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\DTV$SendByRPCOp.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\DTV.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\DTVExecuteOp.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\DTVImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\DataTypeFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\DataTypes$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\DataTypes.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\DriverError.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\DriverJDBCVersion.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\Encoding.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\FailoverInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\FailoverMapSingleton.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\GregorianChange.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ISQLServerCallableStatement.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ISQLServerConnection.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ISQLServerDataSource.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ISQLServerPreparedStatement.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ISQLServerResultSet.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ISQLServerStatement.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\InputStreamGetterArgs.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\IntColumnFilter$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\IntColumnFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\IntColumnIdentityFilter$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\IntColumnIdentityFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\JDBCCallSyntaxTranslator.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\JDBCType$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\JDBCType$Category.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\JDBCType$SetterConversion.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\JDBCType$UpdaterConversion.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\JDBCType.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\JavaType$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\JavaType$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\JavaType.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\KerbAuthentication$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\KerbAuthentication$1SQLJDBCDriverConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\KerbAuthentication.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\Nanos.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\PLPInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\PLPXMLInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\Parameter$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\Parameter$GetTypeDefinitionOp.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\Parameter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ParameterUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ReaderInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\RowType.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLCollation$SortOrder.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLCollation$WindowsLocale.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLCollation.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLIdentifier.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLJdbcVersion.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerBlob.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerBlobOutputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerCallableStatement$1ExecDoneHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerCallableStatement$1OutParamHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerCallableStatement$1ThreePartNamesParser.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerCallableStatement.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerClob.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerClobAsciiOutputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerClobBase.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerClobWriter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerConnection$1ConnectionCommand.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerConnection$1DTCCommand.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerConnection$1LogonProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerConnection$LogonCommand.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerConnection$State.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerConnection.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerConnectionPoolDataSource$SerializationProxy.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerConnectionPoolDataSource.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerConnectionPoolProxy.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerConnectionSecurityManager.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerDataSource$SerializationProxy.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerDataSource.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerDataSourceObjectFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerDatabaseMetaData$CallableHandles.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerDatabaseMetaData$HandleAssociation.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerDatabaseMetaData.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerDriver.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerDriverBooleanProperty.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerDriverIntProperty.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerDriverPropertyInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerDriverStringProperty.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerEntityResolver.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerException.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerNClob.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerParameterMetaData$MetaInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerParameterMetaData.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerPooledConnection.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerPreparedStatement$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerPreparedStatement$1PrepStmtExecOutParamHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerPreparedStatement$1PreparedHandleClose.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerPreparedStatement$PrepStmtBatchExecCmd.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerPreparedStatement$PrepStmtExecCmd.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerPreparedStatement.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResource.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResource_de.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResource_es.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResource_fr.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResource_it.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResource_ja.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResource_ko.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResource_pt_BR.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResource_ru.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResource_sv.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResource_zh_CN.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResource_zh_TW.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSet$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSet$1ClientCursorInitializer.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSet$1CloseServerCursorCommand.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSet$1CursorInitializer.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSet$1DeleteRowRPC.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSet$1InsertRowRPC.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSet$1ServerCursorInitializer.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSet$1UpdateRowRPC.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSet$CursorFetchCommand.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSet$FetchBuffer$FetchBufferTokenHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSet$FetchBuffer.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSet.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSetMetaData$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerResultSetMetaData.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerSQLXML.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerSavepoint.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerStatement$1NextResult.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerStatement$ExecuteProperties.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerStatement$StmtBatchExecCmd.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerStatement$StmtExecCmd.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerStatement$StmtExecOutParamHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerStatement.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerXAConnection.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerXADataSource$SerializationProxy.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerXADataSource.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLServerXAResource.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SQLState.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SSLenType.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SSPIAuthentication.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SSType$Category.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SSType$GetterConversion.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SSType.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ScrollWindow.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ServerDTVImpl$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ServerDTVImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ServerPortPlaceHolder.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SimpleInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SocketConnector.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SocketFinder$Result.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\SocketFinder.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamColInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamColumns.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamDone.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamError.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamLoginAck.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamPacket.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamRetStatus.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamRetValue.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamSSPI.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamSetterArgs.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamTabName.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\StreamType.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDS.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSChannel$HostNameOverrideX509TrustManager.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSChannel$PermissiveX509TrustManager.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSChannel$ProxyInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSChannel$ProxyOutputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSChannel$ProxySocket.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSChannel$SSLHandshakeInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSChannel$SSLHandshakeOutputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSChannel.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSCommand.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSPacket.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSParser.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSReader$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSReader.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSReaderMark.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSTokenHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSType.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSWriter$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TDSWriter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TimeoutTimer.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$10.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$11.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$12.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$13.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$14.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$15.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$16.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$3.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$4.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$5.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$6.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$7.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$8.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$9.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$BigOrSmallByteLenStrategy.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$DecimalNumericStrategy.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$FixedLenStrategy.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$KatmaiScaledTemporalStrategy.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder$Strategy.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo$Builder.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\TypeInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\UDTTDSHeader.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\UTC.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\UninterruptableTDSCommand.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\UserTypes.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\Util.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\XAReturnValue.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\XMLTDSHeader.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\XidImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\com\microsoft\sqlserver\jdbc\ZeroFixupFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\microsoft\sql\DateTimeOffset$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\microsoft\sql\DateTimeOffset$SerializationProxy.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\microsoft\sql\DateTimeOffset.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Projects\introduction\Agricultural\lib\sqljdbc-4.0\microsoft\sql\Types.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/views/passports.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/passports.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/ru.lenoblgis/introduse/pom.properties" afterPath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/ru.lenoblgis/introduse/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/ru.lenoblgis/introduse/pom.xml" afterPath="$PROJECT_DIR$/target/m2e-wtp/web-resources/META-INF/maven/ru.lenoblgis/introduse/pom.xml" />
+    </list>
+    <ignored path="introduse.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="introduse" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="passports.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/passports.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.03807391">
+              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="introduse.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/introduse.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/webapp/views/passports.jsp" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="introduse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="introduse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Agricultural" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="introduse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Agricultural" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="introduse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Agricultural" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="introduse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Agricultural" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="introduse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Agricultural" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa19d74f-1224-48f9-9357-61ff5d3bd663" name="Default" comment="" />
+      <created>1432033206397</created>
+      <option name="number" value="Default" />
+      <updated>1432033206397</updated>
+      <workItem from="1432033207962" duration="478000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="478000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/introduse.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/passports.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03807391">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
