@@ -6,6 +6,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <artifactId>Presentation</artifactId>
+  <packaging>war</packaging>
   
   <properties>
   	<lenoblgis.agrocultural.version>1.0-SNAPSHOT</lenoblgis.agrocultural.version>

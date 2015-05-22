@@ -6,12 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.data.domen.actionevent.PassportEvent;
 
-@Component("eventService")
+@Service("eventService")
 public class EventService implements Serializable{
 
 	/**

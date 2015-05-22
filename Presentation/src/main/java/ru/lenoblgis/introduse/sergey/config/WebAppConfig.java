@@ -15,7 +15,7 @@ import ru.lenoblgis.introduse.sergey.services.PassportService;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("ru.lenoblgis.trenning.agrocultural.presentationTier.controllers")
+@ComponentScan("ru.lenoblgis.introduse.sergey.controllers")
 public class WebAppConfig extends WebMvcConfigurerAdapter {
  
     // Позволяет видеть все ресурсы в папке pages, такие как картинки, стили и т.п.
