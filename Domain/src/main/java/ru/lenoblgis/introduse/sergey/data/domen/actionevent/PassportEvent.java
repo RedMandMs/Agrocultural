@@ -17,11 +17,6 @@ public class PassportEvent implements Serializable{
 	private int  id;
 	
 	/**
-	 * Текстовое сообщение события
-	 */
-	private String message;
-	
-	/**
 	 * Дата и время события
 	 */
 	private DateTime dateTime;
@@ -36,10 +31,6 @@ public class PassportEvent implements Serializable{
 	 */
 	private int idAuthor;
 	
-	/**
-	 * Имя автора события (название организации)
-	 */
-	private String nameAuthor;
 	
 	/**
 	 * Автор события
@@ -57,11 +48,15 @@ public class PassportEvent implements Serializable{
 	private Passport passport;
 	
 	/**
+	 * Сообщение данного сообщения
+	 */
+	private String message;
+	
+	/**
 	 * Конструктор по-умолчанию
 	 */
 	public PassportEvent(){
 		this.typeEvent = TypeEvent.UNKNOWN;
-		createMessage();
 	}
 	
 	/**
@@ -73,11 +68,10 @@ public class PassportEvent implements Serializable{
 	 * @param date_time_event - Дата и время события
 	 * @param type_event - тип события
 	 */
-	public PassportEvent(int id, int id_passport, int id_organization, String message_event, DateTime date_time_event,  String type_event){
+	public PassportEvent(int id, int id_passport, int id_organization, String message, DateTime date_time_event,  String type_event){
 		this.id = id;
 		this.idPassport = id_passport;
 		this.idAuthor = id_organization;
-		this.message = message_event;
 		setDataTime(date_time_event);
 		setType(type_event);
 	}
@@ -90,20 +84,10 @@ public class PassportEvent implements Serializable{
 	 */
 	public PassportEvent(Passport passport, Owner owner, String eventType){
 		setType(TypeEvent.valueOf(eventType));
-		setPassportandAothor(passport, owner);
-	}
-	
-	/**
-	 * Установить паспорт и автора события и все формирующиеся от них поля (с запросом к базе данных)
-	 * @param passport - паспорт над которым совершается событие
-	 */
-	private void setPassportandAothor(Passport passport, Owner owner) {
 		this.passport = passport;
 		this.idPassport = passport.getID();
 		this.idAuthor = passport.getIdOwner();
 		this.auther = owner;
-		this.nameAuthor = auther.getName();
-		createMessage();
 	}
 	
 	/**
@@ -111,13 +95,6 @@ public class PassportEvent implements Serializable{
 	 */
 	public void setId(int id){
 		this.id = id;
-	}
-	
-	/**
-	 * Установить сообщение события
-	 */
-	public void setMessage(String massage){
-		this.message = massage;
 	}
 	
 	/**
@@ -160,13 +137,6 @@ public class PassportEvent implements Serializable{
 	 */
 	public int getId(){
 		return id;
-	}
-	
-	/**
-	 * Получить сообщение события
-	 */
-	public String getMessage(){
-		return message;
 	}
 	
 	/**
@@ -240,14 +210,13 @@ public class PassportEvent implements Serializable{
 	public int getIdAuthor() {
 		return idAuthor;
 	}
-	
-	/**
-	 * Создание текстового сообщения события
-	 */
-	//TODO: Перенести в ДАО
-	private void createMessage(){
-		this.message = "Организация \"" +this.nameAuthor+ "\" (id = " + this.idAuthor + ") " +typeEvent.getWorldForMassege()+ " поле с id = " +this.idPassport;
+
+	public String getMessage() {
+		return message;
 	}
-	
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
 }

@@ -231,10 +231,16 @@ public class DAO  {
 	/**
 	 * Создание нового события в базе данных
 	 */
-	private void addPassportEvent(Passport passport, Owner owner, String TypeEvent) {
+	private void addPassportEvent(Passport passport, Owner owner, String typeEvent) {
 		
-		PassportEvent event = new PassportEvent(passport, owner, TypeEvent);
-		Object[] values = new Object[] {event.getIdPassport(), event.getIdAuthor(), event.getMessage(), event.getType()};
+		PassportEvent event = new PassportEvent(passport, owner, typeEvent);
+		
+		//Формирование сообщения, которое храниться в БД
+		String message = "Организация \"" + owner.getName() + "\" (id = " + owner.getId() + ") " + event.getTypeEvent().getWorldForMassege() 
+								+ " пасспорт с id = " + passport.getID();
+		event.setMessage(message);
+		
+		Object[] values = new Object[] {event.getIdPassport(), event.getIdAuthor(), message, event.getType()};
 		String sqlQuery = sqlQueries.createPassportEvent();
 		jdbcTemplate.update(sqlQuery, values);
 	}
