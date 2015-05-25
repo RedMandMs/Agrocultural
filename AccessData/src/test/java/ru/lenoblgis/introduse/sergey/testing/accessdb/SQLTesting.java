@@ -9,7 +9,7 @@ import org.junit.Test;
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries;
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLServerQueries;
-import ru.lenoblgis.introduse.sergey.data.domen.passport.Passport;
+import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 
 
 public class SQLTesting {

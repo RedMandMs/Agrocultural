@@ -7,9 +7,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
-import ru.lenoblgis.introduse.sergey.data.dao.DAO;
-import ru.lenoblgis.introduse.sergey.data.domen.actionevent.PassportEvent;
-import ru.lenoblgis.introduse.sergey.data.domen.passport.Passport;
+import ru.lenoblgis.introduse.sergey.domen.actionevent.PassportEvent;
+import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 
 /**
  * “естирование добавлени€ событи€ в базу данных

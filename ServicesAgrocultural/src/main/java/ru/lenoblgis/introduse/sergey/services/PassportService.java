@@ -11,7 +11,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
-import ru.lenoblgis.introduse.sergey.data.domen.passport.Passport;
+import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 
 @Component("passportService")
 public class PassportService implements Serializable {
@@ -97,8 +97,8 @@ public class PassportService implements Serializable {
 		try{
 			Passport passport = dao.reviewPassport(passportId);
 			passportInfo.put("isExist", "true");
-			passportInfo.put("id", String.valueOf(passport.getID()));
-			passportInfo.put("id_organization", String.valueOf(passport.getID()));
+			passportInfo.put("id", String.valueOf(passport.getId()));
+			passportInfo.put("id_organization", String.valueOf(passport.getId()));
 			passportInfo.put("region", String.valueOf(passport.getRegion()));
 			passportInfo.put("cadastr_number", String.valueOf(passport.getCadastrNumber()));
 			passportInfo.put("area", String.valueOf(passport.getArea()));
@@ -143,8 +143,8 @@ public class PassportService implements Serializable {
 		List<Passport> passports = dao.reviewAllPassports();
 		for(Passport passport : passports){
 			Map<String, String> passportInfo = new HashMap<String, String>();
-			passportInfo.put("id", String.valueOf(passport.getID()));
-			passportInfo.put("id_organization", String.valueOf(passport.getID()));
+			passportInfo.put("id", String.valueOf(passport.getId()));
+			passportInfo.put("id_organization", String.valueOf(passport.getId()));
 			passportInfo.put("region", String.valueOf(passport.getRegion()));
 			passportInfo.put("cadastr_number", String.valueOf(passport.getCadastrNumber()));
 			passportInfo.put("area", String.valueOf(passport.getArea()));
@@ -167,8 +167,8 @@ public class PassportService implements Serializable {
 		List<Passport> passports = dao.findPassports(info);
 		for(Passport passport : passports){
 			Map<String, String> passportInfo = new HashMap<String, String>();
-			passportInfo.put("id", String.valueOf(passport.getID()));
-			passportInfo.put("id_organization", String.valueOf(passport.getID()));
+			passportInfo.put("id", String.valueOf(passport.getId()));
+			passportInfo.put("id_organization", String.valueOf(passport.getId()));
 			passportInfo.put("region", String.valueOf(passport.getRegion()));
 			passportInfo.put("cadastr_number", String.valueOf(passport.getCadastrNumber()));
 			passportInfo.put("area", String.valueOf(passport.getArea()));

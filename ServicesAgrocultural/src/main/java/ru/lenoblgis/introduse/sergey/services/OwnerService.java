@@ -8,8 +8,8 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
-import ru.lenoblgis.introduse.sergey.data.domen.owner.Owner;
-import ru.lenoblgis.introduse.sergey.data.domen.owner.organization.Organization;
+import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
+import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 
 @Component("organizationService")
 public class OwnerService implements Serializable{
@@ -82,7 +82,7 @@ public class OwnerService implements Serializable{
 			ownerInfo.put("id", String.valueOf(reviewOwner.getId()));
 			ownerInfo.put("name", reviewOwner.getName());
 			ownerInfo.put("inn", String.valueOf(reviewOwner.getINN()));
-			ownerInfo.put("address_org", reviewOwner.getAddres());
+			ownerInfo.put("address_org", reviewOwner.getAddress());
 			ownerInfo.put("isExist", "true");
 		}
 		catch (IndexOutOfBoundsException ex) {

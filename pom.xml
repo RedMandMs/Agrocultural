@@ -12,6 +12,7 @@
   	<module>ServicesAgrocultural</module>
   	<module>Presentation</module>
   	<module>Domain</module>
+  	<module>DataTransferObject</module>
   </modules>
   
   <properties>

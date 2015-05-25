@@ -12,19 +12,19 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 
-
 @Controller
-public class EventControllers {
-	
-	@RequestMapping(value = "/events", method = RequestMethod.GET)
-    public String printEvents(ModelMap model) {
+public class CompanyController {
+
+	@RequestMapping(value = "/company", method = RequestMethod.GET)
+    public String printWelcome(ModelMap model) {
 		
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
-		session.setAttribute("id_organization", 8);
+		Owner myCompany = new Organization("LenOblGis", 1, "Каменноостровский проспект");
 		
-        return "events";
+		session.setAttribute("myCompany", myCompany);
+		
+		return "company";
 	}
-
 }

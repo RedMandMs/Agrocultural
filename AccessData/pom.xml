@@ -20,11 +20,6 @@
   			<version>${lenoblgis.agrocultural.version}</version>
   	</dependency>
 	
-	<dependency>
-	  		<groupId>org.springframework.data</groupId>
-	  		<artifactId>spring-data-jdbc-core</artifactId>
-	</dependency>
-	
 	<dependency>  
 	     	<groupId>com.microsoft.sqlserver</groupId>
 	    	<artifactId>sqljdbc</artifactId>

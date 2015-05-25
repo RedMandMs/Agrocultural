@@ -9,7 +9,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
-import ru.lenoblgis.introduse.sergey.data.domen.actionevent.PassportEvent;
+import ru.lenoblgis.introduse.sergey.domen.actionevent.PassportEvent;
 
 @Service("eventService")
 public class EventService implements Serializable{

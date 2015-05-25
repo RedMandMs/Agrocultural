@@ -3,11 +3,11 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
-import ru.lenoblgis.introduse.sergey.data.domen.owner.Owner;
-import ru.lenoblgis.introduse.sergey.data.domen.owner.organization.Organization;
-import ru.lenoblgis.introduse.sergey.data.domen.passport.Passport;
-import ru.lenoblgis.introduse.sergey.data.domen.passport.RegionField;
-import ru.lenoblgis.introduse.sergey.data.domen.passport.TypeField;
+import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
+import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
+import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
+import ru.lenoblgis.introduse.sergey.domen.passport.RegionField;
+import ru.lenoblgis.introduse.sergey.domen.passport.TypeField;
 
 
 
@@ -34,9 +34,7 @@ public class MainTestWithoutBack {
 	public void testCreatePassport(){
 		DAO adminDao = new DAO();
 		
-		Owner owner = new Organization("LenOblGis", 1, "Hi"); 
-		Passport newPassport = new Passport(8, RegionField.PRIZEMSK.getRegion(), "21", 30, TypeField.COLLECTIVE_FARM.getType(), "Тест создания пасспорта", owner);
-		adminDao.createPassport(newPassport);
+		Passport newPassport = new Passport(8, RegionField.PRIZEMSK.getRegion(), "21", 30, TypeField.COLLECTIVE_FARM.getType(), "Тест создания пасспорта");
 		
 	}
 	

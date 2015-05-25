@@ -22,6 +22,12 @@
   	</dependency>
   	
   	<dependency>
+  		<groupId>ru.lenoblgis</groupId>
+  		<artifactId>DataTransferObject</artifactId>
+  		<version>${lenoblgis.agrocultural.version}</version>
+  	</dependency>
+  	
+  	<dependency>
   	        <groupId>org.springframework</groupId>
 	        <artifactId>spring-context</artifactId>
     </dependency>

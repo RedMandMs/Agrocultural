@@ -1,0 +1,214 @@
+package ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo;
+
+import java.io.Serializable;
+
+
+public class PassportInfo implements Serializable{
+
+	
+	/**
+	 * Конструктор для отображения паспорта из БД
+	 * @param id - id пасспорта
+	 * @param idOwner - id владельца
+	 * @param region - регион
+	 * @param cadastrNumber - кадастровый номер
+	 * @param area - площадь
+	 * @param type - тип поля
+	 * @param comment - комментарий
+	 */
+	public PassportInfo(int id, int idOwner, String region, String nameOwner,
+			Integer cadastrNumber, double area, String type, String comment) {
+		this.id = id;
+		this.idOwner = idOwner;
+		this.nameOwner = nameOwner;
+		this.region = region;
+		this.cadastrNumber = cadastrNumber;
+		this.area = area;
+		this.type = type;
+		this.comment = comment;
+	}
+
+	/**
+	 * Конструктор для записи пасспорта в БД (без id)
+	 * @param idOwner - id владельца
+	 * @param region - регион
+	 * @param cadastrNumber - кадастровый номер
+	 * @param area - площадь
+	 * @param type - тип поля
+	 * @param comment - комментарий
+	 */
+	public PassportInfo(int idOwner, String region, Integer cadastrNumber,
+			double area, String type, String comment) {
+		this.idOwner = idOwner;
+		this.region = region;
+		this.cadastrNumber = cadastrNumber;
+		this.area = area;
+		this.type = type;
+		this.comment = comment;
+	}
+
+
+	/**
+	 * Id поля
+	 */
+	private int id;
+	
+	 /**
+	  * Организация-владелец поля
+	  */
+	private int idOwner;
+	
+	/**
+	 * Имя владельца пасспорта
+	 */
+	private String nameOwner;
+	
+	/**
+	 * Регионр расположения поля
+	 */
+	private String region;
+	
+	/**
+	 * Кадастровый номер поля
+	 */
+	private Integer cadastrNumber;
+	
+	/**
+	 * Площадь поля
+	 */
+	private double area;
+	
+	/**
+	 * Тип поля
+	 */
+	private String type;
+	
+	/**
+	 * комментарий к полю
+	 */
+	private String comment;
+	
+	
+	/**
+	 * Получение id паспорта
+	 */
+	public int getId() {
+		return id;
+	}
+	
+	/**
+	 * установка id паспорта
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	/**
+	 * Получение id владельца
+	 */
+	public int getIdOwner() {
+		return idOwner;
+	}
+	
+	/**
+	 * Установка id владельца
+	 */
+	public void setIdOwner(int idOwner) {
+		this.idOwner = idOwner;
+	}
+	
+	/**
+	 * Получение региона
+	 */
+	public String getRegion() {
+		return region;
+	}
+	
+	/**
+	 * Установка региона
+	 */
+	public void setRegion(String region) {
+		this.region = region;
+	}
+	
+	/**
+	 * Получение кадастрового номера
+	 */
+	public Integer getCadastrNumber() {
+			return cadastrNumber;
+	}
+	
+	/**
+	 * Установка кадастрового номера
+	 */
+	public void setCadastrNumber(String cadastrNumber) {
+		if(cadastrNumber == null || cadastrNumber.trim().equals("")){
+			this.cadastrNumber = null;
+		}else{
+			this.cadastrNumber = Integer.valueOf(cadastrNumber);
+		}
+	}
+	
+	/**
+	 * Получение площади поля
+	 */
+	public double getArea() {
+		return area;
+	}
+	
+	/**
+	 * Установка площади поля
+	 */
+	public void setArea(double area) {
+		this.area = area;
+	}
+	
+	/**
+	 * Получение типа поля
+	 */
+	public String getType() {
+		return type;
+	}
+	
+	/**
+	 * Установка типа поля
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	/**
+	 * Получение комментария к пасспорту
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * Установка комментария к пасспорту
+	 */
+	public void setComment(String comment) {
+		if(comment == null || comment.trim().equals("")){
+			this.comment = "This passport hasn't comment";
+		}else{
+			this.comment = comment;
+		}
+	}
+
+	/**
+	 * Получение имени владельца
+	 * @return - имя владельца
+	 */
+	public String getNameOwner() {
+		return nameOwner;
+	}
+
+	/**
+	 * Установка имени владельца
+	 * @param nameOwner - новое имя владельца
+	 */
+	public void setNameOwner(String nameOwner) {
+		this.nameOwner = nameOwner;
+	}
+	
+}

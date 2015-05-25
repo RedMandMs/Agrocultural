@@ -5,18 +5,19 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 
-import ru.lenoblgis.introduse.sergey.data.dao.mappers.EventRowMapper;
-import ru.lenoblgis.introduse.sergey.data.dao.mappers.OrganizationRowMapper;
-import ru.lenoblgis.introduse.sergey.data.dao.mappers.PassportRowMapper;
-import ru.lenoblgis.introduse.sergey.data.dao.mappers.UserRowMapper;
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries;
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLServerQueries;
-import ru.lenoblgis.introduse.sergey.data.domen.actionevent.PassportEvent;
-import ru.lenoblgis.introduse.sergey.data.domen.owner.Owner;
-import ru.lenoblgis.introduse.sergey.data.domen.owner.User;
-import ru.lenoblgis.introduse.sergey.data.domen.owner.organization.Organization;
-import ru.lenoblgis.introduse.sergey.data.domen.passport.Passport;
+import ru.lenoblgis.introduse.sergey.domen.actionevent.PassportEvent;
+import ru.lenoblgis.introduse.sergey.domen.mappers.EventRowMapper;
+import ru.lenoblgis.introduse.sergey.domen.mappers.OrganizationRowMapper;
+import ru.lenoblgis.introduse.sergey.domen.mappers.PassportRowMapper;
+import ru.lenoblgis.introduse.sergey.domen.mappers.UserRowMapper;
+import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
+import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
+import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
+import ru.lenoblgis.introduse.sergey.domen.user.User;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 
@@ -97,7 +98,7 @@ public class DAO  {
 	 * @see dataTier.accessToDataServices.DAO#createOwner(java.util.Map)
 	 */
 	public void createOwner(Owner owner) {
-		Object [] values = new Object[]{owner.getName(), owner.getINN(), owner.getAddres()};
+		Object [] values = new Object[]{owner.getName(), owner.getINN(), owner.getAddress()};
 		String sqlQuery = sqlQueries.createOwner();
 		jdbcTemplate.update(sqlQuery, values);
 	}
@@ -116,7 +117,7 @@ public class DAO  {
 	 * @see dataTier.accessToDataServices.DAO#editOwner(java.util.Map)
 	 */
 	public void editOwner(Owner owner) {
-		Object [] values = new Object[]{owner.getName(), owner.getINN(), owner.getAddres(), owner.getId()};
+		Object [] values = new Object[]{owner.getName(), owner.getINN(), owner.getAddress(), owner.getId()};
 		String sqlQuery = sqlQueries.editOwner();
 		jdbcTemplate.update(sqlQuery, values);
 	}
@@ -141,7 +142,7 @@ public class DAO  {
 		jdbcTemplate.update(sqlQueries.createPassport(), values);
 		
 		//Находим только что добавленный паспорт по максимальному Id пасспорта данной организации
-		passport.setID(getPassportwithMaxId(passport.getIdOwner()));
+		passport.setId(getPassportwithMaxId(passport.getIdOwner()));
 		
 		Owner owner = reviewOwner(passport.getIdOwner());
 		passport.setOwner(owner);
@@ -171,7 +172,7 @@ public class DAO  {
 	 * @see dataTier.accessToDataServices.DAO#editOwner(java.util.Map)
 	 */
 	public void editPassport(Passport passport) {
-		Object [] values = new Object[]{passport.getIdOwner(), passport.getRegion(), passport.getCadastrNumber(), passport.getArea(), passport.getType(), passport.getComment(), passport.getID()};
+		Object [] values = new Object[]{passport.getIdOwner(), passport.getRegion(), passport.getCadastrNumber(), passport.getArea(), passport.getType(), passport.getComment(), passport.getId()};
 		jdbcTemplate.update(sqlQueries.editPassport(), values);
 
 		Owner owner = reviewOwner(passport.getIdOwner());
@@ -237,7 +238,7 @@ public class DAO  {
 		
 		//Формирование сообщения, которое храниться в БД
 		String message = "Организация \"" + owner.getName() + "\" (id = " + owner.getId() + ") " + event.getTypeEvent().getWorldForMassege() 
-								+ " пасспорт с id = " + passport.getID();
+								+ " пасспорт с id = " + passport.getId();
 		event.setMessage(message);
 		
 		Object[] values = new Object[] {event.getIdPassport(), event.getIdAuthor(), message, event.getType()};

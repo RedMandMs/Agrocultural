@@ -21,6 +21,7 @@
 		    <td>${info.get("message")}</td>
 		    <td>${info.get("date_time_event")}</td>
 		    <td>${info.get("type_event")}</td>
+		    <td><td><input type="submit" name="lookPassportBtn" id="hg" value="Посмотреть паспорт"></td>
 		  </tr>
 	  </c:forEach>
 	</table>

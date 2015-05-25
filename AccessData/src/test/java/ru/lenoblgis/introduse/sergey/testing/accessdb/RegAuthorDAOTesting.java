@@ -5,7 +5,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
-import ru.lenoblgis.introduse.sergey.data.domen.owner.User;
+import ru.lenoblgis.introduse.sergey.domen.user.User;
 
 /**
  * Тестирование работы с таблицей пользователей в БД
