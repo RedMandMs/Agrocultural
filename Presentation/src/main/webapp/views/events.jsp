@@ -13,15 +13,14 @@
 	   
 	<H1>HELLO!!!</H1>
 	<table>
-	  <c:forEach var="info" items="${eventService.getAllOwnerEvents(id_organization)}">
+	  <c:forEach var="event" items="${eventService.getAllOwnerEvents(id_organization)}">
 		  <tr>
-		    <td>${info.get("id")}</td>
-		    <td>${info.get("id_passport")}</td>
-		    <td>${info.get("id_organization")}</td>
-		    <td>${info.get("message")}</td>
-		    <td>${info.get("date_time_event")}</td>
-		    <td>${info.get("type_event")}</td>
-		    <td><td><input type="submit" name="lookPassportBtn" id="hg" value="Посмотреть паспорт"></td>
+		    <td>${event.get("id")}</td>
+		    <td>${event.get("id_passport")}</td>
+		    <td>${event.get("id_organization")}</td>
+		    <td>${event.get("message")}</td>
+		    <td>${event.get("date_time_event")}</td>
+		    <td>${event.get("type_event")}</td>
 		  </tr>
 	  </c:forEach>
 	</table>
