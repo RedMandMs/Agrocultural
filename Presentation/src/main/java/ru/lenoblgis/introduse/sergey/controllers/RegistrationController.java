@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.UserOrganization;
 import ru.lenoblgis.introduse.sergey.services.OwnerService;
 
@@ -40,9 +41,9 @@ public class RegistrationController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String registration(UserOrganization userOrganization, ModelMap model){
 		
-		ownerService.registration(userOrganization);
+		OrganizationInfo organizationInfo = ownerService.registration(userOrganization);
 		
-		return "registration/success";
+		return "redirect:organization/company/"+organizationInfo.getId();
 	}
 	
 }

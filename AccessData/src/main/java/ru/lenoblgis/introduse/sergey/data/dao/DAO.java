@@ -127,7 +127,7 @@ public class DAO  {
 	 * @see dataTier.accessToDataServices.DAO#editOwner(java.util.Map)
 	 */
 	public void editOwner(Owner owner) {
-		Object [] values = new Object[]{owner.getName(), owner.getINN(), owner.getAddress(), owner.getId()};
+		Object [] values = new Object[]{owner.getName(), owner.getInn(), owner.getAddress(), owner.getId()};
 		String sqlQuery = sqlQueries.editOwner();
 		jdbcTemplate.update(sqlQuery, values);
 	}

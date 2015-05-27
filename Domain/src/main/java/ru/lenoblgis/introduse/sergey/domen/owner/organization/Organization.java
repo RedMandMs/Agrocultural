@@ -97,16 +97,16 @@ public class Organization implements Owner{
 	}
 
 	/**
-	 * @see ru.ru.lenoblgis.introduse.sergey.domen.owner.Owner#getINN()
+	 * @see ru.ru.lenoblgis.introduse.sergey.domen.owner.Owner#getInn()
 	 */
-	public int getINN() {
+	public int getInn() {
 		return inn;
 	}
 
 	/**
-	 * @see ru.ru.lenoblgis.introduse.sergey.domen.owner.Owner#setINN(int)
+	 * @see ru.ru.lenoblgis.introduse.sergey.domen.owner.Owner#setInn(int)
 	 */
-	public void setINN(int iNN) {
+	public void setInn(int iNN) {
 		inn = iNN;
 	}
 

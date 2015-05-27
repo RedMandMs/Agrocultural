@@ -16,7 +16,7 @@
 			
 			<tr>
 				<td>ИНН компании: </td>
-				<td>${myCompany.getINN()}</td>
+				<td>${myCompany.getInn()}</td>
 			</tr>
 			
 			<tr>

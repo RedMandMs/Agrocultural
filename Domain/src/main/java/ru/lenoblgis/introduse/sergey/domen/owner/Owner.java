@@ -28,11 +28,11 @@ public interface Owner extends Serializable{
 	/**
 	 * Получить ИНН владельца
 	 */
-	public int getINN();
+	public int getInn();
 	/**
 	 * Установить ИНН владельца
 	 */
-	public void setINN(int iNN);
+	public void setInn(int iNN);
 
 	/**
 	 * Получить адрес владельца

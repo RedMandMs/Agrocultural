@@ -16,7 +16,7 @@ public class SQLServerQueries implements SQLQueries {
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#createOwner()
 	 */
 	public String createOwner(Owner owner) {
-		return "INSERT INTO " + NAME_ORG_TABLE + "(name, inn, address_org) VALUES('" + owner.getName() + "', "+owner.getINN()+", '"+owner.getAddress()+"')";
+		return "INSERT INTO " + NAME_ORG_TABLE + "(name, inn, address_org) VALUES('" + owner.getName() + "', "+owner.getInn()+", '"+owner.getAddress()+"')";
 	}
 
 	/**

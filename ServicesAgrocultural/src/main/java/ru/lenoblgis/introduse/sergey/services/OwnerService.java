@@ -52,22 +52,16 @@ public class OwnerService implements Serializable{
 	 * @param ownerId - id владельца
 	 * @return - информация о просматриваемом владельце ("isExist" - существует ли такой владелец, "id" - id владельца, "name" - имя организации, inn - ИНН, address_org - адрес организации)
 	 */
-	public Map<String, String> reviewOwner(int ownerId){
-		Map<String, String> ownerInfo = new HashMap<String, String>();
+	public Owner reviewOwner(int ownerId){
 		
 		try{
 			Owner reviewOwner = dao.reviewOwner(ownerId);
-			ownerInfo.put("id", String.valueOf(reviewOwner.getId()));
-			ownerInfo.put("name", reviewOwner.getName());
-			ownerInfo.put("inn", String.valueOf(reviewOwner.getINN()));
-			ownerInfo.put("address_org", reviewOwner.getAddress());
-			ownerInfo.put("isExist", "true");
+			return reviewOwner;
 		}
 		catch (IndexOutOfBoundsException ex) {
-			ownerInfo.put("isExist", "false");
+			//TODO:
 		}
-		
-		return ownerInfo;
+		return null;
 	}
 	
 	/**
@@ -99,7 +93,7 @@ public class OwnerService implements Serializable{
 		organization = dao.reviewOwner(user.getOrganizationId());
 		
 		OrganizationInfo organizationInfo = new OrganizationInfo(organization.getId(), organization.getName(), 
-								organization.getINN(), organization.getAddress());
+								organization.getInn(), organization.getAddress());
 		
 		return organizationInfo;
 	}
