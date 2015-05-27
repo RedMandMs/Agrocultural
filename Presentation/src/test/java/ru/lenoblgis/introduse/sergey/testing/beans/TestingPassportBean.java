@@ -41,9 +41,7 @@ public class TestingPassportBean {
 	public void testReviewPassport() {
 		ApplicationContext context = new AnnotationConfigApplicationContext(WebAppConfig.class);
         PassportService passportService = (PassportService) context.getBean("passportService");
-        Map<String, String> passportInfo = passportService.reviewPassport(37);
-        Assert.assertEquals("22", passportInfo.get("cadastr_number"));
-        Assert.assertEquals("Hello world!", passportInfo.get("comment"));        
+            
 	}
 	
 	/**

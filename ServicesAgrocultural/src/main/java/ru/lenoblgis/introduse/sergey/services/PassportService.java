@@ -11,6 +11,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
+import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
 import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 
 @Component("passportService")
@@ -91,22 +92,18 @@ public class PassportService implements Serializable {
 	 * 													region - регион, cadastr_number - кадастровый номер, 
 	 * 													area - площадь, type_field - тип пол€, comment - комментарий)
 	 */
-	public Map<String, String> reviewPassport(int passportId){
-		Map<String, String> passportInfo = new HashMap<String, String>();
+	public PassportInfo reviewPassport(int passportId){
+		
+		PassportInfo passportInfo = null;
 		
 		try{
 			Passport passport = dao.reviewPassport(passportId);
-			passportInfo.put("isExist", "true");
-			passportInfo.put("id", String.valueOf(passport.getId()));
-			passportInfo.put("id_organization", String.valueOf(passport.getId()));
-			passportInfo.put("region", String.valueOf(passport.getRegion()));
-			passportInfo.put("cadastr_number", String.valueOf(passport.getCadastrNumber()));
-			passportInfo.put("area", String.valueOf(passport.getArea()));
-			passportInfo.put("type_field", String.valueOf(passport.getType()));
-			passportInfo.put("comment", String.valueOf(passport.getComment()));
+			passportInfo = new PassportInfo(passport.getId(), passport.getIdOwner(), passport.getRegion(),
+								passport.getOwner().getName(), passport.getCadastrNumber(), 
+								passport.getArea(), passport.getType(), passport.getComment());
 		}catch(IndexOutOfBoundsException duplicateEx){
+			//TODO:
 			System.out.println("Ќе существует такого паспорта!!!");
-			passportInfo.put("isExist", "false");
 		}
 		
 		return passportInfo;

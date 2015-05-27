@@ -10,12 +10,12 @@ public class User {
 	/**
 	 * Логин пользователя
 	 */
-	private String userLogin;
+	private String login;
 
 	/**
 	 * Пароль пользователя
 	 */
-	private String userPassword;
+	private String password;
 	
 	/**
 	 * id организации, которой владеет пользователь
@@ -35,13 +35,11 @@ public class User {
 	 * @param id - id пользователя
 	 * @param userLogin - логин пользователя
 	 * @param userPassword - пароль пользователя
-	 * @param organizationId - id организации, владельцем, которой яв-ся пользователь
 	 */
-	public User(String userLogin, String userPassword, int organizationId) {
+	public User(String userLogin, String userPassword) {
 		super();
-		this.userLogin = userLogin;
-		this.userPassword = userPassword;
-		this.organizationId = organizationId;
+		this.login = userLogin;
+		this.password = userPassword;
 	}
 
 	/**
@@ -55,8 +53,8 @@ public class User {
 			int organizationId) {
 		super();
 		this.id = id;
-		this.userLogin = userLogin;
-		this.userPassword = userPassword;
+		this.login = userLogin;
+		this.password = userPassword;
 		this.organizationId = organizationId;
 	}
 
@@ -81,32 +79,32 @@ public class User {
 	 * Получить логин пользователя
 	 * @return - логин пользователя
 	 */
-	public String getUserLogin() {
-		return userLogin;
+	public String getLogin() {
+		return login;
 	}
 	
 	/**
 	 * Установить логин пользователя
 	 * @param userLogin - новый логин пользователя
 	 */
-	public void setUserLogin(String userLogin) {
-		this.userLogin = userLogin;
+	public void setLogin(String userLogin) {
+		this.login = userLogin;
 	}
 	
 	/**
 	 * Получить пароль пользователя
 	 * @return - пароль пользователя
 	 */
-	public String getUserPassword() {
-		return userPassword;
+	public String getPassword() {
+		return password;
 	}
 	
 	/**
 	 * Установить новый пароль пользователя
 	 * @param userPassword - пароль пользователя
 	 */
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
+	public void setPassword(String userPassword) {
+		this.password = userPassword;
 	}
 	
 	/**

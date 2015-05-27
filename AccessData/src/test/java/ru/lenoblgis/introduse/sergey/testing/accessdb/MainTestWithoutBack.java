@@ -33,9 +33,8 @@ public class MainTestWithoutBack {
 	@Ignore
 	public void testCreatePassport(){
 		DAO adminDao = new DAO();
-		
-		Passport newPassport = new Passport(8, RegionField.PRIZEMSK.getRegion(), "21", 30, TypeField.COLLECTIVE_FARM.getType(), "Тест создания пасспорта");
-		
+		Passport newPassport = new Passport(30, RegionField.PRIZEMSK.getRegion(), "21", 30, TypeField.COLLECTIVE_FARM.getType(), "Тест создания пасспорта");
+		adminDao.createPassport(newPassport);
 	}
 	
 	/**

@@ -49,6 +49,14 @@ public class PassportInfo implements Serializable{
 
 
 	/**
+	 * Конструктор по-умолчанию
+	 */
+	public PassportInfo() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	/**
 	 * Id поля
 	 */
 	private int id;

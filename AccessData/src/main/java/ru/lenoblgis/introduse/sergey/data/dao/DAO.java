@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
 
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries;
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLServerQueries;
@@ -78,6 +79,10 @@ public class DAO  {
 	 * Объект, отображающий пользователя в программный объект из БД
 	 */
 	UserRowMapper userRowMapper = new UserRowMapper();
+	/**
+	 * Объект для сохранения id добавленной строки в таблице
+	 */
+	GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
 	
 	/**
 	 * Подключение DataSource к базе данных и создание jdbcTemplate
@@ -94,13 +99,15 @@ public class DAO  {
 	}
 	
 	/**
-	 * 
-	 * @see dataTier.accessToDataServices.DAO#createOwner(java.util.Map)
+	 * Создать владельца
+	 * @param owner - новый владелец
+	 * @return - id нового владельца
 	 */
-	public void createOwner(Owner owner) {
+	private int createOwner(Owner owner) {
 		Object [] values = new Object[]{owner.getName(), owner.getINN(), owner.getAddress()};
 		String sqlQuery = sqlQueries.createOwner();
-		jdbcTemplate.update(sqlQuery, values);
+		jdbcTemplate.update(sqlQuery, values, keyHolder);
+		return keyHolder.getKey().intValue();
 	}
 
 	/**
@@ -284,23 +291,31 @@ public class DAO  {
 	/*
 	 * @see ru.lenoblgis.trenning.agrocultural.dataTier.accessTODataServices.DAO#authorization(java.lang.String, java.lang.String)
 	 */
-	public User authorization(String login, String password) {
-		Object [] values = new Object[]{login, password};
-		List<User> user = jdbcTemplate.query(sqlQueries.authorization(), values, userRowMapper);
-		if(user.isEmpty()){
+	public User reviewUser(User user) {
+		Object [] values = new Object[]{user.getLogin(), user.getPassword()};
+		List<User> users = jdbcTemplate.query(sqlQueries.authorization(), values, userRowMapper);
+		if(users.isEmpty()){
 			return null;
 		}else{
-			return user.get(0);
+			return users.get(0);
 		}
 	}
 
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.DAO#registration(java.lang.String, java.lang.String)
 	 */
-	public User registration(String login, String password, int idOrganization) {
-		Object [] values = new Object[]{login, password, idOrganization};
-		jdbcTemplate.update(sqlQueries.registration(), values);
-		return authorization(login, password);
+	public User registration(User user, Owner organization) {
+		int organizationId = createOwner(organization);
+		user.setOrganizationId(organizationId);
+		int userId = createUser(user);
+		user.setId(userId);
+		return user;
+	}
+	
+	private int createUser(User user){
+		Object [] values = new Object[]{user.getLogin(), user.getPassword(), user.getOrganizationId()};
+		jdbcTemplate.update(sqlQueries.registration(), values, keyHolder);
+		return keyHolder.getKey().intValue();
 	}
 
 }

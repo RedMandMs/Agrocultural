@@ -21,7 +21,7 @@ public class RegAuthorDAOTesting {
 	@Ignore
 	public void testCreatingUser(){
 		DAO dao = new DAO();
-		dao.registration("Sergey", "lenoblgis", 30);
+		dao.createUser("Sergey", "lenoblgis", 30);
 	}
 	
 	
@@ -31,7 +31,7 @@ public class RegAuthorDAOTesting {
 	@Test
 	public void testReviewUser(){
 		DAO dao = new DAO();
-		User user = dao.authorization("Sergey", "lenoblgis");
+		User user = dao.reviewUser("Sergey", "lenoblgis");
 		Assert.assertEquals(null, user);
 		System.out.println();
 	}
