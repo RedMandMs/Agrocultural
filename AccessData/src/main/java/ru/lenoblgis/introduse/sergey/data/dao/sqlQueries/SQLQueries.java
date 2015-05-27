@@ -3,12 +3,16 @@ package ru.lenoblgis.introduse.sergey.data.dao.sqlQueries;
 import java.io.Serializable;
 import java.util.Map;
 
+import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
+import ru.lenoblgis.introduse.sergey.domen.user.User;
+
 public interface SQLQueries extends Serializable {
 
 	/**
 	 * Создание владельца
+	 * @param owner 
 	 */
-	public String createOwner();
+	public String createOwner(Owner owner);
 	
 	/**
 	 * Удаление владельца
@@ -96,5 +100,5 @@ public interface SQLQueries extends Serializable {
 	 * Сформировать запрос для создания нового пользователя системы (регистрация)
 	 * @return - запрос
 	 */
-	public String registration();
+	public String createUser(User user);
 }

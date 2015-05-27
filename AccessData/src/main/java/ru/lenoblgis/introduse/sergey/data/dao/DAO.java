@@ -1,12 +1,18 @@
 package ru.lenoblgis.introduse.sergey.data.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries;
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLServerQueries;
@@ -43,7 +49,7 @@ public class DAO  {
 	 * Константа имени перечисления для добавления события - просмотр поля
 	 */
 	private static final String REVIEW_EVENT = "REVIEW";
-
+	
 	/**
 	 * Конструктор по-умолчанию
 	 */
@@ -79,10 +85,6 @@ public class DAO  {
 	 * Объект, отображающий пользователя в программный объект из БД
 	 */
 	UserRowMapper userRowMapper = new UserRowMapper();
-	/**
-	 * Объект для сохранения id добавленной строки в таблице
-	 */
-	GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
 	
 	/**
 	 * Подключение DataSource к базе данных и создание jdbcTemplate
@@ -104,9 +106,10 @@ public class DAO  {
 	 * @return - id нового владельца
 	 */
 	private int createOwner(Owner owner) {
-		Object [] values = new Object[]{owner.getName(), owner.getINN(), owner.getAddress()};
-		String sqlQuery = sqlQueries.createOwner();
-		jdbcTemplate.update(sqlQuery, values, keyHolder);
+		String sqlQuery = sqlQueries.createOwner(owner);
+		PreparedStatementCreator psc = new PrepereStmCreater(sqlQuery);
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		jdbcTemplate.update(psc, keyHolder);
 		return keyHolder.getKey().intValue();
 	}
 
@@ -313,9 +316,30 @@ public class DAO  {
 	}
 	
 	private int createUser(User user){
-		Object [] values = new Object[]{user.getLogin(), user.getPassword(), user.getOrganizationId()};
-		jdbcTemplate.update(sqlQueries.registration(), values, keyHolder);
+		String sqlQuery = sqlQueries.createUser(user);
+		PreparedStatementCreator psc = new PrepereStmCreater(sqlQuery);
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		jdbcTemplate.update(psc, keyHolder);
 		return keyHolder.getKey().intValue();
+	}
+	
+	private class PrepereStmCreater implements PreparedStatementCreator{
+
+		String sqlQuery = null;
+
+		public PrepereStmCreater(String sqlQuery) {
+			super();
+			this.sqlQuery = sqlQuery;
+		}
+
+		@Override
+		public PreparedStatement createPreparedStatement(Connection con)
+				throws SQLException {
+			PreparedStatement pstm = con.prepareStatement(sqlQuery, new String [] {"id"});
+			
+			return pstm;
+		}
+		 
 	}
 
 }

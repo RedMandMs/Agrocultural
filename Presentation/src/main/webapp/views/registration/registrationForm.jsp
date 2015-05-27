@@ -31,17 +31,17 @@
 					
 					<tr>
 						<th><label for="name_organization">Введите имя компании: </label></th>
-						<sf:input path="organizationName" size="20" id="name_organization"/>
+						<td><sf:input path="organizationName" size="20" id="name_organization"/></td>
 					</tr>
 					
 					<tr>
 						<th><label for="inn">Введите ИНН компании: </label></th>
-						<sf:input path="inn" size="20" id="inn"/>
+						<td><sf:input path="inn" size="20" id="inn"/></td>
 					</tr>
 					
 					<tr>
 						<th><label for="organization_address">Введите адрес компании: </label></th>
-						<sf:input path="address" size="50" id="organization_address"/>
+						<td><sf:input path="address" size="50" id="organization_address"/></td>
 					</tr>
 					
 					<tr>

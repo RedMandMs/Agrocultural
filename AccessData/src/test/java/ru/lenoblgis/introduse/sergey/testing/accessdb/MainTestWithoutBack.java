@@ -19,11 +19,7 @@ public class MainTestWithoutBack {
 	@Test
 	@Ignore
 	public void testCreateOwner(){
-		/*UserSpringDAO userDao = new UserSpringDAO();*/
-		DAO adminDao = new DAO();
-		
-		Owner newOwner = new Organization("LenOblGis", 1, "Hi");		
-		adminDao.createOwner(newOwner);;
+
 	}
 	
 	/**

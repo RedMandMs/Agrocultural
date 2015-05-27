@@ -20,15 +20,7 @@ public class TestingOwnerBean {
 	@Test
 	@Ignore
 	public void createOwner(){
-		ApplicationContext context = new AnnotationConfigApplicationContext(WebAppConfig.class);
-        OwnerService ownerService = (OwnerService) context.getBean("organizationService");
-        Map<String,String> info = new HashMap<String, String>();
-        info.put("name", "LenOblGis6");
-        info.put("inn", "4");
-        //info.put("address_org", "Торжковская 15");
-        ownerService.createOwner(info);
-        Map<String,String> infoOwner = ownerService.reviewOwner(26);
-        Assert.assertEquals("UNKNOWN", infoOwner.get("address_org"));
+		
 	}
 	
 	/**

@@ -2,6 +2,9 @@ package ru.lenoblgis.introduse.sergey.data.dao.sqlQueries;
 
 import java.util.Map;
 
+import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
+import ru.lenoblgis.introduse.sergey.domen.user.User;
+
 public class SQLServerQueries implements SQLQueries {
 
 	public final static String NAME_ORG_TABLE = "organization_table";
@@ -12,8 +15,8 @@ public class SQLServerQueries implements SQLQueries {
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#createOwner()
 	 */
-	public String createOwner() {
-		return "INSERT INTO " + NAME_ORG_TABLE + "(name, inn, address_org) VALUES(?,?,?)";
+	public String createOwner(Owner owner) {
+		return "INSERT INTO " + NAME_ORG_TABLE + "(name, inn, address_org) VALUES('" + owner.getName() + "', "+owner.getINN()+", '"+owner.getAddress()+"')";
 	}
 
 	/**
@@ -155,8 +158,8 @@ public class SQLServerQueries implements SQLQueries {
 	}
 
 	@Override
-	public String registration() {
-		return "INSERT INTO " + NAME_USER_TABLE + " (user_login, user_password, id_organization) VALUES(?, ?, ?)";
+	public String createUser(User user) {
+		return "INSERT INTO " + NAME_USER_TABLE + " (user_login, user_password, id_organization) VALUES('"+user.getLogin()+"', '"+user.getPassword()+"', "+user.getOrganizationId()+")";
 	}
 	
 }

@@ -20,8 +20,7 @@ public class RegAuthorDAOTesting {
 	@Test
 	@Ignore
 	public void testCreatingUser(){
-		DAO dao = new DAO();
-		dao.createUser("Sergey", "lenoblgis", 30);
+
 	}
 	
 	
@@ -30,10 +29,7 @@ public class RegAuthorDAOTesting {
 	 */
 	@Test
 	public void testReviewUser(){
-		DAO dao = new DAO();
-		User user = dao.reviewUser("Sergey", "lenoblgis");
-		Assert.assertEquals(null, user);
-		System.out.println();
+
 	}
 	
 	
