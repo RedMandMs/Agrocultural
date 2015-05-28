@@ -28,7 +28,8 @@
 		<form method="GET" action="change_organization_info">
 			<input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании">
 		</form>
-		<!-- <form method="get" action="change_organization_info">
+		<!-- 
+		<form method="get" action="change_organization_info">
 			<input type="submit" name="lookPassportsBtn" value="Посмотреть все паспорта пренадлежащие компании">
 		</form>
 		-->

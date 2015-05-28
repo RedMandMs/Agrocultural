@@ -46,16 +46,18 @@ public class RegistrationController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String registration(UserOrganization userOrganization, ModelMap model){
 		
-		OrganizationInfo organizationInfo = ownerService.registration(userOrganization);
+		OrganizationInfo myCompany = ownerService.registration(userOrganization);
 		
-		Owner myCompany = ownerService.reviewOwner(organizationInfo.getId());
+		Owner myOrganization = ownerService.reviewOwner(myCompany.getId());
 		
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
+		myCompany = new OrganizationInfo(myOrganization.getId(), myOrganization.getName(), myOrganization.getInn(), myOrganization.getAddress());
+		
 		session.setAttribute("myCompany", myCompany);
 		
-		return "redirect:organization/company/"+organizationInfo.getId();
+		return "redirect:organization/company/"+myCompany.getId();
 	}
 	
 }

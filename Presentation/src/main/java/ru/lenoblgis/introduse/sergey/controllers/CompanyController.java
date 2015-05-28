@@ -51,16 +51,19 @@ public class CompanyController {
 		
 		Boolean rightTry = (Boolean) session.getAttribute("changeOrganizationInfo");
 		
+		OrganizationInfo myCompany;
+		
 		String message = "";
 		if(rightTry != null){
-			message = "Некорректные данные";
+			message = "Некорректные данные!!!";
 			session.removeAttribute("changeOrganizationInfo");
+			myCompany = (OrganizationInfo) session.getAttribute("incorrectCompany");
 		}else{
 			message = "Измените необходимые данные";
+			myCompany = (OrganizationInfo) session.getAttribute("myCompany");
 		}
-		model.addAttribute("message", message);
 		
-		Owner myCompany = (Owner) session.getAttribute("myCompany");
+		model.addAttribute("message", message);
 		
 		model.addAttribute("myCompany", myCompany);
 		
@@ -83,14 +86,15 @@ public class CompanyController {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 
-		Owner myCompany = (Owner) session.getAttribute("myCompany");
+		OrganizationInfo myCompany = (OrganizationInfo) session.getAttribute("myCompany");
 		
 		organizationInfo.setId(myCompany.getId());
 		if(ownerService.editOwner(organizationInfo)){
-			session.setAttribute("changeOrganizationInfo", true);
+			session.setAttribute("myCompany", myCompany);
 			return "redirect:/organization/company/"+organizationInfo.getId();
 		}else{
 			session.setAttribute("changeOrganizationInfo", false);
+			session.setAttribute("incorrectCompany", myCompany);
 			return "redirect:/organization/company/change_organization_info";
 		}
 	}

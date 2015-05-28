@@ -94,5 +94,18 @@ public class OwnerService implements Serializable{
 		
 		return organizationInfo;
 	}
+	
+	public OrganizationInfo authorization(UserOrganization userOrganization){
+		
+		User user = new User(userOrganization.getLogin(), userOrganization.getPassword());
+		
+		user = dao.reviewUser(user);
+		
+		Owner owner = dao.reviewOwner(user.getOrganizationId());
+		
+		OrganizationInfo organizationInfo = new OrganizationInfo(owner.getId(), owner.getName(), owner.getInn(), owner.getAddress());
+		
+		return organizationInfo;
+	}
 		
 }

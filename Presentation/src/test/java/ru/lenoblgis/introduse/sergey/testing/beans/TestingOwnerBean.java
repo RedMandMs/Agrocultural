@@ -29,18 +29,7 @@ public class TestingOwnerBean {
 	@Test
 	@Ignore
 	public void testEditOwner() {
-		ApplicationContext context = new AnnotationConfigApplicationContext(WebAppConfig.class);
-        OwnerService ownerService = (OwnerService) context.getBean("organizationService");
-        Map<String,String> info = new HashMap<String, String>();        
-        info.put("id", "24");
-        info.put("name", "NewName");
-        info.put("inn", "5");
-        info.put("address_org", "Торжковская 16");
-        ownerService.editOwner(info);
-        Map<String,String> infoOwner = ownerService.reviewOwner(24);
-        Assert.assertEquals("Торжковская 16", infoOwner.get("address_org"));
-        Assert.assertEquals("5", infoOwner.get("inn"));
-        Assert.assertEquals("NewName", infoOwner.get("name"));
+
 	}
 	
 	/**
@@ -49,11 +38,6 @@ public class TestingOwnerBean {
 	@Test
 	@Ignore
 	public void testDeleteOwner() {
-		ApplicationContext context = new AnnotationConfigApplicationContext(WebAppConfig.class);
-        OwnerService ownerService = (OwnerService) context.getBean("organizationService");
-        Map<String,String> info = ownerService.deleteOwner(26);
-        Assert.assertEquals("false", info.get("success"));
-        Map<String,String> infoOwner = ownerService.reviewOwner(26);
-        Assert.assertEquals("false", infoOwner.get("isExist"));
+
 	}
 }
