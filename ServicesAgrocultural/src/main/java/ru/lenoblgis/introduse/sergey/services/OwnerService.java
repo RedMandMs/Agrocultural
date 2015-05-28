@@ -25,26 +25,23 @@ public class OwnerService implements Serializable{
 	/**
 	 * Редактировать владельца
 	 * @param info - информация о редактируемром владельце("id" - id владельца, "name" - имя организации, inn - ИНН, address_org - адрес организации)
- 	 * @return - результаты работы ("success" - успешено ли был отредактирован владелец)
+ 	 * @return - успешено ли был отредактирован владелец
 	 */
-	public Map<String, String> editOwner(Map<String, String> info){
-		Map<String, String> workresults = new HashMap<String, String>();
+	public boolean editOwner(OrganizationInfo info){
 		
-		Integer id = Integer.valueOf(info.get("id"));
-		String nameOrg = info.get("name");
-		Integer inn = Integer.valueOf(info.get("inn"));
-		String addresOrg = info.get("address_org");
+		Integer id = info.getId();
+		String nameOrg = info.getName();
+		Integer inn = info.getInn();
+		String addresOrg = info.getAddress();
 		Owner editingOwner = new Organization(id, nameOrg, inn, addresOrg);
 		try{
 			dao.editOwner(editingOwner);
-			workresults.put("success", "true");
+			return true;
 		}catch(DuplicateKeyException duplicateEx){
 			//TODO:
 			System.out.println("Дубликаты!!!");
-			workresults.put("success", "false");
+			return false;
 		}
-		
-		return workresults;
 	}
 	
 	/**

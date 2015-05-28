@@ -5,6 +5,14 @@ import java.io.Serializable;
 public class OrganizationInfo implements Serializable{
 	
 	
+	
+	/**
+	 * Конструктор по-умолчанию
+	 */
+	public OrganizationInfo() {
+		
+	}
+
 	/**
 	 * Конструктор для отображения уже имеющегося пасспорта в БД
 	 * @param id - id паспорта

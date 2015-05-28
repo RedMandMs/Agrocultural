@@ -13,7 +13,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
-import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 import ru.lenoblgis.introduse.sergey.services.OwnerService;
 
 @Controller
@@ -23,15 +22,18 @@ public class CompanyController {
 	@Autowired
 	OwnerService ownerService;
 	
-	@RequestMapping(value = "/company", method = RequestMethod.GET)
-    public String printWelcome(ModelMap model) {
+	/**
+	 * Метод отображающий данные о конкретной компании
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/company/{organizationId}", method = RequestMethod.GET)
+    public String showOrganization(@PathVariable Integer organizationId, ModelMap model) {
 		
-		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-		HttpSession session = attr.getRequest().getSession(true); // true == allow create
+		Owner owner = ownerService.reviewOwner(organizationId);
+		OrganizationInfo reviewingCompany = new OrganizationInfo(owner.getId(), owner.getName(), owner.getInn(), owner.getAddress());
 		
-		Owner myCompany = new Organization("LenOblGis", 1, "Каменноостровский проспект");
-		
-		session.setAttribute("myCompany", myCompany);
+		model.addAttribute("reviewingCompany", reviewingCompany);
 		
 		return "organization/company";
 	}
@@ -41,17 +43,55 @@ public class CompanyController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/company/{organizationId}", method = RequestMethod.GET)
-    public String showOrganization(@PathVariable Integer organizationId, ModelMap model) {
+	@RequestMapping(value = "/company/change_organization_info", method = RequestMethod.GET)
+    public String showChangeInfoOrganization(ModelMap model) {
 		
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
-		Owner owner = ownerService.reviewOwner(organizationId);
-		OrganizationInfo myCompany = new OrganizationInfo(owner.getId(), owner.getName(), owner.getInn(), owner.getAddress());
+		Boolean rightTry = (Boolean) session.getAttribute("changeOrganizationInfo");
 		
-		session.setAttribute("myCompany", myCompany);
+		String message = "";
+		if(rightTry != null){
+			message = "Некорректные данные";
+			session.removeAttribute("changeOrganizationInfo");
+		}else{
+			message = "Измените необходимые данные";
+		}
+		model.addAttribute("message", message);
 		
-		return "organization/company";
+		Owner myCompany = (Owner) session.getAttribute("myCompany");
+		
+		model.addAttribute("myCompany", myCompany);
+		
+		OrganizationInfo changedCompany = new OrganizationInfo();
+		
+		model.addAttribute("changedCompany", changedCompany);
+		
+		return "organization/change_info_organization";
+	}
+	
+	/**
+	 * Метод обрабатывающий изменение в информации об организации
+	 * @param organizationInfo - новая информация об организации
+	 * @param model - модель
+	 * @return - отображение страницы после изменения (перенаправление)
+	 */
+	@RequestMapping(value = "/company/change_organization_info", method = RequestMethod.POST)
+    public String сhangeInfoOrganization(OrganizationInfo organizationInfo, ModelMap model) {
+		
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true); // true == allow create
+
+		Owner myCompany = (Owner) session.getAttribute("myCompany");
+		
+		organizationInfo.setId(myCompany.getId());
+		if(ownerService.editOwner(organizationInfo)){
+			session.setAttribute("changeOrganizationInfo", true);
+			return "redirect:/organization/company/"+organizationInfo.getId();
+		}else{
+			session.setAttribute("changeOrganizationInfo", false);
+			return "redirect:/organization/company/change_organization_info";
+		}
 	}
 }
