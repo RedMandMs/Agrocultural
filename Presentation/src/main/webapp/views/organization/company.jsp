@@ -9,7 +9,6 @@
 	<title>Информация о комапании</title>
 	</head>
 	<body>
-		<form method="get" action="change_organization_info">
 		<table>
 			<tr>
 				<td>Имя компании: </td>
@@ -25,11 +24,13 @@
 				<td>Адрес компании: </td>
 				<td>${reviewingCompany.getAddress()}</td>
 			</tr>
-			<tr>
-					<td><input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании"></td>
-					<td><input type="submit" name="lookPassportsBtn" value="Посмотреть все паспорта пренадлежащие компании"></td>
-			</tr>
 		</table>
+		<form method="GET" action="change_organization_info">
+			<input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании">
 		</form>
+		<!-- <form method="get" action="change_organization_info">
+			<input type="submit" name="lookPassportsBtn" value="Посмотреть все паспорта пренадлежащие компании">
+		</form>
+		-->
 	</body>
 </html>
