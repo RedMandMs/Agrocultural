@@ -39,7 +39,7 @@ public class CompanyController {
 	}
 	
 	/**
-	 * Метод отображающий данные о конкретной компании
+	 * Метод отображающий форму для изменения данных о вашей компании
 	 * @param model
 	 * @return
 	 */
@@ -90,11 +90,11 @@ public class CompanyController {
 		
 		organizationInfo.setId(myCompany.getId());
 		if(ownerService.editOwner(organizationInfo)){
-			session.setAttribute("myCompany", myCompany);
+			session.setAttribute("myCompany", organizationInfo);
 			return "redirect:/organization/company/"+organizationInfo.getId();
 		}else{
 			session.setAttribute("changeOrganizationInfo", false);
-			session.setAttribute("incorrectCompany", myCompany);
+			session.setAttribute("incorrectCompany", organizationInfo);
 			return "redirect:/organization/company/change_organization_info";
 		}
 	}
