@@ -59,7 +59,7 @@ public class User {
 		this.id = id;
 		this.login = userLogin;
 		this.password = userPassword;
-		this.organizationId = organizationId;
+		this.organizationId = organizationId; 
 	}
 
 
