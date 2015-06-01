@@ -22,6 +22,10 @@ public class User {
 	 */
 	private int organizationId;
 	
+	/**
+	 * –оль пользовател€ в системе
+	 */
+	private UserRole role;
 		
 	
 	/**
@@ -122,5 +126,31 @@ public class User {
 	public void setOrganizationId(int organizationId) {
 		this.organizationId = organizationId;
 	}
+
+	/**
+	 * ѕолучить роль пользовател€
+	 * @return - роль пользовател€
+	 */
+	public UserRole getRole() {
+		return role;
+	}
+	
+	/**
+	 * ѕолучить роль пользовател€ - словом
+	 * @return - роль пользовател€
+	 */
+	public String getRoleStr() {
+		return role.getName();
+	}
+
+	/**
+	 * ”становить роль пользовател€
+	 * @param role - нова€ роль пользовател€
+	 */
+	public void setRole(UserRole role) {
+		this.role = role;
+	}
+	
+	
 
 }

@@ -10,7 +10,7 @@ public class SQLServerQueries implements SQLQueries {
 	public final static String NAME_ORG_TABLE = "organization_table";
 	public final static String NAME_FIELD_TABLE = "field_table";
 	public final static String NAME_EVENT_TABLE = "event_passport_table";
-	public final static String NAME_USER_TABLE = "users_table";
+	public final static String NAME_USER_TABLE = "users";
 	
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#createOwner()
