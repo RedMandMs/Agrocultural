@@ -18,12 +18,12 @@
   <properties>
   	<joda-time.version>2.7</joda-time.version>
   	<spring-data-jdbc-core.version>1.1.0.RELEASE</spring-data-jdbc-core.version>
+  	<spring-security.version>4.0.1.RELEASE</spring-security.version>
   	<org.springframework.version>4.1.6.RELEASE</org.springframework.version>
   	<junit.version>4.12</junit.version>
   	<jstl.version>1.2</jstl.version>
   	<sqljdbc.version>4.0</sqljdbc.version>
   	<servlet.version>3.1.0</servlet.version>
-  	<spring-boot.version>1.2.3.RELEASE</spring-boot.version>
   </properties>
   
   <dependencyManagement>
@@ -88,19 +88,19 @@
 	   <dependency>
 	   		<groupId>org.springframework.security</groupId>
 	   		<artifactId>spring-security-web</artifactId>
-	   		<version>${org.springframework.version}</version>
+	   		<version>${spring-security.version}</version>
 	   </dependency>
 	   
 	   <dependency>
 	   		<groupId>org.springframework.security</groupId>
 	   		<artifactId>spring-security-config</artifactId>
-	   		<version>${org.springframework.version}</version>
+	   		<version>${spring-security.version}</version>
 	   </dependency>
 	   
 	   <dependency>
 	   		<groupId>org.springframework.security</groupId>
 	   		<artifactId>spring-security-core</artifactId>
-	   		<version>${org.springframework.version}</version>
+	   		<version>${spring-security.version}</version>
 	   </dependency>
 	   
   </dependencies>
