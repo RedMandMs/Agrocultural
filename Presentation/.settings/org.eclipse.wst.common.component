@@ -4,18 +4,6 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="ServicesAgrocultural-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ServicesAgrocultural/ServicesAgrocultural">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="AccessData-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/AccessData/AccessData">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="Domain-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Domain/Domain">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="DataTransferObject-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DataTransferObject/DataTransferObject">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="context-root" value="Presentation"/>
         <property name="java-output-path" value="/Presentation/target/classes"/>
     </wb-module>

@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Component;
 
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries;
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLServerQueries;
@@ -28,6 +29,7 @@ import ru.lenoblgis.introduse.sergey.domen.user.User;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 
+@Component("dao")
 public class DAO  {
 	
 	/**
@@ -315,6 +317,11 @@ public class DAO  {
 		return user;
 	}
 	
+	/**
+	 * —оздание пользовател€ в системе
+	 * @param user - пользователь
+	 * @return - id пользовател€
+	 */
 	private int createUser(User user){
 		String sqlQuery = sqlQueries.createUser(user);
 		PreparedStatementCreator psc = new PrepereStmCreater(sqlQuery);
@@ -323,6 +330,11 @@ public class DAO  {
 		return keyHolder.getKey().intValue();
 	}
 	
+	/**
+	 *  ласс дл€ подготовки sql запросов, дл€ указани€ пол€, которое должно возвращатьс€ при запросе
+	 * @author Sergey
+	 *
+	 */
 	private class PrepereStmCreater implements PreparedStatementCreator{
 
 		String sqlQuery = null;

@@ -8,9 +8,10 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 
-public class Initializer implements WebApplicationInitializer {
+public class Initializer extends AbstractAnnotationConfigDispatcherServletInitializer{
 
 	 // ”казываем им€ нашему Servlet Dispatcher дл€ мапинга
     private static final String DISPATCHER_SERVLET_NAME = "dispatcherAgrocultural";
@@ -34,5 +35,25 @@ public class Initializer implements WebApplicationInitializer {
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
     }
+
+
+	@Override
+	protected Class<?>[] getRootConfigClasses() {
+		return new Class[]{ SecurityConfig.class};
+	}
+
+
+	@Override
+	protected Class<?>[] getServletConfigClasses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	protected String[] getServletMappings() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

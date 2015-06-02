@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +21,8 @@ public class OwnerService implements Serializable{
 	/**
 	 * DAO для работы с базой данных
 	 */
-	private DAO dao = new DAO();
+	@Autowired
+	private DAO dao;
 	
 	/**
 	 * Редактировать владельца

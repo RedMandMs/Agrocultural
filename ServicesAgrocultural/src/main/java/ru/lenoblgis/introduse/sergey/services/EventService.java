@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
@@ -17,7 +18,8 @@ public class EventService implements Serializable{
 	/**
 	 * DAO для работы с базой данных
 	 */
-	private DAO dao = new DAO();
+	@Autowired
+	private DAO dao;
 	
 	/**
 	 * Получить все события, которые совершались какими-либо владелецами
