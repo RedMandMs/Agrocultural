@@ -10,7 +10,7 @@
 <body>
 	<div>
 		<h1>Регистрация нового пользователя:</h1>	
-		<sf:form method="POST" action="/regestration" modelAttribute="userOrganization">
+		<sf:form method="POST" modelAttribute="userOrganization">
 			<fieldset>
 				<table>
 					<tr>

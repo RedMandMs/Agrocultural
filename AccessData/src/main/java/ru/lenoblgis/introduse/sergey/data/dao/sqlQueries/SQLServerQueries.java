@@ -154,12 +154,12 @@ public class SQLServerQueries implements SQLQueries {
 
 	@Override
 	public String authorization() {
-		return "SELECT * FROM " + NAME_USER_TABLE + " WHERE user_login = ? AND user_password = ?;";
+		return "SELECT * FROM " + NAME_USER_TABLE + " WHERE username = ? AND password = ?;";
 	}
 
 	@Override
 	public String createUser(User user) {
-		return "INSERT INTO " + NAME_USER_TABLE + " (user_login, user_password, id_organization) VALUES('"+user.getLogin()+"', '"+user.getPassword()+"', "+user.getOrganizationId()+")";
+		return "INSERT INTO " + NAME_USER_TABLE + " (username, password, id_organization, role, enabled) VALUES('"+user.getLogin()+"', '"+user.getPassword()+"', "+user.getOrganizationId()+", '" +user.getRoleStr()+"', 1)";
 	}
 	
 }

@@ -12,14 +12,14 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.UserOrganization;
-import ru.lenoblgis.introduse.sergey.services.OwnerService;
+import ru.lenoblgis.introduse.sergey.services.UserServise;
 
 @Controller
-@RequestMapping("/authorization")
+@RequestMapping("/login")
 public class AuthorizationController {
 
 	@Autowired
-	OwnerService ownerService;
+	UserServise userService;
 	
 	/**
 	 * Показать форму авторизации
@@ -43,7 +43,7 @@ public class AuthorizationController {
 		UserOrganization userOrganization = new UserOrganization();
 		model.addAttribute("userOrganization", userOrganization);
 		
-		return "authorization";
+		return "login";
 	}
 	
 	/**
@@ -58,14 +58,14 @@ public class AuthorizationController {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
-		OrganizationInfo organizationInfo = ownerService.authorization(userOrganization);
+		OrganizationInfo organizationInfo = userService.getUser(userOrganization);
 		
 		if(organizationInfo != null){
 			session.setAttribute("myCompany", organizationInfo);
 			return "redirect:organization/company/" + organizationInfo.getId();
 		}else{
 			session.setAttribute("invalidateAuthorization", true);
-			return "Presentation/authorization";
+			return "Presentation/login";
 		}
 	}
 	

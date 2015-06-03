@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -66,7 +69,7 @@ public class DAO  {
 	/**
 	 * Объект DataSource
 	 */
-	SQLServerDataSource ds = null;
+	SQLServerDataSource ds;
 	/**
 	 * Объект спринг для взаимодействия базы данных
 	 */
@@ -98,7 +101,6 @@ public class DAO  {
 		ds.setDatabaseName("passport_agricultural");
 		ds.setUser("adminAgricultural");
 		ds.setPassword("admin123");
-		
 		jdbcTemplate = new JdbcTemplate(ds);
 	}
 	

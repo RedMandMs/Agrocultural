@@ -14,14 +14,16 @@ import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.Organiz
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.UserOrganization;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.services.OwnerService;
+import ru.lenoblgis.introduse.sergey.services.UserServise;
 
 @Controller
 @RequestMapping(value="/registration")
 public class RegistrationController {
 	
 	@Autowired
+	private UserServise userService;
+	@Autowired
 	private OwnerService ownerService;
-	
 	/**
 	 * Показать Форму регистрации
 	 * @param model - модель
@@ -46,7 +48,7 @@ public class RegistrationController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String registration(UserOrganization userOrganization, ModelMap model){
 		
-		OrganizationInfo myCompany = ownerService.registration(userOrganization);
+		OrganizationInfo myCompany = userService.registration(userOrganization);
 		
 		Owner myOrganization = ownerService.reviewOwner(myCompany.getId());
 		

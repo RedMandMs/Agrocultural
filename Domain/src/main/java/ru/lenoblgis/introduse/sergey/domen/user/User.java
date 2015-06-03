@@ -45,6 +45,20 @@ public class User {
 		this.login = userLogin;
 		this.password = userPassword;
 	}
+	
+	/**
+	 * Конструктор используемый помещении нового пользователя в БД
+	 * @param id - id пользователя
+	 * @param userLogin - логин пользователя
+	 * @param userPassword - пароль пользователя
+	 * @param role - роль пользователя
+	 */
+	public User(String userLogin, String userPassword, UserRole role) {
+		super();
+		this.login = userLogin;
+		this.password = userPassword;
+		this.role = role;
+	}
 
 	/**
 	 * Конструктор используемый при выборке поля из БД
@@ -59,7 +73,8 @@ public class User {
 		this.id = id;
 		this.login = userLogin;
 		this.password = userPassword;
-		this.organizationId = organizationId; 
+		this.organizationId = organizationId;
+		
 	}
 
 

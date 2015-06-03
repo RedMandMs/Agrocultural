@@ -14,6 +14,7 @@ import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.UserOrg
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 import ru.lenoblgis.introduse.sergey.domen.user.User;
+import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 
 @Component("organizationService")
 public class OwnerService implements Serializable{
@@ -79,35 +80,6 @@ public class OwnerService implements Serializable{
 			workresults.put("success", "false");
 		}
 		return workresults;
-	}
-	
-	public OrganizationInfo registration(UserOrganization userOrganization){
-		
-		User user = new User(userOrganization.getLogin(), userOrganization.getPassword());
-		Owner organization = new Organization(userOrganization.getOrganizationName(), 
-				userOrganization.getInn(), userOrganization.getAddress());
-		
-		user = dao.registration(user, organization);		
-		
-		organization = dao.reviewOwner(user.getOrganizationId());
-		
-		OrganizationInfo organizationInfo = new OrganizationInfo(organization.getId(), organization.getName(), 
-								organization.getInn(), organization.getAddress());
-		
-		return organizationInfo;
-	}
-	
-	public OrganizationInfo authorization(UserOrganization userOrganization){
-		
-		User user = new User(userOrganization.getLogin(), userOrganization.getPassword());
-		
-		user = dao.reviewUser(user);
-		
-		Owner owner = dao.reviewOwner(user.getOrganizationId());
-		
-		OrganizationInfo organizationInfo = new OrganizationInfo(owner.getId(), owner.getName(), owner.getInn(), owner.getAddress());
-		
-		return organizationInfo;
 	}
 		
 }
