@@ -25,14 +25,14 @@
 				<tr>
 					<th><label for="user_login">Введите логин:</label></th>
 					<td>
-						<input type="text" name="user_password" id="j_user_login">
+						<input type="text" name="j_username" id="user_login">
 					</td>
 				</tr>
 					
 				<tr>
 					<th><label for="user_password">Введите пароль:</label></th>
 					<td>
-						<input type="password" name="user_password" id="user_password">
+						<input type="password" name="j_password" id="user_password">
 					</td>
 				</tr>
 				<tr>

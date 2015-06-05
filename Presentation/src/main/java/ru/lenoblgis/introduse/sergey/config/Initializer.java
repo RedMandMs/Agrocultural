@@ -11,7 +11,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 
-public class Initializer extends AbstractAnnotationConfigDispatcherServletInitializer{
+public class Initializer implements WebApplicationInitializer{
 
 	 // Указываем имя нашему Servlet Dispatcher для мапинга
     private static final String DISPATCHER_SERVLET_NAME = "dispatcherAgrocultural";
@@ -26,6 +26,7 @@ public class Initializer extends AbstractAnnotationConfigDispatcherServletInitia
  
         // Регистрируем в контексте конфигурационный класс, который мы создадим ниже
         ctx.register(WebAppConfig.class);
+        ctx.register(SecurityConfig.class);
         servletContext.addListener(new ContextLoaderListener(ctx));
  
         ctx.setServletContext(servletContext);
@@ -35,25 +36,5 @@ public class Initializer extends AbstractAnnotationConfigDispatcherServletInitia
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
     }
-
-
-	@Override
-	protected Class<?>[] getRootConfigClasses() {
-		return new Class[]{ SecurityConfig.class};
-	}
-
-
-	@Override
-	protected Class<?>[] getServletConfigClasses() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	protected String[] getServletMappings() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

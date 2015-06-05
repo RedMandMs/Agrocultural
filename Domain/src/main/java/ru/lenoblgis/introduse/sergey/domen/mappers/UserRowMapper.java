@@ -7,13 +7,16 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import ru.lenoblgis.introduse.sergey.domen.user.User;
+import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 
 public class UserRowMapper implements RowMapper<User>, Serializable{
 
 	@Override
 	public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-		return new User(rs.getInt("id"), rs.getString("user_login"), rs.getString("user_password"), rs.getInt("id_organization"));
-	}
+		User user = new User(rs.getInt("id"), rs.getString("user_login"), rs.getString("user_password"), rs.getInt("id_organization"));
+		user.setRole(UserRole.valueOf(rs.getString("role")));	
+		return user;
+		}
 	
 	
 

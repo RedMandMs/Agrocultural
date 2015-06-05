@@ -12,14 +12,14 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.UserOrganization;
-import ru.lenoblgis.introduse.sergey.services.UserServise;
+import ru.lenoblgis.introduse.sergey.services.UserService;
 
 @Controller
 @RequestMapping("/login")
 public class AuthorizationController {
 
 	@Autowired
-	UserServise userService;
+	UserService userService;
 	
 	/**
 	 * Показать форму авторизации

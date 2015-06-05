@@ -3,6 +3,7 @@ package ru.lenoblgis.introduse.sergey.controllers;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,6 +36,24 @@ public class CompanyController {
 		
 		model.addAttribute("reviewingCompany", reviewingCompany);
 		
+		return "organization/company";
+	}
+	
+	/**
+	 * Метод отображающий данные о конкретной компании
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/company/myCompany", method = RequestMethod.GET)
+    public String showMyCompany(ModelMap model) {
+		
+		Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		/*Owner owner = ownerService.reviewOwner();
+		OrganizationInfo reviewingCompany = new OrganizationInfo(owner.getId(), owner.getName(), owner.getInn(), owner.getAddress());
+		
+		model.addAttribute("reviewingCompany", reviewingCompany);
+		*/
 		return "organization/company";
 	}
 	

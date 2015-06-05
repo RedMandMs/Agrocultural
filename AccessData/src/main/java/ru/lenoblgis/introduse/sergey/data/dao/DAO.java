@@ -355,5 +355,13 @@ public class DAO  {
 		}
 		 
 	}
+	
+	public User findUserByLogin(String login){
+		
+		Object[] values = new Object[] {login};
+		List<User> resultSet = jdbcTemplate.query(sqlQueries.reviewUserByLogin(), values , userRowMapper);
+				
+		return resultSet.get(0);
+	}
 
 }

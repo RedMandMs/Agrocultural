@@ -101,4 +101,10 @@ public interface SQLQueries extends Serializable {
 	 * @return - запрос
 	 */
 	public String createUser(User user);
+	
+	/**
+	 * Сформировать запрос для просмотра пользователя по логину
+	 * @return - запрос
+	 */
+	public String reviewUserByLogin();
 }

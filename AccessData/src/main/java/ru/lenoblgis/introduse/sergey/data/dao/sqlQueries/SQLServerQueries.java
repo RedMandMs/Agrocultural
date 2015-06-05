@@ -161,5 +161,12 @@ public class SQLServerQueries implements SQLQueries {
 	public String createUser(User user) {
 		return "INSERT INTO " + NAME_USER_TABLE + " (username, password, id_organization, role, enabled) VALUES('"+user.getLogin()+"', '"+user.getPassword()+"', "+user.getOrganizationId()+", '" +user.getRoleStr()+"', 1)";
 	}
+
+	@Override
+	public String reviewUserByLogin() {
+		return "SELECT * FROM " + NAME_USER_TABLE + " WHERE username = ?";
+	}
+	
+	
 	
 }

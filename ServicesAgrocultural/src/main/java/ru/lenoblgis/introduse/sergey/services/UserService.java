@@ -14,7 +14,7 @@ import ru.lenoblgis.introduse.sergey.domen.user.User;
 import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 
 @Service
-public class UserServise implements Serializable{
+public class UserService implements Serializable{
 	
 	/**
 	 * DAO для работы с базой данных
@@ -49,6 +49,12 @@ public class UserServise implements Serializable{
 		OrganizationInfo organizationInfo = new OrganizationInfo(owner.getId(), owner.getName(), owner.getInn(), owner.getAddress());
 		
 		return organizationInfo;
+	}
+	
+	public User getUserByPassword(String login) {
+		User user = dao.findUserByLogin(login);
+		
+		return user;
 	}
 
 }

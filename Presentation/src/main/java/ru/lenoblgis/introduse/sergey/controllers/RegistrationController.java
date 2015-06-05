@@ -14,14 +14,14 @@ import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.Organiz
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.UserOrganization;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.services.OwnerService;
-import ru.lenoblgis.introduse.sergey.services.UserServise;
+import ru.lenoblgis.introduse.sergey.services.UserService;
 
 @Controller
 @RequestMapping(value="/registration")
 public class RegistrationController {
 	
 	@Autowired
-	private UserServise userService;
+	private UserService userService;
 	@Autowired
 	private OwnerService ownerService;
 	/**
