@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +15,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
+import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 import ru.lenoblgis.introduse.sergey.services.OwnerService;
+import ru.lenoblgis.introduse.sergey.services.UserService;
 
 @Controller
 @RequestMapping(value="/organization")
@@ -22,6 +25,9 @@ public class CompanyController {
 
 	@Autowired
 	OwnerService ownerService;
+	
+	@Autowired
+	UserService userService;
 	
 	/**
 	 * Метод отображающий данные о конкретной компании
@@ -36,6 +42,8 @@ public class CompanyController {
 		
 		model.addAttribute("reviewingCompany", reviewingCompany);
 		
+		model.addAttribute("isMyCompany", false);
+		
 		return "organization/company";
 	}
 	
@@ -44,16 +52,22 @@ public class CompanyController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/company/myCompany", method = RequestMethod.GET)
+	@RequestMapping(value = "/company/mycompany", method = RequestMethod.GET)
     public String showMyCompany(ModelMap model) {
 		
-		Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
-		/*Owner owner = ownerService.reviewOwner();
-		OrganizationInfo reviewingCompany = new OrganizationInfo(owner.getId(), owner.getName(), owner.getInn(), owner.getAddress());
+		if(session.getAttribute("myCompany")==null){
+			OrganizationInfo myCompany = userService.getMyOrganizationByLogin(user.getUsername());
+			session.setAttribute("myCompany", myCompany);
+		}
 		
-		model.addAttribute("reviewingCompany", reviewingCompany);
-		*/
+		model.addAttribute("reviewingCompany", session.getAttribute("myCompany"));
+		
+		model.addAttribute("isMyCompany", true);
+		
 		return "organization/company";
 	}
 	

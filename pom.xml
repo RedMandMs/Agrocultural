@@ -22,7 +22,7 @@
   	<org.springframework.version>4.1.6.RELEASE</org.springframework.version>
   	<junit.version>4.12</junit.version>
   	<jstl.version>1.2</jstl.version>
-  	<sqljdbc.version>4.0</sqljdbc.version>
+  	<sqljdbc.version>4.1</sqljdbc.version>
   	<servlet.version>3.1.0</servlet.version>
   </properties>
   

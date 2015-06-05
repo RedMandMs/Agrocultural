@@ -25,9 +25,12 @@
 				<td>${reviewingCompany.getAddress()}</td>
 			</tr>
 		</table>
-		<form method="GET" action="change_organization_info">
-			<input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании">
-		</form>
+		<c:set var="isMyCompany" scope="request" value="${isMyCompany}"/>
+		<c:if test="${isMyCompany}">
+			<form method="GET" action="change_organization_info">
+				<input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании">
+			</form>
+		</c:if>
 		<!-- 
 		<form method="get" action="change_organization_info">
 			<input type="submit" name="lookPassportsBtn" value="Посмотреть все паспорта пренадлежащие компании">

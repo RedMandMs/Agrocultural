@@ -22,6 +22,9 @@ public class UserService implements Serializable{
 	@Autowired
 	private DAO dao;
 	
+	@Autowired
+	private OwnerService ownerService;
+	
 	public OrganizationInfo registration(UserOrganization userOrganization){
 		
 		User user = new User(userOrganization.getLogin(), userOrganization.getPassword(), UserRole.USER);
@@ -51,10 +54,21 @@ public class UserService implements Serializable{
 		return organizationInfo;
 	}
 	
-	public User getUserByPassword(String login) {
+	public User getUserByLogin(String login) {
 		User user = dao.findUserByLogin(login);
 		
 		return user;
+	}
+	
+	public OrganizationInfo getMyOrganizationByLogin(String login){
+		User user = getUserByLogin(login);
+		
+		Owner myOwnerInfo = ownerService.reviewOwner(user.getOrganizationId());
+		
+		OrganizationInfo myOrganizationInfo = new OrganizationInfo(myOwnerInfo.getId(), myOwnerInfo.getName(), 
+																		myOwnerInfo.getInn(), myOwnerInfo.getAddress());
+		
+		return myOrganizationInfo;
 	}
 
 }
