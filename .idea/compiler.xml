@@ -17,16 +17,25 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Annotation profile for introduse" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="introduse" />
+        <module name="AccessData" />
+        <module name="DataTransferObject" />
+        <module name="Domain" />
+        <module name="Presentation" />
+        <module name="ServicesAgrocultural" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AccessData" target="1.7" />
+      <module name="DataTransferObject" target="1.7" />
+      <module name="Domain" target="1.7" />
       <module name="introduse" target="1.7" />
+      <module name="Presentation" target="1.7" />
+      <module name="ServicesAgrocultural" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
