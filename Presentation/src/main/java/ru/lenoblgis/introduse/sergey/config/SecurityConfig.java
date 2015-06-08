@@ -3,6 +3,7 @@ package ru.lenoblgis.introduse.sergey.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,42 +15,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
-/*	@Autowired
-	DataSource ds;*/
-
-/*	@Autowired
-	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception{
-		
-		auth.jdbcAuthentication().dataSource(ds)
-		.usersByUsernameQuery(
-			"select username, password, enabled from users where username=?")
-		.authoritiesByUsernameQuery(
-			"select username, role from users where username=?");
-	}*/
-	
-/*	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth
-			.inMemoryAuthentication()
-				.withUser("user").password("password").roles("USER").and()
-				.withUser("admin").password("password").roles("USER", "ADMIN");
-	}*/
-
-/*	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-			.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-			.and()
-			  .formLogin().loginPage("/login").loginProcessingUrl("/j_spring_security_check").failureUrl("/login?error").defaultSuccessUrl("/organization/company/47")
-			  .usernameParameter("user_login").passwordParameter("user_password")
-			.and()
-			  .logout().logoutSuccessUrl("/login?logout")
-			.and()
-			  .exceptionHandling().accessDeniedPage("/403")
-			.and()
-			  .csrf();
-	}*/
-	
 	@Autowired
     private UserDetailsService userDetailsService;
  
@@ -59,7 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     public void registerGlobalAuthentication(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailsService)
-                .passwordEncoder(getShaPasswordEncoder());
+                .passwordEncoder(getMd5PasswordEncoder());
     }
  
     @Override
@@ -100,7 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     }
 	
     @Bean
-    public ShaPasswordEncoder getShaPasswordEncoder(){
-        return new ShaPasswordEncoder();
+    public Md5PasswordEncoder getMd5PasswordEncoder(){
+        return new Md5PasswordEncoder();
     }
 }

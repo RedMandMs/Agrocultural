@@ -59,7 +59,7 @@ public class RegistrationController {
 		
 		session.setAttribute("myCompany", myCompany);
 		
-		return "redirect:organization/company/"+myCompany.getId();
+		return "redirect:/login";
 	}
 	
 }

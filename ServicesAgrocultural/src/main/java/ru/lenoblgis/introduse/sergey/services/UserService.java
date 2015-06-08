@@ -3,6 +3,7 @@ package ru.lenoblgis.introduse.sergey.services;
 import java.io.Serializable;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
@@ -31,6 +32,10 @@ public class UserService implements Serializable{
 		Owner organization = new Organization(userOrganization.getOrganizationName(), 
 				userOrganization.getInn(), userOrganization.getAddress());
 		
+		//Кодировка пароля
+		String coddingPassword = new Md5PasswordEncoder().encodePassword(user.getPassword(), "");
+		user.setPassword(coddingPassword);
+
 		user = dao.registration(user, organization);
 		
 		organization = dao.reviewOwner(user.getOrganizationId());
