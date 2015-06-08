@@ -124,7 +124,7 @@ public class CompanyController {
 		organizationInfo.setId(myCompany.getId());
 		if(ownerService.editOwner(organizationInfo)){
 			session.setAttribute("myCompany", organizationInfo);
-			return "redirect:/organization/company/"+organizationInfo.getId();
+			return "redirect:/organization/company/mycompany";
 		}else{
 			session.setAttribute("changeOrganizationInfo", false);
 			session.setAttribute("incorrectCompany", organizationInfo);

@@ -13,7 +13,7 @@ public class UserRowMapper implements RowMapper<User>, Serializable{
 
 	@Override
 	public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-		User user = new User(rs.getInt("id"), rs.getString("user_login"), rs.getString("user_password"), rs.getInt("id_organization"));
+		User user = new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("id_organization"));
 		user.setRole(UserRole.valueOf(rs.getString("role")));	
 		return user;
 		}
