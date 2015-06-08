@@ -29,11 +29,10 @@ public class PassportService implements Serializable {
 	 * @param info - информация о добавляемом паспорте("id_organization" - id организации, 
 	 * 				region - регион, cadastr_number - кадастровый номер, area - площадь, 
 	 * 				type_field - тип поля, comment - комментарий)
- 	 * @return - результаты работы ("success" - успешено ли был добавлен паспорт)
+ 	 * @return - id созданного пасспорта (0 - если не удалось создать пасспорт)
 	 */
-	public boolean createPassport(PassportInfo passportInfo){
+	public int createPassport(PassportInfo passportInfo){
 		
-		int id = passportInfo.getId();
 		int idOrg = passportInfo.getIdOwner();
 		String region = passportInfo.getRegion();
 		int cadastrNum = passportInfo.getCadastrNumber();
@@ -42,14 +41,14 @@ public class PassportService implements Serializable {
 		String comment = passportInfo.getComment();
 		Passport passport = new Passport(idOrg, region, cadastrNum, area, typeField, comment);
 		try{
-			dao.createPassport(passport);
-			return true;
+			int id = dao.createPassport(passport);
+			return id;
 		}catch(DuplicateKeyException duplicateEx){
 			System.out.println("Дублирование!!!");
-			return false;
+			return 0;
 		}catch(DataIntegrityViolationException ex){
 			System.out.println("Внешний ключ!!!");
-			return false;
+			return 0;
 		}
 	}
 	
@@ -150,10 +149,10 @@ public class PassportService implements Serializable {
 	public List<PassportInfo> findPassports(PassportInfo passportInfo) {
 		List<PassportInfo> listPasportsInfo = new ArrayList<PassportInfo>();
 		
-		Map<String, String> info = new HashMap<>();
+		Map<String, Object> info = new HashMap<>();
 		
 		info.put("id", String.valueOf(passportInfo.getId()));
-		info.put("id_organization", String.valueOf(passportInfo.getId()));
+		info.put("id_organization", String.valueOf(passportInfo.getIdOwner()));
 		info.put("region", String.valueOf(passportInfo.getRegion()));
 		info.put("cadastr_number", String.valueOf(passportInfo.getCadastrNumber()));
 		info.put("area", String.valueOf(passportInfo.getArea()));

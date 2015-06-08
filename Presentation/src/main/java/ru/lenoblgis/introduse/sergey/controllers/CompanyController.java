@@ -1,5 +1,8 @@
 package ru.lenoblgis.introduse.sergey.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +17,11 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
+import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 import ru.lenoblgis.introduse.sergey.services.OwnerService;
+import ru.lenoblgis.introduse.sergey.services.PassportService;
 import ru.lenoblgis.introduse.sergey.services.UserService;
 
 @Controller
@@ -24,10 +29,13 @@ import ru.lenoblgis.introduse.sergey.services.UserService;
 public class CompanyController {
 
 	@Autowired
-	OwnerService ownerService;
+	private OwnerService ownerService;
 	
 	@Autowired
-	UserService userService;
+	private UserService userService;
+	
+	@Autowired
+	private PassportService passportService;
 	
 	/**
 	 * Метод отображающий данные о конкретной компании
@@ -62,6 +70,16 @@ public class CompanyController {
 		if(session.getAttribute("myCompany")==null){
 			OrganizationInfo myCompany = userService.getMyOrganizationByLogin(user.getUsername());
 			session.setAttribute("myCompany", myCompany);
+
+			//Образец по которому мы ищем все паспорта организации (указано только id владельца)
+			PassportInfo findPassportInfo = new PassportInfo();
+			findPassportInfo.setIdOwner(myCompany.getId());
+			List<PassportInfo> resultPassports = passportService.findPassports(findPassportInfo);
+			List<Integer> myIdPassports = new ArrayList<Integer>();
+			for(PassportInfo passportInfo : resultPassports){
+				myIdPassports.add(passportInfo.getId());
+			}
+			session.setAttribute("myIdPasports", myIdPassports);
 		}
 		
 		model.addAttribute("reviewingCompany", session.getAttribute("myCompany"));

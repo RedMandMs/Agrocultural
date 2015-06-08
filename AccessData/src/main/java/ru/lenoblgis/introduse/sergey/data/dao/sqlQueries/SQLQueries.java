@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
+import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 import ru.lenoblgis.introduse.sergey.domen.user.User;
 
 public interface SQLQueries extends Serializable {
@@ -33,7 +34,7 @@ public interface SQLQueries extends Serializable {
 	/**
 	 * Создание паспорта
 	 */
-	public String createPassport();
+	public String createPassport(Passport passport);
 	
 	/**
 	 * Удаление паспорта
@@ -58,7 +59,7 @@ public interface SQLQueries extends Serializable {
 	/**
 	 * Поиск паспорта
 	 */
-	public String findPassports(Map<String,String> info);
+	public String findPassports(Map<String,Object> info);
 	
 	/**
 	 * Сформировать запрос для вставки события

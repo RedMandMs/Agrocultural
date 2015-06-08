@@ -3,6 +3,7 @@ package ru.lenoblgis.introduse.sergey.data.dao.sqlQueries;
 import java.util.Map;
 
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
+import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 import ru.lenoblgis.introduse.sergey.domen.user.User;
 
 public class SQLServerQueries implements SQLQueries {
@@ -51,8 +52,10 @@ public class SQLServerQueries implements SQLQueries {
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#createPassport()
 	 */
-	public String createPassport() {
-		return "INSERT INTO " + NAME_FIELD_TABLE + "(id_organization, region, cadastr_number, area, type_field, comment) VALUES(?,?,?,?,?,?)";
+	public String createPassport(Passport passport) {
+		return "INSERT INTO " + NAME_FIELD_TABLE + "(id_organization, region, cadastr_number, area, type_field, comment) "
+						+ "VALUES("+passport.getIdOwner()+", '"+passport.getRegion()+"', "+passport.getCadastrNumber()+", "
+								+ passport.getArea()+",'"+passport.getType()+"', '"+passport.getComment()+"')";
 	}
 
 	/**
@@ -99,15 +102,15 @@ public class SQLServerQueries implements SQLQueries {
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#findPassports(java.util.Map)
 	 */
-	public String findPassports(Map<String, String> info) {
+	public String findPassports(Map<String, Object> info) {
 		String query = "SELECT * FROM " + NAME_FIELD_TABLE + " WHERE (";
 		String condition = "";
 		
-		if(info.containsKey("id")) condition = condition + "id = " + Integer.parseInt(info.get("id"));
-		if(info.containsKey("id_organization")) condition = condition + " AND id_organization = " + Integer.parseInt(info.get("id_organization"));
+		if(info.containsKey("id")) condition = condition + "id = " + info.get("id");
+		if(info.containsKey("id_organization")) condition = condition + " AND id_organization = " + info.get("id_organization");
 		if(info.containsKey("region")) condition = condition + " AND region = '" + info.get("region") + "'";
-		if(info.containsKey("cadastr_number")) condition = condition + " AND cadastr_number = " + Integer.parseInt(info.get("cadastr_number"));
-		if(info.containsKey("area")) condition = condition + " AND area = " + Integer.parseInt(info.get("area"));
+		if(info.containsKey("cadastr_number")) condition = condition + " AND cadastr_number = " + info.get("cadastr_number");
+		if(info.containsKey("area")) condition = condition + " AND area = " + info.get("area");
 		if(info.containsKey("type_field")) condition = condition + " AND type_field = '" + info.get("type_field") + "'";
 		if(info.containsKey("comment")) condition = condition + " AND comment LIKE '" + info.get("comment") + "'";
 		

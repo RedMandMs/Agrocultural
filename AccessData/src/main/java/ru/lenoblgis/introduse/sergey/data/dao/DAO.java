@@ -150,19 +150,22 @@ public class DAO  {
 	 * 
 	 * @see dataTier.accessToDataServices.DAO#createOwner(java.util.Map)
 	 */
-	public void createPassport(Passport passport) {
-		Object [] values = new Object[]{passport.getIdOwner(), passport.getRegion(), passport.getCadastrNumber(), 
-										passport.getArea(), passport.getType(), passport.getComment()};
-		jdbcTemplate.update(sqlQueries.createPassport(), values);
+	public int createPassport(Passport passport) {
+		String sqlQuery = sqlQueries.createPassport(passport);
+		PreparedStatementCreator psc = new PrepereStmCreater(sqlQuery);
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		int id = jdbcTemplate.update(psc, keyHolder);
 		
 		//Находим только что добавленный паспорт по максимальному Id пасспорта данной организации
-		passport.setId(getPassportwithMaxId(passport.getIdOwner()));
+		passport.setId(id);
 		
 		Owner owner = reviewOwner(passport.getIdOwner());
 		passport.setOwner(owner);
 		
 		//Сформировать событие добавления поля
 		addPassportEvent(passport, owner, ADD_EVENT);
+		
+		return id;
 	}
 
 	/**
@@ -232,7 +235,7 @@ public class DAO  {
 	 * 
 	 * @see dataTier.accessToDataServices.DAO#findPassports(java.util.Map)
 	 */
-	public List<Passport> findPassports(Map<String, String> info) {
+	public List<Passport> findPassports(Map<String, Object> info) {
 		List<Passport> resaltList = jdbcTemplate.query(sqlQueries.findPassports(info), passportRowMapper);
 		
 		for(Passport passport : resaltList){
@@ -331,6 +334,14 @@ public class DAO  {
 		jdbcTemplate.update(psc, keyHolder);
 		return keyHolder.getKey().intValue();
 	}
+
+	public User findUserByLogin(String login){
+		
+		Object[] values = new Object[] {login};
+		List<User> resultSet = jdbcTemplate.query(sqlQueries.reviewUserByLogin(), values , userRowMapper);
+				
+		return resultSet.get(0);
+	}
 	
 	/**
 	 * Класс для подготовки sql запросов, для указания поля, которое должно возвращаться при запросе
@@ -355,13 +366,6 @@ public class DAO  {
 		}
 		 
 	}
-	
-	public User findUserByLogin(String login){
-		
-		Object[] values = new Object[] {login};
-		List<User> resultSet = jdbcTemplate.query(sqlQueries.reviewUserByLogin(), values , userRowMapper);
-				
-		return resultSet.get(0);
-	}
+
 
 }

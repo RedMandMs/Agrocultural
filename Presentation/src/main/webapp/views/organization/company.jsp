@@ -30,6 +30,10 @@
 			<form method="GET" action="change_organization_info">
 				<input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании">
 			</form>
+			
+			<form method="GET" action="/Presentation/passport/createPassport">
+				<input type="submit" name="createPassportBtn" value="Создать новый пасспорт поля">
+			</form>
 		</c:if>
 		<!-- 
 		<form method="get" action="change_organization_info">

@@ -10,48 +10,48 @@
 	</head>
 	<body>
 		<div>
-			<h1>Изменение данных о пасспорте:</h1>	
+			<h1>Создание паспорта:</h1>	
 			<a>${message}</a>
-			<sf:form method="POST" modelAttribute="changedPassport">
+			<sf:form method="POST" modelAttribute="createdPassport">
 				<fieldset>
 					<table>
 						<tr>
 							<td>Id пасспорта: </td>
-							<td>${editingPassport.getId()}</td>
+							<td>${creatingPassport.getId()}</td>
 						</tr>
 						
 						<tr>
 							<td>Компания-владелец паспорта: </td>
-							<td>${editingPassport.getNameOwner()}</td>
+							<td>${creatPassport.getNameOwner()}</td>
 						</tr>
 					
 						<tr>
 							<th><label for="region">Введите регион поля: </label></th>
-							<td><sf:input path="region" size="20" id="region" value="${editingPassport.getRegion()}"/></td>
+							<td><sf:input path="region" size="20" id="region" value="${creatingPassport.getRegion()}"/></td>
 						</tr>
 						
 						<tr>
 							<th><label for="cadastrNumber">Введите кадастровый номер паспорта: </label></th>
-							<td><sf:input path="cadastrNumber" size="20" id="cadastrNumber" value="${editingPassport.getCadastrNumber()}"/></td>
+							<td><sf:input path="cadastrNumber" size="20" id="cadastrNumber" value="${creatingPassport.getCadastrNumber()}"/></td>
 						</tr>
 						
 						<tr>
 							<th><label for="area">Введите площадь поля: </label></th>
-							<td><sf:input path="area" size="50" id="area" value="${editingPassport.getArea()}"/></td>
+							<td><sf:input path="area" size="50" id="area" value="${creatingPassport.getArea()}"/></td>
 						</tr>
 						
 						<tr>
 							<th><label for="type">Введите тип поля: </label></th>
-							<td><sf:input path="type" size="50" id="type" value="${editingPassport.getType()}"/></td>
+							<td><sf:input path="type" size="50" id="type" value="${creatingPassport.getType()}"/></td>
 						</tr>
 						
 						<tr>
 							<th><label for="comment">Введите комментарий к пасспорту: </label></th>
-							<td><sf:input path="comment" size="50" id="comment" value="${editingPassport.getComment()}"/></td>
+							<td><sf:input path="comment" size="50" id="comment" value="${creatingPassport.getComment()}"/></td>
 						</tr>
 						
 						<tr>
-							<td><input type="submit" name="changedBtn" value="Изменить информацию о пасспорте"></td>
+							<td><input type="submit" name="changedBtn" value="Создать пасспорт"></td>
 						</tr>
 					</table>
 				</fieldset>
