@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
+
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
@@ -35,7 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 // указываем правила запросов
                 // по которым будет определятся доступ к ресурсам и остальным данным
                 .authorizeRequests()
-                .antMatchers("/resources/**", "/**").permitAll()
+                .antMatchers("/login", "/registration", "/").permitAll()
+                .antMatchers("/organization/**", "/passport/**")
+                					.authenticated()
                 .anyRequest().permitAll()
                 .and();
  
