@@ -48,8 +48,8 @@ public class SQLTesting {
 		//Owner owner1 = new Organization(-1, "LenOblGis2", 1234564, null);
 		//adminDao.createOwner(owner1);
 		
-		Passport fieldPassport1 = new Passport(-1, 8, "Всеволожский р-н", "70", 20, "Сельскохозяйственное производство", null);
-		adminDao.createPassport(fieldPassport1);
+		/*Passport fieldPassport1 = new Passport(-1, 8, "Всеволожский р-н", "70", 20, "Сельскохозяйственное производство", null);
+		adminDao.createPassport(fieldPassport1);*/
 		//adminDao.deletePassport(3);
 	}
 }

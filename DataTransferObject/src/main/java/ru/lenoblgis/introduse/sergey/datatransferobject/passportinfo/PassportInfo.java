@@ -17,7 +17,7 @@ public class PassportInfo implements Serializable{
 	 * @param comment - комментарий
 	 */
 	public PassportInfo(int id, int idOwner, String region, String nameOwner,
-			Integer cadastrNumber, double area, String type, String comment) {
+			Integer cadastrNumber, float area, String type, String comment) {
 		this.id = id;
 		this.idOwner = idOwner;
 		this.nameOwner = nameOwner;
@@ -38,7 +38,7 @@ public class PassportInfo implements Serializable{
 	 * @param comment - комментарий
 	 */
 	public PassportInfo(int idOwner, String region, Integer cadastrNumber,
-			double area, String type, String comment) {
+			float area, String type, String comment) {
 		this.idOwner = idOwner;
 		this.region = region;
 		this.cadastrNumber = cadastrNumber;
@@ -84,7 +84,7 @@ public class PassportInfo implements Serializable{
 	/**
 	 * Площадь поля
 	 */
-	private double area;
+	private float area;
 	
 	/**
 	 * Тип поля
@@ -160,14 +160,14 @@ public class PassportInfo implements Serializable{
 	/**
 	 * Получение площади поля
 	 */
-	public double getArea() {
+	public float getArea() {
 		return area;
 	}
 	
 	/**
 	 * Установка площади поля
 	 */
-	public void setArea(double area) {
+	public void setArea(float area) {
 		this.area = area;
 	}
 	

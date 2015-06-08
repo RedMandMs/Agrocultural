@@ -31,28 +31,26 @@ public class PassportService implements Serializable {
 	 * 				type_field - тип поля, comment - комментарий)
  	 * @return - результаты работы ("success" - успешено ли был добавлен паспорт)
 	 */
-	public Map<String, String> createPassport(Map<String, String> info){
-		Map<String, String> workresults = new HashMap<String, String>();
+	public boolean createPassport(PassportInfo passportInfo){
 		
-		int idOrg = Integer.valueOf(info.get("id_organization"));
-		String region = info.get("region");
-		String cadastrNum = info.get("cadastr_number");
-		Integer area = Integer.valueOf(info.get("area"));
-		String typeField = info.get("type_field");
-		String comment = info.get("comment");
+		int id = passportInfo.getId();
+		int idOrg = passportInfo.getIdOwner();
+		String region = passportInfo.getRegion();
+		int cadastrNum = passportInfo.getCadastrNumber();
+		float area = passportInfo.getArea();
+		String typeField = passportInfo.getType();
+		String comment = passportInfo.getComment();
 		Passport passport = new Passport(idOrg, region, cadastrNum, area, typeField, comment);
 		try{
 			dao.createPassport(passport);
-			workresults.put("success", "true");
+			return true;
 		}catch(DuplicateKeyException duplicateEx){
 			System.out.println("Дублирование!!!");
-			workresults.put("success", "false");
+			return false;
 		}catch(DataIntegrityViolationException ex){
 			System.out.println("Внешний ключ!!!");
-			workresults.put("success", "false");
+			return false;
 		}
-		
-		return workresults;
 	}
 	
 	
@@ -61,29 +59,26 @@ public class PassportService implements Serializable {
 	 * @param info - информация о редактируемром паспорте("id" - id пасспорта, "id_organization" - id организации, region - регион, cadastr_number - кадастровый номер, area - площадь, type_field - тип поля, comment - комментарий)
  	 * @return - результаты работы ("success" - успешено ли был отредактирован паспорт)
 	 */
-	public Map<String, String> editPassport(Map<String, String> info){
-		Map<String, String> workresults = new HashMap<String, String>();
+	public boolean editPassport(PassportInfo passportInfo){
 				
-		int id = Integer.valueOf(info.get("id"));
-		int idOrg = Integer.valueOf(info.get("id_organization"));
-		String region = info.get("region");
-		String cadastrNum = info.get("cadastr_number");
-		Integer area = Integer.valueOf(info.get("area"));
-		String typeField = info.get("type_field");
-		String comment = info.get("comment");
+		int id = passportInfo.getId();
+		int idOrg = passportInfo.getIdOwner();
+		String region = passportInfo.getRegion();
+		int cadastrNum = passportInfo.getCadastrNumber();
+		float area = passportInfo.getArea();
+		String typeField = passportInfo.getType();
+		String comment = passportInfo.getComment();
 		Passport passport = new Passport(id, idOrg, region, cadastrNum, area, typeField, comment);
 		try{
 			dao.editPassport(passport);;
-			workresults.put("success", "true");
+			return true;
 		}catch(DuplicateKeyException duplicateEx){
 			System.out.println("Дублирование!!!");
-			workresults.put("success", "false");
+			return false;
 		}catch(DataIntegrityViolationException ex){
 			System.out.println("Внешний ключ!!!");
-			workresults.put("success", "false");
+			return false;
 		}
-		
-		return workresults;
 	}
 	
 	/**
@@ -113,21 +108,18 @@ public class PassportService implements Serializable {
 	
 	/**
 	 * Удалить пасспорт
-	 * @param passportId - id паспорта
-	 * @return - результаты работы ("success" - успешено ли был удалён паспорт)
+	 * @param passportId -id удаляемого пасспорта
+	 * @return - true - пасспорт удалён, false - возникли проблемы
 	 */
-	public Map<String, String> deletePassport(int passportId){
-		Map<String, String> workresults = new HashMap<String, String>();
+	public boolean deletePassport(int passportId){
 		
 		try{
 			dao.deletePassport(passportId);
-			workresults.put("success", "true");
+			return true;
 		}catch(IndexOutOfBoundsException duplicateEx){
 			System.out.println("Не существует такого паспорта!!!");
-			workresults.put("success", "false");
+			return false;
 		}
-		
-		return workresults;
 	}
 	
 	/**
@@ -136,19 +128,14 @@ public class PassportService implements Serializable {
 	 * 													region - регион, cadastr_number - кадастровый номер, 
 	 * 													area - площадь, type_field - тип поля, comment - комментарий)
 	 */
-	public List<Map<String, String>> reviewAllPassport() {
-		List<Map<String,String>> listPasportsInfo = new ArrayList<Map<String,String>>();
+	public List<PassportInfo> reviewAllPassport() {
+		List<PassportInfo> listPasportsInfo = new ArrayList<PassportInfo>();
 	
 		List<Passport> passports = dao.reviewAllPassports();
 		for(Passport passport : passports){
-			Map<String, String> passportInfo = new HashMap<String, String>();
-			passportInfo.put("id", String.valueOf(passport.getId()));
-			passportInfo.put("id_organization", String.valueOf(passport.getId()));
-			passportInfo.put("region", String.valueOf(passport.getRegion()));
-			passportInfo.put("cadastr_number", String.valueOf(passport.getCadastrNumber()));
-			passportInfo.put("area", String.valueOf(passport.getArea()));
-			passportInfo.put("type_field", String.valueOf(passport.getType()));
-			passportInfo.put("comment", String.valueOf(passport.getComment()));
+			PassportInfo passportInfo = new PassportInfo(passport.getId(),passport.getIdOwner(), passport.getRegion(), 
+															passport.getOwner().getName(), passport.getCadastrNumber(), 
+															passport.getArea(), passport.getType(), passport.getComment());
 			listPasportsInfo.add(passportInfo);
 		}
 		
@@ -160,20 +147,25 @@ public class PassportService implements Serializable {
 	 * @param info - информация о паспортах, которые нужно найти("id" - id пасспорта, "id_organization" - id организации, region - регион, cadastr_number - кадастровый номер, area - площадь, type_field - тип поля, comment - комментарий)
 	 * @return - список с информацией о каждом найденом паспорте("id" - id пасспорта, "id_organization" - id организации, region - регион, cadastr_number - кадастровый номер, area - площадь, type_field - тип поля, comment - комментарий)
 	 */
-	public List<Map<String, String>> findPassports(Map<String, String> info) {
-		List<Map<String,String>> listPasportsInfo = new ArrayList<Map<String,String>>();
+	public List<PassportInfo> findPassports(PassportInfo passportInfo) {
+		List<PassportInfo> listPasportsInfo = new ArrayList<PassportInfo>();
+		
+		Map<String, String> info = new HashMap<>();
+		
+		info.put("id", String.valueOf(passportInfo.getId()));
+		info.put("id_organization", String.valueOf(passportInfo.getId()));
+		info.put("region", String.valueOf(passportInfo.getRegion()));
+		info.put("cadastr_number", String.valueOf(passportInfo.getCadastrNumber()));
+		info.put("area", String.valueOf(passportInfo.getArea()));
+		info.put("type_field", String.valueOf(passportInfo.getType()));
+		info.put("comment", String.valueOf(passportInfo.getComment()));
 		
 		List<Passport> passports = dao.findPassports(info);
 		for(Passport passport : passports){
-			Map<String, String> passportInfo = new HashMap<String, String>();
-			passportInfo.put("id", String.valueOf(passport.getId()));
-			passportInfo.put("id_organization", String.valueOf(passport.getId()));
-			passportInfo.put("region", String.valueOf(passport.getRegion()));
-			passportInfo.put("cadastr_number", String.valueOf(passport.getCadastrNumber()));
-			passportInfo.put("area", String.valueOf(passport.getArea()));
-			passportInfo.put("type_field", String.valueOf(passport.getType()));
-			passportInfo.put("comment", String.valueOf(passport.getComment()));
-			listPasportsInfo.add(passportInfo);
+			PassportInfo resaltPassportInfo = new PassportInfo(passport.getId(),passport.getIdOwner(), passport.getRegion(), 
+																passport.getOwner().getName(), passport.getCadastrNumber(), 
+																passport.getArea(), passport.getType(), passport.getComment());
+			listPasportsInfo.add(resaltPassportInfo);
 		}
 		
 		return listPasportsInfo;

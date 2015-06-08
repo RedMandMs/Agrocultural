@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.domen.actionevent.PassportEvent;
-import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 
 /**
  * Тестирование добавления события в базу данных
@@ -25,9 +24,9 @@ public class TestEventDAO {
 	public void testAddEventCreateToDB() {
 		DAO dao = new DAO();
 		
-		Passport passport = new Passport(574, 8, "Всеволожский р-н", "13", 25, "Фермерское хозяйство", null);
+		/*Passport passport = new Passport(574, 8, "Всеволожский р-н", "13", 25, "Фермерское хозяйство", null);
 		dao.createPassport(passport);
-		System.out.println();
+		System.out.println();*/
 	}
 	
 	/**
@@ -39,7 +38,6 @@ public class TestEventDAO {
 		DAO dao = new DAO();
 		
 		dao.deletePassport(27);
-		System.out.println();
 	}
 	
 	/**
@@ -50,9 +48,8 @@ public class TestEventDAO {
 	public void testAddEventEditToDB() {
 		DAO dao = new DAO();
 		
-		Passport passport = new Passport(25, 8, "Приземский р-н", "14", 25, "Фермерское хозяйство", "New Comment");
-		dao.editPassport(passport);
-		System.out.println();
+		/*Passport passport = new Passport(25, 8, "Приземский р-н", "14", 25, "Фермерское хозяйство", "New Comment");
+		dao.editPassport(passport);*/
 	}
 	
 	/**
