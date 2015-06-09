@@ -16,13 +16,19 @@
 				<fieldset>
 					<table>
 						<tr>
-							<td>Id пасспорта: </td>
-							<td>${changedPassport.getId()}</td>
+							<td><label for="id"></label>Id пасспорта: </td>
+							<td><sf:input path="id" size="10" id="id" onfocus="blur();" value = "${changedPassport.getId()}"/></td>
 						</tr>
 						
+						
 						<tr>
-							<td>Компания-владелец паспорта: </td>
-							<td>${changedPassport.getNameOwner()}</td>
+							<td><label for="id_owner"></label>Id компании-владелеца паспорта: </td>
+							<td><sf:input path="idOwner" size="10" id="id_owner" onfocus="blur();" value = "${changedPassport.getIdOwner()}"/></td>
+						</tr>
+					
+						<tr>
+							<td><label for="name_owner"></label>Имя компании-владелеца паспорта: </td>
+							<td><sf:input path="nameOwner" size="10" id="name_owner" onfocus="blur();" value = "${changedPassport.getNameOwner()}"/></td>
 						</tr>
 					
 						<tr>
