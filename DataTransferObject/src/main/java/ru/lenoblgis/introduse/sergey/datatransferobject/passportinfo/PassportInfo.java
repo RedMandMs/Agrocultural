@@ -59,12 +59,12 @@ public class PassportInfo implements Serializable{
 	/**
 	 * Id поля
 	 */
-	private int id;
+	private Integer id;
 	
 	 /**
 	  * Организация-владелец поля
 	  */
-	private int idOwner;
+	private Integer idOwner;
 	
 	/**
 	 * Имя владельца пасспорта
@@ -100,7 +100,7 @@ public class PassportInfo implements Serializable{
 	/**
 	 * Получение id паспорта
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	
@@ -114,7 +114,7 @@ public class PassportInfo implements Serializable{
 	/**
 	 * Получение id владельца
 	 */
-	public int getIdOwner() {
+	public Integer getIdOwner() {
 		return idOwner;
 	}
 	
@@ -149,11 +149,11 @@ public class PassportInfo implements Serializable{
 	/**
 	 * Установка кадастрового номера
 	 */
-	public void setCadastrNumber(String cadastrNumber) {
-		if(cadastrNumber == null || cadastrNumber.trim().equals("")){
+	public void setCadastrNumber(Integer cadastrNumber) {
+		if(cadastrNumber == null || cadastrNumber == 0){
 			this.cadastrNumber = null;
 		}else{
-			this.cadastrNumber = Integer.valueOf(cadastrNumber);
+			this.cadastrNumber = cadastrNumber;
 		}
 	}
 	

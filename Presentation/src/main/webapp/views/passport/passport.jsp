@@ -9,7 +9,6 @@
 	<title>Просмотр пасспорта</title>
 	</head>
 	<body>
-		<form name="passportInfo" title="Информация о компании">
 			<table>
 				<tr>
 					<td>Id пасспорта: </td>
@@ -48,11 +47,14 @@
 				
 				<c:set var="isMyPassport" scope="request" value="${isMyPassport}"/>
 				<c:if test="${isMyPassport}">
-					<form method="GET" action="change_passport_info/"+${reviewingPassport.getId()} >
-						<input type="submit" name="changePassportInfoBtn" value="Изменить информацию о пасспорте">
-					</form>
+					<tr>
+						<td>	
+							<form method="GET" action="change_passport_info/${reviewingPassport.getId()}" >
+								<input type="submit" name="changePassportInfoBtn" value="Изменить информацию о пасспорте"/>
+							</form>
+						</td>
+					</tr>
 				</c:if>
 			</table>
-		</form>
 	</body>
 </html>

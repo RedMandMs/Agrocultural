@@ -73,23 +73,23 @@ public class PassportController {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
-		PassportInfo editingPassport;
+		PassportInfo changedPassport;
 		
 		if(session.getAttribute("changePassportInfo") != null){
 			session.removeAttribute("changePassportInfo");
-			editingPassport = (PassportInfo) session.getAttribute("incorrectPassport");
+			changedPassport = (PassportInfo) session.getAttribute("incorrectPassport");
 			session.removeAttribute("incorrectPassport");
 			model.addAttribute("message", "Не удалось изменить информацию о пасспорте!!!");
 		}else{
-			editingPassport = passportService.reviewPassport(Integer.valueOf(passportId));
+			changedPassport = passportService.reviewPassport(Integer.valueOf(passportId));
 			model.addAttribute("message", "Введите новые данные о пасспорте:");
 		}
 		
 		List<Integer> myIdPasports = (List<Integer>) session.getAttribute("myIdPasports"); 
 		
-		if(myIdPasports.contains(editingPassport.getId())){
-			model.addAttribute("editingPassport", editingPassport);
-			return "change_info_passport";
+		if(myIdPasports.contains(changedPassport.getId())){
+			model.addAttribute("changedPassport", changedPassport);
+			return "passport/change_info_passport";
 		}else{
 			return "403";
 		}

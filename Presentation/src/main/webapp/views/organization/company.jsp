@@ -28,11 +28,11 @@
 		<c:set var="isMyCompany" scope="request" value="${isMyCompany}"/>
 		<c:if test="${isMyCompany}">
 			<form method="GET" action="change_organization_info">
-				<input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании">
+				<input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании"/>
 			</form>
 			
 			<form method="GET" action="/Presentation/passport/createPassport">
-				<input type="submit" name="createPassportBtn" value="Создать новый пасспорт поля">
+				<input type="submit" name="createPassportBtn" value="Создать новый пасспорт поля"/>
 			</form>
 		</c:if>
 		<!-- 
