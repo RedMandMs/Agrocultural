@@ -147,11 +147,16 @@ public class PassportController {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
+		OrganizationInfo myCompany = (OrganizationInfo) session.getAttribute("myCompany");
+		
+		createdPassport.setIdOwner(myCompany.getId());
+		createdPassport.setNameOwner(myCompany.getName());
+		
 		int passportId = passportService.createPassport(createdPassport);
 		if(passportId != 0){
 			List<Integer> myIdPasports = (List<Integer>) session.getAttribute("myIdPasports");
 			myIdPasports.add(passportId);
-			return "redirect:/passport/mypassportlist/"+passportId;
+			return "redirect:/passport/"+passportId;
 		}else{
 			session.setAttribute("isCreatePassport", false);
 			session.setAttribute("incorrectPassport", createdPassport);

@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public enum TypeField implements Serializable{
 	
-	FARM("‘ермерское хоз€йство"),
-	AGROCULTURAL("—ельскохоз€йственное производство"),
-	COLLECTIVE_FARM(" ресть€нское хоз€йство");
+	FARM("Ferm"),
+	AGROCULTURAL("Selo"),
+	COLLECTIVE_FARM("Krest");
 	
 	private TypeField(String type) {
 		this.type = type;

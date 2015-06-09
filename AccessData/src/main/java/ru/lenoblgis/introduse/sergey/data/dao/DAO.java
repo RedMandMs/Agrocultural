@@ -154,7 +154,9 @@ public class DAO  {
 		String sqlQuery = sqlQueries.createPassport(passport);
 		PreparedStatementCreator psc = new PrepereStmCreater(sqlQuery);
 		KeyHolder keyHolder = new GeneratedKeyHolder();
-		int id = jdbcTemplate.update(psc, keyHolder);
+		jdbcTemplate.update(psc, keyHolder);
+		
+		int id = keyHolder.getKey().intValue();
 		
 		//Находим только что добавленный паспорт по максимальному Id пасспорта данной организации
 		passport.setId(id);

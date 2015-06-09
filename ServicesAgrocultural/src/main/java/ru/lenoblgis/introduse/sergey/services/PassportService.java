@@ -151,13 +151,13 @@ public class PassportService implements Serializable {
 		
 		Map<String, Object> info = new HashMap<>();
 		
-		info.put("id", String.valueOf(passportInfo.getId()));
-		info.put("id_organization", String.valueOf(passportInfo.getIdOwner()));
-		info.put("region", String.valueOf(passportInfo.getRegion()));
-		info.put("cadastr_number", String.valueOf(passportInfo.getCadastrNumber()));
-		info.put("area", String.valueOf(passportInfo.getArea()));
-		info.put("type_field", String.valueOf(passportInfo.getType()));
-		info.put("comment", String.valueOf(passportInfo.getComment()));
+		info.put("id", passportInfo.getId());
+		info.put("id_organization", passportInfo.getIdOwner());
+		info.put("region", passportInfo.getRegion());
+		info.put("cadastr_number", passportInfo.getCadastrNumber());
+		info.put("area", passportInfo.getArea());
+		info.put("type_field", passportInfo.getType());
+		info.put("comment", passportInfo.getComment());
 		
 		List<Passport> passports = dao.findPassports(info);
 		for(Passport passport : passports){

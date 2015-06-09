@@ -15,14 +15,10 @@
 			<sf:form method="POST" modelAttribute="createdPassport">
 				<fieldset>
 					<table>
-						<tr>
-							<td>Id пасспорта: </td>
-							<td>${creatingPassport.getId()}</td>
-						</tr>
 						
 						<tr>
 							<td>Компания-владелец паспорта: </td>
-							<td>${creatPassport.getNameOwner()}</td>
+							<td>${myCompany.getName()}</td>
 						</tr>
 					
 						<tr>

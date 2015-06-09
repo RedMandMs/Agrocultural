@@ -86,9 +86,10 @@ public class SQLServerQueries implements SQLQueries {
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#reviewPassport()
 	 */
 	public String reviewPassport() {
-		return "SELECT * "
+		String query = "SELECT * "
 				+ " FROM " + NAME_FIELD_TABLE
 				+ " WHERE (id = ?);";
+		return query;
 	}
 
 	/**
@@ -106,13 +107,20 @@ public class SQLServerQueries implements SQLQueries {
 		String query = "SELECT * FROM " + NAME_FIELD_TABLE + " WHERE (";
 		String condition = "";
 		
-		if(info.containsKey("id")) condition = condition + "id = " + info.get("id");
-		if(info.containsKey("id_organization")) condition = condition + " AND id_organization = " + info.get("id_organization");
-		if(info.containsKey("region")) condition = condition + " AND region = '" + info.get("region") + "'";
-		if(info.containsKey("cadastr_number")) condition = condition + " AND cadastr_number = " + info.get("cadastr_number");
-		if(info.containsKey("area")) condition = condition + " AND area = " + info.get("area");
-		if(info.containsKey("type_field")) condition = condition + " AND type_field = '" + info.get("type_field") + "'";
-		if(info.containsKey("comment")) condition = condition + " AND comment LIKE '" + info.get("comment") + "'";
+		Integer id = (Integer) info.get("id");
+		if(id != null && id != 0) condition = condition + "id = " + id;
+		Integer idOrganization = (Integer) info.get("id_organization");
+		if(idOrganization != null && idOrganization != 0) condition = condition + " AND id_organization = " + idOrganization;
+		String region = (String) info.get("region");
+		if(region != null && region.trim() != "") condition = condition + " AND region = '" + region + "'";
+		Integer cadastrNumber = (Integer) info.get("cadastr_number");
+		if(cadastrNumber != null && cadastrNumber != 0) condition = condition + " AND cadastr_number = " + cadastrNumber;
+		Float area = (Float) info.get("area");
+		if(area != null && area != 0) condition = condition + " AND area = " + area;
+		String type = (String) info.get("type_field");
+		if(region != null && region.trim() != "") condition = condition + " AND type_field = '" + type + "'";
+		String comment = (String) info.get("comment");
+		if(comment != null && comment.trim() != "") condition = condition + " AND comment LIKE '" + comment + "'";
 		
 		String [] withoutAnd = condition.split(" ", 3);
 		if(withoutAnd[1].equals("AND")) condition = withoutAnd[2];

@@ -9,9 +9,9 @@ import java.io.Serializable;
  */
 public enum RegionField implements Serializable{
 	
-	UNKNOWN("Неизвестный"),
-	VSEVOLOGSK("Всеволожский р-н"),
-	PRIZEMSK("Приземский р-н");
+	UNKNOWN("Neizv"),
+	VSEVOLOGSK("vsevologskiy"),
+	PRIZEMSK("Prizemskiy");
 	
 	private RegionField(String region){
 		this.region = region;
