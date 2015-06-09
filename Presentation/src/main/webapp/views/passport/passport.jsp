@@ -57,7 +57,8 @@
 				</c:if>
 				<tr>
 					<td>	
-						<form method="GET" action="Presentation/passport/listpassports" >
+						<form method="GET" action="/Presentation/passport/listpassports" >
+							<input type="hidden" name="purpose" value="${purpose}" />
 							<input type="submit" name="backToPassportsListBtn" value="Назад к списку паспортов"/>
 						</form>
 					</td>

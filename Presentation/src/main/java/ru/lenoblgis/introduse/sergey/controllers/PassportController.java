@@ -185,6 +185,7 @@ public class PassportController {
 			List<PassportInfo> myPassports = passportService.findPassports(ownPassport);
 			
 			session.setAttribute("isSerchList", false);
+			session.setAttribute("purpose", "myPassportsList");
 			session.setAttribute("reviewingPassportsList", myPassports);
 			session.setAttribute("messageList", "Список паспартов вашей организации:");
 		}
@@ -192,6 +193,7 @@ public class PassportController {
 		if(purpose.equals("serch")){
 			//TODO
 			session.setAttribute("isSerchList", true);
+			session.setAttribute("purpose", "serch");
 			session.setAttribute("messageList", "Список найденых паспартов:");
 			PassportInfo serchingPassport = (PassportInfo) session.getAttribute("serchingPassport");	
 			if(serchingPassport==null){

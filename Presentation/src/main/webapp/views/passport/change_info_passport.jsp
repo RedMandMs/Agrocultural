@@ -17,18 +17,18 @@
 					<table>
 						<tr>
 							<td><label for="id"></label>Id пасспорта: </td>
-							<td><sf:input path="id" size="10" id="id" onfocus="blur();" value = "${changedPassport.getId()}"/></td>
+							<td><sf:input readonly="true" path="id" size="10" id="id" value = "${changedPassport.getId()}"/></td>
 						</tr>
 						
 						
 						<tr>
 							<td><label for="id_owner"></label>Id компании-владелеца паспорта: </td>
-							<td><sf:input path="idOwner" size="10" id="id_owner" onfocus="blur();" value = "${changedPassport.getIdOwner()}"/></td>
+							<td><sf:input readonly="true" path="idOwner" size="10" id="id_owner" value = "${changedPassport.getIdOwner()}"/></td>
 						</tr>
 					
 						<tr>
 							<td><label for="name_owner"></label>Имя компании-владелеца паспорта: </td>
-							<td><sf:input path="nameOwner" size="10" id="name_owner" onfocus="blur();" value = "${changedPassport.getNameOwner()}"/></td>
+							<td><sf:input readonly="true" path="nameOwner" size="10" id="name_owner" value = "${changedPassport.getNameOwner()}"/></td>
 						</tr>
 					
 						<tr>
