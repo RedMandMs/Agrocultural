@@ -179,6 +179,7 @@ public class PassportController {
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
 		if(purpose.equals("myPassportsList")){
+			
 			OrganizationInfo myCompany = (OrganizationInfo) session.getAttribute("myCompany");
 			PassportInfo ownPassport = new PassportInfo();
 			ownPassport.setIdOwner(myCompany.getId());
@@ -191,7 +192,7 @@ public class PassportController {
 		}
 		
 		if(purpose.equals("serch")){
-			//TODO
+			
 			session.setAttribute("isSerchList", true);
 			session.setAttribute("purpose", "serch");
 			session.setAttribute("messageList", "Список найденых паспартов:");
@@ -199,7 +200,6 @@ public class PassportController {
 			if(serchingPassport==null){
 				serchingPassport = new PassportInfo();
 			}
-			
 			model.addAttribute("serchingPassport", serchingPassport);
 		}
 		
