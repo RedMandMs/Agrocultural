@@ -23,7 +23,7 @@
 		    <td>${passport.getType()}</td>
 		    <td>${passport.getComment()}</td>
 		    <td>
-		    	<form action="http://localhost:8080/Presentation/passport?idPassport=${passport.getId()}" method="get">
+		    	<form action="http://localhost:8080/Presentation/passport/${passport.getId()}" method="get">
 		    		<input type="submit" value="Посмотреть">
 		    	</form>
 		    </td>
