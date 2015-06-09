@@ -35,14 +35,15 @@
 				<input type="submit" name="createPassportBtn" value="Создать новый пасспорт поля"/>
 			</form>
 			<br>
-			<form method="GET" action="/Presentation/passport/mypassportlist">
-				<input type="submit" name="reviewMyPassportsBtn" value="Посмотреть мои паспорта"/>
+			<form method="GET" action="/Presentation/passport/listpassports">
+				<input type="hidden" name="purpose" value="myPassportsList" /> 
+				<input type="submit" name="reviewMyPassportsBtn" value="Посмотреть паспорта организации"/>
+			</form>
+			<br>
+			<form method="GET" action="/Presentation/passport/listpassports">
+				<input type="hidden" name="purpose" value="serch" />
+				<input type="submit" name="serchPassportsBtn" value="Поиск паспортов"/>
 			</form>
 		</c:if>
-		<!-- 
-		<form method="get" action="change_organization_info">
-			<input type="submit" name="lookPassportsBtn" value="Посмотреть все паспорта пренадлежащие компании">
-		</form>
-		-->
 	</body>
 </html>

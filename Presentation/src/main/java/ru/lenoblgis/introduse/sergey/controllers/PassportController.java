@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
@@ -170,19 +172,47 @@ public class PassportController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/mypassportlist", method = RequestMethod.GET)
-    public String showMyPassportsList(ModelMap model) {
+	@RequestMapping(value = "/listpassports", method = RequestMethod.GET)
+    public String showPassportsList(@RequestParam("purpose") String purpose, ModelMap model) {
 		
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
-		OrganizationInfo myCompany = (OrganizationInfo) session.getAttribute("myCompany");
-		PassportInfo findingPassport = new PassportInfo();
-		findingPassport.setIdOwner(myCompany.getId());
-		List<PassportInfo> myPassports = passportService.findPassports(findingPassport);
+		if(purpose.equals("myPassportsList")){
+			OrganizationInfo myCompany = (OrganizationInfo) session.getAttribute("myCompany");
+			PassportInfo ownPassport = new PassportInfo();
+			ownPassport.setIdOwner(myCompany.getId());
+			List<PassportInfo> myPassports = passportService.findPassports(ownPassport);
+			
+			session.setAttribute("isSerchList", false);
+			session.setAttribute("reviewingPassportsList", myPassports);
+			session.setAttribute("messageList", "Список паспартов вашей организации:");
+		}
 		
-		session.setAttribute("reviewingPassportsList", myPassports);
+		if(purpose.equals("serch")){
+			//TODO
+			session.setAttribute("isSerchList", true);
+			session.setAttribute("messageList", "Список найденых паспартов:");
+			PassportInfo serchingPassport = (PassportInfo) session.getAttribute("serchingPassport");	
+			if(serchingPassport==null){
+				serchingPassport = new PassportInfo();
+			}
+			
+			model.addAttribute("serchingPassport", serchingPassport);
+		}
 		
 		return "passport/passportlist";
+	}
+	
+	@RequestMapping(value = "/listpassports", method = RequestMethod.POST)
+    public String findPassports(PassportInfo serchingPassport, ModelMap model) {
+		
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true); // true == allow create
+		
+		List<PassportInfo> findingPassports = passportService.findPassports(serchingPassport);
+		session.setAttribute("reviewingPassportsList", findingPassports);
+		session.setAttribute("serchingPassport", serchingPassport);
+		return "redirect:/passport/listpassports?purpose=serch";
 	}
 }

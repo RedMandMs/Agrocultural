@@ -55,6 +55,14 @@
 						</td>
 					</tr>
 				</c:if>
+				<tr>
+					<td>	
+						<form method="GET" action="Presentation/passport/listpassports" >
+							<input type="submit" name="backToPassportsListBtn" value="Назад к списку паспортов"/>
+						</form>
+					</td>
+				</tr>
+				
 			</table>
 	</body>
 </html>
