@@ -84,7 +84,7 @@ public class PassportInfo implements Serializable{
 	/**
 	 * Площадь поля
 	 */
-	private float area;
+	private Float area;
 	
 	/**
 	 * Тип поля
@@ -107,7 +107,7 @@ public class PassportInfo implements Serializable{
 	/**
 	 * установка id паспорта
 	 */
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -121,7 +121,7 @@ public class PassportInfo implements Serializable{
 	/**
 	 * Установка id владельца
 	 */
-	public void setIdOwner(int idOwner) {
+	public void setIdOwner(Integer idOwner) {
 		this.idOwner = idOwner;
 	}
 	
@@ -150,24 +150,20 @@ public class PassportInfo implements Serializable{
 	 * Установка кадастрового номера
 	 */
 	public void setCadastrNumber(Integer cadastrNumber) {
-		if(cadastrNumber == null || cadastrNumber == 0){
-			this.cadastrNumber = null;
-		}else{
-			this.cadastrNumber = cadastrNumber;
-		}
+		this.cadastrNumber = cadastrNumber;
 	}
 	
 	/**
 	 * Получение площади поля
 	 */
-	public float getArea() {
+	public Float getArea() {
 		return area;
 	}
 	
 	/**
 	 * Установка площади поля
 	 */
-	public void setArea(float area) {
+	public void setArea(Float area) {
 		this.area = area;
 	}
 	
@@ -196,11 +192,7 @@ public class PassportInfo implements Serializable{
 	 * Установка комментария к пасспорту
 	 */
 	public void setComment(String comment) {
-		if(comment == null || comment.trim().equals("")){
-			this.comment = "This passport hasn't comment";
-		}else{
-			this.comment = comment;
-		}
+		this.comment = comment;
 	}
 
 	/**

@@ -1,7 +1,9 @@
 package ru.lenoblgis.introduse.sergey.controllers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -72,9 +74,9 @@ public class CompanyController {
 			session.setAttribute("myCompany", myCompany);
 
 			//Образец по которому мы ищем все паспорта организации (указано только id владельца)
-			PassportInfo findPassportInfo = new PassportInfo();
-			findPassportInfo.setIdOwner(myCompany.getId());
-			List<PassportInfo> resultPassports = passportService.findPassports(findPassportInfo);
+			PassportInfo ownPassports = new PassportInfo();
+			ownPassports.setIdOwner(myCompany.getId());
+			List<PassportInfo> resultPassports = passportService.findPassports(ownPassports);
 			List<Integer> myIdPassports = new ArrayList<Integer>();
 			for(PassportInfo passportInfo : resultPassports){
 				myIdPassports.add(passportInfo.getId());

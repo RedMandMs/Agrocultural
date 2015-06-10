@@ -146,18 +146,18 @@ public class PassportService implements Serializable {
 	 * @param info - информация о паспортах, которые нужно найти("id" - id пасспорта, "id_organization" - id организации, region - регион, cadastr_number - кадастровый номер, area - площадь, type_field - тип поля, comment - комментарий)
 	 * @return - список с информацией о каждом найденом паспорте("id" - id пасспорта, "id_organization" - id организации, region - регион, cadastr_number - кадастровый номер, area - площадь, type_field - тип поля, comment - комментарий)
 	 */
-	public List<PassportInfo> findPassports(PassportInfo passportInfo) {
+	public List<PassportInfo> findPassports(PassportInfo serchingPassport) {
 		List<PassportInfo> listPasportsInfo = new ArrayList<PassportInfo>();
 		
 		Map<String, Object> info = new HashMap<>();
 		
-		info.put("id", passportInfo.getId());
-		info.put("id_organization", passportInfo.getIdOwner());
-		info.put("region", passportInfo.getRegion());
-		info.put("cadastr_number", passportInfo.getCadastrNumber());
-		info.put("area", passportInfo.getArea());
-		info.put("type_field", passportInfo.getType());
-		info.put("comment", passportInfo.getComment());
+		info.put("id", serchingPassport.getId());
+		info.put("id_organization", serchingPassport.getIdOwner());
+		info.put("region", serchingPassport.getRegion());
+		info.put("cadastr_number", serchingPassport.getCadastrNumber());
+		info.put("area", serchingPassport.getArea());
+		info.put("type_field", serchingPassport.getType());
+		info.put("comment", serchingPassport.getComment());
 		
 		List<Passport> passports = dao.findPassports(info);
 		for(Passport passport : passports){

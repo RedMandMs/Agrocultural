@@ -104,7 +104,7 @@ public class SQLServerQueries implements SQLQueries {
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#findPassports(java.util.Map)
 	 */
 	public String findPassports(Map<String, Object> info) {
-		String query = "SELECT * FROM " + NAME_FIELD_TABLE + " WHERE (";
+		String query = "SELECT * FROM " + NAME_FIELD_TABLE + " ";
 		String condition = "";
 		
 		Integer id = (Integer) info.get("id");
@@ -112,19 +112,23 @@ public class SQLServerQueries implements SQLQueries {
 		Integer idOrganization = (Integer) info.get("id_organization");
 		if(idOrganization != null && idOrganization != 0) condition = condition + " AND id_organization = " + idOrganization;
 		String region = (String) info.get("region");
-		if(region != null && region.trim() != "") condition = condition + " AND region = '" + region + "'";
+		if(region != null && !(region.trim().equals(""))) condition = condition + " AND region = '" + region + "'";
 		Integer cadastrNumber = (Integer) info.get("cadastr_number");
 		if(cadastrNumber != null && cadastrNumber != 0) condition = condition + " AND cadastr_number = " + cadastrNumber;
 		Float area = (Float) info.get("area");
 		if(area != null && area != 0) condition = condition + " AND area = " + area;
 		String type = (String) info.get("type_field");
-		if(region != null && region.trim() != "") condition = condition + " AND type_field = '" + type + "'";
+		if(type != null && !(type.trim().equals(""))) condition = condition + " AND type_field = '" + type + "'";
 		String comment = (String) info.get("comment");
-		if(comment != null && comment.trim() != "") condition = condition + " AND comment LIKE '" + comment + "'";
+		if(comment != null && !(comment.trim().equals(""))) condition = condition + " AND comment LIKE '" + comment + "'";
 		
 		String [] withoutAnd = condition.split(" ", 3);
-		if(withoutAnd[1].equals("AND")) condition = withoutAnd[2];
-		query = query + condition + ");";
+		if(withoutAnd.length != 1 && withoutAnd[1].equals("AND")) condition = withoutAnd[2];
+		if(condition.equals("")){
+			query = query + ";";
+		}else{
+			query = query + " WHERE(" + condition + ");";
+		}
 		return query;
 	}
 

@@ -1,13 +1,10 @@
 package ru.lenoblgis.introduse.sergey.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
@@ -181,9 +177,9 @@ public class PassportController {
 		if(purpose.equals("myPassportsList")){
 			
 			OrganizationInfo myCompany = (OrganizationInfo) session.getAttribute("myCompany");
-			PassportInfo ownPassport = new PassportInfo();
-			ownPassport.setIdOwner(myCompany.getId());
-			List<PassportInfo> myPassports = passportService.findPassports(ownPassport);
+			PassportInfo ownPassports = new PassportInfo();
+			ownPassports.setIdOwner(myCompany.getId());
+			List<PassportInfo> myPassports = passportService.findPassports(ownPassports);
 			
 			session.setAttribute("isSerchList", false);
 			session.setAttribute("purpose", "myPassportsList");

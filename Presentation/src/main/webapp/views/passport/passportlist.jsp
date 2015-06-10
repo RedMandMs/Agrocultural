@@ -25,7 +25,7 @@
 						<td>Комментарий к пасспорту:</td>
 					</tr>
 					<tr>
-						<td align="center"><sf:input path="id" size="10"/></td>
+						<td align="center"><sf:input path="id" size="10" /></td>
 						<td align="center"><sf:input path="idOwner" size="10"/></td>
 						<td align="center"><sf:input path="region" size="15"/></td>
 						<td align="center"><sf:input path="cadastrNumber" size="10"/></td>
