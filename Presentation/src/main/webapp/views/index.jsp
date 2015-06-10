@@ -11,33 +11,33 @@
 <body>
 	<table>
 		<tr>
-			<td>
+			<td colspan="3" align="center">
 				<H1>Добро пожаловать на сайт отслеживания сельско-хозяйственных пасспортов!</H1>
 			</td>
 		</tr>
 		<tr>
 			<sec:authorize access="!isAuthenticated()">
-				<td>
+				<td align="center">
 			        <form name="goLogInForm" action="<c:url value='/login' />" method='GET'>
 			        	<input type="submit" name="goLogInBtn" value="Войти в систему">
 			        </form>
 		        </td>
-			    <td>
+			    <td align="center">
 			        <form name="goRegistrForm" action="<c:url value='/registration' />" method='GET'>
 			        	<input type="submit" name="goRegistrBtn" value="Зарегистрироваться">
 			        </form>
 			    </td>
 		    </sec:authorize>
 		    <sec:authorize access="isAuthenticated()">
-		    	<td>
+		    	<td align="center">
 		 	       <p>Ваш логин: <sec:authentication property="principal.username" /></p>
 		 	    </td>
-		 	    <td>
+		 	    <td align="center">
 		    		<form name="goReviewCompanyForm" action="<c:url value='/organization/company/mycompany' />" method='GET'>
 		     			<input type="submit" name="reviewMyCompanyBtn" value="Просмотр информации о своей компании">
 		    		</form>
 		    	</td>
-		 	    <td>
+		 	    <td align="center">
 		    		<form name="logOutForm" action="<c:url value='/logout' />" method='GET'>
 		     			<input type="submit" name="logOutBtn" value="Выйти из системы">
 		    		</form>

@@ -116,17 +116,15 @@ public class PassportController {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
-		PassportInfo createdPassport;
+		PassportInfo createdPassport = (PassportInfo) session.getAttribute("incorrectPassport");
 		
-		if(session.getAttribute("isCreatePassport") == null){
+		if(createdPassport == null){
 			OrganizationInfo myCompany = (OrganizationInfo) session.getAttribute("myCompany");
 			createdPassport = new PassportInfo();
 			createdPassport.setIdOwner(myCompany.getId());
 			createdPassport.setNameOwner(myCompany.getName());
 			model.addAttribute("message", "Введите данные о новом пасспорте");
 		}else{
-			session.removeAttribute("isCreatePassport");
-			createdPassport = (PassportInfo) session.getAttribute("incorrectPassport");
 			session.removeAttribute("incorrectPassport");
 			model.addAttribute("message", "Вы ввели некорректные данные!");
 		}
@@ -153,11 +151,15 @@ public class PassportController {
 		
 		int passportId = passportService.createPassport(createdPassport);
 		if(passportId != 0){
+			PassportInfo newPassport = passportService.reviewPassport(passportId);
 			List<Integer> myIdPasports = (List<Integer>) session.getAttribute("myIdPasports");
-			myIdPasports.add(passportId);
+			myIdPasports.add(newPassport.getId());
+			List<PassportInfo> myPassportList = (List<PassportInfo>) session.getAttribute("myPassportsList");
+			myPassportList.add(newPassport);
+			session.setAttribute("isSerchList", false);
+			session.setAttribute("purpose", "myPassportsList");
 			return "redirect:/passport/"+passportId;
 		}else{
-			session.setAttribute("isCreatePassport", false);
 			session.setAttribute("incorrectPassport", createdPassport);
 			return "redirect:/passport/createPassport";
 		}
@@ -168,49 +170,55 @@ public class PassportController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/listpassports", method = RequestMethod.GET)
-    public String showPassportsList(@RequestParam("purpose") String purpose, ModelMap model) {
+	@RequestMapping(value = "/mylistpassports", method = RequestMethod.GET)
+    public String showMyPassportsList(ModelMap model) {
 		
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
-		if(purpose.equals("myPassportsList")){
-			
-			OrganizationInfo myCompany = (OrganizationInfo) session.getAttribute("myCompany");
-			PassportInfo ownPassports = new PassportInfo();
-			ownPassports.setIdOwner(myCompany.getId());
-			List<PassportInfo> myPassports = passportService.findPassports(ownPassports);
-			
-			session.setAttribute("isSerchList", false);
-			session.setAttribute("purpose", "myPassportsList");
-			session.setAttribute("reviewingPassportsList", myPassports);
-			session.setAttribute("messageList", "Список паспартов вашей организации:");
-		}
+		session.setAttribute("lastList", "mylistpassports");
 		
-		if(purpose.equals("serch")){
-			
-			session.setAttribute("isSerchList", true);
-			session.setAttribute("purpose", "serch");
-			session.setAttribute("messageList", "Список найденых паспартов:");
-			PassportInfo serchingPassport = (PassportInfo) session.getAttribute("serchingPassport");	
-			if(serchingPassport==null){
-				serchingPassport = new PassportInfo();
-			}
-			model.addAttribute("serchingPassport", serchingPassport);
-		}
+		return "passport/mypassportlist";
 		
-		return "passport/passportlist";
 	}
 	
-	@RequestMapping(value = "/listpassports", method = RequestMethod.POST)
+	/**
+	 * Отображение формы поиска паспартов
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/findlistpassports", method = RequestMethod.GET)
+    public String findPassportsList(ModelMap model) {
+		
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true); // true == allow create
+		
+		session.setAttribute("lastList", "findlistpassports");
+		
+		PassportInfo serchingPassport = (PassportInfo) session.getAttribute("serchingPassport");
+		if(serchingPassport==null){
+			serchingPassport = new PassportInfo();
+		}
+		model.addAttribute("serchingPassport", serchingPassport);
+		
+		return "passport/findpassportlist";
+	}
+	
+	/**
+	 * Запрос на поиск папартов по параметрам
+	 * @param serchingPassport - образец пасспорта для поиска
+	 * @param model
+	 * @return - перенаправление на отображение формы поиска
+	 */
+	@RequestMapping(value = "/findlistpassports", method = RequestMethod.POST)
     public String findPassports(PassportInfo serchingPassport, ModelMap model) {
 		
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
-		List<PassportInfo> findingPassports = passportService.findPassports(serchingPassport);
-		session.setAttribute("reviewingPassportsList", findingPassports);
+		List<PassportInfo> findPassports = passportService.findPassports(serchingPassport);
+		session.setAttribute("findPassportsList", findPassports);
 		session.setAttribute("serchingPassport", serchingPassport);
-		return "redirect:/passport/listpassports?purpose=serch";
+		return "redirect:/passport/findlistpassports";
 	}
 }

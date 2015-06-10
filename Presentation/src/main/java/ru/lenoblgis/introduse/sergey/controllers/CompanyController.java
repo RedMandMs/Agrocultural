@@ -76,9 +76,11 @@ public class CompanyController {
 			//Образец по которому мы ищем все паспорта организации (указано только id владельца)
 			PassportInfo ownPassports = new PassportInfo();
 			ownPassports.setIdOwner(myCompany.getId());
-			List<PassportInfo> resultPassports = passportService.findPassports(ownPassports);
+			List<PassportInfo> myPassportsList = passportService.findPassports(ownPassports);
+			session.setAttribute("myPassportsList", myPassportsList);
+			session.setAttribute("lastList", "mylistpassports");
 			List<Integer> myIdPassports = new ArrayList<Integer>();
-			for(PassportInfo passportInfo : resultPassports){
+			for(PassportInfo passportInfo : myPassportsList){
 				myIdPassports.add(passportInfo.getId());
 			}
 			session.setAttribute("myIdPasports", myIdPassports);

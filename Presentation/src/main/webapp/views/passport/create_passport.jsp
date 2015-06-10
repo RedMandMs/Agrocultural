@@ -9,13 +9,16 @@
 	<title>Просмотр пасспорта</title>
 	</head>
 	<body>
+		<form name="goReviewCompanyForm" action="<c:url value='/organization/company/mycompany' />" method='GET'>
+	 		<input type="submit" name="reviewMyCompanyBtn" value="Назад к информации о своей компании">
+		</form>
+		<br>
 		<div>
 			<h1>Создание паспорта:</h1>	
 			<a>${message}</a>
 			<sf:form method="POST" modelAttribute="createdPassport">
 				<fieldset>
 					<table>
-						
 						<tr>
 							<td>Компания-владелец паспорта: </td>
 							<td>${myCompany.getName()}</td>

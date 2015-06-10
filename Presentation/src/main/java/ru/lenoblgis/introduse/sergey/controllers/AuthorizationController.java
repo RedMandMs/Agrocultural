@@ -46,27 +46,4 @@ public class AuthorizationController {
 		return "login";
 	}
 	
-	/**
-	 * Метод для авторизации пользователя, проверки введённых данных
-	 * @param userOrganization - пользовательские данные
-	 * @param model - модель
-	 * @return - отображение (перенаправление)
-	 */
-	@RequestMapping(method = RequestMethod.POST)
-	public String authorization(UserOrganization userOrganization, ModelMap model){
-		
-		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-		HttpSession session = attr.getRequest().getSession(true); // true == allow create
-		
-		OrganizationInfo organizationInfo = userService.getUser(userOrganization);
-		
-		if(organizationInfo != null){
-			session.setAttribute("myCompany", organizationInfo);
-			return "redirect:organization/company/" + organizationInfo.getId();
-		}else{
-			session.setAttribute("invalidateAuthorization", true);
-			return "Presentation/login";
-		}
-	}
-	
 }
