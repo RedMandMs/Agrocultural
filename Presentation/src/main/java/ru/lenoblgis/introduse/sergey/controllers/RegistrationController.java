@@ -50,15 +50,6 @@ public class RegistrationController {
 		
 		OrganizationInfo myCompany = userService.registration(userOrganization);
 		
-		Owner myOrganization = ownerService.reviewOwner(myCompany.getId());
-		
-		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-		HttpSession session = attr.getRequest().getSession(true); // true == allow create
-		
-		myCompany = new OrganizationInfo(myOrganization.getId(), myOrganization.getName(), myOrganization.getInn(), myOrganization.getAddress());
-		
-		session.setAttribute("myCompany", myCompany);
-		
 		return "redirect:/login";
 	}
 	
