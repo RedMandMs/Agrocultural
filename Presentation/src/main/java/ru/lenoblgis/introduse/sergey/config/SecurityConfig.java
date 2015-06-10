@@ -53,6 +53,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 // ”казываем параметры логина и парол€ с формы логина
                 .usernameParameter("j_username")
                 .passwordParameter("j_password")
+                //”казываем слушател€, который вызывает заложеный в него метод после успешной аутентификации
+                .successHandler(new MyAuthenticationSuccessHandler())
                 // даем доступ к форме логина всем
                 .permitAll();
  
@@ -65,8 +67,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .logoutSuccessUrl("/login?logout")
                 // делаем не валидной текущую сессию
                 .invalidateHttpSession(true);
- 
     }
+    
+    
 	
     @Bean
     public Md5PasswordEncoder getMd5PasswordEncoder(){

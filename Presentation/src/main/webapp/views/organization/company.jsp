@@ -27,6 +27,7 @@
 		</table>
 		<c:set var="isMyCompany" scope="request" value="${isMyCompany}"/>
 		<c:if test="${isMyCompany}">
+			<br>
 			<form method="GET" action="change_organization_info">
 				<input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании"/>
 			</form>
@@ -34,15 +35,19 @@
 			<form method="GET" action="/Presentation/passport/createPassport">
 				<input type="submit" name="createPassportBtn" value="Создать новый пасспорт поля"/>
 			</form>
-			<br>
-			<form method="GET" action="/Presentation/passport/mylistpassports">
-				<input type="submit" name="reviewMyPassportsBtn" value="Посмотреть паспорта организации"/>
-			</form>
-			<br>
-			<form method="GET" action="/Presentation/passport/findlistpassports">
-				<input type="hidden" name="purpose" value="serch" />
-				<input type="submit" name="serchPassportsBtn" value="Поиск паспортов"/>
-			</form>
 		</c:if>
+		<br>
+		<form method="GET" action="/Presentation/passport/mylistpassports">
+			<input type="submit" name="reviewMyPassportsBtn" value="Посмотреть паспорта организации"/>
+		</form>
+		<br>
+		<form method="GET" action="/Presentation/passport/findlistpassports">
+			<input type="hidden" name="purpose" value="serch" />
+			<input type="submit" name="serchPassportsBtn" value="Поиск паспортов"/>
+		</form>
+		<br>
+		<form method="GET" action="/Presentation/">
+			<input type="submit" name="goToMainPageBtn" value="Перейти на главвную страницу"/>
+		</form>
 	</body>
 </html>

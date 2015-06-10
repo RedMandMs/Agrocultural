@@ -64,12 +64,12 @@ public class CompanyController {
 	 */
 	@RequestMapping(value = "/company/mycompany", method = RequestMethod.GET)
     public String showMyCompany(ModelMap model) {
-		
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
-		if(session.getAttribute("myCompany")==null){
+		if(session.getAttribute("myCompany") == null){
+			User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			
 			OrganizationInfo myCompany = userService.getMyOrganizationByLogin(user.getUsername());
 			session.setAttribute("myCompany", myCompany);
 
@@ -153,4 +153,6 @@ public class CompanyController {
 			return "redirect:/organization/company/change_organization_info";
 		}
 	}
+	
+	
 }
