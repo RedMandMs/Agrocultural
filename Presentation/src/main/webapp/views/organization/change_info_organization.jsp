@@ -20,6 +20,11 @@
 				<fieldset>
 					<table>
 						<tr>
+							<th><label for="id_organization">Id компании: </label></th>
+							<td><sf:input readonly="true" path="id" size="20" id="id_organization" value="${myCompany.getId()}"/></td>
+						</tr>
+						
+						<tr>
 							<th><label for="name_organization">Введите имя компании: </label></th>
 							<td><sf:input path="name" size="20" id="name_organization" value="${myCompany.getName()}"/></td>
 						</tr>

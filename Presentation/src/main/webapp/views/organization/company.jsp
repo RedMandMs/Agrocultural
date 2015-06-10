@@ -11,6 +11,10 @@
 	<body>
 		<table>
 			<tr>
+				<td>Id компании: </td>
+				<td>${reviewingCompany.getId()}</td>
+			</tr>
+			<tr>
 				<td>Имя компании: </td>
 				<td>${reviewingCompany.getName()}</td>
 			</tr>

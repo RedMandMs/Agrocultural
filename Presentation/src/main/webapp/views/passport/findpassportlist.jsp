@@ -60,6 +60,7 @@
 	  <c:forEach var="passport" items="${findPassportsList}">
 		  <tr>
 		    <td>${passport.getId()}</td>
+		    <td>${passport.getIdOwner()}</td>
 		    <td>${passport.getNameOwner()}</td>
 		    <td>${passport.getRegion()}</td>
 		    <td>${passport.getCadastrNumber()}</td>
