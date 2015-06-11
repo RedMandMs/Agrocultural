@@ -13,7 +13,8 @@
 			<form method="GET" action="/Presentation/passport/${lastList}" >
 				<input type="submit" name="backToPassportsListBtn" value="Назад к списку паспортов"/>
 			</form>
-			<table>
+			<br>
+			<table rules="all" border="2">
 				<tr>
 					<td>Id пасспорта: </td>
 					<td>${reviewingPassport.getId()}</td>
@@ -46,28 +47,19 @@
 				
 				<tr>
 					<td>Комментарий: </td>
-					<td>${reviewingPassport.getComment()}</td>
-				</tr>
-				
-				<c:set var="isMyPassport" scope="request" value="${isMyPassport}"/>
-				<c:if test="${isMyPassport}">
-					<tr>
-						<td>	
-							<form method="GET" action="change_passport_info/${reviewingPassport.getId()}" >
-								<input type="submit" name="changePassportInfoBtn" value="Изменить информацию о пасспорте"/>
-							</form>
-						</td>
-					</tr>
-					<tr>
-						<td>	
-							<form method="POST" action="delete" >
-								<input type="hidden" value="${reviewingPassport.getId()}" name="idPassport"/>
-								<input type="submit" name="deletePassportBtn" value="Удалить паспорт"/>
-							</form>
-						</td>
-					</tr>
-				</c:if>		
+					<td>${reviewingPassport.getComment()}</td>	
 			</table>
+			<c:if test="${isMyPassport}">
+				<br>
+				<form method="GET" action="change_passport_info/${reviewingPassport.getId()}" >
+					<input type="submit" name="changePassportInfoBtn" value="Изменить информацию о пасспорте"/>
+				</form>
+				<br>
+				<form method="POST" action="delete" >
+					<input type="hidden" value="${reviewingPassport.getId()}" name="idPassport"/>
+					<input type="submit" name="deletePassportBtn" value="Удалить паспорт"/>
+				</form>
+			</c:if>
 		</div>
 	</body>
 </html>

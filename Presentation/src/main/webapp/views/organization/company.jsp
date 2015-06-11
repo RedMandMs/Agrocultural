@@ -10,7 +10,11 @@
 	</head>
 	<body >
 		<div align="center" >
-			<table>
+			<form method="GET" action="/Presentation/">
+				<input type="submit" name="goToMainPageBtn" value="Перейти на главвную страницу"/>
+			</form>
+			<br>
+			<table border="3">
 				<tr>
 					<td>Id компании: </td>
 					<td>${reviewingCompany.getId()}</td>
@@ -48,10 +52,6 @@
 			<br>
 			<form method="GET" action="/Presentation/passport/findlistpassports">
 				<input type="submit" name="serchPassportsBtn" value="Поиск паспортов"/>
-			</form>
-			<br>
-			<form method="GET" action="/Presentation/">
-				<input type="submit" name="goToMainPageBtn" value="Перейти на главвную страницу"/>
 			</form>
 			<br>
 			<form method="GET" action="/Presentation/organization/company/events">

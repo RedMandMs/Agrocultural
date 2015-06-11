@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<div align="center" >
-			<table>
+			<table align="center" >
 				<tr>
 					<td>
 						<form name="goReviewCompanyForm" action="<c:url value='/organization/company/mycompany' />" method='GET'>
@@ -27,17 +27,27 @@
 			<br>
 			<H1>Паспорта принадлежащие организации</H1>
 			<H2>Список всех ваших паспортов:</H2>
-			<table cellspacing="15">
-			  <c:forEach var="passport" items="${myPassportsList}" >
-				  <tr>
-				    <td>${passport.getId()}</td>
-				    <td>${passport.getNameOwner()}</td>
-				    <td>${regions[0].getRegion(passport.getRegion()).getView()}</td>
-				    <td>${passport.getCadastrNumber()}</td>
-				    <td>${passport.getArea()}</td>
-				    <td>${types[0].getTypeOf(passport.getType()).getView()}</td>
-				    <td>${passport.getComment()}</td>
-				    <td>
+			<table cellspacing="15" rules="all" border="2" >
+			  <tr>
+			  	<th align="center">Id паспорта</th>
+			  	<th align="center">Имя организации-владельца</th>
+			  	<th align="center" width="200">Регион поля</th>
+			  	<th align="center" width="200">Кадастровый номер</th>
+			  	<th align="center">Площадь поля</th>
+			  	<th align="center" width="200">Тип поля</th>
+			  	<th align="center">Комментарий к полю</th>
+			  	<th></th>
+			  </tr>	
+		  	  <c:forEach var="passport" items="${myPassportsList}" >
+				  <tr height="40">
+				    <td align="center">${passport.getId()}</td>
+				    <td align="center">${passport.getNameOwner()}</td>
+				    <td align="center">${regions[0].getRegion(passport.getRegion()).getView()}</td>
+				    <td align="center">${passport.getCadastrNumber()}</td>
+				    <td align="center">${passport.getArea()}</td>
+				    <td align="center">${types[0].getTypeOf(passport.getType()).getView()}</td>
+				    <td align="center">${passport.getComment()}</td>
+				    <td align="center">
 				    	<form action="http://localhost:8080/Presentation/passport/${passport.getId()}" method="get">
 				    		<input type="submit" value="Посмотреть">
 				    	</form>
@@ -45,9 +55,10 @@
 				  </tr>
 			  </c:forEach>
 			</table>
-				<form method="GET" action="/Presentation/passport/createPassport">
-					<input type="submit" name="createPassportBtn" value="Создать новый пасспорт поля"/>
-				</form>
+			<br>
+			<form method="GET" action="/Presentation/passport/createPassport">
+				<input type="submit" name="createPassportBtn" value="Создать новый пасспорт поля"/>
+			</form>
 		</div>
 	</body>
 </html>

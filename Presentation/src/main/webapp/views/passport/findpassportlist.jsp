@@ -59,28 +59,38 @@
 							</td>
 							<td align="center"><sf:input path="comment" size="20"/></td>
 						</tr>
-						<tr>
-							<td colspan="7" align="center">
-								<input type="submit" name="serchBtn" value="Найти подходящие паспорта">
-							</td>
-						</tr>
 					</table>
+					<br>
+					<div align="center">
+						<input  type="submit" name="serchBtn" value="Найти подходящие паспорта">
+					</div>
 				</fieldset>
 			</sf:form>
 		
 			<H2  align="center"  >Найденые паспорта:</H2>
-			<table  align="center"  >
+			<table  align="center" rules="all" border="2">
+			  <tr>
+			  	<th align="center">Id паспорта</th>
+			  	<th align="center">Id организации-владельца</th>
+			  	<th align="center">Имя организации-владельца</th>
+			  	<th align="center" width="200">Регион поля</th>
+			  	<th align="center" width="200">Кадастровый номер</th>
+			  	<th align="center">Площадь поля</th>
+			  	<th align="center" width="200">Тип поля</th>
+			  	<th align="center">Комментарий к полю</th>
+			  	<th align="center"></th>
+			  </tr>	
 			  <c:forEach var="passport" items="${findPassportsList}">
-				  <tr>
-				    <td>${passport.getId()}</td>
-				    <td>${passport.getIdOwner()}</td>
-				    <td>${passport.getNameOwner()}</td>
-				    <td>${regions[0].getRegion(passport.getRegion()).getView()}</td>
-				    <td>${passport.getCadastrNumber()}</td>
-				    <td>${passport.getArea()}</td>
-				    <td>${types[0].getTypeOf(passport.getType()).getView()}</td>
-				    <td>${passport.getComment()}</td>
-				  	<td>
+				  <tr height="40">
+				    <td align="center">${passport.getId()}</td>
+				    <td align="center">${passport.getIdOwner()}</td>
+				    <td align="center">${passport.getNameOwner()}</td>
+				    <td align="center">${regions[0].getRegion(passport.getRegion()).getView()}</td>
+				    <td align="center">${passport.getCadastrNumber()}</td>
+				    <td align="center">${passport.getArea()}</td>
+				    <td align="center">${types[0].getTypeOf(passport.getType()).getView()}</td>
+				    <td align="center">${passport.getComment()}</td>
+				  	<td align="center">
 				    	<form action="http://localhost:8080/Presentation/passport/${passport.getId()}" method="get">
 				    		<input type="submit" value="Посмотреть">
 				    	</form>

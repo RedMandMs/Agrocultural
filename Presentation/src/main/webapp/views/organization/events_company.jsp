@@ -13,7 +13,7 @@
 			<input type="submit" name="reviewMyCompanyBtn" value="Назад к информации о своей компании">
 		</form>
 		<br>
-		<table cellspacing="15" rules="all">
+		<table cellspacing="15" rules="all" border="2">
 			<tr>
 			    <td align="center">Id события</td>
 			    <td align="center">Id пасспорта</td>
