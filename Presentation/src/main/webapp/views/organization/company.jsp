@@ -47,12 +47,15 @@
 			</form>
 			<br>
 			<form method="GET" action="/Presentation/passport/findlistpassports">
-				<input type="hidden" name="purpose" value="serch" />
 				<input type="submit" name="serchPassportsBtn" value="Поиск паспортов"/>
 			</form>
 			<br>
 			<form method="GET" action="/Presentation/">
 				<input type="submit" name="goToMainPageBtn" value="Перейти на главвную страницу"/>
+			</form>
+			<br>
+			<form method="GET" action="/Presentation/organization/company/events">
+				<input type="submit" name="goToLogEventBtn" value="Посмотреть журнал событий организации"/>
 			</form>
 		</div>
 	</body>

@@ -18,12 +18,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import ru.lenoblgis.introduse.sergey.datatransferobject.event.EventInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.passport.RegionField;
 import ru.lenoblgis.introduse.sergey.domen.passport.TypeField;
 import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
+import ru.lenoblgis.introduse.sergey.services.EventService;
 import ru.lenoblgis.introduse.sergey.services.OwnerService;
 import ru.lenoblgis.introduse.sergey.services.PassportService;
 import ru.lenoblgis.introduse.sergey.services.UserService;
@@ -40,6 +42,9 @@ public class CompanyController {
 	
 	@Autowired
 	private PassportService passportService;
+	
+	@Autowired
+	private EventService eventService;
 	
 	/**
 	 * Метод отображающий данные о конкретной компании
@@ -163,5 +168,18 @@ public class CompanyController {
 		}
 	}
 	
-	
+	@RequestMapping(value = "/company/events", method = RequestMethod.GET)
+    public String showLogEvents( ModelMap model) {
+		
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true); // true == allow create
+		
+		OrganizationInfo myCompany = (OrganizationInfo) session.getAttribute("myCompany");
+		List<EventInfo> events = eventService.getAllOwnerEvents(myCompany.getId());
+		
+		session.setAttribute("events", events);
+		
+		
+		return "organization/events_company";
+	}
 }

@@ -68,7 +68,7 @@ public class OrganizationInfo implements Serializable{
 	 * Получить id организации
 	 * @return - id организации
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 

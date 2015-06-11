@@ -7,13 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
@@ -289,15 +284,6 @@ public class DAO  {
 		List<PassportEvent> events = new ArrayList<PassportEvent>();
 		events = jdbcTemplate.query(sqlQueries.reviwAllOwnerPassportEvent(), new Object[]{idOwner}, eventRowMapper);
 		return events;
-	}
-
-	/**
-	 * ѕолучаем id паспорта организации, который €вл€етс€ максимальным среди всех id поспартов этой организации
-	 * @param idOwner - id ¬ладельца
-	 * @return - id
-	 */
-	private int getPassportwithMaxId(int idOwner) {
-		return jdbcTemplate.queryForInt(sqlQueries.getMAXidPassportByOwner(), new Object[]{idOwner});
 	}
 
 	/*

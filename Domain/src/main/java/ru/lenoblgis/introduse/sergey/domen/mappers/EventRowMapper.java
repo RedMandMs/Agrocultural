@@ -18,8 +18,9 @@ public class EventRowMapper implements RowMapper<PassportEvent>, Serializable{
 		String dateStr = rs.getDate("date_time_event").toString();
 		String timeStr = rs.getTime("date_time_event").toString();
 		DateTime dateTimeEvent = DateTime.parse(dateStr + "T" + timeStr);
-		return new PassportEvent(rs.getInt("id"), rs.getInt("id_passport"), rs.getInt("id_organization"), 
+		PassportEvent result = new PassportEvent(rs.getInt("id"), rs.getInt("id_passport"), rs.getInt("id_organization"), 
 							rs.getString("message_event"), dateTimeEvent, rs.getString("type_event"));
+		return result;
 	}
 
 }

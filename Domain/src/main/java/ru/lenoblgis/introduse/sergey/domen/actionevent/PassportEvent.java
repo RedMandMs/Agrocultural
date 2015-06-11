@@ -72,6 +72,7 @@ public class PassportEvent implements Serializable{
 		this.id = id;
 		this.idPassport = id_passport;
 		this.idAuthor = id_organization;
+		this.message = message;
 		setDataTime(date_time_event);
 		setType(type_event);
 	}
