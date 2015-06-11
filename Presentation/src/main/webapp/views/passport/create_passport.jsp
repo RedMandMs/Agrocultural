@@ -47,7 +47,13 @@
 						
 						<tr>
 							<th><label for="type">Введите тип поля: </label></th>
-							<td><sf:input path="type" size="50" id="type" value="${creatingPassport.getType()}"/></td>
+							<td>
+								<sf:select path="type" id="type">
+									<c:forEach var="type" items="${types}">
+										<sf:option value="${type.getType()}">${type.getView()}</sf:option>
+									</c:forEach>
+								</sf:select>
+							</td>
 						</tr>
 						
 						<tr>

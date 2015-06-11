@@ -156,8 +156,7 @@ public class PassportController {
 			myIdPasports.add(newPassport.getId());
 			List<PassportInfo> myPassportList = (List<PassportInfo>) session.getAttribute("myPassportsList");
 			myPassportList.add(newPassport);
-			session.setAttribute("isSerchList", false);
-			session.setAttribute("purpose", "myPassportsList");
+			session.setAttribute("lastList", "mylistpassports");
 			return "redirect:/passport/"+passportId;
 		}else{
 			session.setAttribute("incorrectPassport", createdPassport);

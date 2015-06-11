@@ -192,7 +192,7 @@ public class Passport implements Serializable {
 	 * Установка типа поля
 	 */
 	public void setType(String type) {
-		this.type = TypeField.getType(type);
+		this.type = TypeField.getTypeOf(type);
 	}
 	
 	/**

@@ -49,7 +49,13 @@
 					</td>
 					<td align="center"><sf:input path="cadastrNumber" size="10"/></td>
 					<td align="center"><sf:input path="area" size="7"/></td>
-					<td align="center"><sf:input path="type" size="10"/></td>
+					<td align="center">
+						<sf:select path="type" id="type">
+							<c:forEach var="type" items="${types}">
+								<sf:option value="${type.getType()}">${type.getView()}</sf:option>
+							</c:forEach>
+						</sf:select>
+					</td>
 					<td align="center"><sf:input path="comment" size="20"/></td>
 				</tr>
 				<tr>
@@ -71,7 +77,7 @@
 		    <td>${regions[0].getRegion(passport.getRegion()).getView()}</td>
 		    <td>${passport.getCadastrNumber()}</td>
 		    <td>${passport.getArea()}</td>
-		    <td>${passport.getType()}</td>
+		    <td>${types[0].getTypeOf(passport.getType()).getView()}</td>
 		    <td>${passport.getComment()}</td>
 		  	<td>
 		    	<form action="http://localhost:8080/Presentation/passport/${passport.getId()}" method="get">

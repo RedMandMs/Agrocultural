@@ -22,6 +22,7 @@ import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.Organiz
 import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.passport.RegionField;
+import ru.lenoblgis.introduse.sergey.domen.passport.TypeField;
 import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 import ru.lenoblgis.introduse.sergey.services.OwnerService;
 import ru.lenoblgis.introduse.sergey.services.PassportService;
@@ -73,6 +74,9 @@ public class CompanyController {
 			
 			RegionField[] regions = RegionField.values();
 			session.setAttribute("regions", regions);
+			
+			TypeField[] types = TypeField.values();
+			session.setAttribute("types", types);
 			
 			OrganizationInfo myCompany = userService.getMyOrganizationByLogin(user.getUsername());
 			session.setAttribute("myCompany", myCompany);

@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public enum RegionField implements Serializable{
 	
-	NULL(null, "Не указано"),
+	NULL(null, " "),
 	UNKNOWN("Neizv", "Неизвестно"),
 	VSEVOLOGSK("vsevologskiy", "Всеволожский район"),
 	PRIZEMSK("Prizemskiy", "Приозерский район");
