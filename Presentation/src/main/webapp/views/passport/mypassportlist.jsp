@@ -28,7 +28,7 @@
 			<H1>Паспорта принадлежащие организации</H1>
 			<H2>Список всех ваших паспортов:</H2>
 			<table cellspacing="15">
-			  <c:forEach var="passport" items="${myPassportsList}">
+			  <c:forEach var="passport" items="${myPassportsList}" >
 				  <tr>
 				    <td>${passport.getId()}</td>
 				    <td>${passport.getNameOwner()}</td>

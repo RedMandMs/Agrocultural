@@ -154,11 +154,11 @@ public class PassportController {
 		
 		int passportId = passportService.createPassport(createdPassport);
 		if(passportId != 0){
-			PassportInfo newPassport = passportService.reviewPassport(passportId);
+			createdPassport.setId(passportId);
 			List<Integer> myIdPasports = (List<Integer>) session.getAttribute("myIdPasports");
-			myIdPasports.add(newPassport.getId());
+			myIdPasports.add(createdPassport.getId());
 			List<PassportInfo> myPassportList = (List<PassportInfo>) session.getAttribute("myPassportsList");
-			myPassportList.add(newPassport);
+			myPassportList.add(createdPassport);
 			session.setAttribute("lastList", "mylistpassports");
 			return "redirect:/passport/"+passportId;
 		}else{

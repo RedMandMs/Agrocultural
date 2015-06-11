@@ -150,14 +150,14 @@ public class SQLServerQueries implements SQLQueries {
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#reviewAllPassportEvent()
 	 */
 	public String reviewAllPassportEvent() {
-		return "SELECT * FROM " + NAME_EVENT_TABLE;
+		return "SELECT * FROM " + NAME_EVENT_TABLE + " ORDER BY id DESC";
 	}
 
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#reviwAllOwnerPassportEvent()
 	 */
 	public String reviwAllOwnerPassportEvent() {
-		return "SELECT * FROM " + NAME_EVENT_TABLE + " WHERE id_organization = ?;";
+		return "SELECT * FROM " + NAME_EVENT_TABLE + " WHERE id_organization = ? ORDER BY id DESC;";
 	}
 
 	/**

@@ -171,7 +171,7 @@ public class DAO  {
 	 */
 	public void deletePassport(int id) {
 		Object [] values = new Object[]{id};
-		Passport passport = reviewPassport(id);
+		Passport passport = reviewPassportWithoutWrite(id);
 		jdbcTemplate.update(sqlQueries.deletePassport(), values);
 		
 		Owner owner = reviewOwner(passport.getIdOwner());
@@ -179,6 +179,17 @@ public class DAO  {
 		
 		//—формировать событие удалени€ пол€
 		addPassportEvent(passport, owner, DELETE_EVENT);
+	}
+	
+	private Passport reviewPassportWithoutWrite(int id){
+		Object[] values = new Object[] {id};
+		List<Passport> resultSet = jdbcTemplate.query(sqlQueries.reviewPassport(), values , passportRowMapper);
+
+		Passport passport = resultSet.get(0);
+		Owner owner = reviewOwner(passport.getIdOwner());
+		passport.setOwner(owner);
+		
+		return passport;
 	}
 
 	/**
@@ -201,15 +212,11 @@ public class DAO  {
 	 * @see dataTier.accessToDataServices.DAO#reviewOwner(java.util.Map)
 	 */
 	public Passport reviewPassport(int id) {
-		Object[] values = new Object[] {id};
-		List<Passport> resultSet = jdbcTemplate.query(sqlQueries.reviewPassport(), values , passportRowMapper);
 
-		Passport passport = resultSet.get(0);
-		Owner owner = reviewOwner(passport.getIdOwner());
-		passport.setOwner(owner);
+		Passport passport = reviewPassportWithoutWrite(id);
 		
 		//—формировать событие просмотра пол€
-		addPassportEvent(resultSet.get(0), owner, REVIEW_EVENT);
+		addPassportEvent(passport, passport.getOwner(), REVIEW_EVENT);
 		return passport;
 	}
 
