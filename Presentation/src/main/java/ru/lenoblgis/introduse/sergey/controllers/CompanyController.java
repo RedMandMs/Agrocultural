@@ -21,6 +21,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
+import ru.lenoblgis.introduse.sergey.domen.passport.RegionField;
 import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 import ru.lenoblgis.introduse.sergey.services.OwnerService;
 import ru.lenoblgis.introduse.sergey.services.PassportService;
@@ -70,6 +71,9 @@ public class CompanyController {
 		if(session.getAttribute("myCompany") == null){
 			User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			
+			RegionField[] regions = RegionField.values();
+			session.setAttribute("regions", regions);
+			
 			OrganizationInfo myCompany = userService.getMyOrganizationByLogin(user.getUsername());
 			session.setAttribute("myCompany", myCompany);
 
@@ -84,6 +88,7 @@ public class CompanyController {
 				myIdPassports.add(passportInfo.getId());
 			}
 			session.setAttribute("myIdPasports", myIdPassports);
+			
 		}
 		
 		model.addAttribute("reviewingCompany", session.getAttribute("myCompany"));

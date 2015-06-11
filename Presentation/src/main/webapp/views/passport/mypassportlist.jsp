@@ -31,7 +31,7 @@
 		  <tr>
 		    <td>${passport.getId()}</td>
 		    <td>${passport.getNameOwner()}</td>
-		    <td>${passport.getRegion()}</td>
+		    <td>${regions[0].getRegion(passport.getRegion()).getView()}</td>
 		    <td>${passport.getCadastrNumber()}</td>
 		    <td>${passport.getArea()}</td>
 		    <td>${passport.getType()}</td>

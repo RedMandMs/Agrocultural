@@ -10,6 +10,13 @@
 	</head>
 	<body>
 		<div>
+			<form method="GET" action="/Presentation/passport/${lastList}" >
+				<input type="submit" name="backToPassportsListBtn" value="Назад к списку паспортов"/>
+			</form>
+			<br>
+			<form method="GET" action="/Presentation/passport/${changedPassport.getId()}" >
+				<input type="submit" name="backToPassportsListBtn" value="Назад к информации о паспорте"/>
+			</form>
 			<h1>Изменение данных о пасспорте:</h1>	
 			<a>${message}</a>
 			<sf:form method="POST" modelAttribute="changedPassport">
@@ -33,7 +40,14 @@
 					
 						<tr>
 							<th><label for="region">Введите регион поля: </label></th>
-							<td><sf:input path="region" size="20" id="region" value="${changedPassport.getRegion()}"/></td>
+							<td>
+								<sf:select path="region" id="region">
+									<c:forEach var="region" items="${regions}">
+										<sf:option value="${region.getRegion()}">${region.getView()}</sf:option>
+									</c:forEach>
+								</sf:select>
+							</td>
+							<%-- <td><sf:input path="region" size="20" id="region" value="${changedPassport.getRegion()}"/></td> --%> 
 						</tr>
 						
 						<tr>

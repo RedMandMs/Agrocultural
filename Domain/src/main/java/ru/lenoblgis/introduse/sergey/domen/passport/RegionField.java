@@ -9,12 +9,15 @@ import java.io.Serializable;
  */
 public enum RegionField implements Serializable{
 	
-	UNKNOWN("Neizv"),
-	VSEVOLOGSK("vsevologskiy"),
-	PRIZEMSK("Prizemskiy");
+	NULL(null, "Не указано"),
+	UNKNOWN("Neizv", "Неизвестно"),
+	VSEVOLOGSK("vsevologskiy", "Всеволожский район"),
+	PRIZEMSK("Prizemskiy", "Приозерский район");
 	
-	private RegionField(String region){
+	
+	private RegionField(String region, String view){
 		this.region = region;
+		this.view = view;
 	}
 	
 	/**
@@ -36,11 +39,20 @@ public enum RegionField implements Serializable{
 	private String region;
 
 	/**
+	 * Отображаемое имя
+	 */
+	private String view;
+	
+	/**
 	 * Получить название региона
 	 * @return - название региона
 	 */
 	public String getRegion() {
 		return region;
+	}
+
+	public String getView() {
+		return view;
 	}
 
 }

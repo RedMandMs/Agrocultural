@@ -17,5 +17,11 @@
 	  		<groupId>org.springframework.data</groupId>
 	  		<artifactId>spring-data-jdbc-core</artifactId>
 	</dependency>
+	
+	<dependency>
+  			<groupId>junit</groupId>
+  			<artifactId>junit</artifactId>
+  	</dependency>
+  	
   </dependencies>
 </project>

@@ -26,7 +26,13 @@
 					
 						<tr>
 							<th><label for="region">Введите регион поля: </label></th>
-							<td><sf:input path="region" size="20" id="region" value="${creatingPassport.getRegion()}"/></td>
+							<td>
+								<sf:select path="region" id="region">
+									<c:forEach var="region" items="${regions}">
+										<sf:option value="${region.getRegion()}">${region.getView()}</sf:option>
+									</c:forEach>
+								</sf:select>
+							</td>
 						</tr>
 						
 						<tr>

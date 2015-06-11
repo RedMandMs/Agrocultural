@@ -40,7 +40,13 @@
 				<tr>
 					<td align="center"><sf:input path="id" size="10" /></td>
 					<td align="center"><sf:input path="idOwner" size="10"/></td>
-					<td align="center"><sf:input path="region" size="15"/></td>
+					<td align="center">
+						<sf:select path="region" id="region">
+							<c:forEach var="region" items="${regions}">
+								<sf:option value="${region.getRegion()}">${region.getView()}</sf:option>
+							</c:forEach>
+						</sf:select>
+					</td>
 					<td align="center"><sf:input path="cadastrNumber" size="10"/></td>
 					<td align="center"><sf:input path="area" size="7"/></td>
 					<td align="center"><sf:input path="type" size="10"/></td>
@@ -62,7 +68,7 @@
 		    <td>${passport.getId()}</td>
 		    <td>${passport.getIdOwner()}</td>
 		    <td>${passport.getNameOwner()}</td>
-		    <td>${passport.getRegion()}</td>
+		    <td>${regions[0].getRegion(passport.getRegion()).getView()}</td>
 		    <td>${passport.getCadastrNumber()}</td>
 		    <td>${passport.getArea()}</td>
 		    <td>${passport.getType()}</td>
