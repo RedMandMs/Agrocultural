@@ -5,8 +5,8 @@
 <%@page session="true"%>
 <html>
 <body>
- 
-	<h2>ADMIN</h2>
- 
+ 	<div align="center" >
+		<h2>ADMIN</h2>
+ 	</div>
 </body>
 </html>

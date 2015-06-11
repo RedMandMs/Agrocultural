@@ -9,64 +9,66 @@
 	<title>Просмотр пасспорта</title>
 	</head>
 	<body>
-		<form name="goReviewCompanyForm" action="<c:url value='/organization/company/mycompany' />" method='GET'>
-	 		<input type="submit" name="reviewMyCompanyBtn" value="Назад к информации о своей компании">
-		</form>
-		<br>
-		<div>
-			<h1>Создание паспорта:</h1>	
-			<a>${message}</a>
-			<sf:form method="POST" modelAttribute="createdPassport">
-				<fieldset>
-					<table>
-						<tr>
-							<td>Компания-владелец паспорта: </td>
-							<td>${myCompany.getName()}</td>
-						</tr>
-					
-						<tr>
-							<th><label for="region">Введите регион поля: </label></th>
-							<td>
-								<sf:select path="region" id="region">
-									<c:forEach var="region" items="${regions}">
-										<sf:option value="${region.getRegion()}">${region.getView()}</sf:option>
-									</c:forEach>
-								</sf:select>
-							</td>
-						</tr>
+		<div align="center" >
+			<form name="goReviewCompanyForm" action="<c:url value='/organization/company/mycompany' />" method='GET'>
+		 		<input type="submit" name="reviewMyCompanyBtn" value="Назад к информации о своей компании">
+			</form>
+			<br>
+			<div>
+				<h1>Создание паспорта:</h1>	
+				<a>${message}</a>
+				<sf:form method="POST" modelAttribute="createdPassport">
+					<fieldset>
+						<table>
+							<tr>
+								<td>Компания-владелец паспорта: </td>
+								<td>${myCompany.getName()}</td>
+							</tr>
 						
-						<tr>
-							<th><label for="cadastrNumber">Введите кадастровый номер паспорта: </label></th>
-							<td><sf:input path="cadastrNumber" size="20" id="cadastrNumber" value="${creatingPassport.getCadastrNumber()}"/></td>
-						</tr>
-						
-						<tr>
-							<th><label for="area">Введите площадь поля: </label></th>
-							<td><sf:input path="area" size="50" id="area" value="${creatingPassport.getArea()}"/></td>
-						</tr>
-						
-						<tr>
-							<th><label for="type">Введите тип поля: </label></th>
-							<td>
-								<sf:select path="type" id="type">
-									<c:forEach var="type" items="${types}">
-										<sf:option value="${type.getType()}">${type.getView()}</sf:option>
-									</c:forEach>
-								</sf:select>
-							</td>
-						</tr>
-						
-						<tr>
-							<th><label for="comment">Введите комментарий к пасспорту: </label></th>
-							<td><sf:input path="comment" size="50" id="comment" value="${creatingPassport.getComment()}"/></td>
-						</tr>
-						
-						<tr>
-							<td><input type="submit" name="changedBtn" value="Создать пасспорт"></td>
-						</tr>
-					</table>
-				</fieldset>
-			</sf:form>
+							<tr>
+								<th><label for="region">Введите регион поля: </label></th>
+								<td>
+									<sf:select path="region" id="region">
+										<c:forEach var="region" items="${regions}">
+											<sf:option value="${region.getRegion()}">${region.getView()}</sf:option>
+										</c:forEach>
+									</sf:select>
+								</td>
+							</tr>
+							
+							<tr>
+								<th><label for="cadastrNumber">Введите кадастровый номер паспорта: </label></th>
+								<td><sf:input path="cadastrNumber" size="20" id="cadastrNumber" value="${creatingPassport.getCadastrNumber()}"/></td>
+							</tr>
+							
+							<tr>
+								<th><label for="area">Введите площадь поля: </label></th>
+								<td><sf:input path="area" size="50" id="area" value="${creatingPassport.getArea()}"/></td>
+							</tr>
+							
+							<tr>
+								<th><label for="type">Введите тип поля: </label></th>
+								<td>
+									<sf:select path="type" id="type">
+										<c:forEach var="type" items="${types}">
+											<sf:option value="${type.getType()}">${type.getView()}</sf:option>
+										</c:forEach>
+									</sf:select>
+								</td>
+							</tr>
+							
+							<tr>
+								<th><label for="comment">Введите комментарий к пасспорту: </label></th>
+								<td><sf:input path="comment" size="50" id="comment" value="${creatingPassport.getComment()}"/></td>
+							</tr>
+							
+							<tr>
+								<td><input type="submit" name="changedBtn" value="Создать пасспорт"></td>
+							</tr>
+						</table>
+					</fieldset>
+				</sf:form>
+			</div>
 		</div>
 	</body>
 </html>

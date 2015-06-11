@@ -10,48 +10,51 @@
 	<title>Вход в систему</title>
 	</head>
 	<body>
-		<sec:authorize access="!isAuthenticated()">
-			<c:url value="/j_spring_security_check" var="loginUrl" />
-			<form name="loginForm" action="<c:url value='/j_spring_security_check' />" method='POST'>
-				<H1>Вход в систему:</H1>
-				<a>${message}</a>
-				<table>
-					<tr>
+		<div align="center" >
+			<sec:authorize access="!isAuthenticated()">
+				<c:url value="/j_spring_security_check" var="loginUrl" />
+				<form name="loginForm" action="<c:url value='/j_spring_security_check' />" method='POST'>
+					<div align="center">
+						<H1>Вход в систему:</H1>
+						<H2>${message}</H2>
 						<c:if test="${param.error != null}">
-							<th>Неверный логин или пароль</th>
+							<H3>Неверный логин или пароль!!!</H3>
 						</c:if>
 						<c:if test="${param.logout != null}">
-							<th>Вы вышли из системы</th>
+							<H3>Вы вышли из системы</H3>
 						</c:if>
-					</tr>
-					<tr>
-						<th><label for="user_login">Введите логин:</label></th>
-						<td>
-							<input type="text" name="j_username" id="user_login">
-						</td>
-					</tr>
-						
-					<tr>
-						<th><label for="user_password">Введите пароль:</label></th>
-						<td>
-							<input type="password" name="j_password" id="user_password">
-						</td>
-					</tr>
-					<tr>
-						<td><input type="submit" name="authorizationBtn" value="Войти"></td>
-					</tr>
-				</table>
+					</div>
+					<table>
+						<tr>
+							<td><label for="user_login">Введите логин:</label></td>
+							<td align="center">
+								<input type="text" name="j_username" id="user_login">
+							</td>
+						</tr>
+							
+						<tr>
+							<td><label for="user_password">Введите пароль:</label></td>
+							<td align="center">
+								<input type="password" name="j_password" id="user_password">
+							</td>
+						</tr>
+					</table>
+					<br>
+					<div align="center">
+						<input type="submit" name="authorizationBtn" value="Войти">
+					</div>
+				</form>
+			</sec:authorize>
+			<sec:authorize access="isAuthenticated()">
+				<H1><a>Вы уже вошли в систему, ваш логин: <sec:authentication property="principal.username" /></a></H1>
+				<form name="logOutForm" action="<c:url value='/logout' />" method='GET'>
+			   		<input type="submit" name="logOutBtn" value="Выйти из системы">
+			    </form>
+			</sec:authorize>
+			<br>
+			<form method="GET" action="/Presentation/">
+				<input type="submit" name="goToMainPageBtn" value="Назад на главвную страницу"/>
 			</form>
-		</sec:authorize>
-		<sec:authorize access="isAuthenticated()">
-			<H1><a>Вы уже вошли в систему, ваш логин: <sec:authentication property="principal.username" /></a></H1>
-			<form name="logOutForm" action="<c:url value='/logout' />" method='GET'>
-		   		<input type="submit" name="logOutBtn" value="Выйти из системы">
-		    </form>
-		</sec:authorize>
-		<br>
-		<form method="GET" action="/Presentation/">
-			<input type="submit" name="goToMainPageBtn" value="Назад на главвную страницу"/>
-		</form>
+		</div>
 	</body>
 </html>

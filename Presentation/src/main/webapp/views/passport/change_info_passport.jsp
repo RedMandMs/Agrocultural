@@ -9,7 +9,7 @@
 	<title>Просмотр пасспорта</title>
 	</head>
 	<body>
-		<div>
+		<div align="center" >
 			<form method="GET" action="/Presentation/passport/${lastList}" >
 				<input type="submit" name="backToPassportsListBtn" value="Назад к списку паспортов"/>
 			</form>
@@ -52,7 +52,7 @@
 						
 						<tr>
 							<th><label for="area">Введите площадь поля: </label></th>
-							<td><sf:input path="area" size="50" id="area" value="${changedPassport.getArea()}"/></td>
+							<td><sf:input path="area" size="10" id="area" value="${changedPassport.getArea()}"/></td>
 						</tr>
 						
 						<tr>

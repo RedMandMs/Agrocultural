@@ -9,55 +9,57 @@
 	<title>Просмотр пасспорта</title>
 	</head>
 	<body>
-		<form method="GET" action="/Presentation/passport/${lastList}" >
-			<input type="submit" name="backToPassportsListBtn" value="Назад к списку паспортов"/>
-		</form>
-		<table>
-			<tr>
-				<td>Id пасспорта: </td>
-				<td>${reviewingPassport.getId()}</td>
-			</tr>
-			
-			<tr>
-				<td>Компания-владелец паспорта: </td>
-				<td>${reviewingPassport.getNameOwner()}</td>
-			</tr>
-			
-			<tr>
-				<td>Район поля: </td>
-				<td>${regions[0].getRegion(reviewingPassport.getRegion()).getView()}</td>
-			</tr>
-			
-			<tr>
-				<td>Кадастровый номер: </td>
-				<td>${reviewingPassport.getCadastrNumber()}</td>
-			</tr>
-				
-			<tr>
-				<td>Площадь поля: </td>
-				<td>${reviewingPassport.getArea()}</td>
-			</tr>
-				
-			<tr>
-				<td>Тип поля: </td>
-				<td>${types[0].getTypeOf(reviewingPassport.getType()).getView()}</td>
-			</tr>
-			
-			<tr>
-				<td>Комментарий: </td>
-				<td>${reviewingPassport.getComment()}</td>
-			</tr>
-			
-			<c:set var="isMyPassport" scope="request" value="${isMyPassport}"/>
-			<c:if test="${isMyPassport}">
+		<div align="center" >
+			<form method="GET" action="/Presentation/passport/${lastList}" >
+				<input type="submit" name="backToPassportsListBtn" value="Назад к списку паспортов"/>
+			</form>
+			<table>
 				<tr>
-					<td>	
-						<form method="GET" action="change_passport_info/${reviewingPassport.getId()}" >
-							<input type="submit" name="changePassportInfoBtn" value="Изменить информацию о пасспорте"/>
-						</form>
-					</td>
+					<td>Id пасспорта: </td>
+					<td>${reviewingPassport.getId()}</td>
 				</tr>
-			</c:if>		
-		</table>
+				
+				<tr>
+					<td>Компания-владелец паспорта: </td>
+					<td>${reviewingPassport.getNameOwner()}</td>
+				</tr>
+				
+				<tr>
+					<td>Район поля: </td>
+					<td>${regions[0].getRegion(reviewingPassport.getRegion()).getView()}</td>
+				</tr>
+				
+				<tr>
+					<td>Кадастровый номер: </td>
+					<td>${reviewingPassport.getCadastrNumber()}</td>
+				</tr>
+					
+				<tr>
+					<td>Площадь поля: </td>
+					<td>${reviewingPassport.getArea()}</td>
+				</tr>
+					
+				<tr>
+					<td>Тип поля: </td>
+					<td>${types[0].getTypeOf(reviewingPassport.getType()).getView()}</td>
+				</tr>
+				
+				<tr>
+					<td>Комментарий: </td>
+					<td>${reviewingPassport.getComment()}</td>
+				</tr>
+				
+				<c:set var="isMyPassport" scope="request" value="${isMyPassport}"/>
+				<c:if test="${isMyPassport}">
+					<tr>
+						<td>	
+							<form method="GET" action="change_passport_info/${reviewingPassport.getId()}" >
+								<input type="submit" name="changePassportInfoBtn" value="Изменить информацию о пасспорте"/>
+							</form>
+						</td>
+					</tr>
+				</c:if>		
+			</table>
+		</div>
 	</body>
 </html>

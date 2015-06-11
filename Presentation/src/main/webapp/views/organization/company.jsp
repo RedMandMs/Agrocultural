@@ -8,50 +8,52 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Информация о комапании</title>
 	</head>
-	<body>
-		<table>
-			<tr>
-				<td>Id компании: </td>
-				<td>${reviewingCompany.getId()}</td>
-			</tr>
-			<tr>
-				<td>Имя компании: </td>
-				<td>${reviewingCompany.getName()}</td>
-			</tr>
-			
-			<tr>
-				<td>ИНН компании: </td>
-				<td>${reviewingCompany.getInn()}</td>
-			</tr>
-			
-			<tr>
-				<td>Адрес компании: </td>
-				<td>${reviewingCompany.getAddress()}</td>
-			</tr>
-		</table>
-		<c:set var="isMyCompany" scope="request" value="${isMyCompany}"/>
-		<c:if test="${isMyCompany}">
+	<body >
+		<div align="center" >
+			<table>
+				<tr>
+					<td>Id компании: </td>
+					<td>${reviewingCompany.getId()}</td>
+				</tr>
+				<tr>
+					<td>Имя компании: </td>
+					<td>${reviewingCompany.getName()}</td>
+				</tr>
+				
+				<tr>
+					<td>ИНН компании: </td>
+					<td>${reviewingCompany.getInn()}</td>
+				</tr>
+				
+				<tr>
+					<td>Адрес компании: </td>
+					<td>${reviewingCompany.getAddress()}</td>
+				</tr>
+			</table>
+			<c:set var="isMyCompany" scope="request" value="${isMyCompany}"/>
+			<c:if test="${isMyCompany}">
+				<br>
+				<form method="GET" action="change_organization_info">
+					<input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании"/>
+				</form>
+				<br>
+				<form method="GET" action="/Presentation/passport/createPassport">
+					<input type="submit" name="createPassportBtn" value="Создать новый пасспорт поля"/>
+				</form>
+			</c:if>
 			<br>
-			<form method="GET" action="change_organization_info">
-				<input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании"/>
+			<form method="GET" action="/Presentation/passport/mylistpassports">
+				<input type="submit" name="reviewMyPassportsBtn" value="Посмотреть паспорта организации"/>
 			</form>
 			<br>
-			<form method="GET" action="/Presentation/passport/createPassport">
-				<input type="submit" name="createPassportBtn" value="Создать новый пасспорт поля"/>
+			<form method="GET" action="/Presentation/passport/findlistpassports">
+				<input type="hidden" name="purpose" value="serch" />
+				<input type="submit" name="serchPassportsBtn" value="Поиск паспортов"/>
 			</form>
-		</c:if>
-		<br>
-		<form method="GET" action="/Presentation/passport/mylistpassports">
-			<input type="submit" name="reviewMyPassportsBtn" value="Посмотреть паспорта организации"/>
-		</form>
-		<br>
-		<form method="GET" action="/Presentation/passport/findlistpassports">
-			<input type="hidden" name="purpose" value="serch" />
-			<input type="submit" name="serchPassportsBtn" value="Поиск паспортов"/>
-		</form>
-		<br>
-		<form method="GET" action="/Presentation/">
-			<input type="submit" name="goToMainPageBtn" value="Перейти на главвную страницу"/>
-		</form>
+			<br>
+			<form method="GET" action="/Presentation/">
+				<input type="submit" name="goToMainPageBtn" value="Перейти на главвную страницу"/>
+			</form>
+		</div>
 	</body>
 </html>

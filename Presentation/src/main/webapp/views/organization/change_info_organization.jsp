@@ -9,9 +9,11 @@
 		<title>Изменение информации о компании</title>
 	</head>
 	<body>
-		<form name="goReviewCompanyForm" action="<c:url value='/organization/company/mycompany' />" method='GET'>
-	 		<input type="submit" name="reviewMyCompanyBtn" value="Назад к информации о своей компании">
-		</form>
+		<div align="center" >
+			<form name="goReviewCompanyForm" action="<c:url value='/organization/company/mycompany' />" method='GET'>
+		 		<input type="submit" name="reviewMyCompanyBtn" value="Назад к информации о своей компании">
+			</form>
+		</div>
 		<br>
 		<div>
 			<h1>Изменение данных о компании:</h1>	

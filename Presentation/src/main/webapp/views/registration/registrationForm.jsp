@@ -8,7 +8,7 @@
 <title>Регистрация нового пользователя</title>
 </head>
 <body>
-	<div>
+	<div align="center" >
 		<h1>Регистрация нового пользователя:</h1>	
 		<sf:form method="POST" modelAttribute="userOrganization">
 			<fieldset>

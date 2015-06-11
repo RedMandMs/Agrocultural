@@ -9,43 +9,45 @@
 	<title>Мои паспорта</title>
 	</head>
 	<body>
-		<table>
-			<tr>
-				<td>
-					<form name="goReviewCompanyForm" action="<c:url value='/organization/company/mycompany' />" method='GET'>
-						<input type="submit" name="reviewMyCompanyBtn" value="Назад к информации о своей компании">
-					</form>
-				</td>
-				<td>
-					<form method="GET" action="/Presentation/passport/findlistpassports">
-						<input type="submit" name="serchPassportsBtn" value="Поиск паспортов"/>
-					</form>
-				</td>
-			</tr>
-		</table>
-		<br>
-		<H1>Паспорта принадлежащие организации</H1>
-		<H2>Список всех ваших паспортов:</H2>
-		<table>
-		  <c:forEach var="passport" items="${myPassportsList}">
-			  <tr>
-			    <td>${passport.getId()}</td>
-			    <td>${passport.getNameOwner()}</td>
-			    <td>${regions[0].getRegion(passport.getRegion()).getView()}</td>
-			    <td>${passport.getCadastrNumber()}</td>
-			    <td>${passport.getArea()}</td>
-			    <td>${types[0].getTypeOf(passport.getType()).getView()}</td>
-			    <td>${passport.getComment()}</td>
-			    <td>
-			    	<form action="http://localhost:8080/Presentation/passport/${passport.getId()}" method="get">
-			    		<input type="submit" value="Посмотреть">
-			    	</form>
-			    </td>
-			  </tr>
-		  </c:forEach>
-		</table>
-		<form method="GET" action="/Presentation/passport/createPassport">
-			<input type="submit" name="createPassportBtn" value="Создать новый пасспорт поля"/>
-		</form>
+		<div align="center" >
+			<table>
+				<tr>
+					<td>
+						<form name="goReviewCompanyForm" action="<c:url value='/organization/company/mycompany' />" method='GET'>
+							<input type="submit" name="reviewMyCompanyBtn" value="Назад к информации о своей компании">
+						</form>
+					</td>
+					<td>
+						<form method="GET" action="/Presentation/passport/findlistpassports">
+							<input type="submit" name="serchPassportsBtn" value="Поиск паспортов"/>
+						</form>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<H1>Паспорта принадлежащие организации</H1>
+			<H2>Список всех ваших паспортов:</H2>
+			<table cellspacing="15">
+			  <c:forEach var="passport" items="${myPassportsList}">
+				  <tr>
+				    <td>${passport.getId()}</td>
+				    <td>${passport.getNameOwner()}</td>
+				    <td>${regions[0].getRegion(passport.getRegion()).getView()}</td>
+				    <td>${passport.getCadastrNumber()}</td>
+				    <td>${passport.getArea()}</td>
+				    <td>${types[0].getTypeOf(passport.getType()).getView()}</td>
+				    <td>${passport.getComment()}</td>
+				    <td>
+				    	<form action="http://localhost:8080/Presentation/passport/${passport.getId()}" method="get">
+				    		<input type="submit" value="Посмотреть">
+				    	</form>
+				    </td>
+				  </tr>
+			  </c:forEach>
+			</table>
+				<form method="GET" action="/Presentation/passport/createPassport">
+					<input type="submit" name="createPassportBtn" value="Создать новый пасспорт поля"/>
+				</form>
+		</div>
 	</body>
 </html>
