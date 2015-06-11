@@ -58,6 +58,14 @@
 							</form>
 						</td>
 					</tr>
+					<tr>
+						<td>	
+							<form method="POST" action="delete" >
+								<input type="hidden" value="${reviewingPassport.getId()}" name="idPassport"/>
+								<input type="submit" name="deletePassportBtn" value="Удалить паспорт"/>
+							</form>
+						</td>
+					</tr>
 				</c:if>		
 			</table>
 		</div>

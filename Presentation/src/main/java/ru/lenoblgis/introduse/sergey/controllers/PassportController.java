@@ -2,9 +2,11 @@ package ru.lenoblgis.introduse.sergey.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,6 +56,7 @@ public class PassportController {
 			model.addAttribute("isMyPassport", false);
 		}
 		
+		model.addAttribute("idPassport", passportId);
 		model.addAttribute("reviewingPassport", reviewingPassport);
 		
 		return "passport/passport";
@@ -219,5 +222,30 @@ public class PassportController {
 		session.setAttribute("findPassportsList", findPassports);
 		session.setAttribute("serchingPassport", serchingPassport);
 		return "redirect:/passport/findlistpassports";
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String deletePassports(HttpServletRequest request, ModelMap model) {
+		
+		Integer idPassport = Integer.valueOf(request.getParameter("idPassport"));
+		
+		passportService.deletePassport(idPassport);
+		
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true); // true == allow create
+		
+		List<Integer> myIdPasports = (List<Integer>) session.getAttribute("myIdPasports");
+		myIdPasports.remove(idPassport);
+		List<PassportInfo> myPassportList = (List<PassportInfo>) session.getAttribute("myPassportsList");
+		for(PassportInfo passportInfo : myPassportList){
+			if(passportInfo.getId().equals(idPassport)){
+				myPassportList.remove(passportInfo);
+				break;
+			}
+		}
+		
+		String lastList = (String) session.getAttribute("lastList");
+		
+		return "redirect:/passport/"+ lastList;
 	}
 }
