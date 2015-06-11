@@ -12,21 +12,24 @@
 		<form name="goReviewCompanyForm" action="<c:url value='/organization/company/mycompany' />" method='GET'>
 			<input type="submit" name="reviewMyCompanyBtn" value="Назад к информации о своей компании">
 		</form>
+		<br>
 		<table cellspacing="15" rules="all">
 			<tr>
 			    <td align="center">Id события</td>
 			    <td align="center">Id пасспорта</td>
 			    <td align="center">Сообщение</td>
 			    <td align="center">Дата</td>
+			    <td align="center">Время</td>
 			    <td align="center">Тип события</td>
 			</tr>
 	    	<c:forEach var="event" items="${events}">
-				<tr>
+				<tr height="30">
 				    <td align="center">${event.getId()}</td>
 				    <td align="center">${event.getIdPassport()}</td>
 				    <td align="center">${event.getMessage()}</td>
-				    <td align="center">${event.getDate()}</td>
-				    <td align="center">${event.getTypeEvent()}</td>
+				    <td align="center" width="100">${event.getDate()}</td>
+				    <td align="center" width="100">${event.getTime()}</td>
+				    <td align="center" width="200">${event.getTypeEvent()}</td>
 				</tr>
 		  	</c:forEach>
 		</table>
