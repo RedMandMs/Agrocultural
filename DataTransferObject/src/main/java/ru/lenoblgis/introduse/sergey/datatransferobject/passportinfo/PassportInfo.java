@@ -210,5 +210,26 @@ public class PassportInfo implements Serializable{
 	public void setNameOwner(String nameOwner) {
 		this.nameOwner = nameOwner;
 	}
-	
+
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		PassportInfo that = (PassportInfo) o;
+
+		if (id != null && id.equals(that.id)) return true;
+		if (!idOwner.equals(that.idOwner)) return false;
+		return !(cadastrNumber != null ? !cadastrNumber.equals(that.cadastrNumber) : that.cadastrNumber != null);
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id != null ? id.hashCode() : 0;
+		result = 31 * result + idOwner.hashCode();
+		result = 31 * result + (cadastrNumber != null ? cadastrNumber.hashCode() : 0);
+		return result;
+	}
 }

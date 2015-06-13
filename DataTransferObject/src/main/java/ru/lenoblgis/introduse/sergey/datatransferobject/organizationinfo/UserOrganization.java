@@ -184,5 +184,27 @@ public class UserOrganization {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		UserOrganization that = (UserOrganization) o;
+
+		if (userId == that.userId) return true;
+		if (organizationId != that.organizationId) return false;
+		if (inn != that.inn) return false;
+		if (!login.equals(that.login)) return false;
+		return organizationName.equals(that.organizationName);
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = userId;
+		result = 31 * result + organizationId;
+		result = 31 * result + inn;
+		return result;
+	}
 }

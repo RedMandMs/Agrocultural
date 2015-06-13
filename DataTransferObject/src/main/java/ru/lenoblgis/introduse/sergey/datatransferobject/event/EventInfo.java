@@ -55,7 +55,7 @@ public class EventInfo implements Serializable{
 	 * @param id - id события
 	 * @param id_passport - id паспорта над которым было совершено событие
 	 * @param id_organization - id организации выполнившей действия по данному событию
-	 * @param message_event - текстовое сообщение события
+	 * @param message - текстовое сообщение события
 	 * @param date_time_event - Дата и время события
 	 * @param type_event - тип события
 	 */
@@ -67,12 +67,13 @@ public class EventInfo implements Serializable{
 		setDataTime(date_time_event);
 		setTypeEvent(type_event);
 	}
-	
+
 	/**
-	 * Конструктор используемый при создании события, перед помещением его в БД
-	 * @param passport - паспорт, над которым совершается событие
+	 *  Конструктор используемый при создании события, перед помещением его в БД
+	 * @param idPassport - id паспорта, над которым совершено событие
+	 * @param idAuthor - id автора события
+	 * @param nameAuther - имя автора события (организации)
 	 * @param eventType - Тип события (Имя константы в перечислениях)
-	 * @param dao - DAO создающий данное событие (нужен для считывания из БД автора события)
 	 */
 	public EventInfo(int idPassport, int idAuthor, String nameAuther, String eventType){
 		setTypeEvent(eventType);
@@ -211,6 +212,27 @@ public class EventInfo implements Serializable{
 	public void setTypeEvent(String typeEvent) {
 		this.typeEvent = typeEvent;
 	}
-	
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		EventInfo eventInfo = (EventInfo) o;
+
+		if (id == eventInfo.id){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id;
+		result = 31 * result + idAuthor;
+		result = 31 * result + idPassport;
+		return result;
+	}
 }
