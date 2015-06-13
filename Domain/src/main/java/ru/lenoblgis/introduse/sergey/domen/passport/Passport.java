@@ -221,6 +221,39 @@ public class Passport implements Serializable {
 		}
 	}
 
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((cadastrNumber == null) ? 0 : cadastrNumber.hashCode());
+		result = prime * result + id;
+		result = prime * result + idOwner;
+		return result;
+	}
 
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Passport other = (Passport) obj;
+		if (id == other.id){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	
 
 }

@@ -36,7 +36,7 @@ public class PassportService implements Serializable {
 		int idOrg = passportInfo.getIdOwner();
 		String region = passportInfo.getRegion();
 		int cadastrNum = passportInfo.getCadastrNumber();
-		float area = passportInfo.getArea();
+		float area = (float) passportInfo.getArea();
 		String typeField = passportInfo.getType();
 		String comment = passportInfo.getComment();
 		Passport passport = new Passport(idOrg, region, cadastrNum, area, typeField, comment);
@@ -64,7 +64,7 @@ public class PassportService implements Serializable {
 		int idOrg = passportInfo.getIdOwner();
 		String region = passportInfo.getRegion();
 		int cadastrNum = passportInfo.getCadastrNumber();
-		float area = passportInfo.getArea();
+		float area = (float) passportInfo.getArea();
 		String typeField = passportInfo.getType();
 		String comment = passportInfo.getComment();
 		Passport passport = new Passport(id, idOrg, region, cadastrNum, area, typeField, comment);
