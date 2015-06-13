@@ -207,4 +207,15 @@ public class UserOrganization {
 		result = 31 * result + inn;
 		return result;
 	}
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder(getClass().getName());
+		sb.append("{userId=").append(getUserId());
+		sb.append(", login='").append(getLogin()).append('\'');
+		sb.append(", organizationId=").append(getOrganizationId());
+		sb.append(", organizationName='").append(getOrganizationName()).append('\'');
+		sb.append('}');
+		return sb.toString();
+	}
 }

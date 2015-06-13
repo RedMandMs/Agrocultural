@@ -235,4 +235,15 @@ public class EventInfo implements Serializable{
 		result = 31 * result + idPassport;
 		return result;
 	}
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder(getClass().getName());
+		sb.append("{id=").append(getId());
+		sb.append(", typeEvent='").append(getTypeEvent()).append('\'');
+		sb.append(", idAuthor=").append(getIdAuthor());
+		sb.append(", idPassport=").append(getIdPassport());
+		sb.append('}');
+		return sb.toString();
+	}
 }

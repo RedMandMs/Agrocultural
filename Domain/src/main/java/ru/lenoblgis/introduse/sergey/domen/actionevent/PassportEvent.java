@@ -254,5 +254,14 @@ public class PassportEvent implements Serializable{
 		}
 	}
 
-	
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder(getClass().getName());
+		sb.append("{id=").append(getId());
+		sb.append(", typeEvent=").append(getType());
+		sb.append(", idAuthor=").append(getIdAuthor());
+		sb.append(", idPassport=").append(getIdPassport());
+		sb.append('}');
+		return sb.toString();
+	}
 }

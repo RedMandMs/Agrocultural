@@ -254,6 +254,13 @@ public class Passport implements Serializable {
 		}
 	}
 
-	
-
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder(getClass().getName());
+		sb.append("{id=").append(getId());
+		sb.append(", idOwner=").append(getIdOwner());
+		sb.append(", cadastrNumber=").append(getCadastrNumber());
+		sb.append('}');
+		return sb.toString();
+	}
 }

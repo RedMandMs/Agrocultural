@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="791025f9-e24b-4553-84b1-01e779316657" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/Domain.iml" afterPath="$PROJECT_DIR$/Domain/Domain.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/event/EventInfo.java" afterPath="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/event/EventInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/owner/organization/Organization.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/owner/organization/Organization.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/OrganizationInfo.java" afterPath="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/OrganizationInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/passport/Passport.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/passport/Passport.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/actionevent/PassportEvent.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/actionevent/PassportEvent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/passportinfo/PassportInfo.java" afterPath="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/passportinfo/PassportInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/user/User.java" afterPath="$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/user/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/UserOrganization.java" afterPath="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/UserOrganization.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -35,51 +38,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WebAppConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/ru/lenoblgis/introduse/sergey/config/WebAppConfig.java">
+      <file leaf-file-name="PassportEvent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/actionevent/PassportEvent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="98" column="40" selection-start-line="98" selection-start-column="40" selection-end-line="98" selection-end-column="40" />
+              <caret line="261" column="53" selection-start-line="261" selection-start-column="53" selection-end-line="261" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PassportInfo.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/passportinfo/PassportInfo.java">
+      <file leaf-file-name="Organization.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/owner/organization/Organization.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44078946">
-              <caret line="221" column="15" selection-start-line="221" selection-start-column="15" selection-end-line="221" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="160" column="20" selection-start-line="160" selection-start-column="20" selection-end-line="160" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrganizationInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/OrganizationInfo.java">
+      <file leaf-file-name="Passport.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/passport/Passport.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+              <caret line="262" column="23" selection-start-line="262" selection-start-column="23" selection-end-line="262" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserOrganization.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/UserOrganization.java">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/user/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/event/EventInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="57" column="44" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.8042763">
+              <caret line="197" column="5" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -99,9 +92,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/OrganizationInfo.java" />
-        <option value="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/event/EventInfo.java" />
-        <option value="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/UserOrganization.java" />
         <option value="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/passportinfo/PassportInfo.java" />
+        <option value="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/UserOrganization.java" />
+        <option value="$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/event/EventInfo.java" />
+        <option value="$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/actionevent/PassportEvent.java" />
+        <option value="$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/owner/organization/Organization.java" />
+        <option value="$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/passport/Passport.java" />
+        <option value="$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/user/User.java" />
       </list>
     </option>
   </component>
@@ -195,9 +192,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -226,7 +222,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DataTransferObject" />
+              <option name="myItemId" value="Domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -240,7 +236,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DataTransferObject" />
+              <option name="myItemId" value="Domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -258,29 +254,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DataTransferObject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="introduse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Agrocultural" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTransferObject" />
+              <option name="myItemId" value="Domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -291,18 +265,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datatransferobject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="passportinfo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -314,7 +276,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DataTransferObject" />
+              <option name="myItemId" value="Domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -330,50 +292,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="datatransferobject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="organizationinfo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="introduse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Agrocultural" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataTransferObject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datatransferobject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="event" />
+              <option name="myItemId" value="domen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -755,11 +680,13 @@
       <workItem from="1433450340874" duration="232000" />
       <workItem from="1433679773389" duration="3354000" />
       <workItem from="1434205735293" duration="1161000" />
+      <workItem from="1434211951783" duration="916000" />
+      <workItem from="1434213078657" duration="518000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4747000" />
+    <option name="totallyTimeSpent" value="6181000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -775,7 +702,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -816,11 +743,53 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/ru/lenoblgis/introduse/sergey/config/WebAppConfig.java">
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/actionevent/PassportEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/ru/lenoblgis/introduse/sergey/config/WebAppConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="98" column="40" selection-start-line="98" selection-start-column="40" selection-end-line="98" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/passportinfo/PassportInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/OrganizationInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/UserOrganization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/event/EventInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="44" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presentation/src/main/java/ru/lenoblgis/introduse/sergey/config/WebAppConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -836,38 +805,65 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="40" selection-start-line="98" selection-start-column="40" selection-end-line="98" selection-end-column="40" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/OrganizationInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72039473">
+          <caret line="160" column="43" selection-start-line="160" selection-start-column="43" selection-end-line="160" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/UserOrganization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72039473">
+          <caret line="216" column="70" selection-start-line="216" selection-start-column="70" selection-end-line="216" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/passportinfo/PassportInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72039473">
+          <caret line="240" column="63" selection-start-line="240" selection-start-column="63" selection-end-line="240" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/event/EventInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="44" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
-          <folding />
+          <caret line="244" column="57" selection-start-line="244" selection-start-column="57" selection-end-line="244" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/OrganizationInfo.java">
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/actionevent/PassportEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <caret line="261" column="53" selection-start-line="261" selection-start-column="53" selection-end-line="261" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/organizationinfo/UserOrganization.java">
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/owner/organization/Organization.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
+          <caret line="160" column="20" selection-start-line="160" selection-start-column="20" selection-end-line="160" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataTransferObject/src/main/java/ru/lenoblgis/introduse/sergey/datatransferobject/passportinfo/PassportInfo.java">
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/passport/Passport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44078946">
-          <caret line="221" column="15" selection-start-line="221" selection-start-column="15" selection-end-line="221" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="262" column="23" selection-start-line="262" selection-start-column="23" selection-end-line="262" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/ru/lenoblgis/introduse/sergey/domen/user/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8042763">
+          <caret line="197" column="5" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="5" />
           <folding />
         </state>
       </provider>

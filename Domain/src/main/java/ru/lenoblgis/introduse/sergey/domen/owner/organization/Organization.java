@@ -155,4 +155,13 @@ public class Organization implements Owner{
 		}
 	}
 
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder(getClass().getName());
+		sb.append("{id=").append(getId());
+		sb.append(", name='").append(getName()).append('\'');
+		sb.append(", inn=").append(getInn());
+		sb.append('}');
+		return sb.toString();
+	}
 }

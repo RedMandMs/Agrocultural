@@ -232,4 +232,14 @@ public class PassportInfo implements Serializable{
 		result = 31 * result + (cadastrNumber != null ? cadastrNumber.hashCode() : 0);
 		return result;
 	}
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder(getClass().getName());
+		sb.append("{id=").append(getId());
+		sb.append(", idOwner=").append(getIdOwner());
+		sb.append(", cadastrNumber=").append(getCadastrNumber());
+		sb.append('}');
+		return sb.toString();
+	}
 }

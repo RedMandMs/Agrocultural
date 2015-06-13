@@ -165,7 +165,35 @@ public class User {
 	public void setRole(UserRole role) {
 		this.role = role;
 	}
-	
-	
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		User user = (User) o;
+
+		if (id == user.id) return true;
+		if (organizationId != user.organizationId) return false;
+		return login.equals(user.login);
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id;
+		result = 31 * result + login.hashCode();
+		result = 31 * result + organizationId;
+		return result;
+	}
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder(getClass().getName());
+		sb.append("{id=").append(getId());
+		sb.append(", login='").append(getLogin()).append('\'');
+		sb.append(", organizationId=").append(getOrganizationId());
+		sb.append(", role=").append(getRole().getName());
+		sb.append('}');
+		return sb.toString();
+	}
 }
