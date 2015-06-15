@@ -13,6 +13,12 @@ import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 import ru.lenoblgis.introduse.sergey.domen.user.User;
 import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
+import ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewINNOrganization;
+import ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewNameOrganization;
+import ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewOrganization;
+import ru.lenoblgis.introduse.sergey.verefication.annotation.user.NewLoginUser;
+import ru.lenoblgis.introduse.sergey.verefication.annotation.user.NewPasswordUser;
+import ru.lenoblgis.introduse.sergey.verefication.annotation.user.NonCopyLoginUser;
 
 @Service
 public class UserService implements Serializable{
@@ -28,7 +34,14 @@ public class UserService implements Serializable{
 	
 	public OrganizationInfo registration(UserOrganization userOrganization){
 		
+		@NewLoginUser
+		@NewPasswordUser
+		@NonCopyLoginUser
 		User user = new User(userOrganization.getLogin(), userOrganization.getPassword(), UserRole.USER);
+		
+		@NewOrganization
+		@NewINNOrganization
+		@NewNameOrganization
 		Owner organization = new Organization(userOrganization.getOrganizationName(), 
 				userOrganization.getInn(), userOrganization.getAddress());
 		
@@ -48,10 +61,16 @@ public class UserService implements Serializable{
 	
 	public OrganizationInfo getUser(UserOrganization userOrganization){
 		
+		@NewLoginUser
+		@NewPasswordUser
+		@NonCopyLoginUser
 		User user = new User(userOrganization.getLogin(), userOrganization.getPassword());
 		
 		user = dao.reviewUser(user);
 		
+		@NewOrganization
+		@NewINNOrganization
+		@NewNameOrganization
 		Owner owner = dao.reviewOwner(user.getOrganizationId());
 		
 		OrganizationInfo organizationInfo = new OrganizationInfo(owner.getId(), owner.getName(), owner.getInn(), owner.getAddress());
@@ -60,6 +79,7 @@ public class UserService implements Serializable{
 	}
 	
 	public User getUserByLogin(String login) {
+		
 		User user = dao.findUserByLogin(login);
 		
 		return user;

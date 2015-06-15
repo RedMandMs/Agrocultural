@@ -15,6 +15,9 @@ import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 import ru.lenoblgis.introduse.sergey.domen.user.User;
 import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
+import ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewINNOrganization;
+import ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewNameOrganization;
+import ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewOrganization;
 
 @Component("organizationService")
 public class OwnerService implements Serializable{
@@ -36,7 +39,13 @@ public class OwnerService implements Serializable{
 		String nameOrg = info.getName();
 		Integer inn = info.getInn();
 		String addresOrg = info.getAddress();
+		
+		@NewOrganization
+		@NewINNOrganization
+		@NewNameOrganization
 		Owner editingOwner = new Organization(id, nameOrg, inn, addresOrg);
+		
+		
 		try{
 			dao.editOwner(editingOwner);
 			return true;

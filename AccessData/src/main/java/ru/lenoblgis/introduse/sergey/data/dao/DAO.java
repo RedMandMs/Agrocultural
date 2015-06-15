@@ -7,9 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -34,9 +33,10 @@ import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 public class DAO  {
 	
 	/**
-	 * 
+	 * Логер
 	 */
-	 private static final Logger log = LogManager.getLogger(DAO.class);
+	 private static final Logger log = Logger.getLogger(DAO.class);
+	 
 	
 	/**
 	 * Константа имени перечисления для добавления события - добавление поля
@@ -229,7 +229,7 @@ public class DAO  {
 		//Сформировать событие редактирования поля
 		addPassportEvent(passport, owner, EDIT_EVENT);
 		
-		log.log(Level.INFO, "Edited passport: " + passport);
+		log.info("Edited passport: " + passport);
 	}
 
 	/**
@@ -243,7 +243,7 @@ public class DAO  {
 		//Сформировать событие просмотра поля
 		addPassportEvent(passport, passport.getOwner(), REVIEW_EVENT);
 		
-		log.log(Level.INFO, "Reviwed passport: " + passport);
+		log.error("Reviwed passport: " + passport);
 		
 		return passport;
 	}
