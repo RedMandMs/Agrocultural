@@ -17,7 +17,7 @@ public class NewPassportValidator implements ConstraintValidator<NewPassport, Pa
 	@Override
 	public boolean isValid(Passport arg0, ConstraintValidatorContext arg1) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

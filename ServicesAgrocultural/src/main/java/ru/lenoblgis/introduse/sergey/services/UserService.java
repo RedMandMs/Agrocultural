@@ -1,6 +1,12 @@
 package ru.lenoblgis.introduse.sergey.services;
 
 import java.io.Serializable;
+import java.util.Set;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
@@ -23,6 +29,11 @@ import ru.lenoblgis.introduse.sergey.verefication.annotation.user.NonCopyLoginUs
 @Service
 public class UserService implements Serializable{
 	
+	@Autowired
+	ValidatorFactory validatorFactory;
+	@Autowired
+	Validator validator;
+	
 	/**
 	 * DAO для работы с базой данных
 	 */
@@ -38,6 +49,12 @@ public class UserService implements Serializable{
 		@NewPasswordUser
 		@NonCopyLoginUser
 		User user = new User(userOrganization.getLogin(), userOrganization.getPassword(), UserRole.USER);
+		
+		Set<ConstraintViolation<User>> violationsUser = validator.validate(user);
+		
+		if(violationsUser.size() != 0){
+			
+		}
 		
 		@NewOrganization
 		@NewINNOrganization
@@ -60,17 +77,10 @@ public class UserService implements Serializable{
 	}
 	
 	public OrganizationInfo getUser(UserOrganization userOrganization){
-		
-		@NewLoginUser
-		@NewPasswordUser
-		@NonCopyLoginUser
 		User user = new User(userOrganization.getLogin(), userOrganization.getPassword());
 		
 		user = dao.reviewUser(user);
-		
-		@NewOrganization
-		@NewINNOrganization
-		@NewNameOrganization
+
 		Owner owner = dao.reviewOwner(user.getOrganizationId());
 		
 		OrganizationInfo organizationInfo = new OrganizationInfo(owner.getId(), owner.getName(), owner.getInn(), owner.getAddress());

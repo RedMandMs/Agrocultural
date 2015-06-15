@@ -17,7 +17,7 @@ public class NewOrganizationValidator implements ConstraintValidator<NewOrganiza
 	@Override
 	public boolean isValid(Owner organization, ConstraintValidatorContext context) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

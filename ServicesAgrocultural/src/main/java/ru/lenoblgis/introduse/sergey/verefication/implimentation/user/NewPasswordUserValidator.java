@@ -15,8 +15,14 @@ public class NewPasswordUserValidator implements ConstraintValidator<NewPassword
 	}
 
 	@Override
-	public boolean isValid(User arg0, ConstraintValidatorContext arg1) {
-		// TODO Auto-generated method stub
+	public boolean isValid(User user, ConstraintValidatorContext arg1) {
+		if(user != null){
+			if(user.getPassword() != null){
+				if(user.getPassword().length() <= 16 && user.getPassword().length() > 4){
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
