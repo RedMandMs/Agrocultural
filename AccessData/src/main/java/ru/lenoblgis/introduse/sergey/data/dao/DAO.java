@@ -159,6 +159,18 @@ public class DAO  {
 		log.log(Level.INFO, "Reviwed organization: " + owner);
 		return  owner;
 	}
+	
+	public List<Organization> findOwnerByINN(Integer inn){
+		Object [] values = new Object[]{inn};
+		List<Organization> resultSet = jdbcTemplate.query(sqlQueries.findOwnerByINN(), values, organizationRowMapper);
+		return resultSet;
+	}
+	
+	public List<Organization> findOwnerByName(String name) {
+		Object [] values = new Object[]{name};
+		List<Organization> resultSet = jdbcTemplate.query(sqlQueries.findOwnerByName(), values, organizationRowMapper);
+		return resultSet;
+	}
 
 	/**
 	 * 

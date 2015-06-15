@@ -30,6 +30,15 @@ public interface SQLQueries extends Serializable {
 	 */
 	public String reviewOwner();
 	
+	/**
+	 * Найти организацию по ИНН
+	 */
+	public String findOwnerByINN();
+	
+	/**
+	 * Найти организацию по названию
+	 */
+	public String findOwnerByName();
 	
 	/**
 	 * Создание паспорта

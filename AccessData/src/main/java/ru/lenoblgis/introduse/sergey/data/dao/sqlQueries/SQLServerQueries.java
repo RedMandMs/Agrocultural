@@ -48,7 +48,25 @@ public class SQLServerQueries implements SQLQueries {
 				+ " FROM " + NAME_ORG_TABLE
 				+ " WHERE (id = ?)";
 	}
+	
+	/**
+	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#findOwnerByINN(java.lang.Integer)
+	 */
+	public String findOwnerByINN(){
+		return "SELECT * "
+				+ " FROM " + NAME_ORG_TABLE
+				+ "WHERE (inn = ?)";
+	}
 
+	/**
+	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#findOwnerByName(java.lang.String)
+	 */
+	public String findOwnerByName(){
+		return "SELECT * "
+				+ " FROM " + NAME_ORG_TABLE
+				+ "WHERE (name = ?)";
+	}
+	
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#createPassport()
 	 */

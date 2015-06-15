@@ -28,7 +28,7 @@ public interface Owner extends Serializable{
 	/**
 	 * Получить ИНН владельца
 	 */
-	public int getInn();
+	public Integer getInn();
 	/**
 	 * Установить ИНН владельца
 	 */

@@ -59,7 +59,7 @@ public class Organization implements Owner{
 	/**
 	 * ИНН организации
 	 */
-	private int inn;
+	private Integer inn;
 	
 	
 	/**
@@ -99,7 +99,7 @@ public class Organization implements Owner{
 	/**
 	 * @see ru.ru.lenoblgis.introduse.sergey.domen.owner.Owner#getInn()
 	 */
-	public int getInn() {
+	public Integer getInn() {
 		return inn;
 	}
 
