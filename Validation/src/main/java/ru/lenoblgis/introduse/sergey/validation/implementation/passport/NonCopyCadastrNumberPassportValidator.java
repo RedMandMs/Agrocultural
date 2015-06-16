@@ -15,8 +15,7 @@ import ru.lenoblgis.introduse.sergey.validation.annotation.passport.NonCopyCadas
 
 public class NonCopyCadastrNumberPassportValidator implements ConstraintValidator<NonCopyCadastrNumberPassport, Integer>{
 
-	@Autowired
-	DAO dao;
+	DAO dao = new DAO();
 	
 	@Override
 	public void initialize(NonCopyCadastrNumberPassport arg0) {
@@ -26,7 +25,10 @@ public class NonCopyCadastrNumberPassportValidator implements ConstraintValidato
 
 	@Override
 	public boolean isValid(Integer cadastrNumber, ConstraintValidatorContext context) {
-		if(cadastrNumber != null && cadastrNumber != 0){
+		if(cadastrNumber == null){
+			return true;
+		}
+		if(cadastrNumber != 0){
 			Map<String, Object> info = new HashMap<String, Object>();
 			info.put("cadastrNumber", cadastrNumber);
 			List<Passport> listPassport = dao.findPassports(info);

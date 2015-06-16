@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import ru.lenoblgis.introduse.sergey.validation.annotation.passport.NonCopyCadastrNumberPassport;
+import ru.lenoblgis.introduse.sergey.validation.annotation.passport.PositiveArea;
 
 
 public class PassportInfo implements Serializable{
@@ -88,6 +89,7 @@ public class PassportInfo implements Serializable{
 	/**
 	 * Площадь поля
 	 */
+	@PositiveArea
 	private Float area;
 	
 	/**

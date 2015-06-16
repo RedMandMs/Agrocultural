@@ -1,5 +1,6 @@
 package ru.lenoblgis.introduse.sergey.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -132,13 +133,13 @@ public class PassportController {
 			model.addAttribute("message", "Введите данные о новом пасспорте");
 		}else{
 			session.removeAttribute("incorrectPassport");
-			model.addAttribute("message", "Вы ввели некорректные данные!");
+			session.setAttribute("messagesCreateEror", getPassportEror(createdPassport.getListEror()));
 		}
 		model.addAttribute("createdPassport", createdPassport);
 		
 		return "passport/create_passport";
 	}
-	
+
 	/**
 	 * Создать паспорт
 	 * @param model
@@ -150,20 +151,21 @@ public class PassportController {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
+		session.removeAttribute("messagesCreateEror");
+		
 		OrganizationInfo myCompany = (OrganizationInfo) session.getAttribute("myCompany");
 		
 		createdPassport.setIdOwner(myCompany.getId());
 		createdPassport.setNameOwner(myCompany.getName());
 		
-		int passportId = passportService.createPassport(createdPassport);
-		if(passportId != 0){
-			createdPassport.setId(passportId);
+		createdPassport = passportService.createPassport(createdPassport);
+		if(createdPassport.getId() != null && createdPassport.getId() != 0){
 			List<Integer> myIdPasports = (List<Integer>) session.getAttribute("myIdPasports");
 			myIdPasports.add(createdPassport.getId());
 			List<PassportInfo> myPassportList = (List<PassportInfo>) session.getAttribute("myPassportsList");
 			myPassportList.add(createdPassport);
 			session.setAttribute("lastList", "mylistpassports");
-			return "redirect:/passport/"+passportId;
+			return "redirect:/passport/"+createdPassport.getId();
 		}else{
 			session.setAttribute("incorrectPassport", createdPassport);
 			return "redirect:/passport/createPassport";
@@ -250,5 +252,20 @@ public class PassportController {
 		String lastList = (String) session.getAttribute("lastList");
 		
 		return "redirect:/passport/"+ lastList;
+	}
+	
+	private List<String> getPassportEror(List<String> listEror) {
+		List<String> listMessage = new ArrayList<String>();
+		for(String eror : listEror){
+			switch(eror){
+				case("CopyCadastrNumber"):
+					listMessage.add("Пасспорт с таким кадастровым номером уже существует!");
+					break;
+				case("NegativeArea"):
+					listMessage.add("Площадь поля должна быть положительным значением!");
+					break;				
+			}
+		}
+		return listMessage;
 	}
 }

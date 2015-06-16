@@ -16,7 +16,9 @@
 			<br>
 			<div>
 				<h1>Создание паспорта:</h1>	
-				<a>${message}</a>
+				<c:forEach var="message" items="${messagesCreateEror}">
+					<h4>${message}</h4>
+				</c:forEach>
 				<sf:form method="POST" modelAttribute="createdPassport">
 					<fieldset>
 						<table>
