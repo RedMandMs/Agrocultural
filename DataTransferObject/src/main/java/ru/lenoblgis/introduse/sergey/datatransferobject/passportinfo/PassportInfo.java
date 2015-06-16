@@ -1,6 +1,7 @@
 package ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import ru.lenoblgis.introduse.sergey.validation.annotation.passport.NonCopyCadastrNumberPassport;
 
@@ -99,7 +100,10 @@ public class PassportInfo implements Serializable{
 	 */
 	private String comment;
 	
-	
+	/**
+	 * Список ошибок
+	 */
+	private List<String> listEror;
 	/**
 	 * Получение id паспорта
 	 */
@@ -214,6 +218,21 @@ public class PassportInfo implements Serializable{
 		this.nameOwner = nameOwner;
 	}
 
+	/**
+	 * Получение списка ошибок
+	 * @return - список ошибок
+	 */
+	public List<String> getListEror() {
+		return listEror;
+	}
+
+	/**
+	 * Установка нового списка ошибок
+	 * @param listEror - новый сисок ошибок
+	 */
+	public void setListEror(List<String> listEror) {
+		this.listEror = listEror;
+	}
 
 	@Override
 	public boolean equals(Object o) {

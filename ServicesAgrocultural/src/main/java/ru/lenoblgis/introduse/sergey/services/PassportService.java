@@ -36,10 +36,10 @@ public class PassportService implements Serializable {
 	 */
 	public int createPassport(PassportInfo passportInfo){
 		
-		int idOrg = passportInfo.getIdOwner();
+		Integer idOrg = passportInfo.getIdOwner();
 		String region = passportInfo.getRegion();
-		int cadastrNum = passportInfo.getCadastrNumber();
-		float area = (float) passportInfo.getArea();
+		Integer cadastrNum = passportInfo.getCadastrNumber();
+		Float area = (Float) passportInfo.getArea();
 		String typeField = passportInfo.getType();
 		String comment = passportInfo.getComment();
 

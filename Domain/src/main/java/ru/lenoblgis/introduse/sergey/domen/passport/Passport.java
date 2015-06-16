@@ -39,7 +39,7 @@ public class Passport implements Serializable {
 	 * @param comment - комментарий
 	 */
 	public Passport(int idOwner, String region, Integer cadastrNumber,
-			float area, String type, String comment) {
+			Float area, String type, String comment) {
 		setIdOwner(idOwner);
 		setRegion(region);
 		setCadastrNumber(cadastrNumber);
@@ -62,12 +62,12 @@ public class Passport implements Serializable {
 	/**
 	 * Id поля
 	 */
-	private int id;
+	private Integer id;
 	
 	 /**
 	  * Организация-владелец поля
 	  */
-	private int idOwner;
+	private Integer idOwner;
 	
 	/**
 	 * Ссылка на владельца пасспорта
@@ -152,18 +152,7 @@ public class Passport implements Serializable {
 	/**
 	 * Установка кадастрового номера
 	 */
-	public void setCadastrNumber(String cadastrNumber) {
-		if(cadastrNumber == null || cadastrNumber.trim().equals("")){
-			this.cadastrNumber = null;
-		}else{
-			this.cadastrNumber = Integer.valueOf(cadastrNumber);
-		}
-	}
-	
-	/**
-	 * Установка кадастрового номера
-	 */
-	public void setCadastrNumber(int cadastrNumber) {
+	public void setCadastrNumber(Integer cadastrNumber) {
 		this.cadastrNumber = cadastrNumber;
 	}
 	
