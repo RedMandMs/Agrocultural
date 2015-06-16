@@ -10,14 +10,14 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import ru.lenoblgis.introduse.sergey.validation.implementation.user.NewPasswordUserValidator;
+import ru.lenoblgis.introduse.sergey.validation.implementation.user.LoginUserValidator;
 
 @Target({FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Constraint(validatedBy=NewPasswordUserValidator.class)
-public @interface NewPasswordUser {
-	String message() default "{ru.lenoblgis.introduse.sergey.verefication.annotation.user.NewPasswordUser.message}";
+@Constraint(validatedBy=LoginUserValidator.class)
+public @interface LoginUser {
+	String message() default "WrongFormatLogin";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default{};
 }

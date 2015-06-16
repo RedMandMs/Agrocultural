@@ -8,15 +8,15 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import ru.lenoblgis.introduse.sergey.validation.implementation.organization.NewNameOrganizationValidator;
+import ru.lenoblgis.introduse.sergey.validation.implementation.organization.NonCopyNameOrganizationValidator;
 import static java.lang.annotation.ElementType.*;
 
 @Target({FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Constraint(validatedBy=NewNameOrganizationValidator.class)
+@Constraint(validatedBy=NonCopyNameOrganizationValidator.class)
 public @interface NonCopyNameOrganization {
-	String message() default "{ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewNameOrganization.message}";
+	String message() default "CopyNameOrganization";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default{};
 }

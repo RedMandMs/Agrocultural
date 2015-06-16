@@ -11,15 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
-import ru.lenoblgis.introduse.sergey.validation.annotation.passport.NewCadastrNumberPassport;
+import ru.lenoblgis.introduse.sergey.validation.annotation.passport.NonCopyCadastrNumberPassport;
 
-public class NewCadastrNumberPassportValidator implements ConstraintValidator<NewCadastrNumberPassport, Integer>{
+public class NonCopyCadastrNumberPassportValidator implements ConstraintValidator<NonCopyCadastrNumberPassport, Integer>{
 
 	@Autowired
 	DAO dao;
 	
 	@Override
-	public void initialize(NewCadastrNumberPassport arg0) {
+	public void initialize(NonCopyCadastrNumberPassport arg0) {
 		// TODO Auto-generated method stub
 		
 	}

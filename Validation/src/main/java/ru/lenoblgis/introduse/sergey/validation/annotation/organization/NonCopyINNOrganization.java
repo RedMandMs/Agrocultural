@@ -17,7 +17,7 @@ import ru.lenoblgis.introduse.sergey.validation.implementation.organization.NewI
 @Documented
 @Constraint(validatedBy=NewINNOrganizationValidator.class)
 public @interface NonCopyINNOrganization {
-	String message() default "{ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewINNOrganization.message}";
+	String message() default "CopyINN";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default{};
 }

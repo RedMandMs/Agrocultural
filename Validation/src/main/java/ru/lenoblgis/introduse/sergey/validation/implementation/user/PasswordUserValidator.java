@@ -3,12 +3,12 @@ package ru.lenoblgis.introduse.sergey.validation.implementation.user;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import ru.lenoblgis.introduse.sergey.validation.annotation.user.NewPasswordUser;
+import ru.lenoblgis.introduse.sergey.validation.annotation.user.PasswordUser;
 
-public class NewPasswordUserValidator implements ConstraintValidator<NewPasswordUser, String>{
+public class PasswordUserValidator implements ConstraintValidator<PasswordUser, String>{
 
 	@Override
-	public void initialize(NewPasswordUser arg0) {
+	public void initialize(PasswordUser arg0) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -16,7 +16,7 @@ public class NewPasswordUserValidator implements ConstraintValidator<NewPassword
 	@Override
 	public boolean isValid(String password, ConstraintValidatorContext arg1) {
 		if(password != null){
-			if(password.length() <= 16 && password.trim().length() > 4){
+			if(password.length() < 16 && password.trim().length() > 4){
 				return true;
 			}
 		}

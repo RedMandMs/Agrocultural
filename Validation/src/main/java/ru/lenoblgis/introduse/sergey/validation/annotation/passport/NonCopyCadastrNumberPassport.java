@@ -10,14 +10,14 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import ru.lenoblgis.introduse.sergey.validation.implementation.passport.NewCadastrNumberPassportValidator;
+import ru.lenoblgis.introduse.sergey.validation.implementation.passport.NonCopyCadastrNumberPassportValidator;
 
 @Target({FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Constraint(validatedBy=NewCadastrNumberPassportValidator.class)
-public @interface NewCadastrNumberPassport {
-	String message() default "{ru.lenoblgis.introduse.sergey.verefication.annotation.passport.NewCadastrNumberPassport.message}";
+@Constraint(validatedBy=NonCopyCadastrNumberPassportValidator.class)
+public @interface NonCopyCadastrNumberPassport {
+	String message() default "{CopyCadastrNumber}";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default{};
 }

@@ -12,7 +12,10 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
+import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
+import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
+import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 
 @Component("passportService")
@@ -90,13 +93,16 @@ public class PassportService implements Serializable {
 	 * 													region - регион, cadastr_number - кадастровый номер, 
 	 * 													area - площадь, type_field - тип поля, comment - комментарий)
 	 */
-	public PassportInfo reviewPassport(int passportId){
+	public PassportInfo reviewPassport(int passportId, OrganizationInfo myCompany){
+		
+		Owner browsing = new Organization(myCompany.getId(), myCompany.getName(), 
+				myCompany.getInn(), myCompany.getAddress());
 		
 		PassportInfo passportInfo = null;
 		
 		try{
 			
-			Passport passport = dao.reviewPassport(passportId);
+			Passport passport = dao.reviewPassport(passportId, browsing);
 			passportInfo = new PassportInfo(passport.getId(), passport.getIdOwner(), passport.getRegion(),
 								passport.getOwner().getName(), passport.getCadastrNumber(), 
 								passport.getArea(), passport.getType(), passport.getComment());

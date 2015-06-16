@@ -2,7 +2,7 @@ package ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo;
 
 import java.io.Serializable;
 
-import ru.lenoblgis.introduse.sergey.validation.annotation.passport.NewCadastrNumberPassport;
+import ru.lenoblgis.introduse.sergey.validation.annotation.passport.NonCopyCadastrNumberPassport;
 
 
 public class PassportInfo implements Serializable{
@@ -81,7 +81,7 @@ public class PassportInfo implements Serializable{
 	/**
 	 * Кадастровый номер поля
 	 */
-	@NewCadastrNumberPassport
+	@NonCopyCadastrNumberPassport
 	private Integer cadastrNumber;
 	
 	/**

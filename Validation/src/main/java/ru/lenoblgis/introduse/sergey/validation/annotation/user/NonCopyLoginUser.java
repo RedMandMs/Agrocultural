@@ -17,7 +17,7 @@ import ru.lenoblgis.introduse.sergey.validation.implementation.user.NonCopyLogin
 @Documented
 @Constraint(validatedBy=NonCopyLoginUserValidator.class)
 public @interface NonCopyLoginUser {
-	String message() default "{ru.lenoblgis.introduse.sergey.verefication.annotation.user.NonCopyLoginUser.message}";
+	String message() default "CopyLogin";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default{};
 }

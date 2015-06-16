@@ -87,7 +87,7 @@ public class PassportEvent implements Serializable{
 		setType(TypeEvent.valueOf(eventType));
 		this.passport = passport;
 		this.idPassport = passport.getId();
-		this.idAuthor = passport.getIdOwner();
+		this.idAuthor = owner.getId();
 		this.auther = owner;
 	}
 	

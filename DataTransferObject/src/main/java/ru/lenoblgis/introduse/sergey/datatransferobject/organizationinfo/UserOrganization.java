@@ -1,9 +1,11 @@
 package ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo;
 
+import java.io.Serializable;
+
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyINNOrganization;
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyNameOrganization;
-import ru.lenoblgis.introduse.sergey.validation.annotation.user.NewLoginUser;
-import ru.lenoblgis.introduse.sergey.validation.annotation.user.NewPasswordUser;
+import ru.lenoblgis.introduse.sergey.validation.annotation.user.LoginUser;
+import ru.lenoblgis.introduse.sergey.validation.annotation.user.PasswordUser;
 import ru.lenoblgis.introduse.sergey.validation.annotation.user.NonCopyLoginUser;
 
 /**
@@ -11,7 +13,7 @@ import ru.lenoblgis.introduse.sergey.validation.annotation.user.NonCopyLoginUser
  * @author Administrator
  *
  */
-public class UserOrganization {
+public class UserOrganization implements Serializable {
 
 	
 	/**
@@ -45,14 +47,14 @@ public class UserOrganization {
 	/**
 	 * Пароль пользователя
 	 */
-	@NewPasswordUser
+	@PasswordUser
 	private String password;
 	
 	/**
 	 * Логин пользователя
 	 */
 	@NonCopyLoginUser
-	@NewLoginUser
+	@LoginUser
 	private String login;
 	
 	/**

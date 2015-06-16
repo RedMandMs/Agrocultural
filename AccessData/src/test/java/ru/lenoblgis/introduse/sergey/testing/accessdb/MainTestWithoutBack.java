@@ -39,8 +39,7 @@ public class MainTestWithoutBack {
 	@Test
 	@Ignore
 	public void testReviewPassport(){
-		DAO adminDao = new DAO();
-		adminDao.reviewPassport(12);		
+			
 	}
 
 }

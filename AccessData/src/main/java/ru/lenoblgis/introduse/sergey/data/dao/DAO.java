@@ -247,12 +247,12 @@ public class DAO  {
 	 * 
 	 * @see dataTier.accessToDataServices.DAO#reviewOwner(java.util.Map)
 	 */
-	public Passport reviewPassport(int id) {
+	public Passport reviewPassport(int id, Owner browsing) {
 
 		Passport passport = reviewPassportWithoutWrite(id);
 		
 		//—формировать событие просмотра пол€
-		addPassportEvent(passport, passport.getOwner(), REVIEW_EVENT);
+		addPassportEvent(passport, browsing, REVIEW_EVENT);
 		
 		log.error("Reviwed passport: " + passport);
 		

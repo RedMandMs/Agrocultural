@@ -1,6 +1,7 @@
 package ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyINNOrganization;
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyNameOrganization;
@@ -68,6 +69,10 @@ public class OrganizationInfo implements Serializable{
 	 */
 	private String address;
 
+	/**
+	 * список ошибок (при регистрации)
+	 */
+	private List<String> listEror;
 
 	/**
 	 * Получить id организации
@@ -135,6 +140,22 @@ public class OrganizationInfo implements Serializable{
 		}else{
 			this.address = address;			
 		}
+	}
+
+	/**
+	 * Получить список с ошибками
+	 * @return - список ошибок
+	 */
+	public List<String> getListEror() {
+		return listEror;
+	}
+	
+	/**
+	 * Установить список с ошибками
+	 * @param listEror - новый список ошибок
+	 */
+	public void setListEror(List<String> listEror) {
+		this.listEror = listEror;
 	}
 
 	@Override

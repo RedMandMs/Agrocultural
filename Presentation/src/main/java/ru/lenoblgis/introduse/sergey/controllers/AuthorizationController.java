@@ -1,12 +1,8 @@
 package ru.lenoblgis.introduse.sergey.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.UserOrganization;
-import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
-import ru.lenoblgis.introduse.sergey.domen.user.User;
 import ru.lenoblgis.introduse.sergey.services.UserService;
 
 @Controller

@@ -11,7 +11,7 @@ import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyNameOrganization;
 
-public class NewNameOrganizationValidator implements ConstraintValidator<NonCopyNameOrganization, String> {
+public class NonCopyNameOrganizationValidator implements ConstraintValidator<NonCopyNameOrganization, String> {
 
 	DAO dao = new DAO();
 	
