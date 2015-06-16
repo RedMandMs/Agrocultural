@@ -8,17 +8,7 @@
   <artifactId>AccessData</artifactId>
   <packaging>jar</packaging>
   
-  <properties>
-  	<lenoblgis.agrocultural.version>1.0-SNAPSHOT</lenoblgis.agrocultural.version>
-  </properties>
-  
   <dependencies>
-  
-  	<dependency>
-  			<groupId>ru.lenoblgis</groupId>
-  			<artifactId>Domain</artifactId>
-  			<version>${lenoblgis.agrocultural.version}</version>
-  	</dependency>
 	
 	<dependency>  
 	     	<groupId>com.microsoft.sqlserver</groupId>
@@ -33,6 +23,11 @@
 	<dependency>
 			<groupId>log4j</groupId>
 		    <artifactId>log4j</artifactId>
+	</dependency>
+	
+	<dependency>
+			<groupId>ru.lenoblgis</groupId>
+		    <artifactId>Domain</artifactId>
 	</dependency>
 	
   </dependencies>

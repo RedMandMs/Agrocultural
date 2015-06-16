@@ -16,13 +16,11 @@
   	<dependency>
   		<groupId>ru.lenoblgis</groupId>
   		<artifactId>ServicesAgrocultural</artifactId>
-  		<version>${lenoblgis.agrocultural.version}</version>
   	</dependency>
   	
   	<dependency>
   		<groupId>ru.lenoblgis</groupId>
   		<artifactId>DataTransferObject</artifactId>
-  		<version>${lenoblgis.agrocultural.version}</version>
   	</dependency>
   	
   	<dependency>
@@ -54,6 +52,11 @@
         <groupId>org.springframework.security</groupId>
         <artifactId>spring-security-taglibs</artifactId>
     </dependency>
+    
+    <dependency>
+			<groupId>ru.lenoblgis</groupId>
+		    <artifactId>Validation</artifactId>
+	</dependency>
   	
   </dependencies>
 </project>

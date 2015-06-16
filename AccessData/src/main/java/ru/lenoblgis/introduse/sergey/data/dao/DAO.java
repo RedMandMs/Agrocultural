@@ -167,8 +167,7 @@ public class DAO  {
 	}
 	
 	public List<Organization> findOwnerByName(String name) {
-		Object [] values = new Object[]{name};
-		List<Organization> resultSet = jdbcTemplate.query(sqlQueries.findOwnerByName(), values, organizationRowMapper);
+		List<Organization> resultSet = jdbcTemplate.query(sqlQueries.findOwnerByName(name), organizationRowMapper);
 		return resultSet;
 	}
 
@@ -388,8 +387,9 @@ public class DAO  {
 		
 		Object[] values = new Object[] {login};
 		List<User> resultSet = jdbcTemplate.query(sqlQueries.reviewUserByLogin(), values , userRowMapper);
-		if(resultSet.get(0) == null){
+		if(resultSet.isEmpty()){
 			log.log(Level.INFO, "Executed finding user by login='"+login+"', but he wasn't find!");
+			return null;
 		}else{
 			log.log(Level.INFO, "Executed finding user by login='"+login+"' and he was find!");
 		}

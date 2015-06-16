@@ -1,7 +1,11 @@
 package ru.lenoblgis.introduse.sergey.config;
 
 import javax.sql.DataSource;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -104,6 +108,13 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
     @Bean
     public UserDetailsService getUserDetailsService(){
         return new UserDetailsServiceImpl();
+    }
+    
+    
+    public static 	Validator getMyValidator(){
+    	ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+    	Validator validator = validatorFactory.getValidator();
+    	return validator;
     }
  
 }

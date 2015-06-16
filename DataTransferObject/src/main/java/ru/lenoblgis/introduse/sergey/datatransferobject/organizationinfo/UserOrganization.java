@@ -1,5 +1,11 @@
 package ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo;
 
+import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyINNOrganization;
+import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyNameOrganization;
+import ru.lenoblgis.introduse.sergey.validation.annotation.user.NewLoginUser;
+import ru.lenoblgis.introduse.sergey.validation.annotation.user.NewPasswordUser;
+import ru.lenoblgis.introduse.sergey.validation.annotation.user.NonCopyLoginUser;
+
 /**
  * Класс Data Transfer Object для формы регистрации, где сразу содаётся и пользователь и организация
  * @author Administrator
@@ -39,11 +45,14 @@ public class UserOrganization {
 	/**
 	 * Пароль пользователя
 	 */
+	@NewPasswordUser
 	private String password;
 	
 	/**
 	 * Логин пользователя
 	 */
+	@NonCopyLoginUser
+	@NewLoginUser
 	private String login;
 	
 	/**
@@ -54,12 +63,14 @@ public class UserOrganization {
 	/**
 	 * Название организации
 	 */
+	@NonCopyNameOrganization
 	private String organizationName;
 	
 	
 	/**
 	 * ИНН организации
 	 */
+	@NonCopyINNOrganization
 	private int inn;
 	
 	

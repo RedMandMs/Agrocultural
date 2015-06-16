@@ -38,7 +38,7 @@ public interface SQLQueries extends Serializable {
 	/**
 	 * Найти организацию по названию
 	 */
-	public String findOwnerByName();
+	public String findOwnerByName(String name);
 	
 	/**
 	 * Создание паспорта

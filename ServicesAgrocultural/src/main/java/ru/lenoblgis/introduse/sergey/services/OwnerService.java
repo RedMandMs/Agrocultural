@@ -4,24 +4,25 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
-import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.UserOrganization;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
-import ru.lenoblgis.introduse.sergey.domen.user.User;
-import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
-import ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewINNOrganization;
-import ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewNameOrganization;
-import ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewOrganization;
 
 @Component("organizationService")
 public class OwnerService implements Serializable{
 
+	ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+	Validator validator = validatorFactory.getValidator();
+	
 	/**
 	 * DAO для работы с базой данных
 	 */
@@ -40,9 +41,6 @@ public class OwnerService implements Serializable{
 		Integer inn = info.getInn();
 		String addresOrg = info.getAddress();
 		
-		@NewOrganization
-		@NewINNOrganization
-		@NewNameOrganization
 		Owner editingOwner = new Organization(id, nameOrg, inn, addresOrg);
 		
 		

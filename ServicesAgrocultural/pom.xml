@@ -18,13 +18,11 @@
   	<dependency>
   		<groupId>ru.lenoblgis</groupId>
   		<artifactId>AccessData</artifactId>
-  		<version>${lenoblgis.agrocultural.version}</version>
   	</dependency>
   	
   	<dependency>
   		<groupId>ru.lenoblgis</groupId>
   		<artifactId>DataTransferObject</artifactId>
-  		<version>${lenoblgis.agrocultural.version}</version>
   	</dependency>
   	
   	<dependency>
@@ -33,30 +31,24 @@
     </dependency>
     
     <dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
+  			<groupId>junit</groupId>
+  			<artifactId>junit</artifactId>
   	</dependency>
     
-        <dependency>
-  		<groupId>org.springframework.security</groupId>
-	   	<artifactId>spring-security-config</artifactId>
+    <dependency>
+  			<groupId>org.springframework.security</groupId>
+	   		<artifactId>spring-security-config</artifactId>
 	</dependency>
 	
     <dependency>
- 		<groupId>org.springframework.security</groupId>
- 		<artifactId>spring-security-web</artifactId>
+	 		<groupId>org.springframework.security</groupId>
+	 		<artifactId>spring-security-web</artifactId>
 	</dependency>
 	
 	<dependency>
- 		<groupId>org.springframework.security</groupId>
- 		<artifactId>spring-security-core</artifactId>
+	 		<groupId>org.springframework.security</groupId>
+	 		<artifactId>spring-security-core</artifactId>
 	</dependency>
-	
-	<dependency>
-		<groupId>javax.validation</groupId>
-		<artifactId>validation-api</artifactId>
-		<version>1.1.0.Final</version>
-    </dependency>
     
   </dependencies>
   

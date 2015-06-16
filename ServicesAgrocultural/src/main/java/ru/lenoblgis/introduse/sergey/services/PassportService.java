@@ -14,8 +14,6 @@ import org.springframework.stereotype.Component;
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
 import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
-import ru.lenoblgis.introduse.sergey.verefication.annotation.passport.NewCadastrNumberPassport;
-import ru.lenoblgis.introduse.sergey.verefication.annotation.passport.NewPassport;
 
 @Component("passportService")
 public class PassportService implements Serializable {
@@ -41,9 +39,7 @@ public class PassportService implements Serializable {
 		float area = (float) passportInfo.getArea();
 		String typeField = passportInfo.getType();
 		String comment = passportInfo.getComment();
-		
-		@NewCadastrNumberPassport
-		@NewPassport
+
 		Passport passport = new Passport(idOrg, region, cadastrNum, area, typeField, comment);
 		try{
 			int id = dao.createPassport(passport);
@@ -72,9 +68,7 @@ public class PassportService implements Serializable {
 		float area = (float) passportInfo.getArea();
 		String typeField = passportInfo.getType();
 		String comment = passportInfo.getComment();
-		
-		@NewCadastrNumberPassport
-		@NewPassport
+
 		Passport passport = new Passport(id, idOrg, region, cadastrNum, area, typeField, comment);
 		try{
 			dao.editPassport(passport);;
@@ -141,8 +135,7 @@ public class PassportService implements Serializable {
 	
 		List<Passport> passports = dao.reviewAllPassports();
 		for(Passport passport : passports){
-			@NewCadastrNumberPassport
-			@NewPassport
+
 			PassportInfo passportInfo = new PassportInfo(passport.getId(),passport.getIdOwner(), passport.getRegion(), 
 															passport.getOwner().getName(), passport.getCadastrNumber(), 
 															passport.getArea(), passport.getType(), passport.getComment());
@@ -173,8 +166,6 @@ public class PassportService implements Serializable {
 		List<Passport> passports = dao.findPassports(info);
 		for(Passport passport : passports){
 			
-			@NewCadastrNumberPassport
-			@NewPassport
 			PassportInfo resaltPassportInfo = new PassportInfo(passport.getId(),passport.getIdOwner(), passport.getRegion(), 
 																passport.getOwner().getName(), passport.getCadastrNumber(), 
 																passport.getArea(), passport.getType(), passport.getComment());

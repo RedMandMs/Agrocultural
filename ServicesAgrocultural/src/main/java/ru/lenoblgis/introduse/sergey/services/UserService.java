@@ -1,10 +1,11 @@
 package ru.lenoblgis.introduse.sergey.services;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.Set;
 
-import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
@@ -19,21 +20,19 @@ import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 import ru.lenoblgis.introduse.sergey.domen.user.User;
 import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
-import ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewINNOrganization;
-import ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewNameOrganization;
-import ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewOrganization;
-import ru.lenoblgis.introduse.sergey.verefication.annotation.user.NewLoginUser;
-import ru.lenoblgis.introduse.sergey.verefication.annotation.user.NewPasswordUser;
-import ru.lenoblgis.introduse.sergey.verefication.annotation.user.NonCopyLoginUser;
 
 @Service
 public class UserService implements Serializable{
 	
-	@Autowired
-	ValidatorFactory validatorFactory;
-	@Autowired
 	Validator validator;
 	
+	
+	
+	public UserService() {
+		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+    	validator = validatorFactory.getValidator();
+	}
+
 	/**
 	 * DAO для работы с базой данных
 	 */
@@ -45,20 +44,20 @@ public class UserService implements Serializable{
 	
 	public OrganizationInfo registration(UserOrganization userOrganization){
 		
-		@NewLoginUser
-		@NewPasswordUser
-		@NonCopyLoginUser
-		User user = new User(userOrganization.getLogin(), userOrganization.getPassword(), UserRole.USER);
+		Set<ConstraintViolation<UserOrganization>> violationsUserOrganization = validator.validate(userOrganization);
 		
-		Set<ConstraintViolation<User>> violationsUser = validator.validate(user);
-		
-		if(violationsUser.size() != 0){
-			
+		if(violationsUserOrganization.size() != 0){
+			Iterator<ConstraintViolation<UserOrganization>> violationIterator = violationsUserOrganization.iterator();
+			while(violationIterator.hasNext()){
+				String message = violationIterator.next().getMessage();
+				System.out.println(message);
+			}
 		}
 		
-		@NewOrganization
-		@NewINNOrganization
-		@NewNameOrganization
+		
+		User user = new User(userOrganization.getLogin(), userOrganization.getPassword(), UserRole.USER);
+		
+
 		Owner organization = new Organization(userOrganization.getOrganizationName(), 
 				userOrganization.getInn(), userOrganization.getAddress());
 		

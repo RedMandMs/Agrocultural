@@ -55,16 +55,16 @@ public class SQLServerQueries implements SQLQueries {
 	public String findOwnerByINN(){
 		return "SELECT * "
 				+ " FROM " + NAME_ORG_TABLE
-				+ "WHERE (inn = ?)";
+				+ " WHERE (inn = ?)";
 	}
 
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#findOwnerByName(java.lang.String)
 	 */
-	public String findOwnerByName(){
+	public String findOwnerByName(String name){
 		return "SELECT * "
 				+ " FROM " + NAME_ORG_TABLE
-				+ "WHERE (name = ?)";
+				+ " WHERE (name LIKE '"+name+"');";
 	}
 	
 	/**

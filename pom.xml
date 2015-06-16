@@ -13,6 +13,7 @@
   	<module>Presentation</module>
   	<module>Domain</module>
   	<module>DataTransferObject</module>
+  	<module>Validation</module>
   </modules>
   
   <properties>
@@ -27,6 +28,7 @@
   	<log4j.version>2.3</log4j.version>
   	<log4j.logger.version>1.2.17</log4j.logger.version>
   	<validation.version>1.1.0.Final</validation.version>
+  	<agrocultural.version>1.0-SNAPSHOT</agrocultural.version>
   </properties>
   
   <dependencyManagement>
@@ -118,10 +120,43 @@
 		    <version>${log4j.logger.version}</version>
 		</dependency>
 		
-		
-		
+		<dependency>
+			<groupId>ru.lenoblgis</groupId>
+		    <artifactId>AccessData</artifactId>
+		    <version>${agrocultural.version}</version>
+		</dependency>
+        
+        <dependency>
+			<groupId>ru.lenoblgis</groupId>
+		    <artifactId>DataTransferObject</artifactId>
+		    <version>${agrocultural.version}</version>
+		</dependency>
+
+        <dependency>
+			<groupId>ru.lenoblgis</groupId>
+		    <artifactId>Domain</artifactId>
+		    <version>${agrocultural.version}</version>
+		</dependency>
+
+        <dependency>
+			<groupId>ru.lenoblgis</groupId>
+		    <artifactId>ServicesAgrocultural</artifactId>
+		    <version>${agrocultural.version}</version>
+		</dependency>
+
+        <dependency>
+			<groupId>ru.lenoblgis</groupId>
+		    <artifactId>Presentation</artifactId>
+		    <version>${agrocultural.version}</version>
+		</dependency>
+
+        <dependency>
+			<groupId>ru.lenoblgis</groupId>
+		    <artifactId>Validation</artifactId>
+		    <version>${agrocultural.version}</version>
+		</dependency>
          
-  </dependencies>
+  	</dependencies>
   </dependencyManagement>
   
   <build>
