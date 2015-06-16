@@ -84,8 +84,9 @@ public class PassportController {
 			session.removeAttribute("changePassportInfo");
 			changedPassport = (PassportInfo) session.getAttribute("incorrectPassport");
 			session.removeAttribute("incorrectPassport");
-			model.addAttribute("message", "Не удалось изменить информацию о пасспорте!!!");
+			session.setAttribute("messagesEditPassportEror", getPassportEror(changedPassport.getListEror()));
 		}else{
+			session.removeAttribute("messagesEditPassportEror");
 			changedPassport = passportService.reviewPassport(passportId, myCompany);
 			model.addAttribute("message", "Введите новые данные о пасспорте:");
 		}
@@ -108,7 +109,15 @@ public class PassportController {
 		
 		
 		
-		if(passportService.editPassport(changedPassport)){
+		if(passportService.editPassport(changedPassport).getListEror() == null){
+			List<PassportInfo> myPassportList = (List<PassportInfo>) session.getAttribute("myPassportsList");
+			for(PassportInfo passportInfo : myPassportList){
+				//TODO УСЛОВИЕ НЕ РАБОТАЕТ!!!!
+				if((passportInfo.getId()) == (changedPassport.getId())){
+					myPassportList.remove(passportInfo);
+					myPassportList.add(changedPassport);
+				}
+			}
 			return "redirect:/passport/"+changedPassport.getId();
 		}else{
 			session.setAttribute("changePassportInfo", false);

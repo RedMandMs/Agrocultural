@@ -30,7 +30,7 @@ public class NonCopyCadastrNumberPassportValidator implements ConstraintValidato
 		}
 		if(cadastrNumber != 0){
 			Map<String, Object> info = new HashMap<String, Object>();
-			info.put("cadastrNumber", cadastrNumber);
+			info.put("cadastr_number", cadastrNumber);
 			List<Passport> listPassport = dao.findPassports(info);
 			if(listPassport.isEmpty()){
 				return true;

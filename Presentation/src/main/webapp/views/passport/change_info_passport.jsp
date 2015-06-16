@@ -17,7 +17,10 @@
 			<form method="GET" action="/Presentation/passport/${changedPassport.getId()}" >
 				<input type="submit" name="backToPassportsListBtn" value="Назад к информации о паспорте"/>
 			</form>
-			<h1>Изменение данных о пасспорте:</h1>	
+			<h1>Изменение данных о пасспорте:</h1>
+			<c:forEach var="message" items="${messagesEditPassportEror}">
+				<h4>${message}</h4>
+			</c:forEach>
 			<a>${message}</a>
 			<sf:form method="POST" modelAttribute="changedPassport">
 				<fieldset>

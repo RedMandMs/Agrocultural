@@ -96,26 +96,42 @@ public class PassportService implements Serializable {
 	 * @param info - информация о редактируемром паспорте("id" - id пасспорта, "id_organization" - id организации, region - регион, cadastr_number - кадастровый номер, area - площадь, type_field - тип поля, comment - комментарий)
  	 * @return - результаты работы ("success" - успешено ли был отредактирован паспорт)
 	 */
-	public boolean editPassport(PassportInfo passportInfo){
-				
-		int id = passportInfo.getId();
-		int idOrg = passportInfo.getIdOwner();
-		String region = passportInfo.getRegion();
-		int cadastrNum = passportInfo.getCadastrNumber();
-		float area = (float) passportInfo.getArea();
-		String typeField = passportInfo.getType();
-		String comment = passportInfo.getComment();
-
-		Passport passport = new Passport(id, idOrg, region, cadastrNum, area, typeField, comment);
-		try{
-			dao.editPassport(passport);;
-			return true;
-		}catch(DuplicateKeyException duplicateEx){
-			System.out.println("Дублирование!!!");
-			return false;
-		}catch(DataIntegrityViolationException ex){
-			System.out.println("Внешний ключ!!!");
-			return false;
+	public PassportInfo editPassport(PassportInfo passportInfo){
+		
+		Set<ConstraintViolation<PassportInfo>> violationsPassportInfo = validator.validate(passportInfo);
+		
+		List<String> listEror = new ArrayList<String>();
+		
+		if(violationsPassportInfo.size() != 0){
+			Iterator<ConstraintViolation<PassportInfo>> violationIterator = violationsPassportInfo.iterator();
+			while(violationIterator.hasNext()){
+				String message = violationIterator.next().getMessage();
+				listEror.add(message);
+			}
+			passportInfo.setListEror(listEror);
+			return passportInfo;
+		
+		}else{
+			passportInfo.setListEror(null);
+			int id = passportInfo.getId();
+			int idOrg = passportInfo.getIdOwner();
+			String region = passportInfo.getRegion();
+			int cadastrNum = passportInfo.getCadastrNumber();
+			float area = (float) passportInfo.getArea();
+			String typeField = passportInfo.getType();
+			String comment = passportInfo.getComment();
+	
+			Passport passport = new Passport(id, idOrg, region, cadastrNum, area, typeField, comment);
+			try{
+				dao.editPassport(passport);;
+				return passportInfo;
+			}catch(DuplicateKeyException duplicateEx){
+				System.out.println("Дублирование!!!");
+				return passportInfo;
+			}catch(DataIntegrityViolationException ex){
+				System.out.println("Внешний ключ!!!");
+				return passportInfo;
+			}
 		}
 	}
 	
