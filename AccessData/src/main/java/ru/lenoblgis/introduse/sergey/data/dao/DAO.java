@@ -240,7 +240,7 @@ public class DAO  {
 		//—формировать событие редактировани€ пол€
 		addPassportEvent(passport, owner, EDIT_EVENT);
 		
-		log.info("Edited passport: " + passport);
+		log.log(Level.INFO, "Edited passport: " + passport);
 	}
 
 	/**
@@ -254,7 +254,7 @@ public class DAO  {
 		//—формировать событие просмотра пол€
 		addPassportEvent(passport, browsing, REVIEW_EVENT);
 		
-		log.error("Reviwed passport: " + passport);
+		log.log(Level.INFO, "Reviwed passport: " + passport);
 		
 		return passport;
 	}

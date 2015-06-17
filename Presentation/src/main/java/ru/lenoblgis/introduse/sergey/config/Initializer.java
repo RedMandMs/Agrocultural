@@ -9,6 +9,7 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.springframework.web.util.Log4jConfigListener;
 
 
 public class Initializer implements WebApplicationInitializer{
@@ -33,8 +34,17 @@ public class Initializer implements WebApplicationInitializer{
  
         ServletRegistration.Dynamic servlet = servletContext.addServlet(DISPATCHER_SERVLET_NAME, 
                                                                         new DispatcherServlet(ctx));
+        initLog4j(servletContext);
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
+    }
+    
+    private void initLog4j(ServletContext servletContext){
+    	servletContext.setInitParameter( "log4jConfigLocation" , "/WEB-INF/log4j.properties" );
+		servletContext.setInitParameter( "log4jRefreshInterval" , "10000" );
+		servletContext.setInitParameter( "log4jExposeWebAppRoot", "false" );
+		Log4jConfigListener log4jListener = new Log4jConfigListener();
+		servletContext.addListener( log4jListener );
     }
 
 }
