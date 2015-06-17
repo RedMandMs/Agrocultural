@@ -124,10 +124,11 @@ public class CompanyController {
 		
 		String message = "";
 		if(rightTry != null){
-			message = "Некорректные данные!!!";
 			session.removeAttribute("changeOrganizationInfo");
 			myCompany = (OrganizationInfo) session.getAttribute("incorrectCompany");
+			session.setAttribute("editOrganizationErors", getErorRegistration(myCompany.getListEror()));
 		}else{
+			session.removeAttribute("editOrganizationErors");
 			message = "Измените необходимые данные";
 			myCompany = (OrganizationInfo) session.getAttribute("myCompany");
 		}
@@ -158,7 +159,7 @@ public class CompanyController {
 		OrganizationInfo myCompany = (OrganizationInfo) session.getAttribute("myCompany");
 		
 		organizationInfo.setId(myCompany.getId());
-		if(ownerService.editOwner(organizationInfo)){
+		if(ownerService.editOwner(organizationInfo).getListEror().isEmpty()){
 			session.setAttribute("myCompany", organizationInfo);
 			return "redirect:/organization/company/mycompany";
 		}else{
@@ -181,5 +182,36 @@ public class CompanyController {
 		
 		
 		return "organization/events_company";
+	}
+	
+	public static List<String> getErorRegistration(List<String> listEror) {
+		List<String> listMessage = new ArrayList<String>();
+		for(String eror : listEror){
+			switch(eror){
+				
+				case("WrongFormatLogin"):
+					listMessage.add("Неверный формат логина (более 4 и менее 16 латинских символов)!");
+					break;
+				case("WrongFormatPassword"):
+					listMessage.add("Неверный формат пароля (более 4 и менее 16 символов)!");
+					break;
+				
+				case("CopyLogin"):
+					listMessage.add("Пользователь с таким логином уже существует!");
+					break;
+			
+				case("CopyNameOrganization"):
+					listMessage.add("Организация с таким названием уже зарегистрирована!");
+					break;
+				
+				case("CopyINN"):
+					listMessage.add("Организация с таким ИНН уже зарегистрирована!");
+					break;
+				case("NegativINN"):
+					listMessage.add("ИНН должен быть положительным значением!");
+					break;	
+			}
+		}
+		return listMessage;
 	}
 }

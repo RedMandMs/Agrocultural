@@ -5,6 +5,7 @@ import java.util.List;
 
 import ru.lenoblgis.introduse.sergey.validation.annotation.passport.NonCopyCadastrNumberPassport;
 import ru.lenoblgis.introduse.sergey.validation.annotation.passport.PositiveArea;
+import ru.lenoblgis.introduse.sergey.validation.annotation.passport.PossitiveCadastrNumber;
 
 
 public class PassportInfo implements Serializable{
@@ -83,6 +84,7 @@ public class PassportInfo implements Serializable{
 	/**
 	 * Кадастровый номер поля
 	 */
+	@PossitiveCadastrNumber
 	@NonCopyCadastrNumberPassport
 	private Integer cadastrNumber;
 	
@@ -244,9 +246,7 @@ public class PassportInfo implements Serializable{
 		PassportInfo that = (PassportInfo) o;
 
 		if (id != null && id.equals(that.id)) return true;
-		if (!idOwner.equals(that.idOwner)) return false;
-		return !(cadastrNumber != null ? !cadastrNumber.equals(that.cadastrNumber) : that.cadastrNumber != null);
-
+		return false;
 	}
 
 	@Override

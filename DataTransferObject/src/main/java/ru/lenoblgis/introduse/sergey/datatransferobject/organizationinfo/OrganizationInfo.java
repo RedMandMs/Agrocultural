@@ -5,6 +5,7 @@ import java.util.List;
 
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyINNOrganization;
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyNameOrganization;
+import ru.lenoblgis.introduse.sergey.validation.annotation.organization.PossitiveINN;
 
 public class OrganizationInfo implements Serializable{
 	
@@ -60,8 +61,9 @@ public class OrganizationInfo implements Serializable{
 	/**
 	 * ИНН организации
 	 */
+	@PossitiveINN
 	@NonCopyINNOrganization
-	private int inn;
+	private Integer inn;
 	
 	
 	/**
@@ -110,7 +112,7 @@ public class OrganizationInfo implements Serializable{
 	 * Получить ИНН органанизации
 	 * @return - ИНН организации
 	 */
-	public int getInn() {
+	public Integer getInn() {
 		return inn;
 	}
 
@@ -118,7 +120,7 @@ public class OrganizationInfo implements Serializable{
 	 * Установить ИНН органанизации
 	 * @param inn - новый ИНН организации
 	 */
-	public void setInn(int inn) {
+	public void setInn(Integer inn) {
 		this.inn = inn;
 	}
 
@@ -175,7 +177,9 @@ public class OrganizationInfo implements Serializable{
 	public int hashCode() {
 		int result = id;
 		result = 31 * result + name.hashCode();
-		result = 31 * result + inn;
+		if(inn != null){
+			result = 31 * result + inn;
+		}
 		return result;
 	}
 

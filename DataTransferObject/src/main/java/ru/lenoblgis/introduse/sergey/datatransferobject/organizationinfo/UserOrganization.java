@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyINNOrganization;
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyNameOrganization;
+import ru.lenoblgis.introduse.sergey.validation.annotation.organization.PossitiveINN;
 import ru.lenoblgis.introduse.sergey.validation.annotation.user.LoginUser;
 import ru.lenoblgis.introduse.sergey.validation.annotation.user.PasswordUser;
 import ru.lenoblgis.introduse.sergey.validation.annotation.user.NonCopyLoginUser;
@@ -72,6 +73,7 @@ public class UserOrganization implements Serializable {
 	/**
 	 * ИНН организации
 	 */
+	@PossitiveINN
 	@NonCopyINNOrganization
 	private int inn;
 	

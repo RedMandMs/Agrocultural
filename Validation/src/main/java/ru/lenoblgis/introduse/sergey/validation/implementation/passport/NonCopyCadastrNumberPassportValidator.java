@@ -25,16 +25,14 @@ public class NonCopyCadastrNumberPassportValidator implements ConstraintValidato
 
 	@Override
 	public boolean isValid(Integer cadastrNumber, ConstraintValidatorContext context) {
-		if(cadastrNumber == null){
+		if(cadastrNumber == null || cadastrNumber == 0){
 			return true;
 		}
-		if(cadastrNumber != 0){
 			Map<String, Object> info = new HashMap<String, Object>();
 			info.put("cadastr_number", cadastrNumber);
 			List<Passport> listPassport = dao.findPassports(info);
 			if(listPassport.isEmpty()){
 				return true;
-			}
 		}
 		return false;
 	}

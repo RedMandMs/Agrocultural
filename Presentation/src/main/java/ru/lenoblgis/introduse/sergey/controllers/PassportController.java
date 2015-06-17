@@ -107,14 +107,11 @@ public class PassportController {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
-		
-		
 		if(passportService.editPassport(changedPassport).getListEror() == null){
 			List<PassportInfo> myPassportList = (List<PassportInfo>) session.getAttribute("myPassportsList");
-			for(PassportInfo passportInfo : myPassportList){
-				//TODO УСЛОВИЕ НЕ РАБОТАЕТ!!!!
-				if((passportInfo.getId()) == (changedPassport.getId())){
-					myPassportList.remove(passportInfo);
+			for(int i = 0; i < myPassportList.size(); i++){
+				if((myPassportList.get(i).equals(changedPassport))){
+					myPassportList.remove(myPassportList.get(i));
 					myPassportList.add(changedPassport);
 				}
 			}
@@ -272,7 +269,10 @@ public class PassportController {
 					break;
 				case("NegativeArea"):
 					listMessage.add("Площадь поля должна быть положительным значением!");
-					break;				
+					break;		
+				case("NegativCadastrNumber"):
+					listMessage.add("Кадастровый номер должен быть положительным значением!");
+					break;		
 			}
 		}
 		return listMessage;

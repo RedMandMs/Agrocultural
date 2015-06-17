@@ -65,38 +65,9 @@ public class RegistrationController {
 		}
 		
 		session.setAttribute("uncorrectRegistrationUserCompany", userOrganization);
-		session.setAttribute("listErorRegistration", getErorRegistration(regestratingCompany.getListEror()));
+		session.setAttribute("listErorRegistration", CompanyController.getErorRegistration(regestratingCompany.getListEror()));
 		
 		return "redirect:/registration";
-	}
-	
-	private List<String> getErorRegistration(List<String> listEror) {
-		List<String> listMessage = new ArrayList<String>();
-		for(String eror : listEror){
-			switch(eror){
-				
-				case("WrongFormatLogin"):
-					listMessage.add("Неверный формат логина (более 4 и менее 16 латинских символов)!");
-					break;
-				case("WrongFormatPassword"):
-					listMessage.add("Неверный формат пароля (более 4 и менее 16 символов)!");
-					break;
-				
-				case("CopyLogin"):
-					listMessage.add("Пользователь с таким логином уже существует!");
-					break;
-			
-				case("CopyNameOrganization"):
-					listMessage.add("Организация с таким названием уже зарегистрирована!");
-					break;
-				
-				case("CopyINN"):
-					listMessage.add("Организация с таким ИНН уже зарегистрирована!");
-					break;
-					
-			}
-		}
-		return listMessage;
 	}
 	
 }

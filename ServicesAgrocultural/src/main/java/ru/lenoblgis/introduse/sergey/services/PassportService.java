@@ -102,22 +102,42 @@ public class PassportService implements Serializable {
 		
 		List<String> listEror = new ArrayList<String>();
 		
-		if(violationsPassportInfo.size() != 0){
+		Passport oldPassport = dao.reviewPassportWithoutWrite(passportInfo.getId());
+		
+		boolean cadastrNotChange;
+		
+		if(oldPassport.getCadastrNumber() != null){
+			cadastrNotChange = oldPassport.getCadastrNumber().equals(passportInfo.getCadastrNumber());
+		}else{
+			if(passportInfo.getCadastrNumber() ==null){
+				cadastrNotChange = true;
+			}else{
+				cadastrNotChange = false;
+			}
+		}
+		
+		//Если кадастровый номер не менялся и колличество ошибок больше единицы или 
+		//кадастровые номера не поменялись и колличество ошибок больше нуля
+		if((violationsPassportInfo.size() > 1 && cadastrNotChange) || (violationsPassportInfo.size() > 0 && !cadastrNotChange)){
 			Iterator<ConstraintViolation<PassportInfo>> violationIterator = violationsPassportInfo.iterator();
 			while(violationIterator.hasNext()){
 				String message = violationIterator.next().getMessage();
-				listEror.add(message);
+				//Если это не ошибка копии кадастрового номера, 
+				//когда он дублирует сам себя, то записываем сообщение об ошибке в список ошибок
+				if(!(message.equals("CopyCadastrNumber") && cadastrNotChange )){
+					listEror.add(message);
+				}
 			}
 			passportInfo.setListEror(listEror);
 			return passportInfo;
 		
 		}else{
 			passportInfo.setListEror(null);
-			int id = passportInfo.getId();
-			int idOrg = passportInfo.getIdOwner();
+			Integer id = passportInfo.getId();
+			Integer idOrg = passportInfo.getIdOwner();
 			String region = passportInfo.getRegion();
-			int cadastrNum = passportInfo.getCadastrNumber();
-			float area = (float) passportInfo.getArea();
+			Integer cadastrNum = passportInfo.getCadastrNumber();
+			Float area = (Float) passportInfo.getArea();
 			String typeField = passportInfo.getType();
 			String comment = passportInfo.getComment();
 	

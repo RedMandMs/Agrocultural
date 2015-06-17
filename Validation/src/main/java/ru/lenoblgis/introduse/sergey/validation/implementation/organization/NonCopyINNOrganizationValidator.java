@@ -11,7 +11,7 @@ import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyINNOrganization;
 
-public class NewINNOrganizationValidator implements ConstraintValidator<NonCopyINNOrganization, Integer>{
+public class NonCopyINNOrganizationValidator implements ConstraintValidator<NonCopyINNOrganization, Integer>{
 
 	
 	DAO dao = new DAO();
@@ -23,7 +23,10 @@ public class NewINNOrganizationValidator implements ConstraintValidator<NonCopyI
 
 	@Override
 	public boolean isValid(Integer inn, ConstraintValidatorContext context) {
-			if(inn != null){
+			if(inn == null){
+				return true;
+			}else{
+				
 				List<Organization> listOrganizations = dao.findOwnerByINN(inn);
 				if(listOrganizations.isEmpty()){
 					return true;

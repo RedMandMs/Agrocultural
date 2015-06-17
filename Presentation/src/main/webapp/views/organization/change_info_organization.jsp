@@ -16,7 +16,9 @@
 			<br>
 			<div>
 				<h1>Изменение данных о компании:</h1>	
-				<a>${message}</a>
+				<c:forEach var="message" items="${editOrganizationErors}">
+					<h4>${message}</h4>
+				</c:forEach>
 				<sf:form method="POST" modelAttribute="changedCompany">
 					<fieldset>
 						<table>

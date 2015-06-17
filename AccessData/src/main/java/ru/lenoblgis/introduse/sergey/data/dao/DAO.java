@@ -215,7 +215,7 @@ public class DAO  {
 		log.log(Level.INFO, "Deleted passport: " + passport);
 	}
 	
-	private Passport reviewPassportWithoutWrite(int id){
+	public Passport reviewPassportWithoutWrite(int id){
 		Object[] values = new Object[] {id};
 		List<Passport> resultSet = jdbcTemplate.query(sqlQueries.reviewPassport(), values , passportRowMapper);
 

@@ -17,8 +17,8 @@ public class Passport implements Serializable {
 	 * @param type - тип поля
 	 * @param comment - комментарий
 	 */
-	public Passport(int id, int idOwner, String region, int cadastrNumber,
-			float area, String type, String comment) {
+	public Passport(Integer id, Integer idOwner, String region, Integer cadastrNumber,
+			Float area, String type, String comment) {
 		setId(id);
 		setIdOwner(idOwner);
 		setRegion(region);
@@ -87,7 +87,7 @@ public class Passport implements Serializable {
 	/**
 	 * Площадь поля
 	 */
-	private float area;
+	private Float area;
 	
 	/**
 	 * Тип поля
@@ -124,7 +124,7 @@ public class Passport implements Serializable {
 	/**
 	 * Установка id владельца
 	 */
-	public void setIdOwner(int idOwner) {
+	public void setIdOwner(Integer idOwner) {
 		this.idOwner = idOwner;
 	}
 	
@@ -166,7 +166,7 @@ public class Passport implements Serializable {
 	/**
 	 * Установка площади поля
 	 */
-	public void setArea(float area) {
+	public void setArea(Float area) {
 		this.area = area;
 	}
 	
