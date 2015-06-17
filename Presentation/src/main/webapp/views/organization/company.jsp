@@ -35,9 +35,9 @@
 				</tr>
 			</table>
 			<c:set var="isMyCompany" scope="request" value="${isMyCompany}"/>
-			<c:if test="${isMyCompany}">
+			<c:if test="${isMyCompany || isAdmin}">
 				<br>
-				<form method="GET" action="change_organization_info">
+				<form method="GET" action="change_organization_info/+${reviewingCompany.getId()}">
 					<input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании"/>
 				</form>
 				<br>

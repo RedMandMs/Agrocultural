@@ -1,13 +1,13 @@
 package ru.lenoblgis.introduse.sergey.controllers;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -82,6 +82,15 @@ public class CompanyController {
 			
 			TypeField[] types = TypeField.values();
 			session.setAttribute("types", types);
+			
+			Iterator<GrantedAuthority> authoritieIterator = user.getAuthorities().iterator();
+			String role = authoritieIterator.next().getAuthority();
+			if(role.equals(UserRole.ADMIN.getName())){
+				session.setAttribute("isAdmin", true);
+				return "/admin";
+			}else{
+				session.setAttribute("isAdmin", false);
+			}
 			
 			OrganizationInfo myCompany = userService.getMyOrganizationByLogin(user.getUsername());
 			session.setAttribute("myCompany", myCompany);

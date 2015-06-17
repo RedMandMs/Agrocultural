@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +21,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
+import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 import ru.lenoblgis.introduse.sergey.services.PassportService;
 
 @Controller
@@ -54,9 +57,9 @@ public class PassportController {
 		
 		if(myIdPasports.contains(reviewingPassport.getId())){
 			model.addAttribute("isMyPassport", true);
-		}else{
-			model.addAttribute("isMyPassport", false);
 		}
+		
+		
 		
 		model.addAttribute("idPassport", passportId);
 		model.addAttribute("reviewingPassport", reviewingPassport);
@@ -93,7 +96,7 @@ public class PassportController {
 		
 		List<Integer> myIdPasports = (List<Integer>) session.getAttribute("myIdPasports"); 
 		
-		if(myIdPasports.contains(changedPassport.getId())){
+		if(myIdPasports.contains(changedPassport.getId()) || (boolean) session.getAttribute("isAdmin")){
 			model.addAttribute("changedPassport", changedPassport);
 			return "passport/change_info_passport";
 		}else{

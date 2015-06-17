@@ -6,13 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admin/managing")
 public class AdminController {
 
 	@RequestMapping(method = RequestMethod.GET)
-    public String showAuthorizationForm(ModelMap model) {
+    public String showAdminPage(ModelMap model) {	
+		return "admin/manage";
+	}
+	
+	@RequestMapping(value = "/findOrganizations", method = RequestMethod.GET)
+    public String showFindingOranizationForm(ModelMap model) {	
 		
-		return "admin";
+		return "admin/findOrganization";
 	}
 	
 }
