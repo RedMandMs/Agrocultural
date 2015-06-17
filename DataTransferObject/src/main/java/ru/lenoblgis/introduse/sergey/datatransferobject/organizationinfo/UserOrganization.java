@@ -2,6 +2,7 @@ package ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo;
 
 import java.io.Serializable;
 
+import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NameCompany;
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyINNOrganization;
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyNameOrganization;
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.PossitiveINN;
@@ -66,6 +67,7 @@ public class UserOrganization implements Serializable {
 	/**
 	 * Название организации
 	 */
+	@NameCompany
 	@NonCopyNameOrganization
 	private String organizationName;
 	

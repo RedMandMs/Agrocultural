@@ -10,14 +10,14 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import ru.lenoblgis.introduse.sergey.validation.implementation.organization.NewOrganizationValidator;
+import ru.lenoblgis.introduse.sergey.validation.implementation.organization.NameCompanyValidator;
 
 @Target({FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Constraint(validatedBy=NewOrganizationValidator.class)
-public @interface NewOrganization {
-	String message() default "{ru.lenoblgis.introduse.sergey.verefication.annotation.organization.NewOrganization.message}";
+@Constraint(validatedBy=NameCompanyValidator.class)
+public @interface NameCompany {
+	String message() default "wrongNameCompany";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default{};
 }

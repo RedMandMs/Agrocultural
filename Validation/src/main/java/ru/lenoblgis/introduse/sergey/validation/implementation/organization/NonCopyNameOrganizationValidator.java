@@ -23,11 +23,12 @@ public class NonCopyNameOrganizationValidator implements ConstraintValidator<Non
 
 	@Override
 	public boolean isValid(String name, ConstraintValidatorContext arg1) {
-		if(name != null && !(name.trim().equals(""))){
-			List<Organization> listOrganization = dao.findOwnerByName(name);
-			if(listOrganization.isEmpty()){
-				return true;
-			}
+		if(name == null || (name.trim().equals(""))){
+			return true;
+		}
+		List<Organization> listOrganization = dao.findOwnerByName(name);
+		if(listOrganization.isEmpty()){
+			return true;
 		}
 		return false;
 	}
