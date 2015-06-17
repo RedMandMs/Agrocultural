@@ -104,12 +104,9 @@ public class UserService implements Serializable{
 	public OrganizationInfo getMyOrganizationByLogin(String login){
 		User user = getUserByLogin(login);
 		
-		Owner myOwnerInfo = ownerService.reviewOwner(user.getOrganizationId());
+		OrganizationInfo myOwnerInfo = ownerService.reviewOwner(user.getOrganizationId());
 		
-		OrganizationInfo myOrganizationInfo = new OrganizationInfo(myOwnerInfo.getId(), myOwnerInfo.getName(), 
-																		myOwnerInfo.getInn(), myOwnerInfo.getAddress());
-		
-		return myOrganizationInfo;
+		return myOwnerInfo;
 	}
 
 }

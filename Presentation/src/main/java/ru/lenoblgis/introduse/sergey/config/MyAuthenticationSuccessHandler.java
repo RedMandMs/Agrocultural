@@ -34,7 +34,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
 			HttpServletResponse response, Authentication authentication)
 			throws IOException, ServletException {
 		
-		response.sendRedirect("http://localhost:8080/Presentation/organization/company/mycompany");
+		response.sendRedirect("http://localhost:8080/Presentation/organization/company/after_autorithation");
 	}
 	
 	

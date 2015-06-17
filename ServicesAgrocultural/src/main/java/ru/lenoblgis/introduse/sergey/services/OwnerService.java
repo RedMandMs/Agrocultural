@@ -86,11 +86,13 @@ public class OwnerService implements Serializable{
 	 * @param ownerId - id владельца
 	 * @return - информация о просматриваемом владельце ("isExist" - существует ли такой владелец, "id" - id владельца, "name" - имя организации, inn - ИНН, address_org - адрес организации)
 	 */
-	public Owner reviewOwner(int ownerId){
+	public OrganizationInfo reviewOwner(int ownerId){
 		
 		try{
 			Owner reviewOwner = dao.reviewOwner(ownerId);
-			return reviewOwner;
+			OrganizationInfo organizationInfo = new OrganizationInfo(reviewOwner.getId(), reviewOwner.getName(),
+													reviewOwner.getInn(), reviewOwner.getAddress());
+			return organizationInfo;
 		}
 		catch (IndexOutOfBoundsException ex) {
 			//TODO:

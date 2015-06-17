@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -53,24 +54,22 @@ public class CompanyController {
 	 */
 	@RequestMapping(value = "/company/{organizationId}", method = RequestMethod.GET)
     public String showOrganization(@PathVariable Integer organizationId, ModelMap model) {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
-		Owner owner = ownerService.reviewOwner(organizationId);
-		OrganizationInfo reviewingCompany = new OrganizationInfo(owner.getId(), owner.getName(), owner.getInn(), owner.getAddress());
-		
-		model.addAttribute("reviewingCompany", reviewingCompany);
-		
-		model.addAttribute("isMyCompany", false);
-		
-		return "organization/company";
+		if((boolean) session.getAttribute("isAdmin")){
+			
+			setMyCompany(session, organizationId);
+			
+			return "organization/company";
+		}else{
+			return "403";
+		}
 	}
 	
-	/**
-	 * Метод отображающий данные о конкретной компании
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = "/company/mycompany", method = RequestMethod.GET)
-    public String showMyCompany(ModelMap model) {
+	@RequestMapping(value = "/company/after_autorithation", method = RequestMethod.GET)
+    public String afterAutorithation(ModelMap model) {
+		
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
@@ -83,31 +82,27 @@ public class CompanyController {
 			TypeField[] types = TypeField.values();
 			session.setAttribute("types", types);
 			
-			Iterator<GrantedAuthority> authoritieIterator = user.getAuthorities().iterator();
-			String role = authoritieIterator.next().getAuthority();
-			if(role.equals(UserRole.ADMIN.getName())){
-				session.setAttribute("isAdmin", true);
-				return "/admin";
+			//Это админ?
+			if(isAdmin(session, user)){
+				return "admin/manage";
 			}else{
-				session.setAttribute("isAdmin", false);
+				setMyCompany(session, userService.getUserByLogin(user.getUsername()).getOrganizationId());
+				return "redirect:/organization/company/mycompany";
 			}
-			
-			OrganizationInfo myCompany = userService.getMyOrganizationByLogin(user.getUsername());
-			session.setAttribute("myCompany", myCompany);
-
-			//Образец по которому мы ищем все паспорта организации (указано только id владельца)
-			PassportInfo ownPassports = new PassportInfo();
-			ownPassports.setIdOwner(myCompany.getId());
-			List<PassportInfo> myPassportsList = passportService.findPassports(ownPassports);
-			session.setAttribute("myPassportsList", myPassportsList);
-			session.setAttribute("lastList", "mylistpassports");
-			List<Integer> myIdPassports = new ArrayList<Integer>();
-			for(PassportInfo passportInfo : myPassportsList){
-				myIdPassports.add(passportInfo.getId());
-			}
-			session.setAttribute("myIdPasports", myIdPassports);
-			
+		}else{
+			return "redirect:/organization/company/mycompany";
 		}
+	}
+	
+	/**
+	 * Метод отображающий данные о своей копании
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/company/mycompany", method = RequestMethod.GET)
+    public String showMyCompany(ModelMap model) {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true); // true == allow create
 		
 		model.addAttribute("reviewingCompany", session.getAttribute("myCompany"));
 		
@@ -225,5 +220,40 @@ public class CompanyController {
 			}
 		}
 		return listMessage;
+	}
+	
+	private boolean isAdmin(HttpSession session, User user){
+		Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+		if(isAdmin == null){
+			Iterator<GrantedAuthority> authoritieIterator = user.getAuthorities().iterator();
+			String role = authoritieIterator.next().getAuthority();
+			if(role.equals(UserRole.ADMIN.getName())){
+				session.setAttribute("isAdmin", true);
+				return true;
+			}else{
+				session.setAttribute("isAdmin", false);
+				return false;
+			}
+		}else{
+			return isAdmin;
+		}
+	}
+	
+	private void setMyCompany(HttpSession session, Integer idOrganization) {
+		OrganizationInfo myCompany = ownerService.reviewOwner(idOrganization);
+		session.setAttribute("myCompany", myCompany);
+
+		//Образец по которому мы ищем все паспорта организации (указано только id владельца)
+		PassportInfo ownPassports = new PassportInfo();
+		ownPassports.setIdOwner(myCompany.getId());
+		List<PassportInfo> myPassportsList = passportService.findPassports(ownPassports);
+		session.setAttribute("myPassportsList", myPassportsList);
+		session.setAttribute("lastList", "mylistpassports");
+		List<Integer> myIdPassports = new ArrayList<Integer>();
+		for(PassportInfo passportInfo : myPassportsList){
+			myIdPassports.add(passportInfo.getId());
+		}
+		session.setAttribute("myIdPasports", myIdPassports);
+
 	}
 }

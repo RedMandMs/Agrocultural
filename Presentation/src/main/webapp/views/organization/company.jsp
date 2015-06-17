@@ -17,27 +17,27 @@
 			<table border="3">
 				<tr>
 					<td>Id компании: </td>
-					<td>${reviewingCompany.getId()}</td>
+					<td>${myCompany.getId()}</td>
 				</tr>
 				<tr>
 					<td>Имя компании: </td>
-					<td>${reviewingCompany.getName()}</td>
+					<td>${myCompany.getName()}</td>
 				</tr>
 				
 				<tr>
 					<td>ИНН компании: </td>
-					<td>${reviewingCompany.getInn()}</td>
+					<td>${myCompany.getInn()}</td>
 				</tr>
 				
 				<tr>
 					<td>Адрес компании: </td>
-					<td>${reviewingCompany.getAddress()}</td>
+					<td>${myCompany.getAddress()}</td>
 				</tr>
 			</table>
 			<c:set var="isMyCompany" scope="request" value="${isMyCompany}"/>
 			<c:if test="${isMyCompany || isAdmin}">
 				<br>
-				<form method="GET" action="change_organization_info/+${reviewingCompany.getId()}">
+				<form method="GET" action="change_organization_info/">
 					<input type="submit" name="changeCopanyInfoBtn" value="Изменить информацию о компании"/>
 				</form>
 				<br>
