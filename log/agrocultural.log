@@ -1024,3 +1024,31 @@ INFO http-listener-1(1) ru.lenoblgis.introduse.sergey.data.dao.DAO - Edited pass
 INFO http-listener-1(3) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed organization: ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization{id=80, name='UserCompany9', inn=2}
 INFO http-listener-1(3) ru.lenoblgis.introduse.sergey.data.dao.DAO - Added event (REVIEW) about passport: ru.lenoblgis.introduse.sergey.domen.passport.Passport{id=1030, idOwner=80, cadastrNumber=36}
 INFO http-listener-1(3) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed passport: ru.lenoblgis.introduse.sergey.domen.passport.Passport{id=1030, idOwner=80, cadastrNumber=36}
+INFO http-listener-1(3) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed organization: ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization{id=70, name='TestCompany2', inn=123324}
+INFO http-listener-1(3) ru.lenoblgis.introduse.sergey.data.dao.DAO - Executed requare for finding passports
+INFO http-listener-1(4) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed organization: ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization{id=70, name='TestCompany2', inn=123324}
+INFO http-listener-1(4) ru.lenoblgis.introduse.sergey.data.dao.DAO - Edited organization: ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization{id=70, name='TestCompany2', inn=12}
+INFO admin-listener(1) org.springframework.web.context.support.AnnotationConfigWebApplicationContext - Closing Root WebApplicationContext: startup date [Wed Jun 17 17:49:10 MSK 2015]; root of context hierarchy
+INFO admin-listener(1) org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherAgrocultural': initialization started
+INFO admin-listener(1) org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherAgrocultural': initialization completed in 32 ms
+INFO http-listener-1(1) ru.lenoblgis.introduse.sergey.data.dao.DAO - Executed finding user by login='admin' and he was find!
+INFO admin-listener(3) org.springframework.web.context.support.AnnotationConfigWebApplicationContext - Closing Root WebApplicationContext: startup date [Wed Jun 17 17:58:00 MSK 2015]; root of context hierarchy
+INFO admin-listener(3) org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherAgrocultural': initialization started
+INFO admin-listener(3) org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherAgrocultural': initialization completed in 44 ms
+INFO http-listener-1(3) ru.lenoblgis.introduse.sergey.data.dao.DAO - Executed finding user by login='admin' and he was find!
+WARN http-listener-1(5) org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/Presentation/admin] in DispatcherServlet with name 'dispatcherAgrocultural'
+INFO admin-listener(2) org.springframework.web.context.support.AnnotationConfigWebApplicationContext - Closing Root WebApplicationContext: startup date [Wed Jun 17 17:59:47 MSK 2015]; root of context hierarchy
+INFO admin-listener(2) org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherAgrocultural': initialization started
+INFO admin-listener(2) org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherAgrocultural': initialization completed in 46 ms
+INFO http-listener-1(4) ru.lenoblgis.introduse.sergey.data.dao.DAO - Executed finding user by login='admin' and he was find!
+INFO http-listener-1(3) ru.lenoblgis.introduse.sergey.data.dao.DAO - Executed finding user by login='FooUser' and he was find!
+INFO http-listener-1(2) ru.lenoblgis.introduse.sergey.data.dao.DAO - Executed finding user by login='FooUser' and he was find!
+INFO http-listener-1(2) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed organization: ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization{id=91, name='Fo2', inn=36}
+INFO http-listener-1(2) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed organization: ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization{id=91, name='Fo2', inn=36}
+INFO http-listener-1(2) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed organization: ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization{id=91, name='Fo2', inn=36}
+INFO http-listener-1(2) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed organization: ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization{id=91, name='Fo2', inn=36}
+INFO http-listener-1(2) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed organization: ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization{id=91, name='Fo2', inn=36}
+INFO http-listener-1(2) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed organization: ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization{id=91, name='Fo2', inn=36}
+INFO http-listener-1(2) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed organization: ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization{id=91, name='Fo2', inn=36}
+INFO http-listener-1(2) ru.lenoblgis.introduse.sergey.data.dao.DAO - Executed requare for finding passports
+INFO http-listener-1(5) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed all passport events of organization with id=91

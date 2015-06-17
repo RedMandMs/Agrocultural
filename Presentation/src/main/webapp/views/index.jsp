@@ -33,11 +33,20 @@
 				    	<td align="center">
 				 	       <p>Ваш логин: <sec:authentication property="principal.username" /></p>
 				 	    </td>
-				 	    <td align="center">
-				    		<form name="goReviewCompanyForm" action="<c:url value='/organization/company/mycompany' />" method='GET'>
-				     			<input type="submit" name="reviewMyCompanyBtn" value="Просмотр информации о своей компании">
-				    		</form>
-				    	</td>
+				 	    <c:if test="${isAdmin}">
+				 	    	<td align="center">
+					 	    	<form name="goToManagePanel" action="<c:url value='/admin/managing' />" method='GET'>
+					     			<input type="submit" name="goToManagePanelBtn" value="Перейти в панель управления системой">
+					    		</form>
+					    	</td>
+				 	    </c:if>
+				 	    <c:if test="${!isAdmin}">
+					 	    <td align="center">
+					    		<form name="goReviewCompanyForm" action="<c:url value='/organization/company/mycompany' />" method='GET'>
+					     			<input type="submit" name="reviewMyCompanyBtn" value="Просмотр информации о своей компании">
+					    		</form>
+					    	</td>
+				    	</c:if>
 				 	    <td align="center">
 				    		<form name="logOutForm" action="<c:url value='/logout' />" method='GET'>
 				     			<input type="submit" name="logOutBtn" value="Выйти из системы">
