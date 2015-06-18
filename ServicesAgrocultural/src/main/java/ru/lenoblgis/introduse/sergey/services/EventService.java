@@ -77,6 +77,7 @@ public class EventService implements Serializable{
 		String nameAuthor = serchingEvent.getNameAuthor();
 		if(nameAuthor != null && !nameAuthor.trim().equals("")){
 			Organization organization = dao.findOwnerByName(nameAuthor);
+			
 			//Если имя id (если оно не равно null) указанное при поиске не соответствует id, которое прикреплено к соответствующему указанному имени - тогда результатов не будет
 			if(serchingEvent.getIdAuthor() != organization.getId() && serchingEvent.getIdAuthor() != null){
 				return findInfo;
