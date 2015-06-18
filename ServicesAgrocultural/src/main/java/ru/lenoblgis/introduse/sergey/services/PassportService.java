@@ -200,27 +200,6 @@ public class PassportService implements Serializable {
 	}
 	
 	/**
-	 * Получение реестра паспортов
-	 * @return - список с информацией о каждом пасспорте("id" - id пасспорта, "id_organization" - id организации, 
-	 * 													region - регион, cadastr_number - кадастровый номер, 
-	 * 													area - площадь, type_field - тип поля, comment - комментарий)
-	 */
-	public List<PassportInfo> reviewAllPassport() {
-		List<PassportInfo> listPasportsInfo = new ArrayList<PassportInfo>();
-	
-		List<Passport> passports = dao.reviewAllPassports();
-		for(Passport passport : passports){
-
-			PassportInfo passportInfo = new PassportInfo(passport.getId(),passport.getIdOwner(), passport.getRegion(), 
-															passport.getOwner().getName(), passport.getCadastrNumber(), 
-															passport.getArea(), passport.getType(), passport.getComment());
-			listPasportsInfo.add(passportInfo);
-		}
-		
-		return listPasportsInfo;
-	}
-	
-	/**
 	 * Поиск паспортов по информации о них
 	 * @param info - информация о паспортах, которые нужно найти("id" - id пасспорта, "id_organization" - id организации, region - регион, cadastr_number - кадастровый номер, area - площадь, type_field - тип поля, comment - комментарий)
 	 * @return - список с информацией о каждом найденом паспорте("id" - id пасспорта, "id_organization" - id организации, region - регион, cadastr_number - кадастровый номер, area - площадь, type_field - тип поля, comment - комментарий)

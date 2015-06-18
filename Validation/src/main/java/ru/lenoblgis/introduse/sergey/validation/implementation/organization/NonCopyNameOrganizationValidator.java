@@ -1,5 +1,7 @@
 package ru.lenoblgis.introduse.sergey.validation.implementation.organization;
 
+import java.util.List;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
@@ -22,8 +24,10 @@ public class NonCopyNameOrganizationValidator implements ConstraintValidator<Non
 		if(name == null || (name.trim().equals(""))){
 			return true;
 		}
-		Organization organization = dao.findOwnerByName(name);
-		if(organization == null){
+		Organization organization = new Organization();
+		organization.setName(name);
+		List<Organization> organizations = dao.findOwners(organization);
+		if(organizations.isEmpty()){
 			return true;
 		}
 		return false;

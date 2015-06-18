@@ -26,8 +26,9 @@ public class NonCopyINNOrganizationValidator implements ConstraintValidator<NonC
 			if(inn == null){
 				return true;
 			}else{
-				
-				List<Organization> listOrganizations = dao.findOwnerByINN(inn);
+				Organization organization = new Organization();
+				organization.setInn(inn);
+				List<Organization> listOrganizations = dao.findOwners(organization);
 				if(listOrganizations.isEmpty()){
 					return true;
 				}

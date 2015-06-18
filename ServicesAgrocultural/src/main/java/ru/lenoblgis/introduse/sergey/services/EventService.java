@@ -23,27 +23,6 @@ public class EventService implements Serializable{
 	 */
 	@Autowired
 	private DAO dao;
-	
-	/**
-	 * Получить все события, которые совершались какими-либо владелецами
-	 * @return - Список информации о событиях ("id" - id события, 
-	 * 										   "id_passport" - id пасспорта над которым совершалось действие,
-	 * 										   "id_organization" - id организации совершившей действие
-	 * 										   "message" - сообщение события
-	 * 										   "date_time_event" - дата и время события
-	 * 										   "type_event" - тип события)
-	 */
-	public List<EventInfo> getAllEvents(){
-		List<EventInfo> listEvents = new ArrayList<EventInfo>();
-		
-		List<PassportEvent> events = dao.reviewAllPassportEvent();
-		for(PassportEvent event : events){
-			EventInfo eventInfo = new EventInfo(event.getId(), event.getIdPassport(), event.getIdAuthor(), event.getMessage(), event.getDataTime(), event.getType());
-			listEvents.add(eventInfo);
-		}
-		
-		return listEvents;
-	}
 
 	/**
 	 * Получить все события, которые совершал переданный владелец
@@ -58,7 +37,10 @@ public class EventService implements Serializable{
 	public List<EventInfo> getAllOwnerEvents(int idOwner){
 		List<EventInfo> listEvents = new ArrayList<EventInfo>();
 		
-		List<PassportEvent> events = dao.reviewAllOwnerEvents(idOwner);
+		PassportEvent passportEvent = new PassportEvent();
+		passportEvent.setIdAuthor(idOwner);
+		
+		List<PassportEvent> events = dao.findEvents(passportEvent);
 		
 		for(PassportEvent event : events){
 			EventInfo eventInfo = new EventInfo(event.getId(), event.getIdPassport(), idOwner, event.getMessage(), event.getDataTime(), event.getType());
@@ -76,7 +58,9 @@ public class EventService implements Serializable{
 
 		String nameAuthor = serchingEvent.getNameAuthor();
 		if(nameAuthor != null && !nameAuthor.trim().equals("")){
-			Organization organization = dao.findOwnerByName(nameAuthor);
+			Organization organization = new Organization();
+			organization.setName(nameAuthor);
+			organization = dao.findOwners(organization).get(0);
 			
 			//Если имя id (если оно не равно null) указанное при поиске не соответствует id, которое прикреплено к соответствующему указанному имени - тогда результатов не будет
 			if(serchingEvent.getIdAuthor() != organization.getId() && serchingEvent.getIdAuthor() != null){

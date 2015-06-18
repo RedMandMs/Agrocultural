@@ -29,6 +29,11 @@ import ru.lenoblgis.introduse.sergey.domen.user.User;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 
+/**
+ * Класс DAO для работы с базой данных, использует spring, который взаимодействует с БД через JDBC
+ * @author VILGODSKIY
+ *
+ */
 @Component("dao")
 public class DAO  {
 	
@@ -68,31 +73,31 @@ public class DAO  {
 	/**
 	 * Объект для получения текста запросов
 	 */
-	SQLQueries sqlQueries = new SQLServerQueries();
+	private SQLQueries sqlQueries = new SQLServerQueries();
 	/**
 	 * Объект DataSource
 	 */
-	SQLServerDataSource ds;
+	private SQLServerDataSource ds;
 	/**
 	 * Объект спринг для взаимодействия базы данных
 	 */
-	JdbcTemplate jdbcTemplate = null;
+	private JdbcTemplate jdbcTemplate = null;
 	/**
 	 * Объект, отображающий пасспорт в программный объект из БД
 	 */
-	PassportRowMapper passportRowMapper = new PassportRowMapper();
+	private PassportRowMapper passportRowMapper = new PassportRowMapper();
 	/**
 	 * Объект, отображающий организацию в программный объект из БД
 	 */
-	OrganizationRowMapper organizationRowMapper = new OrganizationRowMapper();
+	private OrganizationRowMapper organizationRowMapper = new OrganizationRowMapper();
 	/**
 	 * Объект, отображающий событие в программный объект из БД
 	 */
-	EventRowMapper eventRowMapper = new EventRowMapper();
+	private EventRowMapper eventRowMapper = new EventRowMapper();
 	/**
 	 * Объект, отображающий пользователя в программный объект из БД
 	 */
-	UserRowMapper userRowMapper = new UserRowMapper();
+	private UserRowMapper userRowMapper = new UserRowMapper();
 	
 	/**
 	 * Подключение DataSource к базе данных и создание jdbcTemplate
@@ -128,8 +133,8 @@ public class DAO  {
 	}
 
 	/**
-	 * 
-	 * @see dataTier.accessToDataServices.DAO#deleteOwner(java.util.Map)
+	 * Удалить организацию
+	 * @param idOwner - id организации
 	 */
 	public void deleteOwner(int idOwner) {
 		Object [] values = new Object[]{idOwner};
@@ -138,8 +143,8 @@ public class DAO  {
 	}
 
 	/**
-	 * 
-	 * @see dataTier.accessToDataServices.DAO#editOwner(java.util.Map)
+	 * Редактировать данные об организации
+	 * @param owner - организация
 	 */
 	public void editOwner(Owner owner) {
 		Object [] values = new Object[]{owner.getName(), owner.getInn(), owner.getAddress(), owner.getId()};
@@ -149,8 +154,9 @@ public class DAO  {
 	}
 
 	/**
-	 * 
-	 * @see dataTier.accessToDataServices.DAO#reviewOwner(java.util.Map)
+	 * Просмотреть организацию
+	 * @param id - id организации
+	 * @return - организация для просмотра
 	 */
 	public Owner reviewOwner(int id) {
 		Object [] values = new Object[]{id};
@@ -160,23 +166,25 @@ public class DAO  {
 		return  owner;
 	}
 	
-	public List<Organization> findOwnerByINN(Integer inn){
-		Object [] values = new Object[]{inn};
-		List<Organization> resultSet = jdbcTemplate.query(sqlQueries.findOwnerByINN(), values, organizationRowMapper);
-		return resultSet;
-	}
-	
-	public Organization findOwnerByName(String name) {
-		List<Organization> resultSet = jdbcTemplate.query(sqlQueries.findOwnerByName(name), organizationRowMapper);
-		if(resultSet.get(0) == null){
-			return null;
-		}
-		return resultSet.get(0);
+	/**
+	 * Поиск организаций по заданным условиям
+	 * @param findingOrganization - объект с задаваемыми условиями
+	 * @return - список найденых организаций
+	 */
+	public List<Organization> findOwners(Organization findingOrganization) {
+		List<Organization> listOrganizations = new ArrayList<Organization>();
+		
+		String sql = sqlQueries.findOwners(findingOrganization);
+		
+		listOrganizations = jdbcTemplate.query(sql, organizationRowMapper);
+		
+		return listOrganizations;
 	}
 
 	/**
-	 * 
-	 * @see dataTier.accessToDataServices.DAO#createOwner(java.util.Map)
+	 * Создать паспорт в БД
+	 * @param passport - создаваемый паспорт
+	 * @return - id паспорта
 	 */
 	public int createPassport(Passport passport) {
 		String sqlQuery = sqlQueries.createPassport(passport);
@@ -201,8 +209,8 @@ public class DAO  {
 	}
 
 	/**
-	 * 
-	 * @see dataTier.accessToDataServices.DAO#deleteOwner(java.util.Map)
+	 * Удалить паспорт
+	 * @param id - id удаляемого паспорта
 	 */
 	public void deletePassport(int id) {
 		Object [] values = new Object[]{id};
@@ -218,6 +226,11 @@ public class DAO  {
 		log.log(Level.INFO, "Deleted passport: " + passport);
 	}
 	
+	/**
+	 * Просмотреть паспорт (не создавая события о просмотре паспорта)
+	 * @param id - id просматриваемого паспорта
+	 * @return - запрошенный паспорт
+	 */
 	public Passport reviewPassportWithoutWrite(int id){
 		Object[] values = new Object[] {id};
 		List<Passport> resultSet = jdbcTemplate.query(sqlQueries.reviewPassport(), values , passportRowMapper);
@@ -230,8 +243,8 @@ public class DAO  {
 	}
 
 	/**
-	 * 
-	 * @see dataTier.accessToDataServices.DAO#editOwner(java.util.Map)
+	 * Редактировать паспорт
+	 * @param passport - измененённый паспорт
 	 */
 	public void editPassport(Passport passport) {
 		Object [] values = new Object[]{passport.getIdOwner(), passport.getRegion(), passport.getCadastrNumber(), passport.getArea(), passport.getType(), passport.getComment(), passport.getId()};
@@ -247,8 +260,10 @@ public class DAO  {
 	}
 
 	/**
-	 * 
-	 * @see dataTier.accessToDataServices.DAO#reviewOwner(java.util.Map)
+	 * Просмотреть паспорт
+	 * @param id - id просматриваемого паспорта
+	 * @param browsing - организация, просматривающая паспорт
+	 * @return - запрашиваемый паспорт
 	 */
 	public Passport reviewPassport(int id, Owner browsing) {
 
@@ -263,25 +278,9 @@ public class DAO  {
 	}
 
 	/**
-	 * 
-	 * @see dataTier.accessToDataServices.DAO#reviewAllPassports()
-	 */
-	public List<Passport> reviewAllPassports() {
-		List<Passport> resaltList = jdbcTemplate.query(sqlQueries.reviewAllPassports(), passportRowMapper);
-		
-		for(Passport passport : resaltList){
-			Owner owner = reviewOwner(passport.getIdOwner());
-			passport.setOwner(owner);
-		}
-		
-		log.log(Level.INFO, "Reviwed all passports!");
-		
-		return resaltList;
-	}
-
-	/**
-	 * 
-	 * @see dataTier.accessToDataServices.DAO#findPassports(java.util.Map)
+	 * Найти паспорт по заданным условиям (если условия не заданы возвращает все паспорта)
+	 * @param info - задаваемые условия
+	 * @return - список найденых паспортов
 	 */
 	public List<Passport> findPassports(Map<String, Object> info) {
 		List<Passport> resaltList = jdbcTemplate.query(sqlQueries.findPassports(info), passportRowMapper);
@@ -298,6 +297,9 @@ public class DAO  {
 	
 	/**
 	 * Создание нового события в базе данных
+	 * @param passport - пасспорт, с котоым связано событие
+	 * @param owner - организация, которая совершала событие
+	 * @param typeEvent - тип события
 	 */
 	private void addPassportEvent(Passport passport, Owner owner, String typeEvent) {
 		
@@ -324,42 +326,25 @@ public class DAO  {
 	}
 
 	/**
-	 * @see ru.lenoblgis.introduse.sergey.data.dao.DAO#reviewAllPassportEvent()
+	 * Найти события по заданным условиям
+	 * @param findingEvent - объект с заданными условиями
+	 * @return - список найденных событий
 	 */
-	public List<PassportEvent> reviewAllPassportEvent(){
-		List<PassportEvent> events = new ArrayList<PassportEvent>();
-		events = jdbcTemplate.query(sqlQueries.reviewAllPassportEvent(), eventRowMapper);
-		log.log(Level.INFO, "Reviwed all passport events");
-		return events;
-	}
-	
-	/**
-	 * @see ru.lenoblgis.introduse.sergey.data.dao.DAO#reviewAllOwnerEvents(int)
-	 */
-	public List<PassportEvent> reviewAllOwnerEvents(int idOwner) {
-		List<PassportEvent> events = new ArrayList<PassportEvent>();
-		events = jdbcTemplate.query(sqlQueries.reviwAllOwnerPassportEvent(), new Object[]{idOwner}, eventRowMapper);
-		log.log(Level.INFO, "Reviwed all passport events of organization with id="+idOwner);
-		return events;
-	}
-
-	/*
-	 * @see ru.lenoblgis.trenning.agrocultural.dataTier.accessTODataServices.DAO#authorization(java.lang.String, java.lang.String)
-	 */
-	public User reviewUser(User user) {
-		Object [] values = new Object[]{user.getLogin(), user.getPassword()};
-		List<User> users = jdbcTemplate.query(sqlQueries.authorization(), values, userRowMapper);
-		if(users.isEmpty()){
-			log.log(Level.INFO, "executed query for finding user: "+user+", but he wasn't find");
-			return null;
-		}else{
-			log.log(Level.INFO, "executed query for finding user: "+user+", and he was find");
-			return users.get(0);
-		}
+	public List<PassportEvent> findEvents(PassportEvent findingEvent) {
+		List<PassportEvent> listEvents = new ArrayList<PassportEvent>();
+		
+		String sql = sqlQueries.findEvents(findingEvent);
+		
+		listEvents = jdbcTemplate.query(sql, eventRowMapper);
+		
+		return listEvents;
 	}
 
 	/**
-	 * @see ru.lenoblgis.introduse.sergey.data.dao.DAO#registration(java.lang.String, java.lang.String)
+	 * Зарегестрировать пользователя и создать его организацию
+	 * @param user - пользователь
+	 * @param organization - организация пользователя
+	 * @return - пользователь (с id)
 	 */
 	public User registration(User user, Owner organization) {
 		int organizationId = createOwner(organization);
@@ -386,8 +371,12 @@ public class DAO  {
 		
 	}
 
+	/**
+	 * Поиск пользователя по логину
+	 * @param login - логин
+	 * @return - пользователь
+	 */
 	public User findUserByLogin(String login){
-		
 		Object[] values = new Object[] {login};
 		List<User> resultSet = jdbcTemplate.query(sqlQueries.reviewUserByLogin(), values , userRowMapper);
 		if(resultSet.isEmpty()){
@@ -401,8 +390,7 @@ public class DAO  {
 	
 	/**
 	 * Класс для подготовки sql запросов, для указания поля, которое должно возвращаться при запросе
-	 * @author Sergey
-	 *
+	 * @author VILGODSKIY
 	 */
 	private class PrepereStmCreater implements PreparedStatementCreator{
 
@@ -421,26 +409,6 @@ public class DAO  {
 			return pstm;
 		}
 		 
-	}
-
-	public List<Organization> findOwners(Organization findingOrganization) {
-		List<Organization> listOrganizations = new ArrayList<Organization>();
-		
-		String sql = sqlQueries.findOwners(findingOrganization);
-		
-		listOrganizations = jdbcTemplate.query(sql, organizationRowMapper);
-		
-		return listOrganizations;
-	}
-
-	public List<PassportEvent> findEvents(PassportEvent findingEvent) {
-		List<PassportEvent> listEvents = new ArrayList<PassportEvent>();
-		
-		String sql = sqlQueries.findEvents(findingEvent);
-		
-		listEvents = jdbcTemplate.query(sql, eventRowMapper);
-		
-		return listEvents;
 	}
 
 
