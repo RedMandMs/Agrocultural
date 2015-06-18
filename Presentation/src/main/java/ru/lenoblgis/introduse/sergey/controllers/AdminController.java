@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -88,6 +89,25 @@ public class AdminController {
 		
 		session.setAttribute("serchingEvent", serchingEvent);
 		session.setAttribute("findingEvents", findingEvents);		
+		
+		return "redirect:/admin/allEvents";
+	}
+	
+	@RequestMapping(value = "/deleteEvent/{idEvent}", method = RequestMethod.GET)
+    public String findEvents(@PathVariable Integer idEvent, ModelMap model) {
+		
+		eventService.deleteEvent(idEvent);
+		
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true); // true == allow create
+		
+		List<EventInfo> findingEvents = (List<EventInfo>) session.getAttribute("findingEvents");
+		
+		for (int i = 0; i < findingEvents.size(); i++) {
+			if(findingEvents.get(i).getId().equals(idEvent)){
+				findingEvents.remove(findingEvents.get(i));
+			}
+		}
 		
 		return "redirect:/admin/allEvents";
 	}

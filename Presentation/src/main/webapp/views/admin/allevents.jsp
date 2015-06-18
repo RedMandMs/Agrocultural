@@ -50,12 +50,13 @@
 		<br>
 		<table cellspacing="15" rules="all" border="2">
 			<tr>
-			    <td align="center">Id события</td>
-			    <td align="center">Id пасспорта</td>
-			    <td align="center">Сообщение</td>
-			    <td align="center">Дата</td>
-			    <td align="center">Время</td>
-			    <td align="center">Тип события</td>
+			    <th align="center">Id события</th>
+			    <th align="center">Id пасспорта</th>
+			    <th align="center">Сообщение</th>
+			    <th align="center">Дата</th>
+			    <th align="center">Время</th>
+			    <th align="center">Тип события</th>
+			    <th></th>
 			</tr>
 	    	<c:forEach var="event" items="${findingEvents}">
 				<tr height="30">
@@ -65,6 +66,11 @@
 				    <td align="center" width="100">${event.getDate()}</td>
 				    <td align="center" width="100">${event.getTime()}</td>
 				    <td align="center" width="200">${typesEvent[0].getTypeEvent(event.getTypeEvent()).getView()}</td>
+				    <td align="center" width="100">
+				    	<form action="/Presentation/admin/deleteEvent/${event.getId()}" method="GET">
+				    		<input type="submit" value="Удалить">
+				    	</form>
+				    </td>
 				</tr>
 		  	</c:forEach>
 		</table>

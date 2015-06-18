@@ -105,4 +105,8 @@ public class EventService implements Serializable{
 		return new PassportEvent(event.getId(), event.getIdPassport(), event.getIdAuthor(), event.getMessage(), event.getDataTime(), event.getTypeEvent());
 	}
 
+	public void deleteEvent(Integer idEvent) {
+		dao.deletePassportEvent(idEvent);
+	}
+
 }
