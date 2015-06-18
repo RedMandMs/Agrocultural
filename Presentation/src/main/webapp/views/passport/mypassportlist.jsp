@@ -48,7 +48,7 @@
 				    <td align="center">${types[0].getTypeOf(passport.getType()).getView()}</td>
 				    <td align="center">${passport.getComment()}</td>
 				    <td align="center">
-				    	<form action="http://localhost:8080/Presentation/passport/${passport.getId()}" method="get">
+				    	<form action="/Presentation/passport/${passport.getId()}" method="get">
 				    		<input type="submit" value="Посмотреть">
 				    	</form>
 				    </td>

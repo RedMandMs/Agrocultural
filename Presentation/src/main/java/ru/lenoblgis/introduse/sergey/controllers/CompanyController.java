@@ -22,6 +22,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import ru.lenoblgis.introduse.sergey.datatransferobject.event.EventInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
+import ru.lenoblgis.introduse.sergey.domen.actionevent.TypeEvent;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.passport.RegionField;
 import ru.lenoblgis.introduse.sergey.domen.passport.TypeField;
@@ -81,6 +82,9 @@ public class CompanyController {
 			
 			TypeField[] types = TypeField.values();
 			session.setAttribute("types", types);
+			
+			TypeEvent[] typesEvent = TypeEvent.values();
+			session.setAttribute("typesEvent", typesEvent);
 			
 			//Это админ?
 			if(isAdmin(session, user)){

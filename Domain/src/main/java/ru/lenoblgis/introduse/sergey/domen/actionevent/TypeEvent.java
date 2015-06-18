@@ -4,16 +4,38 @@ import java.io.Serializable;
 
 public enum TypeEvent implements Serializable{
 	
-	UNKNOWN("Неизвестно", "Неизвестно что сделало"),
-	ADDITION("Добавление поля", "Добавила"),
-	DELETION("Удаление поля", "Удалила"),
-	EDITION("Редактирование поля", "Отредактировала"),
-	REVIEW("Просмотр поля", "Просмотрела");
+	UNKNOWN(null, "Не задавать", "Неизвестно что сделало"),
+	ADDITION("ADDITION", "Добавление поля", "Добавила"),
+	DELETION("DELETION", "Удаление поля", "Удалила"),
+	EDITION("EDITION", "Редактирование поля", "Отредактировала"),
+	REVIEW("REVIEW", "Просмотр поля", "Просмотрела");
 	
-	TypeEvent(String type, String worldForMassege){
+	TypeEvent(String type, String view, String wordForMassege){
+		this.view = view;
 		this.type = type;
-		this.worldForMassege = worldForMassege;
+		this.wordForMassege = wordForMassege;
 	}
+	
+	/**
+	 * Получение константы перечисления типа по названию
+	 * @param title - как записано в БД
+	 * @return - константа перечисления, соответствующая названию типа
+	 */
+	public static TypeEvent getTypeEvent(String title){
+		if(title == null){
+			return UNKNOWN;
+		}
+		TypeEvent[] values = TypeEvent.values();
+		for (int i = 0; i < values.length; i++) {
+			if(title.equals(values[i].type)) return values[i];
+		}
+		return null;
+	}
+	
+	/**
+	 * Тип события для отображения на экране
+	 */
+	private String view;
 	
 	/**
 	 * Тип события
@@ -24,7 +46,7 @@ public enum TypeEvent implements Serializable{
 	/**
 	 * Слово для добавление в текст события
 	 */
-	private String worldForMassege;
+	private String wordForMassege;
 	
 	/**
 	 * Получить тип события
@@ -38,22 +60,19 @@ public enum TypeEvent implements Serializable{
 	 * Получения слова, используемого в текстовом сообщении о событии
 	 * @return - слово для текстового сообщения
 	 */
-	public String getWorldForMassege() {
-		return worldForMassege;
+	public String getWordForMassege() {
+		return wordForMassege;
 	}
 	
 	/**
-	 * Получение константы перечисления типа по названию
-	 * @param title - как записано в БД
-	 * @return - константа перечисления, соответствующая названию типа
+	 * Получения тип событи для отображения его на экране
+	 * @return - тип события для отображения на экране
 	 */
-	public static TypeEvent getTypeEvent(String title){
-		TypeEvent[] values = TypeEvent.values();
-		for (int i = 0; i < values.length; i++) {
-			if(title.equals(values[i].type)) return values[i];
-		}
-		return null;
+	public String getView() {
+		return view;
 	}
+
+
 	
 	
 

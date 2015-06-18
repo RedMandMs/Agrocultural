@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import ru.lenoblgis.introduse.sergey.datatransferobject.event.EventInfo;
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
+import ru.lenoblgis.introduse.sergey.services.EventService;
 import ru.lenoblgis.introduse.sergey.services.OwnerService;
 
 @Controller
@@ -22,6 +24,9 @@ public class AdminController {
 	@Autowired
 	OwnerService ownerService;
 
+	@Autowired
+	EventService eventService;
+	
 	@RequestMapping(value = "managing", method = RequestMethod.GET)
     public String showAdminPage(ModelMap model) {	
 		return "admin/managing";
@@ -58,9 +63,32 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/allEvents", method = RequestMethod.GET)
-    public String showAllEvents(ModelMap model) {	
+    public String showAllEventsForm(ModelMap model) {	
 		
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true); // true == allow create
+		
+		EventInfo serchingEvent = (EventInfo) session.getAttribute("serchingEvent");
+		if(serchingEvent == null){
+			serchingEvent = new EventInfo();
+		}
+		
+		model.addAttribute("serchingEvent", serchingEvent);
+				
 		return "admin/allevents";
 	}
 	
+	@RequestMapping(value = "/allEvents", method = RequestMethod.POST)
+    public String findEvents(EventInfo serchingEvent, ModelMap model) {
+		
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true); // true == allow create
+		
+		List<EventInfo> findingEvents = eventService.findEvents(serchingEvent);
+		
+		session.setAttribute("serchingEvent", serchingEvent);
+		session.setAttribute("findingEvents", findingEvents);		
+		
+		return "redirect:/admin/allEvents";
+	}
 }

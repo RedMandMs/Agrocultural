@@ -11,7 +11,7 @@ public class EventInfo implements Serializable{
 	/**
 	 * Id события
 	 */
-	private int  id;
+	private Integer  id;
 	
 	/**
 	 * Дата и время события
@@ -26,18 +26,18 @@ public class EventInfo implements Serializable{
 	/**
 	 * ID автора события
 	 */
-	private int idAuthor;
+	private Integer idAuthor;
 	
 	
 	/**
 	 * Автор события
 	 */
-	private String nameAuther;
+	private String nameAuthor;
 	
 	/**
 	 * ID паспорта, над которым было совершено событие
 	 */
-	private int idPassport;
+	private Integer idPassport;
 	
 	/**
 	 * Сообщение данного сообщения
@@ -59,7 +59,7 @@ public class EventInfo implements Serializable{
 	 * @param date_time_event - Дата и время события
 	 * @param type_event - тип события
 	 */
-	public EventInfo(int id, int id_passport, int id_organization, String message, DateTime date_time_event,  String type_event){
+	public EventInfo(Integer id, Integer id_passport, Integer id_organization, String message, DateTime date_time_event,  String type_event){
 		this.id = id;
 		this.idPassport = id_passport;
 		this.idAuthor = id_organization;
@@ -75,17 +75,17 @@ public class EventInfo implements Serializable{
 	 * @param nameAuther - имя автора события (организации)
 	 * @param eventType - Тип события (Имя константы в перечислениях)
 	 */
-	public EventInfo(int idPassport, int idAuthor, String nameAuther, String eventType){
+	public EventInfo(Integer idPassport, Integer idAuthor, String nameAuther, String eventType){
 		setTypeEvent(eventType);
 		this.idPassport = idPassport;
 		this.idAuthor = idAuthor;
-		this.nameAuther= nameAuther;
+		this.nameAuthor= nameAuther;
 	}
 	
 	/**
 	 * Установить id события
 	 */
-	public void setId(int id){
+	public void setId(Integer id){
 		this.id = id;
 	}
 	
@@ -99,21 +99,21 @@ public class EventInfo implements Serializable{
 	/**
 	 * Установить id автора события
 	 */
-	public void setIdAuthor(int idAuthor){
+	public void setIdAuthor(Integer idAuthor){
 		this.idAuthor = idAuthor;
 	}
 	
 	/**
 	 * Установить id паспорт над которым было совершино событие
 	 */
-	public void setIdPassport(int idPassport){
+	public void setIdPassport(Integer idPassport){
 		this.idPassport = idPassport;
 	}
 	
 	/**
 	 * Получить id события
 	 */
-	public int getId(){
+	public Integer getId(){
 		return id;
 	}
 	
@@ -145,7 +145,7 @@ public class EventInfo implements Serializable{
 	/**
 	 * Получить id паспорт над которым было совершино событие
 	 */
-	public int getIdPassport(){
+	public Integer getIdPassport(){
 		return idPassport;
 	}
 
@@ -153,7 +153,7 @@ public class EventInfo implements Serializable{
 	 * Получить id автора
 	 * @return - id автора
 	 */
-	public int getIdAuthor() {
+	public Integer getIdAuthor() {
 		return idAuthor;
 	}
 
@@ -193,16 +193,16 @@ public class EventInfo implements Serializable{
 	 * Получить имя владельца
 	 * @return - имя владельца
 	 */
-	public String getNameAuther() {
-		return nameAuther;
+	public String getNameAuthor() {
+		return nameAuthor;
 	}
 
 	/**
 	 * Установить новое имя владельца
 	 * @param nameAuther - новое имя владельца
 	 */
-	public void setNameAuther(String nameAuther) {
-		this.nameAuther = nameAuther;
+	public void setNameAuthor(String nameAuther) {
+		this.nameAuthor = nameAuther;
 	}
 
 	/**
@@ -210,7 +210,11 @@ public class EventInfo implements Serializable{
 	 * @param typeEvent - новый тип события
 	 */
 	public void setTypeEvent(String typeEvent) {
-		this.typeEvent = typeEvent;
+		if(typeEvent.trim().equals("")){
+			this.typeEvent = null;
+		}else{
+			this.typeEvent = typeEvent;
+		}
 	}
 
 	@Override

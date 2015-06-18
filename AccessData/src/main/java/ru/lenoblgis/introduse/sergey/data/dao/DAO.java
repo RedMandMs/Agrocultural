@@ -166,9 +166,12 @@ public class DAO  {
 		return resultSet;
 	}
 	
-	public List<Organization> findOwnerByName(String name) {
+	public Organization findOwnerByName(String name) {
 		List<Organization> resultSet = jdbcTemplate.query(sqlQueries.findOwnerByName(name), organizationRowMapper);
-		return resultSet;
+		if(resultSet.get(0) == null){
+			return null;
+		}
+		return resultSet.get(0);
 	}
 
 	/**
@@ -301,7 +304,7 @@ public class DAO  {
 		PassportEvent event = new PassportEvent(passport, owner, typeEvent);
 		
 		//Формирование сообщения, которое храниться в БД
-		String message = "Организация \"" + owner.getName() + "\" (id = " + owner.getId() + ") " + event.getTypeEvent().getWorldForMassege() 
+		String message = "Организация \"" + owner.getName() + "\" (id = " + owner.getId() + ") " + event.getTypeEvent().getWordForMassege() 
 								+ " пасспорт с id = " + passport.getId();
 		event.setMessage(message);
 		
@@ -428,6 +431,16 @@ public class DAO  {
 		listOrganizations = jdbcTemplate.query(sql, organizationRowMapper);
 		
 		return listOrganizations;
+	}
+
+	public List<PassportEvent> findEvents(PassportEvent findingEvent) {
+		List<PassportEvent> listEvents = new ArrayList<PassportEvent>();
+		
+		String sql = sqlQueries.findEvents(findingEvent);
+		
+		listEvents = jdbcTemplate.query(sql, eventRowMapper);
+		
+		return listEvents;
 	}
 
 

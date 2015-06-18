@@ -14,7 +14,7 @@ public class PassportEvent implements Serializable{
 	/**
 	 * Id событи€
 	 */
-	private int  id;
+	private Integer  id;
 	
 	/**
 	 * ƒата и врем€ событи€
@@ -29,7 +29,7 @@ public class PassportEvent implements Serializable{
 	/**
 	 * ID автора событи€
 	 */
-	private int idAuthor;
+	private Integer idAuthor;
 	
 	
 	/**
@@ -40,7 +40,7 @@ public class PassportEvent implements Serializable{
 	/**
 	 * ID паспорта, над которым было совершено событие
 	 */
-	private int idPassport;
+	private Integer idPassport;
 	
 	/**
 	 * ѕаспорт, над которым было совершено событие
@@ -56,7 +56,6 @@ public class PassportEvent implements Serializable{
 	 *  онструктор по-умолчанию
 	 */
 	public PassportEvent(){
-		this.typeEvent = TypeEvent.UNKNOWN;
 	}
 	
 	/**
@@ -68,7 +67,7 @@ public class PassportEvent implements Serializable{
 	 * @param date_time_event - ƒата и врем€ событи€
 	 * @param type_event - тип событи€
 	 */
-	public PassportEvent(int id, int id_passport, int id_organization, String message, DateTime date_time_event,  String type_event){
+	public PassportEvent(Integer id, Integer id_passport, Integer id_organization, String message, DateTime date_time_event,  String type_event){
 		this.id = id;
 		this.idPassport = id_passport;
 		this.idAuthor = id_organization;
@@ -94,7 +93,7 @@ public class PassportEvent implements Serializable{
 	/**
 	 * ”становить id событи€
 	 */
-	public void setId(int id){
+	public void setId(Integer id){
 		this.id = id;
 	}
 	
@@ -122,21 +121,21 @@ public class PassportEvent implements Serializable{
 	/**
 	 * ”становить id автора событи€
 	 */
-	public void setIdAuthor(int idAuthor){
+	public void setIdAuthor(Integer idAuthor){
 		this.idAuthor = idAuthor;
 	}
 	
 	/**
 	 * ”становить id паспорт над которым было совершино событие
 	 */
-	public void setIdPassport(int idPassport){
+	public void setIdPassport(Integer idPassport){
 		this.idPassport = idPassport;
 	}
 	
 	/**
 	 * ѕолучить id событи€
 	 */
-	public int getId(){
+	public Integer getId(){
 		return id;
 	}
 	
@@ -176,7 +175,7 @@ public class PassportEvent implements Serializable{
 	/**
 	 * ѕолучить id паспорт над которым было совершино событие
 	 */
-	public int getIdPassport(){
+	public Integer getIdPassport(){
 		return idPassport;
 	}
 	
@@ -208,7 +207,7 @@ public class PassportEvent implements Serializable{
 	 * ѕолучить id автора
 	 * @return - id автора
 	 */
-	public int getIdAuthor() {
+	public Integer getIdAuthor() {
 		return idAuthor;
 	}
 

@@ -3,6 +3,7 @@ package ru.lenoblgis.introduse.sergey.data.dao.sqlQueries;
 import java.io.Serializable;
 import java.util.Map;
 
+import ru.lenoblgis.introduse.sergey.domen.actionevent.PassportEvent;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
@@ -125,4 +126,11 @@ public interface SQLQueries extends Serializable {
 	 * @return - запрос
 	 */
 	public String findOwners(Organization findingOrganization);
+
+	/**
+	 * —оздать запрос дл€ поиска всех событий удавлетвор€ющих переданным услови€м
+	 * @param findingEvent - объект, содержащий в себе услови€ дл€ поиска событий
+	 * @return - запрос
+	 */
+	public String findEvents(PassportEvent findingEvent);
 }

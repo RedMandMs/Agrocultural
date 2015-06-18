@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.datatransferobject.event.EventInfo;
+import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.domen.actionevent.PassportEvent;
+import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 
 @Service("eventService")
 public class EventService implements Serializable{
@@ -64,6 +66,42 @@ public class EventService implements Serializable{
 		}
 		
 		return listEvents;
+	}
+
+	public List<EventInfo> findEvents(EventInfo serchingEvent) {
+	
+		List<EventInfo> findInfo = new ArrayList<EventInfo>();
+		
+		PassportEvent findingEvent = convertDTOToDomain(serchingEvent);
+
+		String nameAuthor = serchingEvent.getNameAuthor();
+		if(nameAuthor != null && !nameAuthor.trim().equals("")){
+			Organization organization = dao.findOwnerByName(nameAuthor);
+			//Если имя id (если оно не равно null) указанное при поиске не соответствует id, которое прикреплено к соответствующему указанному имени - тогда результатов не будет
+			if(serchingEvent.getIdAuthor() != organization.getId() && serchingEvent.getIdAuthor() != null){
+				return findInfo;
+			}
+			//Если же id указано не было, но было указано имя, то прикрепляем id к запросу
+			if(serchingEvent.getId() == null){
+				findingEvent.setIdAuthor(organization.getId());
+			}
+		}
+		
+		List<PassportEvent> findEvents = dao.findEvents(findingEvent);
+		
+		for(PassportEvent event : findEvents){
+			findInfo.add(convertDomainToDTO(event));
+		}
+		
+		return findInfo;
+	}
+
+	private EventInfo convertDomainToDTO(PassportEvent event) {
+		return new EventInfo(event.getId(), event.getIdPassport(), event.getIdAuthor(), event.getMessage(), event.getDataTime(), event.getType());
+	}
+
+	private PassportEvent convertDTOToDomain(EventInfo event) {
+		return new PassportEvent(event.getId(), event.getIdPassport(), event.getIdAuthor(), event.getMessage(), event.getDataTime(), event.getTypeEvent());
 	}
 
 }

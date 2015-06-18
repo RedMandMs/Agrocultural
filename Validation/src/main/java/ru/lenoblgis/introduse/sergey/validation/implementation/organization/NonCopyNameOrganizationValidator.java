@@ -1,11 +1,7 @@
 package ru.lenoblgis.introduse.sergey.validation.implementation.organization;
 
-import java.util.List;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
@@ -26,8 +22,8 @@ public class NonCopyNameOrganizationValidator implements ConstraintValidator<Non
 		if(name == null || (name.trim().equals(""))){
 			return true;
 		}
-		List<Organization> listOrganization = dao.findOwnerByName(name);
-		if(listOrganization.isEmpty()){
+		Organization organization = dao.findOwnerByName(name);
+		if(organization == null){
 			return true;
 		}
 		return false;

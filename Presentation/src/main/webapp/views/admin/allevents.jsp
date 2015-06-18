@@ -16,6 +16,58 @@
 		</form>
 		<br>
 		<h1>Полный журнал событий:</h1>
+		<br>
+		<h3>Фильтр событий:</h3>
+		<sf:form method="POST" modelAttribute="serchingEvent">
+			<fieldset>
+				<table  align="center">
+					<tr>
+						<th>Id события:</th>
+						<th>Тип события:</th>
+						<th>Id автора события:</th>
+						<th>Имя автора события:</th>
+						<th>Id пасспорта:</th>
+					</tr>
+					<tr>
+						<td align="center"><sf:input path="id" size="10" value="${serchingEvent.getId()}"/></td>
+						<td align="center">
+							<sf:select path="typeEvent" id="typeEvent">
+								<c:forEach var="typeEvent" items="${typesEvent}">
+									<sf:option value="${typeEvent.getType()}">${typeEvent.getView()}</sf:option>
+								</c:forEach>
+							</sf:select>
+						<td align="center"><sf:input path="idAuthor" size="10" value="${serchingEvent.getIdAuthor()}"/></td>
+						<td align="center"><sf:input path="nameAuthor" size="30" value="${serchingEvent.getNameAuthor()}"/></td>
+						<td align="center"><sf:input path="idPassport" size="30" value="${serchingEvent.getIdPassport()}"/></td>
+					</tr>
+				</table>
+				<br>
+				<div align="center">
+					<input  type="submit" name="serchBtn" value="Найти подходящие организации">
+				</div>
+			</fieldset>
+		</sf:form>
+		<br>
+		<table cellspacing="15" rules="all" border="2">
+			<tr>
+			    <td align="center">Id события</td>
+			    <td align="center">Id пасспорта</td>
+			    <td align="center">Сообщение</td>
+			    <td align="center">Дата</td>
+			    <td align="center">Время</td>
+			    <td align="center">Тип события</td>
+			</tr>
+	    	<c:forEach var="event" items="${findingEvents}">
+				<tr height="30">
+				    <td align="center">${event.getId()}</td>
+				    <td align="center">${event.getIdPassport()}</td>
+				    <td align="center">${event.getMessage()}</td>
+				    <td align="center" width="100">${event.getDate()}</td>
+				    <td align="center" width="100">${event.getTime()}</td>
+				    <td align="center" width="200">${typesEvent[0].getTypeEvent(event.getTypeEvent()).getView()}</td>
+				</tr>
+		  	</c:forEach>
+		</table>
 	</div>
 </body>
 </html>

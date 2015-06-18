@@ -2,6 +2,7 @@ package ru.lenoblgis.introduse.sergey.data.dao.sqlQueries;
 
 import java.util.Map;
 
+import ru.lenoblgis.introduse.sergey.domen.actionevent.PassportEvent;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
@@ -215,6 +216,30 @@ public class SQLServerQueries implements SQLQueries {
 		if(inn != null && inn != 0) condition = condition + " AND inn = " + inn;
 		String address = findingOrganization.getAddress();
 		if(address != null && !(address.trim().equals(""))) condition = condition + " AND address_org LIKE '" + address + "'";
+		
+		String [] withoutAnd = condition.split(" ", 3);
+		if(withoutAnd.length != 1 && withoutAnd[1].equals("AND")) condition = withoutAnd[2];
+		if(condition.equals("")){
+			query = query + ";";
+		}else{
+			query = query + " WHERE(" + condition + ");";
+		}
+		return query;
+	}
+
+	@Override
+	public String findEvents(PassportEvent findingEvent) {
+		String query = "SELECT * FROM " + NAME_EVENT_TABLE + " ";
+		String condition = "";
+		
+		Integer id = findingEvent.getId();
+		if(id != null && id != 0) condition = condition + "id = " + id;
+		String typeEvent = findingEvent.getType();
+		if(typeEvent != null && !(typeEvent.trim().equals(""))) condition = condition + " AND type_event LIKE '" + typeEvent.trim()+"'";
+		Integer idAuthor = findingEvent.getIdAuthor();
+		if(idAuthor != null && idAuthor != 0) condition = condition + " AND id_organization = " + idAuthor;
+		Integer idPassport = findingEvent.getIdPassport();
+		if(idPassport != null && idPassport != 0) condition = condition + " AND id_passport = " + idPassport;
 		
 		String [] withoutAnd = condition.split(" ", 3);
 		if(withoutAnd.length != 1 && withoutAnd[1].equals("AND")) condition = withoutAnd[2];

@@ -29,7 +29,7 @@
 				    <td align="center">${event.getMessage()}</td>
 				    <td align="center" width="100">${event.getDate()}</td>
 				    <td align="center" width="100">${event.getTime()}</td>
-				    <td align="center" width="200">${event.getTypeEvent()}</td>
+				    <td align="center" width="200">${typesEvent[0].getTypeEvent(event.getTypeEvent()).getView()}</td>
 				</tr>
 		  	</c:forEach>
 		</table>
