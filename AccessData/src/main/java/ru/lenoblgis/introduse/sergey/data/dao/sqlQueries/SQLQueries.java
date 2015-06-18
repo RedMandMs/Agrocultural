@@ -96,11 +96,6 @@ public interface SQLQueries extends Serializable {
 	 */
 	public String reviwAllOwnerPassportEvent();
 	
-	/**
-	 * Сформировать запрос для получения максимального id паспорта созданного организацией с переданным id
-	 * @return - запрос
-	 */
-	public String getMAXidPassportByOwner();
 	
 	/**
 	 * Сформировать запрос для проверки совпадения логина и пароля пользователя (авторизация)

@@ -30,13 +30,13 @@
 				<fieldset>
 					<table  align="center">
 						<tr>
-							<td>Id паспорта:</td>
-							<td>Id владельца-организации пасспорта:</td>
-							<td>Регион расположения поля:</td>
-							<td>Кадастровый номер паспорта:</td>
-							<td>Площадь поля:</td>
-							<td>Тип поля:</td>
-							<td>Комментарий к пасспорту:</td>
+							<td align="center">Id паспорта:</td>
+							<td align="center">Id владельца-организации пасспорта:</td>
+							<td align="center">Регион расположения поля:</td>
+							<td align="center">Кадастровый номер паспорта:</td>
+							<td align="center">Площадь поля:</td>
+							<td align="center">Тип поля:</td>
+							<td align="center">Комментарий к пасспорту:</td>
 						</tr>
 						<tr>
 							<td align="center"><sf:input path="id" size="10" /></td>

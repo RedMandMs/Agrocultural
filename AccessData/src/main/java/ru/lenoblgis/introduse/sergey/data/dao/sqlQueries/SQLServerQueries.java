@@ -180,13 +180,6 @@ public class SQLServerQueries implements SQLQueries {
 		return "SELECT * FROM " + NAME_EVENT_TABLE + " WHERE id_organization = ? ORDER BY id DESC;";
 	}
 
-	/**
-	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#getMAXidPassportByOwner()
-	 */
-	public String getMAXidPassportByOwner(){
-		return "SELECT MAX(id) AS maxId FROM " + NAME_FIELD_TABLE + " WHERE id_organization = ?;";
-	}
-
 	@Override
 	public String authorization() {
 		return "SELECT * FROM " + NAME_USER_TABLE + " WHERE username = ? AND password = ?;";
@@ -243,12 +236,10 @@ public class SQLServerQueries implements SQLQueries {
 		
 		String [] withoutAnd = condition.split(" ", 3);
 		if(withoutAnd.length != 1 && withoutAnd[1].equals("AND")) condition = withoutAnd[2];
-		if(condition.equals("")){
-			query = query + ";";
-		}else{
-			query = query + " WHERE(" + condition + ");";
+		if(!condition.equals("")){
+			query = query + " WHERE(" + condition + ") ";
 		}
-		return query;
+		return query + " ORDER BY id DESC;";
 	}
 	
 	

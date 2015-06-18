@@ -50,7 +50,11 @@ public class PassportController {
 		if(passportId == null){
 			return "403";
 		}else{
-			reviewingPassport = passportService.reviewPassport(passportId, myCompany);	
+			if((boolean) session.getAttribute("isAdmin")){
+				reviewingPassport = passportService.reviewPassport(passportId, (OrganizationInfo) session.getAttribute("adminCompany"));
+			}else{
+				reviewingPassport = passportService.reviewPassport(passportId, myCompany);	
+			}
 		}
 		
 		List<Integer> myIdPasports = (List<Integer>) session.getAttribute("myIdPasports"); 

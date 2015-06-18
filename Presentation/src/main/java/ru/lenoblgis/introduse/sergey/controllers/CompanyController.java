@@ -68,36 +68,6 @@ public class CompanyController {
 		}
 	}
 	
-	@RequestMapping(value = "/company/after_autorithation", method = RequestMethod.GET)
-    public String afterAutorithation(ModelMap model) {
-		
-		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-		HttpSession session = attr.getRequest().getSession(true); // true == allow create
-		
-		if(session.getAttribute("myCompany") == null){
-			User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-			
-			RegionField[] regions = RegionField.values();
-			session.setAttribute("regions", regions);
-			
-			TypeField[] types = TypeField.values();
-			session.setAttribute("types", types);
-			
-			TypeEvent[] typesEvent = TypeEvent.values();
-			session.setAttribute("typesEvent", typesEvent);
-			
-			//Это админ?
-			if(isAdmin(session, user)){
-				return "redirect:/admin/managing";
-			}else{
-				setMyCompany(session, userService.getUserByLogin(user.getUsername()).getOrganizationId());
-				return "redirect:/organization/company/mycompany";
-			}
-		}else{
-			return "redirect:/organization/company/mycompany";
-		}
-	}
-	
 	/**
 	 * Метод отображающий данные о своей копании
 	 * @param model
@@ -224,23 +194,6 @@ public class CompanyController {
 			}
 		}
 		return listMessage;
-	}
-	
-	private boolean isAdmin(HttpSession session, User user){
-		Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
-		if(isAdmin == null){
-			Iterator<GrantedAuthority> authoritieIterator = user.getAuthorities().iterator();
-			String role = authoritieIterator.next().getAuthority();
-			if(role.equals(UserRole.ADMIN.getName())){
-				session.setAttribute("isAdmin", true);
-				return true;
-			}else{
-				session.setAttribute("isAdmin", false);
-				return false;
-			}
-		}else{
-			return isAdmin;
-		}
 	}
 	
 	private void setMyCompany(HttpSession session, Integer idOrganization) {
