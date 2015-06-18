@@ -56,6 +56,7 @@ public class PassportEvent implements Serializable{
 	 * Конструктор по-умолчанию
 	 */
 	public PassportEvent(){
+		setType("");
 	}
 	
 	/**

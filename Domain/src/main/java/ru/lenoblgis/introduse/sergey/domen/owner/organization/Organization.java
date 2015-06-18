@@ -34,7 +34,6 @@ public class Organization implements Owner{
 	 * Конструктор по-умолчанию
 	 */
 	public Organization(){
-		this.address = "UNKNOWN";
 	}
 
 	/**

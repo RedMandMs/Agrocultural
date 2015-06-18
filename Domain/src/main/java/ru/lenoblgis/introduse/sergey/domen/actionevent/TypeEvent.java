@@ -22,7 +22,7 @@ public enum TypeEvent implements Serializable{
 	 * @return - константа перечисления, соответствующая названию типа
 	 */
 	public static TypeEvent getTypeEvent(String title){
-		if(title == null){
+		if(title == null || title.equals("")){
 			return UNKNOWN;
 		}
 		TypeEvent[] values = TypeEvent.values();

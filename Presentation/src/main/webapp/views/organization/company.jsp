@@ -11,7 +11,7 @@
 	<body >
 		<div align="center" >
 			<form method="GET" action="/Presentation/">
-				<input type="submit" name="goToMainPageBtn" value="Перейти на главвную страницу"/>
+				<input type="submit" name="goToMainPageBtn" value="Перейти на главную страницу"/>
 			</form>
 			<br>
 			<c:if test="${isAdmin}">
