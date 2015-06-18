@@ -50,7 +50,7 @@ public class OrganizationInfo implements Serializable{
 	/**
 	 * id организации
 	 */
-	private int id;
+	private Integer id;
 	
 	/**
 	 * Ќазвание организации
@@ -90,7 +90,7 @@ public class OrganizationInfo implements Serializable{
 	 * ”становить id организации
 	 * @param id - новое значение id организации
 	 */
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

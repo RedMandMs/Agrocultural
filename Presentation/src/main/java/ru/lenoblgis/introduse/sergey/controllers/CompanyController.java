@@ -84,7 +84,7 @@ public class CompanyController {
 			
 			//Это админ?
 			if(isAdmin(session, user)){
-				return "admin/manage";
+				return "redirect:/admin/managing";
 			}else{
 				setMyCompany(session, userService.getUserByLogin(user.getUsername()).getOrganizationId());
 				return "redirect:/organization/company/mycompany";

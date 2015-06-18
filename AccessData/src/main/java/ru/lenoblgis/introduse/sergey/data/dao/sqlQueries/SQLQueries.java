@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
+import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 import ru.lenoblgis.introduse.sergey.domen.user.User;
 
@@ -117,4 +118,11 @@ public interface SQLQueries extends Serializable {
 	 * @return - запрос
 	 */
 	public String reviewUserByLogin();
+
+	/**
+	 * Создать запрос для поиска всех организаций удавлетворяющих переданным условиям
+	 * @param findingOrganization - объект, содержащий в себе условия для поиска организации
+	 * @return - запрос
+	 */
+	public String findOwners(Organization findingOrganization);
 }

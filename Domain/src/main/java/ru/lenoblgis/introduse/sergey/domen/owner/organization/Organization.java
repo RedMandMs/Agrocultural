@@ -11,15 +11,11 @@ public class Organization implements Owner{
 	 * @param inn - ИНН организации
 	 * @param addres - адрес расположения организации
 	 */
-	public Organization(int id, String name, int inn, String addres) {
+	public Organization(Integer id, String name, Integer inn, String addres) {
 		this.id = id;
 		this.name = name;
 		this.inn = inn;
-		if(addres == null || addres.trim().equals("")){
-			this.address = "UNKNOWN";
-		}else{
-			this.address = addres;
-		}
+		this.address = addres;
 	}
 	
 	/**
@@ -31,11 +27,7 @@ public class Organization implements Owner{
 	public Organization(String name, int inn, String addres) {
 		this.name = name;
 		this.inn = inn;
-		if(addres == null || addres.trim().equals("")){
-			this.address = "UNKNOWN";
-		}else{
-			this.address = addres;
-		}
+		this.address = addres;
 	}
 	
 	/**
@@ -48,7 +40,7 @@ public class Organization implements Owner{
 	/**
 	 * id организации
 	 */
-	private int id;
+	private Integer id;
 	
 	/**
 	 * Название организации
@@ -71,14 +63,14 @@ public class Organization implements Owner{
 	/**
 	 * @see ru.ru.lenoblgis.introduse.sergey.domen.owner.Owner#getId()
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
 	/**
 	 * @see ru.ru.lenoblgis.introduse.sergey.domen.owner.Owner#setId(int)
 	 */
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -106,7 +98,7 @@ public class Organization implements Owner{
 	/**
 	 * @see ru.ru.lenoblgis.introduse.sergey.domen.owner.Owner#setInn(int)
 	 */
-	public void setInn(int iNN) {
+	public void setInn(Integer iNN) {
 		inn = iNN;
 	}
 

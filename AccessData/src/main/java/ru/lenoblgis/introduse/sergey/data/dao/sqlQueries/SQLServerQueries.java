@@ -3,6 +3,7 @@ package ru.lenoblgis.introduse.sergey.data.dao.sqlQueries;
 import java.util.Map;
 
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
+import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 import ru.lenoblgis.introduse.sergey.domen.user.User;
 
@@ -198,6 +199,31 @@ public class SQLServerQueries implements SQLQueries {
 	@Override
 	public String reviewUserByLogin() {
 		return "SELECT * FROM " + NAME_USER_TABLE + " WHERE username = ?";
+	}
+
+	@Override
+	public String findOwners(Organization findingOrganization) {
+		
+		String query = "SELECT * FROM " + NAME_ORG_TABLE + " ";
+		String condition = "";
+		
+		Integer id = findingOrganization.getId();
+		if(id != null && id != 0) condition = condition + "id = " + id;
+		String name = findingOrganization.getName();
+		if(name != null && !(name.trim().equals(""))) condition = condition + " AND name LIKE '" + name.trim()+"'";
+		Integer inn = findingOrganization.getInn();
+		if(inn != null && inn != 0) condition = condition + " AND inn = " + inn;
+		String address = findingOrganization.getAddress();
+		if(address != null && !(address.trim().equals(""))) condition = condition + " AND address_org LIKE '" + address + "'";
+		
+		String [] withoutAnd = condition.split(" ", 3);
+		if(withoutAnd.length != 1 && withoutAnd[1].equals("AND")) condition = withoutAnd[2];
+		if(condition.equals("")){
+			query = query + ";";
+		}else{
+			query = query + " WHERE(" + condition + ");";
+		}
+		return query;
 	}
 	
 	

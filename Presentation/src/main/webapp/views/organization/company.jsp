@@ -14,6 +14,16 @@
 				<input type="submit" name="goToMainPageBtn" value="Перейти на главвную страницу"/>
 			</form>
 			<br>
+			<c:if test="${isAdmin}">
+				<form name="goToManagePanel" action="<c:url value='/admin/managing' />" method='GET'>
+					<input type="submit" name="goToManagePanelBtn" value="Перейти в панель управления администратора">
+				</form>
+				<br>
+				<form name="goToFindingCompany" action="<c:url value='/admin/findingCompany' />" method='GET'>
+					<input type="submit" name="goToFindingCompanyBtn" value="Назад к поиску организаций">
+				</form>
+				<br>
+			</c:if>			
 			<table border="3">
 				<tr>
 					<td>Id компании: </td>

@@ -420,5 +420,15 @@ public class DAO  {
 		 
 	}
 
+	public List<Organization> findOwners(Organization findingOrganization) {
+		List<Organization> listOrganizations = new ArrayList<Organization>();
+		
+		String sql = sqlQueries.findOwners(findingOrganization);
+		
+		listOrganizations = jdbcTemplate.query(sql, organizationRowMapper);
+		
+		return listOrganizations;
+	}
+
 
 }

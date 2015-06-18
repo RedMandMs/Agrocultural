@@ -117,5 +117,29 @@ public class OwnerService implements Serializable{
 		}
 		return workresults;
 	}
+	
+	public List<OrganizationInfo> findOrganizations(OrganizationInfo serchingOrganization){
+		List<OrganizationInfo> findInfo = new ArrayList<OrganizationInfo>();
 		
+		Organization findingOrganization = convertInfoToOrganization(serchingOrganization);
+		
+		List<Organization> findOrganizations = dao.findOwners(findingOrganization);
+		
+		for(Organization organization : findOrganizations){
+			findInfo.add(convertOrganizationToInfo(organization));
+		}
+		
+		return findInfo;
+	}
+		
+	private Organization convertInfoToOrganization(OrganizationInfo organizationInfo){
+		Organization organization = new Organization(organizationInfo.getId(), organizationInfo.getName(), organizationInfo.getInn(), organizationInfo.getAddress());
+		return organization;
+	}
+	
+	private OrganizationInfo convertOrganizationToInfo(Organization organization){
+		OrganizationInfo organizationInfo = new OrganizationInfo(organization.getId(), organization.getName(), organization.getInn(), organization.getAddress());
+		
+		return organizationInfo;
+	}
 }

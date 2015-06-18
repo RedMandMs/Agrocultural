@@ -8,12 +8,12 @@ public interface Owner extends Serializable{
 	/**
 	 * Получить id владельца
 	 */
-	int getId();
+	Integer getId();
 	
 	/**
 	 * Установить id владельца
 	 */
-	public void setId(int id);
+	public void setId(Integer id);
 	
 	/**
 	 * Получить имя владельца
@@ -32,7 +32,7 @@ public interface Owner extends Serializable{
 	/**
 	 * Установить ИНН владельца
 	 */
-	public void setInn(int iNN);
+	public void setInn(Integer iNN);
 
 	/**
 	 * Получить адрес владельца
