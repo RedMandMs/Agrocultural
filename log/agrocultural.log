@@ -2585,3 +2585,8 @@ INFO http-listener-1(5) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed org
 INFO http-listener-1(5) ru.lenoblgis.introduse.sergey.data.dao.DAO - Added event (REVIEW) about passport: ru.lenoblgis.introduse.sergey.domen.passport.Passport{id=1068, idOwner=87, cadastrNumber=36}
 INFO http-listener-1(5) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed passport: ru.lenoblgis.introduse.sergey.domen.passport.Passport{id=1068, idOwner=87, cadastrNumber=36}
 INFO RunLevelControllerThread-1434714277995 org.springframework.web.context.support.AnnotationConfigWebApplicationContext - Closing Root WebApplicationContext: startup date [Fri Jun 19 14:25:06 MSK 2015]; root of context hierarchy
+INFO RunLevelControllerThread-1434714658205 org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherAgrocultural': initialization started
+INFO RunLevelControllerThread-1434714658205 org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherAgrocultural': initialization completed in 31 ms
+INFO admin-listener(3) org.springframework.web.context.support.AnnotationConfigWebApplicationContext - Closing Root WebApplicationContext: startup date [Fri Jun 19 14:51:04 MSK 2015]; root of context hierarchy
+INFO admin-listener(3) org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherAgrocultural': initialization started
+INFO admin-listener(3) org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherAgrocultural': initialization completed in 31 ms

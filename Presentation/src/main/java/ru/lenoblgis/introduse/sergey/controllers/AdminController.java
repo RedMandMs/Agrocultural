@@ -26,13 +26,13 @@ public class AdminController {
 	 * Сервис работы с организациями
 	 */
 	@Autowired
-	OwnerService ownerService;
+	private OwnerService ownerService;
 
 	/**
 	 * ервис работы с событиями
 	 */
 	@Autowired
-	EventService eventService;
+	private EventService eventService;
 	
 	/**
 	 * Отобразить панельуправления администратора
