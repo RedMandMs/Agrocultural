@@ -9,6 +9,11 @@ import org.joda.time.LocalTime;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 
+/**
+ * Класс отображающий события паспортов
+ * @author VILGODSKIY
+ *
+ */
 public class PassportEvent implements Serializable{
 	
 	/**

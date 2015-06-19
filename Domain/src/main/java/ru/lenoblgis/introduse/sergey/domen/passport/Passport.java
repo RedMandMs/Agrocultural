@@ -4,7 +4,11 @@ import java.io.Serializable;
 
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 
-
+/**
+ * Класс для сохранения паспартов
+ * @author VILGODSKIY
+ *
+ */
 public class Passport implements Serializable {
 	
 	/**

@@ -2,6 +2,11 @@ package ru.lenoblgis.introduse.sergey.domen.passport;
 
 import java.io.Serializable;
 
+/**
+ * Перечисление типов полей
+ * @author VILGODSKIY
+ *
+ */
 public enum TypeField implements Serializable{
 	
 	/**

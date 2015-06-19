@@ -2,6 +2,11 @@ package ru.lenoblgis.introduse.sergey.domen.actionevent;
 
 import java.io.Serializable;
 
+/**
+ * Перечисление типов событий паспортов
+ * @author VILGODSKIY
+ *
+ */
 public enum TypeEvent implements Serializable{
 	
 	UNKNOWN(null, "Не задавать", "Неизвестно что сделало"),
