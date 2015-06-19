@@ -155,7 +155,7 @@ public class PassportController {
 	 * @return
 	 */
 	@RequestMapping(value = "/createPassport", method = RequestMethod.POST)
-    public String createPassport(@Validated PassportInfo createdPassport, ModelMap model) {
+    public String createPassport(PassportInfo createdPassport, ModelMap model) {
 		
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true); // true == allow create
