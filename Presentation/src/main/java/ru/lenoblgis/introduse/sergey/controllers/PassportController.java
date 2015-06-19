@@ -30,8 +30,8 @@ public class PassportController {
 	/**
 	 * Метод для отображения конкретного паспорта
 	 * @param passportId - id просматриваемого паспорта
-	 * @param model
-	 * @return - отображения
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
 	 */
 	@RequestMapping(value = "/{passportId}", method = RequestMethod.GET)
     public String reviewPassport(@PathVariable Integer passportId, ModelMap model) {
@@ -70,8 +70,8 @@ public class PassportController {
 	/**
 	 * Метод для отображения формы для изменения данных о пасспорте
 	 * @param passportId - id изменяемого пасспорта
-	 * @param model
-	 * @return - отображение
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
 	 */
 	@RequestMapping(value = "change_passport_info/{passportId}", method = RequestMethod.GET)
     public String editPassportForm(@PathVariable Integer passportId, ModelMap model) {
@@ -104,6 +104,12 @@ public class PassportController {
 		}
 	}
 	
+	/**
+	 * Метод для редактирования информации об паспорте
+	 * @param changedPassport - изменяемый паспорт с новыми данными
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
+	 */
 	@RequestMapping(value = "change_passport_info/{passportId}", method = RequestMethod.POST)
     public String editPassport(PassportInfo changedPassport, ModelMap model) {
 		
@@ -126,6 +132,11 @@ public class PassportController {
 		}
 	}
 	
+	/**
+	 * Отобразить форму для создания нового паспорта
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
+	 */
 	@RequestMapping(value = "createPassport", method = RequestMethod.GET)
     public String showFormCreatePassport(ModelMap model) {
 
@@ -151,8 +162,8 @@ public class PassportController {
 
 	/**
 	 * Создать паспорт
-	 * @param model
-	 * @return
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
 	 */
 	@RequestMapping(value = "/createPassport", method = RequestMethod.POST)
     public String createPassport(PassportInfo createdPassport, ModelMap model) {
@@ -183,8 +194,8 @@ public class PassportController {
 	
 	/**
 	 * Отображение списка пасспортов, которыми владеет организация
-	 * @param model
-	 * @return
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
 	 */
 	@RequestMapping(value = "/mylistpassports", method = RequestMethod.GET)
     public String showMyPassportsList(ModelMap model) {
@@ -200,8 +211,8 @@ public class PassportController {
 	
 	/**
 	 * Отображение формы поиска паспартов
-	 * @param model
-	 * @return
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
 	 */
 	@RequestMapping(value = "/findlistpassports", method = RequestMethod.GET)
     public String findPassportsList(ModelMap model) {
@@ -223,8 +234,8 @@ public class PassportController {
 	/**
 	 * Запрос на поиск папартов по параметрам
 	 * @param serchingPassport - образец пасспорта для поиска
-	 * @param model
-	 * @return - перенаправление на отображение формы поиска
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
 	 */
 	@RequestMapping(value = "/findlistpassports", method = RequestMethod.POST)
     public String findPassports(PassportInfo serchingPassport, ModelMap model) {
@@ -238,6 +249,12 @@ public class PassportController {
 		return "redirect:/passport/findlistpassports";
 	}
 	
+	/**
+	 * Удалить паспорт
+	 * @param request - запрос
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
+	 */
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String deletePassports(HttpServletRequest request, ModelMap model) {
 		
@@ -257,12 +274,15 @@ public class PassportController {
 				break;
 			}
 		}
-		
 		String lastList = (String) session.getAttribute("lastList");
-		
 		return "redirect:/passport/"+ lastList;
 	}
 	
+	/**
+	 * Получить список сообщений по заданным ошибкам при создании или редактировании пасспорта
+	 * @param listEror - список ошибок
+	 * @return - список сообщений
+	 */
 	private List<String> getPassportEror(List<String> listEror) {
 		List<String> listMessage = new ArrayList<String>();
 		for(String eror : listEror){

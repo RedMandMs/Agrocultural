@@ -43,8 +43,8 @@ public class AuthorizationController {
 	
 	/**
 	 * Показать форму авторизации
-	 * @param model - модель
-	 * @return - отображение
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
 	 */
 	@RequestMapping(method = RequestMethod.GET)
     public String showAuthorizationForm(ModelMap model) {
@@ -66,6 +66,11 @@ public class AuthorizationController {
 		return "login";
 	}
 	
+	/**
+	 * Метод выполняемый после авторизации
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
+	 */
 	@RequestMapping(value = "/after_autorithation", method = RequestMethod.GET)
     public String afterAutorithation(ModelMap model) {
 		
@@ -97,6 +102,12 @@ public class AuthorizationController {
 		}
 	}
 	
+	/**
+	 * Метод определяющий если в систему вошёл админ
+	 * @param session - сессия
+	 * @param user - пользователь
+	 * @return - true - админ, false - обычный пользователь
+	 */
 	private boolean isAdmin(HttpSession session, User user){
 		Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
 		if(isAdmin == null){

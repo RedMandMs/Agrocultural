@@ -86,7 +86,7 @@ public class AdminController {
 	}
 	
 	/**
-	 * Показать форму с
+	 * Показать форму с фильтрм событий системы
 	 * @param model - список для отображения данных на странице
 	 * @return - путь к запрашиваемому ресурсу
 	 */
@@ -107,8 +107,8 @@ public class AdminController {
 	}
 	
 	/**
-	 * 
-	 * @param serchingEvent
+	 * Метод поиска событий
+	 * @param serchingEvent - объект, содержащий параметры поиска
 	 * @param model - список для отображения данных на странице
 	 * @return - путь к запрашиваемому ресурсу
 	 */
@@ -127,13 +127,13 @@ public class AdminController {
 	}
 	
 	/**
-	 * 
-	 * @param idEvent
+	 * Удалить событие
+	 * @param idEvent - id события
 	 * @param model - список для отображения данных на странице
 	 * @return - путь к запрашиваемому ресурсу
 	 */
 	@RequestMapping(value = "/deleteEvent/{idEvent}", method = RequestMethod.GET)
-    public String findEvents(@PathVariable Integer idEvent, ModelMap model) {
+    public String deleteEvent(@PathVariable Integer idEvent, ModelMap model) {
 		
 		eventService.deleteEvent(idEvent);
 		

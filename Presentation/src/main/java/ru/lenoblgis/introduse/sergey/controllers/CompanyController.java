@@ -36,22 +36,34 @@ import ru.lenoblgis.introduse.sergey.services.UserService;
 @RequestMapping(value="/organization")
 public class CompanyController {
 
+	/**
+	 * Сервис для работы с организациями
+	 */
 	@Autowired
 	private OwnerService ownerService;
 	
+	/**
+	 * Сервис для работы с пользователями
+	 */
 	@Autowired
 	private UserService userService;
 	
+	/**
+	 * Сервис для работы с паспортами
+	 */
 	@Autowired
 	private PassportService passportService;
 	
+	/**
+	 * Сервис для работы с событиями
+	 */
 	@Autowired
 	private EventService eventService;
 	
 	/**
 	 * Метод отображающий данные о конкретной компании
-	 * @param model
-	 * @return
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
 	 */
 	@RequestMapping(value = "/company/{organizationId}", method = RequestMethod.GET)
     public String showOrganization(@PathVariable Integer organizationId, ModelMap model) {
@@ -70,8 +82,8 @@ public class CompanyController {
 	
 	/**
 	 * Метод отображающий данные о своей копании
-	 * @param model
-	 * @return
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
 	 */
 	@RequestMapping(value = "/company/mycompany", method = RequestMethod.GET)
     public String showMyCompany(ModelMap model) {
@@ -87,8 +99,8 @@ public class CompanyController {
 	
 	/**
 	 * Метод отображающий форму для изменения данных о вашей компании
-	 * @param model
-	 * @return
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
 	 */
 	@RequestMapping(value = "/company/change_organization_info", method = RequestMethod.GET)
     public String showChangeInfoOrganization(ModelMap model) {
@@ -125,7 +137,7 @@ public class CompanyController {
 	/**
 	 * Метод обрабатывающий изменение в информации об организации
 	 * @param organizationInfo - новая информация об организации
-	 * @param model - модель
+	 * * @param model - список для отображения данных на странице
 	 * @return - отображение страницы после изменения (перенаправление)
 	 */
 	@RequestMapping(value = "/company/change_organization_info", method = RequestMethod.POST)
@@ -147,6 +159,11 @@ public class CompanyController {
 		}
 	}
 	
+	/**
+	 * Показать журнал событий связанных с организации
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
+	 */
 	@RequestMapping(value = "/company/events", method = RequestMethod.GET)
     public String showLogEvents( ModelMap model) {
 		
@@ -162,6 +179,11 @@ public class CompanyController {
 		return "organization/events_company";
 	}
 	
+	/**
+	 * Получить список сообщений по заданным ошибкам (при регистрации и изменении информации об организации)
+	 * @param listEror - список ошибок
+	 * @return - список сообщений
+	 */
 	public static List<String> getErorRegistration(List<String> listEror) {
 		List<String> listMessage = new ArrayList<String>();
 		for(String eror : listEror){
@@ -173,7 +195,7 @@ public class CompanyController {
 				case("WrongFormatPassword"):
 					listMessage.add("Неверный формат пароля (более 4 и менее 16 символов)!");
 					break;
-				
+					
 				case("CopyLogin"):
 					listMessage.add("Пользователь с таким логином уже существует!");
 					break;
@@ -196,6 +218,11 @@ public class CompanyController {
 		return listMessage;
 	}
 	
+	/**
+	 * Установить пользователю принадлежность к компании
+	 * @param session - сессия
+	 * @param idOrganization - id организации, к которой относится пользователь
+	 */
 	private void setMyCompany(HttpSession session, Integer idOrganization) {
 		OrganizationInfo myCompany = ownerService.reviewOwner(idOrganization);
 		session.setAttribute("myCompany", myCompany);
