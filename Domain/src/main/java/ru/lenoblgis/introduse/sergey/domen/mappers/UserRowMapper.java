@@ -11,6 +11,9 @@ import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 
 public class UserRowMapper implements RowMapper<User>, Serializable{
 
+	/**
+	 * @see org.springframework.jdbc.core.RowMapper#mapRow(java.sql.ResultSet, int)
+	 */
 	@Override
 	public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 		User user = new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("id_organization"));

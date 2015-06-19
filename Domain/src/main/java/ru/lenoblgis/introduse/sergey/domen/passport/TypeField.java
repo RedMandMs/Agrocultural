@@ -4,13 +4,36 @@ import java.io.Serializable;
 
 public enum TypeField implements Serializable{
 	
+	/**
+	 * Не указано (при поиске)
+	 */
 	NULL(null, " "),
+	/**
+	 * Не указано (при создании)
+	 */
 	UNKNOWN("Unkown", "Неизвестно"),
+	/**
+	 * Фермерское хозяйство
+	 */
 	FARM("Ferm", "Фермерское хозяйство"),
+	/**
+	 * Сельско-хозяйственнон производство
+	 */
 	AGROCULTURAL("Selo", "Сельско-хозяйственнон производство"),
+	/**
+	 * Крестьянское хозяйство
+	 */
 	COLLECTIVE_FARM("Krest", "Крестьянское хозяйство"),
+	/**
+	 * Для организации крестьянского хозяйства
+	 */
 	COLLECTIVE_AGROCULTURAL("KrestAgrolut", "Для организации крестьянского хозяйства");
 	
+	/**
+	 * Главный конструктор
+	 * @param type - тип поля
+	 * @param view - имя для отображения
+	 */
 	private TypeField(String type, String view) {
 		this.type = type;
 		this.view = view;
@@ -47,6 +70,10 @@ public enum TypeField implements Serializable{
 		return type;
 	}
 
+	/**
+	 * Получить имя для отображения
+	 * @return
+	 */
 	public String getView() {
 		return view;
 	}

@@ -102,13 +102,15 @@ public class Passport implements Serializable {
 	
 	/**
 	 * Получение id паспорта
+	 * @return - id паспорта
 	 */
 	public int getId() {
 		return id;
 	}
 	
 	/**
-	 * установка id паспорта
+	 * Установка id паспорта
+	 * @param id - id паспорта
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -116,6 +118,7 @@ public class Passport implements Serializable {
 	
 	/**
 	 * Получение id владельца
+	 * @return - id владельца
 	 */
 	public int getIdOwner() {
 		return idOwner;
@@ -123,6 +126,7 @@ public class Passport implements Serializable {
 	
 	/**
 	 * Установка id владельца
+	 * @param idOwner - id владельца
 	 */
 	public void setIdOwner(Integer idOwner) {
 		this.idOwner = idOwner;
@@ -130,6 +134,7 @@ public class Passport implements Serializable {
 	
 	/**
 	 * Получение региона
+	 * @return - регион
 	 */
 	public String getRegion() {
 		return region.getRegion();
@@ -137,6 +142,7 @@ public class Passport implements Serializable {
 	
 	/**
 	 * Установка региона
+	 * @param region - регион
 	 */
 	public void setRegion(String region) {
 		this.region = RegionField.getRegion(region);
@@ -144,6 +150,7 @@ public class Passport implements Serializable {
 	
 	/**
 	 * Получение кадастрового номера
+	 * @return - кадастровый номер
 	 */
 	public Integer getCadastrNumber() {
 			return cadastrNumber;
@@ -151,6 +158,7 @@ public class Passport implements Serializable {
 	
 	/**
 	 * Установка кадастрового номера
+	 * @param cadastrNumber - кадастровый номер
 	 */
 	public void setCadastrNumber(Integer cadastrNumber) {
 		this.cadastrNumber = cadastrNumber;
@@ -158,6 +166,7 @@ public class Passport implements Serializable {
 	
 	/**
 	 * Получение площади поля
+	 * @return - площадь поля
 	 */
 	public float getArea() {
 		return area;
@@ -165,6 +174,7 @@ public class Passport implements Serializable {
 	
 	/**
 	 * Установка площади поля
+	 * @param area - площадь поля
 	 */
 	public void setArea(Float area) {
 		this.area = area;
@@ -172,6 +182,7 @@ public class Passport implements Serializable {
 	
 	/**
 	 * Получение типа поля
+	 * @return - тип поля
 	 */
 	public String getType() {
 		return type.getType();
@@ -179,6 +190,7 @@ public class Passport implements Serializable {
 	
 	/**
 	 * Установка типа поля
+	 * @param type - тип поля
 	 */
 	public void setType(String type) {
 		this.type = TypeField.getTypeOf(type);
@@ -186,15 +198,24 @@ public class Passport implements Serializable {
 	
 	/**
 	 * Получение комментария к пасспорту
+	 * @return - комментарий к паспорту
 	 */
 	public String getComment() {
 		return comment;
 	}
 	
+	/**
+	 * Получить владельца паспорта
+	 * @return - владелец паспорта
+	 */
 	public Owner getOwner() {
 		return owner;
 	}
 
+	/**
+	 * Установить владельца паспорта
+	 * @param owner - новый владелец паспорта
+	 */
 	public void setOwner(Owner owner) {
 		this.owner = owner;
 	}

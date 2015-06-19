@@ -2,6 +2,11 @@ package ru.lenoblgis.introduse.sergey.domen.owner.organization;
 
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 
+/**
+ * Класс организаций, которые будут владеть паспортами
+ * @author VILGODSKIY
+ *
+ */
 public class Organization implements Owner{
 	
 	/**
