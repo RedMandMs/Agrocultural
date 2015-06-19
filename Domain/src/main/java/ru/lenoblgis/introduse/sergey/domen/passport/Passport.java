@@ -42,7 +42,7 @@ public class Passport implements Serializable {
 	 * @param type - тип поля
 	 * @param comment - комментарий
 	 */
-	public Passport(int idOwner, String region, Integer cadastrNumber,
+	public Passport(Integer idOwner, String region, Integer cadastrNumber,
 			Float area, String type, String comment) {
 		setIdOwner(idOwner);
 		setRegion(region);
@@ -57,9 +57,8 @@ public class Passport implements Serializable {
 	 * Конструктор по-умолчанию
 	 */
 	public Passport() {
-		this.region = RegionField.UNKNOWN;
-		setComment(null);
-		setCadastrNumber(null);
+		setRegion(null);
+		setType(null);
 	}
 	
 	
@@ -108,7 +107,7 @@ public class Passport implements Serializable {
 	 * Получение id паспорта
 	 * @return - id паспорта
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	
@@ -116,7 +115,7 @@ public class Passport implements Serializable {
 	 * Установка id паспорта
 	 * @param id - id паспорта
 	 */
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -124,7 +123,7 @@ public class Passport implements Serializable {
 	 * Получение id владельца
 	 * @return - id владельца
 	 */
-	public int getIdOwner() {
+	public Integer getIdOwner() {
 		return idOwner;
 	}
 	
@@ -172,7 +171,7 @@ public class Passport implements Serializable {
 	 * Получение площади поля
 	 * @return - площадь поля
 	 */
-	public float getArea() {
+	public Float getArea() {
 		return area;
 	}
 	
@@ -228,11 +227,7 @@ public class Passport implements Serializable {
 	 * Установка комментария к пасспорту
 	 */
 	public void setComment(String comment) {
-		if(comment == null || comment.trim().equals("")){
-			this.comment = "К данному паспорту нету комментариев";
-		}else{
-			this.comment = comment;
-		}
+		this.comment = comment;
 	}
 
 	/**

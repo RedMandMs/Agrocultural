@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -411,5 +410,15 @@ public class DAO  {
 		 
 	}
 
+	/**
+	 * Искать паспорт по кадастровому номеру - для валидации
+	 * @param cadastrNumber - кадастровый номер
+	 * @return - список найденных паспортов
+	 */
+	public List<Passport> findPassportByCadatrNumber(Integer cadastrNumber){
+		Passport serchingPassport = new Passport();
+		serchingPassport.setCadastrNumber(cadastrNumber);
+		return findPassports(serchingPassport);
+	}
 
 }

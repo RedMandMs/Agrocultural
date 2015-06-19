@@ -50,6 +50,9 @@ public enum TypeField implements Serializable{
 	 * @return - константа данного перечисления
 	 */
 	public static TypeField getTypeOf(String title){
+		if(title == null || title.equals("")){
+			return NULL;
+		}
 		TypeField[] values = TypeField.values();
 		for (int i = 0; i < values.length; i++) {
 			if(title.equals(values[i].type)) return values[i];

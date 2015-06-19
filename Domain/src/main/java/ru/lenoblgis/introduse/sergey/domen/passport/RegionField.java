@@ -42,6 +42,9 @@ public enum RegionField implements Serializable{
 	 * @return - константа перечисления, соответствующая названию региона
 	 */
 	public static RegionField getRegion(String title){
+		if(title == null || title.equals("")){
+			return NULL;
+		}
 		RegionField[] values = RegionField.values();
 		for (int i = 0; i < values.length; i++) {
 			if(title.equals(values[i].region)) return values[i];
