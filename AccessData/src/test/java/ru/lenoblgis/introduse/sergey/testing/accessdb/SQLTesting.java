@@ -33,14 +33,6 @@ public class SQLTesting {
 	
 	@Test
 	@Ignore
-	public void testReviewAllPassports(){
-		SQLQueries sqlQueries = new SQLServerQueries();
-	
-		Assert.assertEquals("SELECT *  FROM field_table ", sqlQueries.reviewAllPassports());
-	}
-	
-	@Test
-	@Ignore
 	public void testWorkingWithBD(){
 		//UserSpringDAO userDao = new UserSpringDAO();
 		DAO adminDao = new DAO();

@@ -10,14 +10,27 @@ import ru.lenoblgis.introduse.sergey.domen.user.User;
 
 public class SQLServerQueries implements SQLQueries {
 
+	/**
+	 * Ќазвание таблицы с организаци€ми
+	 */
 	public final static String NAME_ORG_TABLE = "organization_table";
+	/**
+	 * Ќазвание таблицы с паспортами полей
+	 */
 	public final static String NAME_FIELD_TABLE = "field_table";
+	/**
+	 * Ќазвание таблицы с событи€ми паспортов
+	 */
 	public final static String NAME_EVENT_TABLE = "event_passport_table";
+	/**
+	 * Ќазвание таблицы с пользовател€ми
+	 */
 	public final static String NAME_USER_TABLE = "users";
 	
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#createOwner()
 	 */
+	@Override
 	public String createOwner(Owner owner) {
 		return "INSERT INTO " + NAME_ORG_TABLE + "(name, inn, address_org) VALUES('" + owner.getName() + "', "+owner.getInn()+", '"+owner.getAddress()+"')";
 	}
@@ -25,6 +38,7 @@ public class SQLServerQueries implements SQLQueries {
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#deleteOwner()
 	 */
+	@Override
 	public String deleteOwner() {
 		return "DELETE FROM " + NAME_ORG_TABLE
 				+ " WHERE (id = ?)";
@@ -33,6 +47,7 @@ public class SQLServerQueries implements SQLQueries {
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#editOwner(java.util.Map)
 	 */
+	@Override
 	public String editOwner() {
 		return "UPDATE " + NAME_ORG_TABLE
 				+ " SET "
@@ -45,6 +60,7 @@ public class SQLServerQueries implements SQLQueries {
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#reviewOwner()
 	 */
+	@Override
 	public String reviewOwner() {
 		return "SELECT * "
 				+ " FROM " + NAME_ORG_TABLE
@@ -52,26 +68,9 @@ public class SQLServerQueries implements SQLQueries {
 	}
 	
 	/**
-	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#findOwnerByINN(java.lang.Integer)
-	 */
-	public String findOwnerByINN(){
-		return "SELECT * "
-				+ " FROM " + NAME_ORG_TABLE
-				+ " WHERE (inn = ?)";
-	}
-
-	/**
-	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#findOwnerByName(java.lang.String)
-	 */
-	public String findOwnerByName(String name){
-		return "SELECT * "
-				+ " FROM " + NAME_ORG_TABLE
-				+ " WHERE (name LIKE '"+name+"');";
-	}
-	
-	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#createPassport()
 	 */
+	@Override
 	public String createPassport(Passport passport) {
 		return "INSERT INTO " + NAME_FIELD_TABLE + "(id_organization, region, cadastr_number, area, type_field, comment) "
 						+ "VALUES("+passport.getIdOwner()+", '"+passport.getRegion()+"', "+passport.getCadastrNumber()+", "
@@ -81,6 +80,7 @@ public class SQLServerQueries implements SQLQueries {
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#deletePassport()
 	 */
+	@Override
 	public String deletePassport() {
 		return "DELETE FROM " + NAME_FIELD_TABLE
 				+ " WHERE (id = ?); ";
@@ -90,6 +90,7 @@ public class SQLServerQueries implements SQLQueries {
 	 * (non-Javadoc)
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#editPassport(java.util.Map)
 	 */
+	@Override
 	public String editPassport() {
 		return "UPDATE " + NAME_FIELD_TABLE
 				+ " SET "
@@ -105,6 +106,7 @@ public class SQLServerQueries implements SQLQueries {
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#reviewPassport()
 	 */
+	@Override
 	public String reviewPassport() {
 		String query = "SELECT * "
 				+ " FROM " + NAME_FIELD_TABLE
@@ -113,16 +115,9 @@ public class SQLServerQueries implements SQLQueries {
 	}
 
 	/**
-	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#reviewAllPassports()
-	 */
-	public String reviewAllPassports() {
-		return "SELECT * "
-				+ " FROM " + NAME_FIELD_TABLE;
-	}
-
-	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#findPassports(java.util.Map)
 	 */
+	@Override
 	public String findPassports(Map<String, Object> info) {
 		String query = "SELECT * FROM " + NAME_FIELD_TABLE + " ";
 		String condition = "";
@@ -155,6 +150,7 @@ public class SQLServerQueries implements SQLQueries {
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#createPassportEvent()
 	 */
+	@Override
 	public String createPassportEvent() {
 		return "INSERT INTO " + NAME_EVENT_TABLE + "(id_passport, id_organization, message_event, date_time_event, type_event) VALUES(?,?,?,GETDATE(),?);";
 	}
@@ -162,39 +158,30 @@ public class SQLServerQueries implements SQLQueries {
 	/**
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#createPassportEvent()
 	 */
+	@Override
 	public String deletePassportEvent() {
 		return "DELETE FROM " + NAME_EVENT_TABLE + " WHERE id = ?;";
 	}
 
 	/**
-	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#reviewAllPassportEvent()
+	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#createUser(ru.lenoblgis.introduse.sergey.domen.user.User)
 	 */
-	public String reviewAllPassportEvent() {
-		return "SELECT * FROM " + NAME_EVENT_TABLE + " ORDER BY id DESC";
-	}
-
-	/**
-	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#reviwAllOwnerPassportEvent()
-	 */
-	public String reviwAllOwnerPassportEvent() {
-		return "SELECT * FROM " + NAME_EVENT_TABLE + " WHERE id_organization = ? ORDER BY id DESC;";
-	}
-
-	@Override
-	public String authorization() {
-		return "SELECT * FROM " + NAME_USER_TABLE + " WHERE username = ? AND password = ?;";
-	}
-
 	@Override
 	public String createUser(User user) {
 		return "INSERT INTO " + NAME_USER_TABLE + " (username, password, id_organization, role, enabled) VALUES('"+user.getLogin()+"', '"+user.getPassword()+"', "+user.getOrganizationId()+", '" +user.getRoleStr()+"', 1)";
 	}
 
+	/**
+	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#reviewUserByLogin()
+	 */
 	@Override
 	public String reviewUserByLogin() {
 		return "SELECT * FROM " + NAME_USER_TABLE + " WHERE username = ?";
 	}
 
+	/**
+	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#findOwners(ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization)
+	 */
 	@Override
 	public String findOwners(Organization findingOrganization) {
 		
@@ -220,6 +207,9 @@ public class SQLServerQueries implements SQLQueries {
 		return query;
 	}
 
+	/**
+	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#findEvents(ru.lenoblgis.introduse.sergey.domen.actionevent.PassportEvent)
+	 */
 	@Override
 	public String findEvents(PassportEvent findingEvent) {
 		String query = "SELECT * FROM " + NAME_EVENT_TABLE + " ";

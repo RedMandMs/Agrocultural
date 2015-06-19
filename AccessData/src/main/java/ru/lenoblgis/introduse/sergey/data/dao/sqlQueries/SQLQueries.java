@@ -33,16 +33,6 @@ public interface SQLQueries extends Serializable {
 	public String reviewOwner();
 	
 	/**
-	 * Ќайти организацию по »ЌЌ
-	 */
-	public String findOwnerByINN();
-	
-	/**
-	 * Ќайти организацию по названию
-	 */
-	public String findOwnerByName(String name);
-	
-	/**
 	 * —оздание паспорта
 	 */
 	public String createPassport(Passport passport);
@@ -62,10 +52,6 @@ public interface SQLQueries extends Serializable {
 	*/
 	public String reviewPassport();
 	
-	/**
-	 * ѕросмотр всех пасспортов
-	 */
-	public String reviewAllPassports();
 	
 	/**
 	 * ѕоиск паспорта
@@ -84,24 +70,6 @@ public interface SQLQueries extends Serializable {
 	 */
 	public String deletePassportEvent();
 	
-	/**
-	 * —формировать запрос дл€ выборки всех событий системы
-	 * @return - запрос на выборку событий пасспортов
-	 */
-	public String reviewAllPassportEvent();
-	
-	/**
-	 * —формировать запрос дл€ выборки событий, осуществл€емых выбранным пользователем
-	 * @return - запрос на выборку событий пасспортов владельца
-	 */
-	public String reviwAllOwnerPassportEvent();
-	
-	
-	/**
-	 * —формировать запрос дл€ проверки совпадени€ логина и парол€ пользовател€ (авторизаци€)
-	 * @return - запрос
-	 */
-	public String authorization();
 	
 	/**
 	 * —формировать запрос дл€ создани€ нового пользовател€ системы (регистраци€)

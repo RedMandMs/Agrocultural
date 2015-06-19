@@ -19,7 +19,7 @@
 				<c:forEach var="message" items="${messagesCreateEror}">
 					<h4>${message}</h4>
 				</c:forEach>
-				<sf:form method="POST" modelAttribute="createdPassport">
+				<sf:form method="POST" modelAttribute="createdPassport" acceptCharset="UTF-8">
 					<fieldset>
 						<table>
 							<tr>
