@@ -2584,3 +2584,4 @@ INFO http-listener-1(2) ru.lenoblgis.introduse.sergey.data.dao.DAO - Edited pass
 INFO http-listener-1(5) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed organization: ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization{id=87, name='LastUserCompany', inn=5484621}
 INFO http-listener-1(5) ru.lenoblgis.introduse.sergey.data.dao.DAO - Added event (REVIEW) about passport: ru.lenoblgis.introduse.sergey.domen.passport.Passport{id=1068, idOwner=87, cadastrNumber=36}
 INFO http-listener-1(5) ru.lenoblgis.introduse.sergey.data.dao.DAO - Reviwed passport: ru.lenoblgis.introduse.sergey.domen.passport.Passport{id=1068, idOwner=87, cadastrNumber=36}
+INFO RunLevelControllerThread-1434714277995 org.springframework.web.context.support.AnnotationConfigWebApplicationContext - Closing Root WebApplicationContext: startup date [Fri Jun 19 14:25:06 MSK 2015]; root of context hierarchy

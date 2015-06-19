@@ -2,16 +2,13 @@ package ru.lenoblgis.introduse.sergey.services;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.datatransferobject.event.EventInfo;
-import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
 import ru.lenoblgis.introduse.sergey.domen.actionevent.PassportEvent;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 

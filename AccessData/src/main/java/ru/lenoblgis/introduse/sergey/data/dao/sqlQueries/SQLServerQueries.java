@@ -1,7 +1,5 @@
 package ru.lenoblgis.introduse.sergey.data.dao.sqlQueries;
 
-import java.util.Map;
-
 import ru.lenoblgis.introduse.sergey.domen.actionevent.PassportEvent;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;

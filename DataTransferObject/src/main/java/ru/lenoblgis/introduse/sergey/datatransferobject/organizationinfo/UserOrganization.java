@@ -7,8 +7,8 @@ import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyI
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.NonCopyNameOrganization;
 import ru.lenoblgis.introduse.sergey.validation.annotation.organization.PossitiveINN;
 import ru.lenoblgis.introduse.sergey.validation.annotation.user.LoginUser;
-import ru.lenoblgis.introduse.sergey.validation.annotation.user.PasswordUser;
 import ru.lenoblgis.introduse.sergey.validation.annotation.user.NonCopyLoginUser;
+import ru.lenoblgis.introduse.sergey.validation.annotation.user.PasswordUser;
 
 /**
  * Класс Data Transfer Object для формы регистрации, где сразу содаётся и пользователь и организация

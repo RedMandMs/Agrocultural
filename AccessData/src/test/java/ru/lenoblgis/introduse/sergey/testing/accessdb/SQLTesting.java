@@ -2,14 +2,12 @@ package ru.lenoblgis.introduse.sergey.testing.accessdb;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries;
 import ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLServerQueries;
-import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 
 
 public class SQLTesting {

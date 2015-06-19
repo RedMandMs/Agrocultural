@@ -2,13 +2,6 @@ package ru.lenoblgis.introduse.sergey.testing.accessdb;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import ru.lenoblgis.introduse.sergey.data.dao.DAO;
-import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
-import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
-import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
-import ru.lenoblgis.introduse.sergey.domen.passport.RegionField;
-import ru.lenoblgis.introduse.sergey.domen.passport.TypeField;
-
 
 
 public class MainTestWithoutBack {

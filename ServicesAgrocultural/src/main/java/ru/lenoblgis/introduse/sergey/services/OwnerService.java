@@ -2,10 +2,8 @@ package ru.lenoblgis.introduse.sergey.services;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -14,15 +12,12 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
 
 import ru.lenoblgis.introduse.sergey.data.dao.DAO;
 import ru.lenoblgis.introduse.sergey.datatransferobject.organizationinfo.OrganizationInfo;
-import ru.lenoblgis.introduse.sergey.datatransferobject.passportinfo.PassportInfo;
 import ru.lenoblgis.introduse.sergey.domen.owner.Owner;
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
-import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 
 @Component("organizationService")
 public class OwnerService implements Serializable{

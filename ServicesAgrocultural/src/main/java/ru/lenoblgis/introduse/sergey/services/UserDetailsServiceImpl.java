@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import ru.lenoblgis.introduse.sergey.domen.user.User;
-import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
