@@ -282,8 +282,8 @@ public class DAO  {
 	 * @param info - задаваемые условия
 	 * @return - список найденых паспортов
 	 */
-	public List<Passport> findPassports(Map<String, Object> info) {
-		List<Passport> resaltList = jdbcTemplate.query(sqlQueries.findPassports(info), passportRowMapper);
+	public List<Passport> findPassports(Passport serchingPassport) {
+		List<Passport> resaltList = jdbcTemplate.query(sqlQueries.findPassports(serchingPassport), passportRowMapper);
 		
 		for(Passport passport : resaltList){
 			Owner owner = reviewOwner(passport.getIdOwner());

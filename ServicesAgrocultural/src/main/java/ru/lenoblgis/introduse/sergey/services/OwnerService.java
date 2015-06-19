@@ -69,12 +69,8 @@ public class OwnerService implements Serializable{
 			organizationInfo.setListEror(listEror);
 			return organizationInfo;
 		}else{
-			Integer id = organizationInfo.getId();
-			String nameOrg = organizationInfo.getName();
-			Integer inn = organizationInfo.getInn();
-			String addresOrg = organizationInfo.getAddress();
 			
-			Owner editingOwner = new Organization(id, nameOrg, inn, addresOrg);
+			Owner editingOwner = convertDTOToDomain(organizationInfo);
 			
 			dao.editOwner(editingOwner);
 			organizationInfo.setListEror(listEror);
@@ -91,8 +87,7 @@ public class OwnerService implements Serializable{
 		
 		try{
 			Owner reviewOwner = dao.reviewOwner(ownerId);
-			OrganizationInfo organizationInfo = new OrganizationInfo(reviewOwner.getId(), reviewOwner.getName(),
-													reviewOwner.getInn(), reviewOwner.getAddress());
+			OrganizationInfo organizationInfo = convertDomainToDTO(reviewOwner);
 			return organizationInfo;
 		}
 		catch (IndexOutOfBoundsException ex) {
@@ -104,19 +99,16 @@ public class OwnerService implements Serializable{
 	/**
 	 * Удалить владельца
 	 * @param ownerId - id владельца
-	 * @return - результаты работы ("success" - успешено ли был удалён владелец)
+	 * @return - true - успешно удалён/ false - не удалён
 	 */
-	public Map<String, String> deleteOwner(int ownerId){
-		Map<String, String> workresults = new HashMap<String, String>();
+	public boolean deleteOwner(int ownerId){
 		try{
-			dao.reviewOwner(ownerId);
 			dao.deleteOwner(ownerId);
-			workresults.put("success", "true");
+			return true;
 		}
 		catch (IndexOutOfBoundsException ex) {
-			workresults.put("success", "false");
+			return false;
 		}
-		return workresults;
 	}
 	
 	/**
@@ -143,7 +135,7 @@ public class OwnerService implements Serializable{
 	 * @param organization - организация в форме DTO
 	 * @return - организация в доменной форме
 	 */
-	private Organization convertDTOToDomain(OrganizationInfo organization){
+	public static Organization convertDTOToDomain(OrganizationInfo organization){
 		return new Organization(organization.getId(), organization.getName(), organization.getInn(), organization.getAddress());
 	}
 	
@@ -152,7 +144,7 @@ public class OwnerService implements Serializable{
 	 * @param organization - организация в форме DTO
 	 * @return - организация в доменной форме
 	 */
-	private OrganizationInfo convertDomainToDTO(Organization organization){
+	public static OrganizationInfo convertDomainToDTO(Owner organization){
 		return new OrganizationInfo(organization.getId(), organization.getName(), organization.getInn(), organization.getAddress());
 	}
 }

@@ -83,8 +83,7 @@ public class UserService implements Serializable{
 			
 			organization = dao.reviewOwner(user.getOrganizationId());
 			
-			organizationInfo = new OrganizationInfo(organization.getId(), organization.getName(), 
-									organization.getInn(), organization.getAddress());
+			organizationInfo = OwnerService.convertDomainToDTO(organization);
 		}
 		
 		organizationInfo.setListEror(listEror);
@@ -98,10 +97,7 @@ public class UserService implements Serializable{
 	 * @return - пользователь
 	 */
 	public User getUserByLogin(String login) {
-		
-		User user = dao.findUserByLogin(login);
-		
-		return user;
+		return dao.findUserByLogin(login);
 	}
 	
 	/**

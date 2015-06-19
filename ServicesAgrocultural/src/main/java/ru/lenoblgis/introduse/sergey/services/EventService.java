@@ -38,8 +38,7 @@ public class EventService implements Serializable{
 		List<PassportEvent> events = dao.findEvents(passportEvent);
 		
 		for(PassportEvent event : events){
-			EventInfo eventInfo = new EventInfo(event.getId(), event.getIdPassport(), idOwner, event.getMessage(), event.getDataTime(), event.getType());
-			listEvents.add(eventInfo);
+			listEvents.add(convertDomainToDTO(event));
 		}
 		
 		return listEvents;

@@ -66,15 +66,7 @@ public class PassportService implements Serializable {
 			passportInfo.setListEror(listEror);
 			return passportInfo;
 		}else{
-		
-			Integer idOrg = passportInfo.getIdOwner();
-			String region = passportInfo.getRegion();
-			Integer cadastrNum = passportInfo.getCadastrNumber();
-			Float area = (Float) passportInfo.getArea();
-			String typeField = passportInfo.getType();
-			String comment = passportInfo.getComment();
-	
-			Passport passport = new Passport(idOrg, region, cadastrNum, area, typeField, comment);
+			Passport passport = converDTOtoDomain(passportInfo);
 			try{
 				Integer id = dao.createPassport(passport);
 				passportInfo.setId(id);
@@ -133,15 +125,8 @@ public class PassportService implements Serializable {
 		
 		}else{
 			passportInfo.setListEror(null);
-			Integer id = passportInfo.getId();
-			Integer idOrg = passportInfo.getIdOwner();
-			String region = passportInfo.getRegion();
-			Integer cadastrNum = passportInfo.getCadastrNumber();
-			Float area = (Float) passportInfo.getArea();
-			String typeField = passportInfo.getType();
-			String comment = passportInfo.getComment();
-	
-			Passport passport = new Passport(id, idOrg, region, cadastrNum, area, typeField, comment);
+			
+			Passport passport = converDTOtoDomain(passportInfo);
 			try{
 				dao.editPassport(passport);;
 				return passportInfo;
@@ -163,21 +148,15 @@ public class PassportService implements Serializable {
 	 */
 	public PassportInfo reviewPassport(int passportId, OrganizationInfo myCompany){
 		
-		Owner browsing = new Organization(myCompany.getId(), myCompany.getName(), 
-				myCompany.getInn(), myCompany.getAddress());
-		
+		Owner browsing = OwnerService.convertDTOToDomain(myCompany);
 		PassportInfo passportInfo = null;
-		
 		try{
 			Passport passport = dao.reviewPassport(passportId, browsing);
-			passportInfo = new PassportInfo(passport.getId(), passport.getIdOwner(), passport.getRegion(),
-								passport.getOwner().getName(), passport.getCadastrNumber(), 
-								passport.getArea(), passport.getType(), passport.getComment());
+			passportInfo = converDomainToDTO(passport);
 		}catch(IndexOutOfBoundsException duplicateEx){
 			//TODO:
 			System.out.println("Не существует такого паспорта!!!");
 		}
-		
 		return passportInfo;
 	}
 	
@@ -204,26 +183,20 @@ public class PassportService implements Serializable {
 	public List<PassportInfo> findPassports(PassportInfo serchingPassport) {
 		List<PassportInfo> listPasportsInfo = new ArrayList<PassportInfo>();
 		
-		Map<String, Object> info = new HashMap<>();
+		Passport serchinDomainPassport = converDTOtoDomain(serchingPassport);
 		
-		info.put("id", serchingPassport.getId());
-		info.put("id_organization", serchingPassport.getIdOwner());
-		info.put("region", serchingPassport.getRegion());
-		info.put("cadastr_number", serchingPassport.getCadastrNumber());
-		info.put("area", serchingPassport.getArea());
-		info.put("type_field", serchingPassport.getType());
-		info.put("comment", serchingPassport.getComment());
-		
-		List<Passport> passports = dao.findPassports(info);
+		List<Passport> passports = dao.findPassports(serchinDomainPassport);
 		for(Passport passport : passports){
-			
-			PassportInfo resaltPassportInfo = new PassportInfo(passport.getId(),passport.getIdOwner(), passport.getRegion(), 
-																passport.getOwner().getName(), passport.getCadastrNumber(), 
-																passport.getArea(), passport.getType(), passport.getComment());
-			listPasportsInfo.add(resaltPassportInfo);
+			listPasportsInfo.add(converDomainToDTO(passport));
 		}
-		
 		return listPasportsInfo;
 	}
 	
+	private static Passport converDTOtoDomain(PassportInfo passport){
+		return new Passport(passport.getId(), passport.getIdOwner(), passport.getRegion(), passport.getCadastrNumber(), passport.getArea(), passport.getType(), passport.getComment());
+	}
+	
+	private static PassportInfo converDomainToDTO(Passport passport){
+		return new PassportInfo(passport.getId(), passport.getIdOwner(), passport.getRegion(), passport.getOwner().getName(), passport.getCadastrNumber(), passport.getArea(), passport.getType(), passport.getComment());
+	}
 }

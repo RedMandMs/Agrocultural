@@ -56,7 +56,7 @@ public interface SQLQueries extends Serializable {
 	/**
 	 * Поиск паспорта
 	 */
-	public String findPassports(Map<String,Object> info);
+	public String findPassports(Passport serchingPassport);
 	
 	/**
 	 * Сформировать запрос для вставки события

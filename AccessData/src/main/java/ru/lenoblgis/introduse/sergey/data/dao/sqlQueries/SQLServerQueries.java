@@ -118,23 +118,23 @@ public class SQLServerQueries implements SQLQueries {
 	 * @see ru.lenoblgis.introduse.sergey.data.dao.sqlQueries.SQLQueries#findPassports(java.util.Map)
 	 */
 	@Override
-	public String findPassports(Map<String, Object> info) {
+	public String findPassports(Passport serchingPassport) {
 		String query = "SELECT * FROM " + NAME_FIELD_TABLE + " ";
 		String condition = "";
 		
-		Integer id = (Integer) info.get("id");
+		Integer id = serchingPassport.getId();
 		if(id != null && id != 0) condition = condition + "id = " + id;
-		Integer idOrganization = (Integer) info.get("id_organization");
+		Integer idOrganization = serchingPassport.getIdOwner();
 		if(idOrganization != null && idOrganization != 0) condition = condition + " AND id_organization = " + idOrganization;
-		String region = (String) info.get("region");
+		String region = serchingPassport.getRegion();
 		if(region != null && !(region.trim().equals(""))) condition = condition + " AND region = '" + region + "'";
-		Integer cadastrNumber = (Integer) info.get("cadastr_number");
+		Integer cadastrNumber = serchingPassport.getCadastrNumber();
 		if(cadastrNumber != null && cadastrNumber != 0) condition = condition + " AND cadastr_number = " + cadastrNumber;
-		Float area = (Float) info.get("area");
+		Float area = serchingPassport.getArea();
 		if(area != null && area != 0) condition = condition + " AND area = " + area;
-		String type = (String) info.get("type_field");
+		String type = serchingPassport.getType();
 		if(type != null && !(type.trim().equals(""))) condition = condition + " AND type_field = '" + type + "'";
-		String comment = (String) info.get("comment");
+		String comment = serchingPassport.getComment();
 		if(comment != null && !(comment.trim().equals(""))) condition = condition + " AND comment LIKE '" + comment + "'";
 		
 		String [] withoutAnd = condition.split(" ", 3);
