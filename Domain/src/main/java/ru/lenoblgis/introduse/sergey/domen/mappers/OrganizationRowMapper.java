@@ -7,6 +7,11 @@ import org.springframework.jdbc.core.RowMapper;
 
 import ru.lenoblgis.introduse.sergey.domen.owner.organization.Organization;
 
+/**
+ * Класс для отображение организаций из БД в програмное представление
+ * @author VILGODSKIY
+ *
+ */
 public class OrganizationRowMapper implements RowMapper<Organization>, Serializable {
 
 	/**

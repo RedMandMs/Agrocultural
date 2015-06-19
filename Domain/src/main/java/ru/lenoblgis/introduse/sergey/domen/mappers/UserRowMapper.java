@@ -9,6 +9,11 @@ import org.springframework.jdbc.core.RowMapper;
 import ru.lenoblgis.introduse.sergey.domen.user.User;
 import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 
+/**
+ * Класс для отображение пользователей из БД в програмное представление
+ * @author VILGODSKIY
+ *
+ */
 public class UserRowMapper implements RowMapper<User>, Serializable{
 
 	/**

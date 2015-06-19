@@ -2,16 +2,21 @@ package ru.lenoblgis.introduse.sergey.domen.user;
 
 import java.io.Serializable;
 
+/**
+ * Перечисление ролей пользователей
+ * @author VILGODSKIY
+ *
+ */
 public enum UserRole implements Serializable{
-	
-	//Неизвестна роль
-	UNKNOWN("UNKNOWN"),
-	//Зарегестрированный пользователь
+
+	/**
+	 * Зарегестрированный пользователь
+	 */
 	USER("USER"),
-	//Администратор
-	ADMIN("ADMIN"),
-	//Гость
-	GUEST("GUEST");
+	/**
+	 * Администратор
+	 */
+	ADMIN("ADMIN");
 	
 
 	/**

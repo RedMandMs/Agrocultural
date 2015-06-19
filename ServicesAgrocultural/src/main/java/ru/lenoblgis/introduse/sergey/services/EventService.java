@@ -26,13 +26,8 @@ public class EventService implements Serializable{
 
 	/**
 	 * ѕолучить все событи€, которые совершал переданный владелец
-	 * @param idOwner - id влдельца
-	 * @return - —писок информации о событи€х ("id" - id событи€, 
-	 * 										   "id_passport" - id пасспорта над которым совершалось действие,
-	 * 										   "id_organization" - id организации совершившей действие
-	 * 										   "message" - сообщение событи€
-	 * 										   "date_time_event" - дата и врем€ событи€
-	 * 										   "type_event" - тип событи€)
+	 * @param idOwner - id владельца
+	 * @return - список событий
 	 */
 	public List<EventInfo> getAllOwnerEvents(int idOwner){
 		List<EventInfo> listEvents = new ArrayList<EventInfo>();
@@ -50,6 +45,11 @@ public class EventService implements Serializable{
 		return listEvents;
 	}
 
+	/**
+	 * Ќайти событи€ по заданным параметрам
+	 * @param serchingEvent - объект с заданными дл€ поиска параметрами
+	 * @return - список найденых событий
+	 */
 	public List<EventInfo> findEvents(EventInfo serchingEvent) {
 	
 		List<EventInfo> findInfo = new ArrayList<EventInfo>();
@@ -95,14 +95,28 @@ public class EventService implements Serializable{
 		return findInfo;
 	}
 
+	/**
+	 * ѕреобразовать событи€ из Data Transfer Object в доменную форму
+	 * @param event - событи€ в форме DTO
+	 * @return - событие в доменной форме
+	 */
 	private EventInfo convertDomainToDTO(PassportEvent event) {
 		return new EventInfo(event.getId(), event.getIdPassport(), event.getIdAuthor(), event.getMessage(), event.getDataTime(), event.getType());
 	}
 
+	/**
+	 * ѕреобразовать событи€ из доменной формы в Data Transfer Object
+	 * @param event - событие в доменной форме
+	 * @return - событи€ в форме DTO
+	 */
 	private PassportEvent convertDTOToDomain(EventInfo event) {
 		return new PassportEvent(event.getId(), event.getIdPassport(), event.getIdAuthor(), event.getMessage(), event.getDataTime(), event.getTypeEvent());
 	}
 
+	/**
+	 * ”далить событие
+	 * @param idEvent - id событи€
+	 */
 	public void deleteEvent(Integer idEvent) {
 		dao.deletePassportEvent(idEvent);
 	}

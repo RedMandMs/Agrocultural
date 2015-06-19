@@ -27,6 +27,7 @@ import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 @Component("organizationService")
 public class OwnerService implements Serializable{
 
+	
 	ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
 	Validator validator = validatorFactory.getValidator();
 	
@@ -118,28 +119,40 @@ public class OwnerService implements Serializable{
 		return workresults;
 	}
 	
+	/**
+	 * Найти организации по заданным параметрам
+	 * @param serchingOrganization - объект, содержащий в себе задынные для поиска параметры
+	 * @return - список найденных организаций
+	 */
 	public List<OrganizationInfo> findOrganizations(OrganizationInfo serchingOrganization){
 		List<OrganizationInfo> findInfo = new ArrayList<OrganizationInfo>();
 		
-		Organization findingOrganization = convertInfoToOrganization(serchingOrganization);
+		Organization findingOrganization = convertDTOToDomain(serchingOrganization);
 		
 		List<Organization> findOrganizations = dao.findOwners(findingOrganization);
 		
 		for(Organization organization : findOrganizations){
-			findInfo.add(convertOrganizationToInfo(organization));
+			findInfo.add(convertDomainToDTO(organization));
 		}
 		
 		return findInfo;
 	}
-		
-	private Organization convertInfoToOrganization(OrganizationInfo organizationInfo){
-		Organization organization = new Organization(organizationInfo.getId(), organizationInfo.getName(), organizationInfo.getInn(), organizationInfo.getAddress());
-		return organization;
+	
+	/**
+	 * Преобразовать организацию из Data Transfer Object в доменную форму
+	 * @param organization - организация в форме DTO
+	 * @return - организация в доменной форме
+	 */
+	private Organization convertDTOToDomain(OrganizationInfo organization){
+		return new Organization(organization.getId(), organization.getName(), organization.getInn(), organization.getAddress());
 	}
 	
-	private OrganizationInfo convertOrganizationToInfo(Organization organization){
-		OrganizationInfo organizationInfo = new OrganizationInfo(organization.getId(), organization.getName(), organization.getInn(), organization.getAddress());
-		
-		return organizationInfo;
+	/**
+	 * Преобразовать организацию из Data Transfer Object в доменную форму
+	 * @param organization - организация в форме DTO
+	 * @return - организация в доменной форме
+	 */
+	private OrganizationInfo convertDomainToDTO(Organization organization){
+		return new OrganizationInfo(organization.getId(), organization.getName(), organization.getInn(), organization.getAddress());
 	}
 }

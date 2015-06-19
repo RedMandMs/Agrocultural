@@ -17,18 +17,27 @@ import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
+	/**
+	 * Сервис для работы с пользователями
+	 */
 	@Autowired
     private UserDetailsService userDetailsService;
  
-    // регистрируем нашу реализацию UserDetailsService 
-    // а также PasswordEncoder для приведения пароля в формат SHA1
-    @Autowired
+    /**
+     * Регистрируем нашу реализацию UserDetailsService, а также MD5Encoder для приведения пароля в формат MD5
+     * @param auth - билдер менеджера аутентификации
+     * @throws Exception - любая ошибка
+     */
+	@Autowired
     public void registerGlobalAuthentication(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(getMd5PasswordEncoder());
     }
  
+    /**
+     * @see org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter#configure(org.springframework.security.config.annotation.web.builders.HttpSecurity)
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // включаем защиту от CSRF атак
@@ -71,7 +80,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     }
     
     
-	
+	/**
+	 * Получить bean MD5-encoder
+	 * @return - MD5-encoder
+	 */
     @Bean
     public Md5PasswordEncoder getMd5PasswordEncoder(){
         return new Md5PasswordEncoder();

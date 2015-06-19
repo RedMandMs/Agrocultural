@@ -22,17 +22,33 @@ import ru.lenoblgis.introduse.sergey.services.OwnerService;
 @RequestMapping("/admin")
 public class AdminController {
 	
+	/**
+	 * Сервис работы с организациями
+	 */
 	@Autowired
 	OwnerService ownerService;
 
+	/**
+	 * ервис работы с событиями
+	 */
 	@Autowired
 	EventService eventService;
 	
+	/**
+	 * Отобразить панельуправления администратора
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
+	 */
 	@RequestMapping(value = "managing", method = RequestMethod.GET)
     public String showAdminPage(ModelMap model) {	
 		return "admin/managing";
 	}
 	
+	/**
+	 * Отобразить форму для поиска компаний
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
+	 */
 	@RequestMapping(value = "/findingCompany", method = RequestMethod.GET)
     public String showFindingOranizationForm(ModelMap model) {	
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
@@ -49,6 +65,12 @@ public class AdminController {
 		return "admin/findOrganization";
 	}
 	
+	/**
+	 * Найти компании по заданным параметрам
+	 * @param serchingOrganization - объект с заданными внутри параметрами
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
+	 */
 	@RequestMapping(value = "/findingCompany", method = RequestMethod.POST)
     public String findOranization(OrganizationInfo serchingOrganization, ModelMap model) {	
 		
@@ -63,6 +85,11 @@ public class AdminController {
 		return "redirect:/admin/findingCompany";
 	}
 	
+	/**
+	 * 
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
+	 */
 	@RequestMapping(value = "/allEvents", method = RequestMethod.GET)
     public String showAllEventsForm(ModelMap model) {	
 		
@@ -79,6 +106,12 @@ public class AdminController {
 		return "admin/allevents";
 	}
 	
+	/**
+	 * 
+	 * @param serchingEvent
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
+	 */
 	@RequestMapping(value = "/allEvents", method = RequestMethod.POST)
     public String findEvents(EventInfo serchingEvent, ModelMap model) {
 		
@@ -93,6 +126,12 @@ public class AdminController {
 		return "redirect:/admin/allEvents";
 	}
 	
+	/**
+	 * 
+	 * @param idEvent
+	 * @param model - список для отображения данных на странице
+	 * @return - путь к запрашиваемому ресурсу
+	 */
 	@RequestMapping(value = "/deleteEvent/{idEvent}", method = RequestMethod.GET)
     public String findEvents(@PathVariable Integer idEvent, ModelMap model) {
 		

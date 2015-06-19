@@ -17,9 +17,15 @@ import ru.lenoblgis.introduse.sergey.domen.user.UserRole;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 	
+	/**
+	 * Сервис для работы с пользователями
+	 */
 	@Autowired
 	private UserService userService;
 	
+	/**
+	 * @see org.springframework.security.core.userdetails.UserDetailsService#loadUserByUsername(java.lang.String)
+	 */
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {

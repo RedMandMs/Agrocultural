@@ -8,10 +8,13 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import org.springframework.web.util.Log4jConfigListener;
 
-
+/**
+ * Класс инициализирующий приложение
+ * @author VILGODSKIY
+ *
+ */
 public class Initializer implements WebApplicationInitializer{
 
 	 // Указываем имя нашему Servlet Dispatcher для мапинга
@@ -39,6 +42,10 @@ public class Initializer implements WebApplicationInitializer{
         servlet.setLoadOnStartup(1);
     }
     
+    /**
+     * Инициализация Log4J
+     * @param servletContext - контекст сервлетов
+     */
     private void initLog4j(ServletContext servletContext){
     	servletContext.setInitParameter( "log4jConfigLocation" , "/WEB-INF/log4j.properties" );
 		servletContext.setInitParameter( "log4jRefreshInterval" , "10000" );

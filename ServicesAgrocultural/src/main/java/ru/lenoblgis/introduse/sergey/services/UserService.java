@@ -29,7 +29,9 @@ public class UserService implements Serializable{
 	Validator validator;
 	
 	
-	
+	/**
+	 *  онстрктор по-умолчанию
+	 */
 	public UserService() {
 		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
     	validator = validatorFactory.getValidator();
@@ -41,9 +43,17 @@ public class UserService implements Serializable{
 	@Autowired
 	private DAO dao;
 	
+	/**
+	 * —ервис работы с организаци€ми
+	 */
 	@Autowired
 	private OwnerService ownerService;
 	
+	/**
+	 * «арегистрировать пользовател€ и компанию
+	 * @param userOrganization - объект представл€ющий пользовател€ и организацию, указанную при регистрации
+	 * @return - информаци€ о созданной организации
+	 */
 	public OrganizationInfo registration(UserOrganization userOrganization){
 		
 		Set<ConstraintViolation<UserOrganization>> violationsUserOrganization = validator.validate(userOrganization);
@@ -82,8 +92,11 @@ public class UserService implements Serializable{
 		return organizationInfo;
 	}
 	
-
-	
+	/**
+	 * ѕолучить пользовател€ по логину
+	 * @param login - логин
+	 * @return - пользователь
+	 */
 	public User getUserByLogin(String login) {
 		
 		User user = dao.findUserByLogin(login);
@@ -91,6 +104,11 @@ public class UserService implements Serializable{
 		return user;
 	}
 	
+	/**
+	 * ѕолучить организацию по логину
+	 * @param login - логин
+	 * @return - найденна€ организаци€
+	 */
 	public OrganizationInfo getMyOrganizationByLogin(String login){
 		User user = getUserByLogin(login);
 		

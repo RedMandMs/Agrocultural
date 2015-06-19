@@ -32,7 +32,9 @@ public class PassportService implements Serializable {
 	Validator validator;
 	
 	
-	
+	/**
+	 *  онструктор по-умолчанию
+	 */
 	public PassportService() {
 		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
     	validator = validatorFactory.getValidator();
@@ -46,10 +48,8 @@ public class PassportService implements Serializable {
 	
 	/**
 	 * ƒобавить новый пасспорт в Ѕƒ
-	 * @param info - информаци€ о добавл€емом паспорте("id_organization" - id организации, 
-	 * 				region - регион, cadastr_number - кадастровый номер, area - площадь, 
-	 * 				type_field - тип пол€, comment - комментарий)
- 	 * @return - id созданного пасспорта (0 - если не удалось создать пасспорт)
+	 * @param passportInfo - создаваемый пасспорт в Ѕƒ
+	 * @return - тот же пасспорт, но уже с id в Ѕƒ
 	 */
 	public PassportInfo createPassport(PassportInfo passportInfo){
 		
@@ -93,8 +93,8 @@ public class PassportService implements Serializable {
 	
 	/**
 	 * –едактировать пасспорт
-	 * @param info - информаци€ о редактируемром паспорте("id" - id пасспорта, "id_organization" - id организации, region - регион, cadastr_number - кадастровый номер, area - площадь, type_field - тип пол€, comment - комментарий)
- 	 * @return - результаты работы ("success" - успешено ли был отредактирован паспорт)
+	 * @param passportInfo - измен€емый паспорт с новыми параметрами
+	 * @return - новый, изменЄнный паспорт (если не изменилось, то со списком ошибок)
 	 */
 	public PassportInfo editPassport(PassportInfo passportInfo){
 		
@@ -156,12 +156,10 @@ public class PassportService implements Serializable {
 	}
 	
 	/**
-	 * ѕросмотреть пасспорт
+	 * ѕросмотреть паспорт
 	 * @param passportId - id паспорта
-	 * @return - информаци€ о просматриваемом паспорте ("isExist" - существует ли такой пасспорт, 
-	 * 													"id" - id пасспорта, "id_organization" - id организации, 
-	 * 													region - регион, cadastr_number - кадастровый номер, 
-	 * 													area - площадь, type_field - тип пол€, comment - комментарий)
+	 * @param myCompany - кто просматривает паспорт
+	 * @return - запрашиваемый паспорт
 	 */
 	public PassportInfo reviewPassport(int passportId, OrganizationInfo myCompany){
 		
@@ -194,15 +192,14 @@ public class PassportService implements Serializable {
 			dao.deletePassport(passportId);
 			return true;
 		}catch(IndexOutOfBoundsException duplicateEx){
-			System.out.println("Ќе существует такого паспорта!!!");
 			return false;
 		}
 	}
 	
 	/**
-	 * ѕоиск паспортов по информации о них
-	 * @param info - информаци€ о паспортах, которые нужно найти("id" - id пасспорта, "id_organization" - id организации, region - регион, cadastr_number - кадастровый номер, area - площадь, type_field - тип пол€, comment - комментарий)
-	 * @return - список с информацией о каждом найденом паспорте("id" - id пасспорта, "id_organization" - id организации, region - регион, cadastr_number - кадастровый номер, area - площадь, type_field - тип пол€, comment - комментарий)
+	 * ѕоиск паспортов по заданным параметрам
+	 * @param serchingPassport - объект паспорта содержащий задаваемые параметры дл€ поиска
+	 * @return - список, найденных паспортов
 	 */
 	public List<PassportInfo> findPassports(PassportInfo serchingPassport) {
 		List<PassportInfo> listPasportsInfo = new ArrayList<PassportInfo>();

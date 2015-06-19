@@ -9,6 +9,11 @@ import org.springframework.jdbc.core.RowMapper;
 
 import ru.lenoblgis.introduse.sergey.domen.actionevent.PassportEvent;
 
+/**
+ * Класс для отображение событий из БД в програмное представление
+ * @author VILGODSKIY
+ *
+ */
 public class EventRowMapper implements RowMapper<PassportEvent>, Serializable{
 
 	/*

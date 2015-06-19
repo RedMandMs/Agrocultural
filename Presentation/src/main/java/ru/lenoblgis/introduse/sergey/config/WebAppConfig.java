@@ -30,14 +30,18 @@ import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 @ComponentScan({"ru.lenoblgis.introduse.sergey.controllers", "ru.lenoblgis.introduse.sergey.data.dao"})
 public class WebAppConfig extends WebMvcConfigurerAdapter {
  
-    // ѕозвол€ет видеть все ресурсы в папке pages, такие как картинки, стили и т.п.
-    @Override
+    /**
+     * ѕозвол€ет видеть все ресурсы в папке views, такие как картинки, стили и т.п.
+     */
+	@Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/views/**").addResourceLocations("/views/");
     }
  
-    // а этот бин инициализирует View нашего проекта
-    // альтернатива в mvc-dispatcher-servlet.xml
+	/**
+	 * Ётот бин инициализирует View нашего проекта (альтернатива в mvc-dispatcher-servlet.xml)
+	 * @return
+	 */
     @Bean
     public InternalResourceViewResolver setupViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -69,7 +73,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
     
     /**
      * ѕолучение бина сервиса работы с паспортами полей
-     * @return - срвис работы с паспортами полей
+     * @return - сервис работы с паспортами полей
      */
     @Bean
     PassportService getPassportService(){
@@ -78,7 +82,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
     
     /**
      * ѕолучение бина сервиса работы с журналом событий
-     * @return - срвис работы с журналом событий
+     * @return - сервис работы с журналом событий
      */
     @Bean
     EventService getEventService(){
@@ -87,13 +91,17 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
     
     /**
      * ѕолучение бина сервиса работы с пользовател€ми
-     * @return - срвис работы с пользовател€ми
+     * @return - сервис работы с пользовател€ми
      */
     @Bean
     UserService getUserService(){
     	return new UserService();
     }
     
+    /**
+     * ѕолучение бина соединени€ с Ѕƒ
+     * @return - соединение с Ѕƒ
+     */
     @Bean
 	public DataSource getDataSource() {
     	SQLServerDataSource ds = new SQLServerDataSource();
@@ -105,13 +113,20 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 		return ds;
     }
     
+    /**
+     * ѕолучение бина сервиса работы с пользовател€ми - дл€ аутентификации через spring security
+     * @return - сервис работы с пользовател€ми - дл€ аутентификации через spring security
+     */
     @Bean
     public UserDetailsService getUserDetailsService(){
         return new UserDetailsServiceImpl();
     }
     
-    
-    public static 	Validator getMyValidator(){
+    /**
+     * ѕолучение бина валидатора
+     * @return - валидатор
+     */
+    public static Validator getMyValidator(){
     	ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
     	Validator validator = validatorFactory.getValidator();
     	return validator;

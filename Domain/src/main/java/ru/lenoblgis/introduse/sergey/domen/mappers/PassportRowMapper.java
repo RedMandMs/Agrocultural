@@ -8,6 +8,11 @@ import org.springframework.jdbc.core.RowMapper;
 
 import ru.lenoblgis.introduse.sergey.domen.passport.Passport;
 
+/**
+ * Класс для отображение паспортов из БД в програмное представление
+ * @author VILGODSKIY
+ *
+ */
 public class PassportRowMapper implements RowMapper<Passport>, Serializable {
 
 	/**

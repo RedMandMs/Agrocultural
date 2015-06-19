@@ -1,5 +1,10 @@
 package ru.lenoblgis.introduse.sergey.domen.user;
 
+/**
+ *  ласс представл€ющий пользователей системы
+ * @author VILGODSKIY
+ *
+ */
 public class User {
 	
 	/**
